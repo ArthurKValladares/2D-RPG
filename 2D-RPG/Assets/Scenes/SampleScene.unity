@@ -1200,6 +1200,13 @@ MonoBehaviour:
   wallJumpForce: {x: 6, y: 12}
   dashForce: 20
   dashTime: 0.25
+  attackVelocities:
+  - {x: 0, y: 0}
+  - {x: 0, y: 0}
+  - {x: 0, y: 0}
+  attackVelocityDuration: 0.1
+  comboResetTime: 0.3
+  launchAttackForce: {x: 8, y: 15}
   groundCheckDistance: 0
   groundCheckEpsilon: 0.01
   wallCheckDistance: 0

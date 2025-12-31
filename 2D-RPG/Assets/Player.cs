@@ -1,3 +1,4 @@
+using System.Collections;
 using UnityEngine;
 
 public class Player : MonoBehaviour
@@ -14,6 +15,8 @@ public class Player : MonoBehaviour
     public Player_WallJumpState wallJumpState { get; private set; }
     public Player_DashState dashState { get; private set; }
     public Player_BasicAttackState basicAttackState { get; private set; }
+    public Player_JumpAttackState jumpAttackState { get; private set; }
+    public Player_LaunchAttackState launchAttackState { get; private set; }
 
     public Rigidbody2D rb { get; private set; }
     public float originalGravityscale { get; private set; }
@@ -35,6 +38,8 @@ public class Player : MonoBehaviour
     public Vector2[] attackVelocities = new Vector2[NumBasicAttacks];
     public float attackVelocityDuration = 0.1f;
     public float comboResetTime = 0.3f;
+    private Coroutine queuedAttackCoroutine;
+    public Vector2 launchAttackForce = new Vector2(8.0f, 12.0f);
 
     [Header("Collision Detection")]
     [SerializeField] private float groundCheckDistance;
@@ -62,6 +67,8 @@ public class Player : MonoBehaviour
         wallJumpState = new Player_WallJumpState(this);
         dashState = new Player_DashState(this);
         basicAttackState = new Player_BasicAttackState(this);
+        jumpAttackState = new Player_JumpAttackState(this);
+        launchAttackState = new Player_LaunchAttackState(this);
 
         CapsuleCollider2D capsuleCollider = GetComponent<CapsuleCollider2D>();
         groundCheckDistance = capsuleCollider.size.y / 2.0f - capsuleCollider.offset.y + groundCheckEpsilon;
@@ -80,8 +87,6 @@ public class Player : MonoBehaviour
 
         input.Player.Movement.performed += ctx => {
             moveInput = ctx.ReadValue<Vector2>();
-
-            HandleFlip(moveInput.x);
         };
         input.Player.Movement.canceled += ctx => {
             moveInput = Vector2.zero;
@@ -152,6 +157,22 @@ public class Player : MonoBehaviour
     public float FacingDirScale()
     {
         return facingRight ? 1.0f : -1.0f;
+    }
+
+    public void EnterAttackStateWithDelay()
+    {
+        if (queuedAttackCoroutine != null) {
+            StopCoroutine(queuedAttackCoroutine);
+        }
+
+        queuedAttackCoroutine = StartCoroutine(EnterAttackStateWithDelayCo());
+    }
+
+    private IEnumerator EnterAttackStateWithDelayCo()
+    {
+        yield return new WaitForEndOfFrame();
+
+        sm.ChangeState(basicAttackState);
     }
 
     private void OnDrawGizmos()

@@ -23,6 +23,9 @@ public class Player_GroundedState : EntityState
         } else if (player.input.Player.Attack.WasPressedThisFrame())
         {
             player.sm.ChangeState(player.basicAttackState);
+        } else if (player.input.Player.LaunchAttack.WasPressedThisFrame())
+        {
+            player.sm.ChangeState(player.launchAttackState);
         }
     }
 }

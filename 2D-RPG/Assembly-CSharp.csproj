@@ -9,7 +9,8 @@
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
     <ProductVersion>10.0.20506</ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
-    <RootNamespace></RootNamespace>
+    <RootNamespace>
+    </RootNamespace>
     <ProjectGuid>{AF9649D8-629F-FA67-8B1F-7976A9E7AF3D}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
@@ -74,6 +75,8 @@
     <Compile Include="Assets\Player_WallJumpState.cs" />
     <Compile Include="Assets\EntityState.cs" />
     <Compile Include="Assets\Player_FallState.cs" />
+    <Compile Include="Assets\Player_JumpAttackState.cs" />
+    <Compile Include="Assets\Player_LaunchAttackState.cs" />
     <Compile Include="Assets\InputSystem\PlayerInputSet.cs" />
     <Compile Include="Assets\Player_AiredState.cs" />
   </ItemGroup>

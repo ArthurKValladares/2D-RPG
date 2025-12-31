@@ -9,8 +9,11 @@ public class Player_IdleState : Player_GroundedState
 
     public override void Enter()
     {
+        base.Enter();
+
         player.SetVelocityX(0.0f);
     }
+
     public override void Update()
     {
         base.Update();

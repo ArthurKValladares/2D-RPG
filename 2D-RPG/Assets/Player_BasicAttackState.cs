@@ -3,10 +3,10 @@ using UnityEngine;
 public class Player_BasicAttackState : EntityState
 {
     private float attackVelocityTimer;
-
     private int comboIndex = 0;
-
     private float lastAttackEndedAt;
+    private bool nextAttackQueued;
+
     public Player_BasicAttackState(Player player) 
         : base(player, "basicAttack")
     {
@@ -14,7 +14,7 @@ public class Player_BasicAttackState : EntityState
 
     private void ResetComboIfNeeded()
     {
-        if (comboIndex >= Player.NumBasicAttacks || (Time.time - lastAttackEndedAt) > player.comboResetTime)
+        if (IsLastAttackInChain() || (Time.time - lastAttackEndedAt) > player.comboResetTime)
         {
             comboIndex = 0;
         }
@@ -28,7 +28,9 @@ public class Player_BasicAttackState : EntityState
         player.animator.SetInteger("basicAttackIndex", comboIndex);
 
         attackVelocityTimer = player.attackVelocityDuration;
-        player.SetVelocity(player.attackVelocities[comboIndex].x * player.FacingDirScale(), player.attackVelocities[comboIndex].y);
+        player.SetVelocity(player.attackVelocities[comboIndex].x * AttackDirScale(), player.attackVelocities[comboIndex].y);
+
+        nextAttackQueued = false;
     }
 
     public override void Exit()
@@ -49,9 +51,33 @@ public class Player_BasicAttackState : EntityState
             player.SetVelocityX(0);
         }
 
+        if (player.input.Player.Attack.WasPressedThisFrame() && !IsLastAttackInChain())
+        {
+            nextAttackQueued = true;
+        }
+
         if (stateEnded)
         {
-            player.sm.ChangeState(player.idleState);
+            if (nextAttackQueued)
+            {
+                player.animator.SetBool(stateParameterName, false);
+                player.EnterAttackStateWithDelay();
+            } else
+            {
+                player.sm.ChangeState(player.idleState);
+            }
         }
+    }
+
+    private float AttackDirScale()
+    {
+        return player.moveInput.x != 0
+            ? player.moveInput.x
+            : player.FacingDirScale();
+    }
+
+    private bool IsLastAttackInChain()
+    {
+        return comboIndex >= Player.NumBasicAttacks;
     }
 }
