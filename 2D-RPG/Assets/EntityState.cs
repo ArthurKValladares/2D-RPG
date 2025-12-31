@@ -6,7 +6,7 @@ public abstract class EntityState
     protected string stateParameterName;
 
     protected float stateTimer;
-
+    protected bool stateEnded;
     public EntityState(Player player, string stateParameterName) 
     {
         this.player = player;
@@ -16,6 +16,7 @@ public abstract class EntityState
     public virtual void Enter()
     {
         player.animator.SetBool(stateParameterName, true);
+        stateEnded = false;
     }
 
     public virtual void Update()
@@ -28,6 +29,11 @@ public abstract class EntityState
         }
 
         player.animator.SetFloat("yVelocity", player.rb.linearVelocityY);
+    }
+
+    public void StateEnded()
+    {
+        stateEnded = true;
     }
 
     public virtual void Exit()

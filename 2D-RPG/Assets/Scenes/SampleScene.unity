@@ -1195,15 +1195,15 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::Player
   moveSpeed: 8
   jumpForce: 12
-  inAirMoveMultiplier: 0.7
-  wallSlideMultiplier: 0.3
-  wallJumpForce: {x: 12, y: 12}
-  dashForce: 15
-  dashTime: 1.5
+  inAirMoveMultiplier: 0.8
+  wallSlideMultiplier: 0.4
+  wallJumpForce: {x: 6, y: 12}
+  dashForce: 20
+  dashTime: 0.25
   groundCheckDistance: 0
   groundCheckEpsilon: 0.01
   wallCheckDistance: 0
-  wallCheckEpsilon: 0.05
+  wallCheckEpsilon: 0.01
   whatIsGround:
     serializedVersion: 2
     m_Bits: 0
@@ -1300,6 +1300,7 @@ GameObject:
   - component: {fileID: 2072829376}
   - component: {fileID: 2072829377}
   - component: {fileID: 2072829378}
+  - component: {fileID: 2072829379}
   m_Layer: 0
   m_Name: Animator
   m_TagString: Untagged
@@ -1402,6 +1403,18 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!114 &2072829379
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2072829375}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ca32410b8601b8e4f979995c9076d628, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Player_AnimationTriggers
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0

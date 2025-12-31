@@ -20,6 +20,9 @@ public class Player_GroundedState : EntityState
             player.rb.linearVelocityY = player.jumpForce;
 
             player.sm.ChangeState(player.jumpState);
+        } else if (player.input.Player.Attack.WasPressedThisFrame())
+        {
+            player.sm.ChangeState(player.basicAttackState);
         }
     }
 }

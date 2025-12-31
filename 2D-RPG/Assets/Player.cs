@@ -13,6 +13,7 @@ public class Player : MonoBehaviour
     public Player_WallSlideState wallSlideState { get; private set; }
     public Player_WallJumpState wallJumpState { get; private set; }
     public Player_DashState dashState { get; private set; }
+    public Player_BasicAttackState basicAttackState { get; private set; }
 
     public Rigidbody2D rb { get; private set; }
     public float originalGravityscale { get; private set; }
@@ -27,8 +28,13 @@ public class Player : MonoBehaviour
     public Vector2 wallJumpForce = new Vector2(6.0f, 12.0f);
     public float dashForce = 20.0f;
     [Space] public float dashTime = 0.25f;
-
     private bool facingRight = true;
+
+    [Header("Attack Details")]
+    public const int NumBasicAttacks = 3;
+    public Vector2[] attackVelocities = new Vector2[NumBasicAttacks];
+    public float attackVelocityDuration = 0.1f;
+    public float comboResetTime = 0.3f;
 
     [Header("Collision Detection")]
     [SerializeField] private float groundCheckDistance;
@@ -55,12 +61,17 @@ public class Player : MonoBehaviour
         wallSlideState = new Player_WallSlideState(this);
         wallJumpState = new Player_WallJumpState(this);
         dashState = new Player_DashState(this);
+        basicAttackState = new Player_BasicAttackState(this);
 
         CapsuleCollider2D capsuleCollider = GetComponent<CapsuleCollider2D>();
         groundCheckDistance = capsuleCollider.size.y / 2.0f - capsuleCollider.offset.y + groundCheckEpsilon;
         wallCheckDistance = capsuleCollider.size.x / 2.0f - capsuleCollider.offset.x + wallCheckEpsilon;
 
         whatIsGround = LayerMask.GetMask("Ground");
+
+        attackVelocities[0] = new Vector2(3.0f, 1.5f);
+        attackVelocities[1] = new Vector2(1.5f, 1.5f);
+        attackVelocities[2] = new Vector2(4.0f, 5.0f);
     }
 
     private void OnEnable()
@@ -108,6 +119,11 @@ public class Player : MonoBehaviour
     {
         SetVelocityX(xVel);
         SetVelocityY(yVel);
+    }
+
+    public void CurrentStateEnded()
+    {
+        sm.currentState.StateEnded();
     }
 
     private void HandleFlip(float xVel)
