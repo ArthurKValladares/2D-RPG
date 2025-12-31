@@ -3,25 +3,26 @@ using UnityEngine;
 public abstract class EntityState
 {
     protected Player player;
-    protected StateMachine sm;
-    protected string stateName;
+    protected string stateParameterName;
 
-    public EntityState(Player player, StateMachine sm, string stateName) 
+    public EntityState(Player player, string stateParameterName) 
     {
         this.player = player;
-        this.sm = sm;
-        this.stateName = stateName;
+        this.stateParameterName = stateParameterName;
     }
 
     public virtual void Enter()
     {
+        player.animator.SetBool(stateParameterName, true);
     }
 
     public virtual void Update()
     {
+        player.animator.SetFloat("yVelocity", player.rb.linearVelocityY);
     }
 
     public virtual void Exit()
     {
+        player.animator.SetBool(stateParameterName, false);
     }
 }

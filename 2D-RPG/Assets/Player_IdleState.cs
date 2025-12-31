@@ -1,19 +1,23 @@
 using UnityEngine;
 
-public class Player_IdleState : EntityState
+public class Player_IdleState : Player_GroundedState
 {
-    public Player_IdleState(Player player, StateMachine sm)
-        : base(player, sm, "Idle State")
+    public Player_IdleState(Player player)
+        : base(player, "idle")
     {
     }
 
+    public override void Enter()
+    {
+        player.SetVelocityX(0.0f);
+    }
     public override void Update()
     {
         base.Update();
 
-        if (player.moveInput.x != 0.0f || player.moveInput.y != 0.0f)
+        if (player.moveInput.x != 0.0f)
         {
-            sm.ChangeState(player.moveState);
+            player.sm.ChangeState(player.moveState);
         }
     }
 }
