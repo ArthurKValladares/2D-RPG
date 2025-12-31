@@ -65,6 +65,7 @@
     <Compile Include="Assets\Player.cs" />
     <Compile Include="Assets\Player_IdleState.cs" />
     <Compile Include="Assets\StateMachine.cs" />
+    <Compile Include="Assets\Player_DashState.cs" />
     <Compile Include="Assets\Player_JumpState.cs" />
     <Compile Include="Assets\Player_WallSlideState.cs" />
     <Compile Include="Assets\Player_MoveState.cs" />

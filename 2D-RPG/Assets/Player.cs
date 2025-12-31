@@ -12,8 +12,10 @@ public class Player : MonoBehaviour
     public Player_FallState fallState { get; private set; }
     public Player_WallSlideState wallSlideState { get; private set; }
     public Player_WallJumpState wallJumpState { get; private set; }
+    public Player_DashState dashState { get; private set; }
 
     public Rigidbody2D rb { get; private set; }
+    public float originalGravityscale { get; private set; }
 
     public Animator animator { get; private set; }
 
@@ -23,6 +25,8 @@ public class Player : MonoBehaviour
     [Range(0.0f, 1.0f)] public float inAirMoveMultiplier = 0.8f;
     [Range(0.0f, 1.0f)] public float wallSlideMultiplier = 0.4f;
     public Vector2 wallJumpForce = new Vector2(6.0f, 12.0f);
+    public float dashForce = 20.0f;
+    [Space] public float dashTime = 0.25f;
 
     private bool facingRight = true;
 
@@ -38,6 +42,7 @@ public class Player : MonoBehaviour
     private void Awake()
     {
         rb = GetComponent<Rigidbody2D>();
+        originalGravityscale = rb.gravityScale;
         animator = GetComponentInChildren<Animator>();
 
         input = new PlayerInputSet();
@@ -49,6 +54,7 @@ public class Player : MonoBehaviour
         fallState = new Player_FallState(this);
         wallSlideState = new Player_WallSlideState(this);
         wallJumpState = new Player_WallJumpState(this);
+        dashState = new Player_DashState(this);
 
         CapsuleCollider2D capsuleCollider = GetComponent<CapsuleCollider2D>();
         groundCheckDistance = capsuleCollider.size.y / 2.0f - capsuleCollider.offset.y + groundCheckEpsilon;

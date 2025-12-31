@@ -5,6 +5,8 @@ public abstract class EntityState
     protected Player player;
     protected string stateParameterName;
 
+    protected float stateTimer;
+
     public EntityState(Player player, string stateParameterName) 
     {
         this.player = player;
@@ -18,6 +20,13 @@ public abstract class EntityState
 
     public virtual void Update()
     {
+        stateTimer -= Time.deltaTime;
+
+        if (player.input.Player.Dash.WasPressedThisFrame())
+        {
+            player.sm.ChangeState(player.dashState);
+        }
+
         player.animator.SetFloat("yVelocity", player.rb.linearVelocityY);
     }
 
