@@ -39,13 +39,15 @@ public class Player : MonoBehaviour
     public float attackVelocityDuration = 0.1f;
     public float comboResetTime = 0.3f;
     private Coroutine queuedAttackCoroutine;
-    public Vector2 launchAttackForce = new Vector2(8.0f, 12.0f);
+    public Vector2 launchAttackForce = new Vector2(8.0f, 15.0f);
 
     [Header("Collision Detection")]
     [SerializeField] private float groundCheckDistance;
     [SerializeField] private float groundCheckEpsilon = 0.01f;
     [SerializeField] private float wallCheckDistance;
     [SerializeField] private float wallCheckEpsilon = 0.01f;
+    [SerializeField] private Transform primaryWallCheck;
+    [SerializeField] private Transform secondaryWallCheck;
     [SerializeField] private LayerMask whatIsGround;
     [field: SerializeField] public bool groundDetected { get; private set; }
     [field: SerializeField] public bool wallDetected { get; private set; }
@@ -151,7 +153,11 @@ public class Player : MonoBehaviour
     private void HandleCollisionDetection()
     {
         groundDetected = Physics2D.Raycast(transform.position, Vector2.down, groundCheckDistance, whatIsGround);
-        wallDetected = Physics2D.Raycast(transform.position, Vector2.right * FacingDirScale(), wallCheckDistance, whatIsGround);
+
+        Vector2 wallCheckVector = Vector2.right * FacingDirScale();
+        wallDetected =
+            Physics2D.Raycast(primaryWallCheck.position, wallCheckVector, wallCheckDistance, whatIsGround)
+            && Physics2D.Raycast(secondaryWallCheck.position, wallCheckVector, wallCheckDistance, whatIsGround);
     }
 
     public float FacingDirScale()
@@ -179,6 +185,8 @@ public class Player : MonoBehaviour
     {
         Gizmos.DrawLine(transform.position, transform.position + new Vector3(0, -groundCheckDistance, 0));
 
-        Gizmos.DrawLine(transform.position, transform.position + new Vector3(FacingDirScale() * wallCheckDistance, 0, 0));
+        Vector3 wallCheckVector = new Vector3(FacingDirScale() * wallCheckDistance, 0, 0);
+        Gizmos.DrawLine(primaryWallCheck.position, primaryWallCheck.position + wallCheckVector);
+        Gizmos.DrawLine(secondaryWallCheck.position, secondaryWallCheck.position + wallCheckVector);
     }
 }
