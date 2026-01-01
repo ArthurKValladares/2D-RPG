@@ -11,8 +11,8 @@ MonoBehaviour:
   m_EditorHideFlags: 0
   m_Script: {fileID: 13312, guid: 0000000000000000e000000000000000, type: 0}
   m_Name: merlons_1_0
-  m_EditorClassIdentifier: UnityEngine.dll::UnityEngine.Tilemaps.Tile
-  m_Sprite: {fileID: -2824179085172630960, guid: 0cc986a2eeb669840a12541b96e1ccf9, type: 3}
+  m_EditorClassIdentifier: 
+  m_Sprite: {fileID: -2824179085172630960, guid: 3cfe307072b1821438cc1b47066900bb, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_Transform:
     e00: 1

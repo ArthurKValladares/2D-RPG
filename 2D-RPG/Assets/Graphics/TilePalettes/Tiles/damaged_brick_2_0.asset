@@ -11,8 +11,8 @@ MonoBehaviour:
   m_EditorHideFlags: 0
   m_Script: {fileID: 13312, guid: 0000000000000000e000000000000000, type: 0}
   m_Name: damaged_brick_2_0
-  m_EditorClassIdentifier: UnityEngine.dll::UnityEngine.Tilemaps.Tile
-  m_Sprite: {fileID: -287124951670370295, guid: 0ef9843465de71f409cc7997fc8e52c5, type: 3}
+  m_EditorClassIdentifier: 
+  m_Sprite: {fileID: -287124951670370295, guid: 02b2e93356543fc40b25dd40f42dce0a, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_Transform:
     e00: 1
