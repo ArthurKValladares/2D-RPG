@@ -3,72 +3,76 @@
   "WorkspaceRootPath": "C:\\Users\\arthu\\Documents\\Projects\\2D-RPG\\2D-RPG\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{AF9649D8-629F-FA67-8B1F-7976A9E7AF3D}|Assembly-CSharp.csproj|c:\\users\\arthu\\documents\\projects\\2d-rpg\\2d-rpg\\assets\\player.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{AF9649D8-629F-FA67-8B1F-7976A9E7AF3D}|Assembly-CSharp.csproj|solutionrelative:assets\\player.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\arthu\\Documents\\Projects\\2D-RPG\\2D-RPG\\Library\\PackageCache\\com.unity.2d.tilemap@0b99f08c0204\\Editor\\GridPaintPaletteClipboard.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:Library\\PackageCache\\com.unity.2d.tilemap@0b99f08c0204\\Editor\\GridPaintPaletteClipboard.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{AF9649D8-629F-FA67-8B1F-7976A9E7AF3D}|Assembly-CSharp.csproj|C:\\Users\\arthu\\Documents\\Projects\\2D-RPG\\2D-RPG\\assets\\player_movestate.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{AF9649D8-629F-FA67-8B1F-7976A9E7AF3D}|Assembly-CSharp.csproj|solutionrelative:assets\\player_movestate.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{AF9649D8-629F-FA67-8B1F-7976A9E7AF3D}|Assembly-CSharp.csproj|C:\\Users\\arthu\\Documents\\Projects\\2D-RPG\\2D-RPG\\assets\\player_idlestate.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{AF9649D8-629F-FA67-8B1F-7976A9E7AF3D}|Assembly-CSharp.csproj|solutionrelative:assets\\player_idlestate.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{AF9649D8-629F-FA67-8B1F-7976A9E7AF3D}|Assembly-CSharp.csproj|C:\\Users\\arthu\\Documents\\Projects\\2D-RPG\\2D-RPG\\assets\\player_launchattackstate.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{AF9649D8-629F-FA67-8B1F-7976A9E7AF3D}|Assembly-CSharp.csproj|solutionrelative:assets\\player_launchattackstate.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{AF9649D8-629F-FA67-8B1F-7976A9E7AF3D}|Assembly-CSharp.csproj|C:\\Users\\arthu\\Documents\\Projects\\2D-RPG\\2D-RPG\\assets\\player_jumpattackstate.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{AF9649D8-629F-FA67-8B1F-7976A9E7AF3D}|Assembly-CSharp.csproj|solutionrelative:assets\\player_jumpattackstate.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{AF9649D8-629F-FA67-8B1F-7976A9E7AF3D}|Assembly-CSharp.csproj|C:\\Users\\arthu\\Documents\\Projects\\2D-RPG\\2D-RPG\\assets\\player_fallstate.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{AF9649D8-629F-FA67-8B1F-7976A9E7AF3D}|Assembly-CSharp.csproj|solutionrelative:assets\\player_fallstate.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{AF9649D8-629F-FA67-8B1F-7976A9E7AF3D}|Assembly-CSharp.csproj|C:\\Users\\arthu\\Documents\\Projects\\2D-RPG\\2D-RPG\\assets\\player_jumpstate.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{AF9649D8-629F-FA67-8B1F-7976A9E7AF3D}|Assembly-CSharp.csproj|solutionrelative:assets\\player_jumpstate.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{AF9649D8-629F-FA67-8B1F-7976A9E7AF3D}|Assembly-CSharp.csproj|C:\\Users\\arthu\\Documents\\Projects\\2D-RPG\\2D-RPG\\assets\\entitystate.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{AF9649D8-629F-FA67-8B1F-7976A9E7AF3D}|Assembly-CSharp.csproj|solutionrelative:assets\\entitystate.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{AF9649D8-629F-FA67-8B1F-7976A9E7AF3D}|Assembly-CSharp.csproj|C:\\Users\\arthu\\Documents\\Projects\\2D-RPG\\2D-RPG\\assets\\player_walljumpstate.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{AF9649D8-629F-FA67-8B1F-7976A9E7AF3D}|Assembly-CSharp.csproj|solutionrelative:assets\\player_walljumpstate.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{AF9649D8-629F-FA67-8B1F-7976A9E7AF3D}|Assembly-CSharp.csproj|C:\\Users\\arthu\\Documents\\Projects\\2D-RPG\\2D-RPG\\assets\\player_basicattackstate.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{AF9649D8-629F-FA67-8B1F-7976A9E7AF3D}|Assembly-CSharp.csproj|solutionrelative:assets\\player_basicattackstate.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{AF9649D8-629F-FA67-8B1F-7976A9E7AF3D}|Assembly-CSharp.csproj|C:\\Users\\arthu\\Documents\\Projects\\2D-RPG\\2D-RPG\\assets\\player_groundedstate.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{AF9649D8-629F-FA67-8B1F-7976A9E7AF3D}|Assembly-CSharp.csproj|solutionrelative:assets\\player_groundedstate.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\arthu\\Documents\\Projects\\2D-RPG\\2D-RPG\\Assets\\Player.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:Assets\\Player.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\arthu\\Documents\\Projects\\2D-RPG\\2D-RPG\\Assets\\Player_JumpFallState.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:Assets\\Player_JumpFallState.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{AF9649D8-629F-FA67-8B1F-7976A9E7AF3D}|Assembly-CSharp.csproj|C:\\Users\\arthu\\Documents\\Projects\\2D-RPG\\2D-RPG\\assets\\player_airedstate.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{AF9649D8-629F-FA67-8B1F-7976A9E7AF3D}|Assembly-CSharp.csproj|solutionrelative:assets\\player_airedstate.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\arthu\\Documents\\Projects\\2D-RPG\\2D-RPG\\Assets\\Player_LaunchAttackState.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:Assets\\Player_LaunchAttackState.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{AF9649D8-629F-FA67-8B1F-7976A9E7AF3D}|Assembly-CSharp.csproj|C:\\Users\\arthu\\Documents\\Projects\\2D-RPG\\2D-RPG\\assets\\player_animationtriggers.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{AF9649D8-629F-FA67-8B1F-7976A9E7AF3D}|Assembly-CSharp.csproj|solutionrelative:assets\\player_animationtriggers.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\arthu\\Documents\\Projects\\2D-RPG\\2D-RPG\\Assets\\Player_FallState.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:Assets\\Player_FallState.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{AF9649D8-629F-FA67-8B1F-7976A9E7AF3D}|Assembly-CSharp.csproj|C:\\Users\\arthu\\Documents\\Projects\\2D-RPG\\2D-RPG\\assets\\player_dashstate.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{AF9649D8-629F-FA67-8B1F-7976A9E7AF3D}|Assembly-CSharp.csproj|solutionrelative:assets\\player_dashstate.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\arthu\\Documents\\Projects\\2D-RPG\\2D-RPG\\Assets\\Player_JumpAttackState.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:Assets\\Player_JumpAttackState.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{AF9649D8-629F-FA67-8B1F-7976A9E7AF3D}|Assembly-CSharp.csproj|C:\\Users\\arthu\\Documents\\Projects\\2D-RPG\\2D-RPG\\assets\\player_wallslidestate.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{AF9649D8-629F-FA67-8B1F-7976A9E7AF3D}|Assembly-CSharp.csproj|solutionrelative:assets\\player_wallslidestate.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\arthu\\Documents\\Projects\\2D-RPG\\2D-RPG\\Assets\\Player_IdleState.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:Assets\\Player_IdleState.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{AF9649D8-629F-FA67-8B1F-7976A9E7AF3D}|Assembly-CSharp.csproj|C:\\Users\\arthu\\Documents\\Projects\\2D-RPG\\2D-RPG\\assets\\statemachine.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{AF9649D8-629F-FA67-8B1F-7976A9E7AF3D}|Assembly-CSharp.csproj|solutionrelative:assets\\statemachine.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\arthu\\Documents\\Projects\\2D-RPG\\2D-RPG\\Assets\\Player_MoveState.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:Assets\\Player_MoveState.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\arthu\\Documents\\Projects\\2D-RPG\\2D-RPG\\Assets\\Player_JumpState.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:Assets\\Player_JumpState.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\arthu\\Documents\\Projects\\2D-RPG\\2D-RPG\\Assets\\EntityState.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:Assets\\EntityState.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\arthu\\Documents\\Projects\\2D-RPG\\2D-RPG\\Assets\\Player_WallJumpState.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:Assets\\Player_WallJumpState.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\arthu\\Documents\\Projects\\2D-RPG\\2D-RPG\\Assets\\Player_BasicAttackState.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:Assets\\Player_BasicAttackState.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\arthu\\Documents\\Projects\\2D-RPG\\2D-RPG\\Assets\\Player_GroundedState.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:Assets\\Player_GroundedState.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\arthu\\Documents\\Projects\\2D-RPG\\2D-RPG\\Assets\\Player_AiredState.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:Assets\\Player_AiredState.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\arthu\\Documents\\Projects\\2D-RPG\\2D-RPG\\Assets\\Player_AnimationTriggers.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:Assets\\Player_AnimationTriggers.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\arthu\\Documents\\Projects\\2D-RPG\\2D-RPG\\Assets\\Player_DashState.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:Assets\\Player_DashState.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\arthu\\Documents\\Projects\\2D-RPG\\2D-RPG\\Assets\\Player_WallSlideState.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:Assets\\Player_WallSlideState.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\arthu\\Documents\\Projects\\2D-RPG\\2D-RPG\\Assets\\StateMachine.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:Assets\\StateMachine.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -78,11 +82,24 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 6,
+          "SelectedChildIndex": 1,
           "Children": [
             {
               "$type": "Bookmark",
               "Name": "ST:0:0:{88d7674e-67d3-4835-9e0e-aa893dfc985a}"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "GridPaintPaletteClipboard.cs",
+              "DocumentMoniker": "C:\\Users\\arthu\\Documents\\Projects\\2D-RPG\\2D-RPG\\Library\\PackageCache\\com.unity.2d.tilemap@0b99f08c0204\\Editor\\GridPaintPaletteClipboard.cs",
+              "RelativeDocumentMoniker": "Library\\PackageCache\\com.unity.2d.tilemap@0b99f08c0204\\Editor\\GridPaintPaletteClipboard.cs",
+              "ToolTip": "C:\\Users\\arthu\\Documents\\Projects\\2D-RPG\\2D-RPG\\Library\\PackageCache\\com.unity.2d.tilemap@0b99f08c0204\\Editor\\GridPaintPaletteClipboard.cs",
+              "RelativeToolTip": "Library\\PackageCache\\com.unity.2d.tilemap@0b99f08c0204\\Editor\\GridPaintPaletteClipboard.cs",
+              "ViewState": "AgIAAMoHAAAAAAAAAAApwOEHAAAuAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-01-01T04:44:58.89Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
@@ -98,7 +115,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 5,
+              "DocumentIndex": 4,
               "Title": "Player_FallState.cs",
               "DocumentMoniker": "C:\\Users\\arthu\\Documents\\Projects\\2D-RPG\\2D-RPG\\Assets\\Player_FallState.cs",
               "RelativeDocumentMoniker": "Assets\\Player_FallState.cs",
@@ -110,7 +127,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 4,
+              "DocumentIndex": 5,
               "Title": "Player_JumpAttackState.cs",
               "DocumentMoniker": "C:\\Users\\arthu\\Documents\\Projects\\2D-RPG\\2D-RPG\\Assets\\Player_JumpAttackState.cs",
               "RelativeDocumentMoniker": "Assets\\Player_JumpAttackState.cs",
@@ -122,7 +139,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 6,
               "Title": "Player_IdleState.cs",
               "DocumentMoniker": "C:\\Users\\arthu\\Documents\\Projects\\2D-RPG\\2D-RPG\\Assets\\Player_IdleState.cs",
               "RelativeDocumentMoniker": "Assets\\Player_IdleState.cs",
@@ -134,7 +151,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 7,
               "Title": "Player_MoveState.cs",
               "DocumentMoniker": "C:\\Users\\arthu\\Documents\\Projects\\2D-RPG\\2D-RPG\\Assets\\Player_MoveState.cs",
               "RelativeDocumentMoniker": "Assets\\Player_MoveState.cs",
@@ -146,20 +163,18 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 1,
               "Title": "Player.cs",
               "DocumentMoniker": "C:\\Users\\arthu\\Documents\\Projects\\2D-RPG\\2D-RPG\\Assets\\Player.cs",
               "RelativeDocumentMoniker": "Assets\\Player.cs",
               "ToolTip": "C:\\Users\\arthu\\Documents\\Projects\\2D-RPG\\2D-RPG\\Assets\\Player.cs",
               "RelativeToolTip": "Assets\\Player.cs",
-              "ViewState": "AgIAAGYAAAAAAAAAAAAswMAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-12-25T20:30:24.398Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-12-25T20:30:24.398Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 6,
+              "DocumentIndex": 8,
               "Title": "Player_JumpState.cs",
               "DocumentMoniker": "C:\\Users\\arthu\\Documents\\Projects\\2D-RPG\\2D-RPG\\Assets\\Player_JumpState.cs",
               "RelativeDocumentMoniker": "Assets\\Player_JumpState.cs",
@@ -171,7 +186,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 7,
+              "DocumentIndex": 9,
               "Title": "EntityState.cs",
               "DocumentMoniker": "C:\\Users\\arthu\\Documents\\Projects\\2D-RPG\\2D-RPG\\Assets\\EntityState.cs",
               "RelativeDocumentMoniker": "Assets\\EntityState.cs",
@@ -183,7 +198,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 8,
+              "DocumentIndex": 10,
               "Title": "Player_WallJumpState.cs",
               "DocumentMoniker": "C:\\Users\\arthu\\Documents\\Projects\\2D-RPG\\2D-RPG\\Assets\\Player_WallJumpState.cs",
               "RelativeDocumentMoniker": "Assets\\Player_WallJumpState.cs",
@@ -195,7 +210,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 9,
+              "DocumentIndex": 11,
               "Title": "Player_BasicAttackState.cs",
               "DocumentMoniker": "C:\\Users\\arthu\\Documents\\Projects\\2D-RPG\\2D-RPG\\Assets\\Player_BasicAttackState.cs",
               "RelativeDocumentMoniker": "Assets\\Player_BasicAttackState.cs",
@@ -207,7 +222,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 10,
+              "DocumentIndex": 12,
               "Title": "Player_GroundedState.cs",
               "DocumentMoniker": "C:\\Users\\arthu\\Documents\\Projects\\2D-RPG\\2D-RPG\\Assets\\Player_GroundedState.cs",
               "RelativeDocumentMoniker": "Assets\\Player_GroundedState.cs",
@@ -219,7 +234,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 11,
+              "DocumentIndex": 2,
               "Title": "Player_JumpFallState.cs",
               "DocumentMoniker": "C:\\Users\\arthu\\Documents\\Projects\\2D-RPG\\2D-RPG\\Assets\\Player_JumpFallState.cs",
               "RelativeDocumentMoniker": "Assets\\Player_JumpFallState.cs",
@@ -231,7 +246,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 12,
+              "DocumentIndex": 13,
               "Title": "Player_AiredState.cs",
               "DocumentMoniker": "C:\\Users\\arthu\\Documents\\Projects\\2D-RPG\\2D-RPG\\Assets\\Player_AiredState.cs",
               "RelativeDocumentMoniker": "Assets\\Player_AiredState.cs",
@@ -243,7 +258,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 13,
+              "DocumentIndex": 14,
               "Title": "Player_AnimationTriggers.cs",
               "DocumentMoniker": "C:\\Users\\arthu\\Documents\\Projects\\2D-RPG\\2D-RPG\\Assets\\Player_AnimationTriggers.cs",
               "RelativeDocumentMoniker": "Assets\\Player_AnimationTriggers.cs",
@@ -255,7 +270,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 14,
+              "DocumentIndex": 15,
               "Title": "Player_DashState.cs",
               "DocumentMoniker": "C:\\Users\\arthu\\Documents\\Projects\\2D-RPG\\2D-RPG\\Assets\\Player_DashState.cs",
               "RelativeDocumentMoniker": "Assets\\Player_DashState.cs",
@@ -267,7 +282,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 15,
+              "DocumentIndex": 16,
               "Title": "Player_WallSlideState.cs",
               "DocumentMoniker": "C:\\Users\\arthu\\Documents\\Projects\\2D-RPG\\2D-RPG\\Assets\\Player_WallSlideState.cs",
               "RelativeDocumentMoniker": "Assets\\Player_WallSlideState.cs",
@@ -279,7 +294,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 16,
+              "DocumentIndex": 17,
               "Title": "StateMachine.cs",
               "DocumentMoniker": "C:\\Users\\arthu\\Documents\\Projects\\2D-RPG\\2D-RPG\\Assets\\StateMachine.cs",
               "RelativeDocumentMoniker": "Assets\\StateMachine.cs",
