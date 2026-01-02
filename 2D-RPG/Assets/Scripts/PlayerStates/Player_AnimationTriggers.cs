@@ -11,6 +11,6 @@ public class Player_AnimationTriggers : MonoBehaviour
 
     private void CurrentStateEnded()
     {
-        player.CurrentStateEnded();
+        player.SetCurrentStateEnded();
     }
 }

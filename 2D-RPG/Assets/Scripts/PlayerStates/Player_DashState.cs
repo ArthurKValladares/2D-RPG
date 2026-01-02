@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class Player_DashState : EntityState
+public class Player_DashState : PlayerState
 {
     public Player_DashState(Player player)
         : base(player, "dash")
@@ -57,13 +57,5 @@ public class Player_DashState : EntityState
                 player.sm.ChangeState(player.wallSlideState);
             }
         }
-    }
-
-    private bool CanDash()
-    {
-        if (player.wallDetected) return false;
-        if (player.sm.currentState == player.dashState) return false;
-
-        return true;
     }
 }
