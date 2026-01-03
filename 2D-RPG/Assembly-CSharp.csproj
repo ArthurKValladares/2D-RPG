@@ -68,6 +68,7 @@
     <Compile Include="Assets\Scripts\StateMachine\EnemyStates\EnemyState.cs" />
     <Compile Include="Assets\Scripts\StateMachine\PlayerStates\Player_MoveState.cs" />
     <Compile Include="Assets\Scripts\StateMachine\PlayerStates\Player_JumpState.cs" />
+    <Compile Include="Assets\Scripts\StateMachine\EnemyStates\Enemy_AttackState.cs" />
     <Compile Include="Assets\Scripts\Entities\Enemy_Skeleton.cs" />
     <Compile Include="Assets\Scripts\StateMachine\PlayerStates\PlayerState.cs" />
     <Compile Include="Assets\Scripts\Entities\Player.cs" />
@@ -78,15 +79,17 @@
     <Compile Include="Assets\Scripts\StateMachine\EnemyStates\Enemy_IdleState.cs" />
     <Compile Include="Assets\Scripts\StateMachine\EntityState.cs" />
     <Compile Include="Assets\Scripts\Entities\Enemy.cs" />
+    <Compile Include="Assets\Scripts\StateMachine\EnemyStates\Enemy_BattleState.cs" />
     <Compile Include="Assets\Scripts\StateMachine\PlayerStates\Player_IdleState.cs" />
-    <Compile Include="Assets\Scripts\StateMachine\PlayerStates\Player_AnimationTriggers.cs" />
     <Compile Include="Assets\Scripts\StateMachine\PlayerStates\Player_WallSlideState.cs" />
+    <Compile Include="Assets\Scripts\StateMachine\EnemyStates\Enemy_GroundedState.cs" />
     <Compile Include="Assets\InputSystem\PlayerInputSet.cs" />
     <Compile Include="Assets\Scripts\StateMachine\PlayerStates\Player_GroundedState.cs" />
     <Compile Include="Assets\Scripts\StateMachine\PlayerStates\Player_FallState.cs" />
     <Compile Include="Assets\Scripts\StateMachine\PlayerStates\Player_JumpAttackState.cs" />
     <Compile Include="Assets\Scripts\Parallax\ParallaxBackground.cs" />
     <Compile Include="Assets\Scripts\StateMachine\PlayerStates\Player_BasicAttackState.cs" />
+    <Compile Include="Assets\Scripts\StateMachine\Entity_AnimationTriggers.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="UnityEngine">

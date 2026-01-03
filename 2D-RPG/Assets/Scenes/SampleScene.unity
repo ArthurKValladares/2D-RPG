@@ -119,37 +119,6 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
---- !u!1 &88138267
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 88138268}
-  m_Layer: 0
-  m_Name: secondaryWallCheck
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &88138268
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 88138267}
-  serializedVersion: 2
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: -0.75, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 1344131650}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &281527916
 GameObject:
   m_ObjectHideFlags: 0
@@ -281,6 +250,7 @@ GameObject:
   - component: {fileID: 379928932}
   - component: {fileID: 379928934}
   - component: {fileID: 379928933}
+  - component: {fileID: 379928935}
   m_Layer: 0
   m_Name: Animator
   m_TagString: Untagged
@@ -383,6 +353,18 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!114 &379928935
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 379928931}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ca32410b8601b8e4f979995c9076d628, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Entity_AnimationTriggers
 --- !u!1 &388050734
 GameObject:
   m_ObjectHideFlags: 0
@@ -408,7 +390,7 @@ Transform:
   m_GameObject: {fileID: 388050734}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0.4, z: 0}
+  m_LocalPosition: {x: 0, y: -0.27, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -50119,7 +50101,7 @@ MonoBehaviour:
   wallCheckDistance: 0.54
   groundCheck: {fileID: 1798055543}
   primaryWallCheck: {fileID: 388050735}
-  secondaryWallCheck: {fileID: 88138268}
+  secondaryWallCheck: {fileID: 0}
   whatIsGround:
     serializedVersion: 2
     m_Bits: 0
@@ -50130,6 +50112,11 @@ MonoBehaviour:
   idleTime: 2
   moveSpeed: 1.4
   moveSpeedMultiplier: 1
+  playerCheckDistance: 4.38
+  playerCheck: {fileID: 388050735}
+  whatIsPlayer:
+    serializedVersion: 2
+    m_Bits: 128
 --- !u!4 &1344131650
 Transform:
   m_ObjectHideFlags: 0
@@ -50145,7 +50132,6 @@ Transform:
   m_Children:
   - {fileID: 379928932}
   - {fileID: 388050735}
-  - {fileID: 88138268}
   - {fileID: 1798055543}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -50202,7 +50188,7 @@ Rigidbody2D:
   m_LinearDamping: 0
   m_AngularDamping: 0.05
   m_GravityScale: 3.5
-  m_Material: {fileID: 6200000, guid: 8cb530dfa6b131243b731c0c852b5865, type: 2}
+  m_Material: {fileID: 0}
   m_IncludeLayers:
     serializedVersion: 2
     m_Bits: 0
@@ -50259,7 +50245,7 @@ GameObject:
   - component: {fileID: 1377509243}
   - component: {fileID: 1377509245}
   - component: {fileID: 1377509246}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Player
   m_TagString: Untagged
   m_Icon: {fileID: 0}

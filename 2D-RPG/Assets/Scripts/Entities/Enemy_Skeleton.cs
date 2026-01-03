@@ -8,6 +8,8 @@ public class Enemy_Skeleton : Enemy
 
         idleState = new Enemy_IdleState(this);
         moveState = new Enemy_MoveState(this);
+        attackState = new Enemy_AttackState(this);
+        battleState = new Enemy_BattleState(this);
     }
 
     protected override void Start()

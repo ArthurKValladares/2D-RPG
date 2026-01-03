@@ -49,9 +49,12 @@ public class Entity : MonoBehaviour
     {
         Gizmos.DrawLine(groundCheck.position, groundCheck.position + new Vector3(0, -groundCheckDistance, 0));
 
-        Vector3 wallCheckVector = new Vector3(FacingDirScale() * wallCheckDistance, 0, 0);
+        Vector3 wallCheckVector = new(FacingDirScale() * wallCheckDistance, 0, 0);
         Gizmos.DrawLine(primaryWallCheck.position, primaryWallCheck.position + wallCheckVector);
-        Gizmos.DrawLine(secondaryWallCheck.position, secondaryWallCheck.position + wallCheckVector);
+        if (secondaryWallCheck)
+        {
+            Gizmos.DrawLine(secondaryWallCheck.position, secondaryWallCheck.position + wallCheckVector);
+        }
     }
 
     public void SetCurrentStateEnded()
@@ -65,8 +68,12 @@ public class Entity : MonoBehaviour
 
         Vector2 wallCheckVector = Vector2.right * FacingDirScale();
         primaryWallDetected = Physics2D.Raycast(primaryWallCheck.position, wallCheckVector, wallCheckDistance, whatIsGround);
-        secondaryWallDetected = Physics2D.Raycast(secondaryWallCheck.position, wallCheckVector, wallCheckDistance, whatIsGround);
-        wallsDetected = primaryWallDetected && secondaryWallDetected;
+        wallsDetected = primaryWallDetected;
+        if (secondaryWallCheck)
+        {
+            secondaryWallDetected = Physics2D.Raycast(secondaryWallCheck.position, wallCheckVector, wallCheckDistance, whatIsGround);
+            wallsDetected = wallsDetected && secondaryWallDetected;
+        }
     }
 
     public float FacingDirScale()

@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class Enemy_MoveState : EnemyState
+public class Enemy_MoveState : Enemy_GroundedState
 {
     public Enemy_MoveState(Enemy enemy)
         : base(enemy, "move")
@@ -25,7 +25,6 @@ public class Enemy_MoveState : EnemyState
 
         if (!enemy.groundDetected || enemy.wallsDetected)
         {
-            enemy.SetVelocityX(0.0f);
             enemy.sm.ChangeState(enemy.idleState);
         }
     }
