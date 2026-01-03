@@ -19,7 +19,7 @@ public class Player_WallSlideState : PlayerState
             {
                 player.Flip();
             }
-        } else if (!player.wallDetected)
+        } else if (!player.wallsDetected)
         {
             player.sm.ChangeState(player.fallState);
         } else if (player.input.Player.Jump.WasPressedThisFrame())

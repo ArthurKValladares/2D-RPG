@@ -18,7 +18,7 @@ public class Player_IdleState : Player_GroundedState
     {
         base.Update();
 
-        if (player.moveInput.x == player.FacingDirScale() && player.wallDetected) return;
+        if (player.moveInput.x == player.FacingDirScale() && player.wallsDetected) return;
 
         if (player.moveInput.x != 0.0f)
         {

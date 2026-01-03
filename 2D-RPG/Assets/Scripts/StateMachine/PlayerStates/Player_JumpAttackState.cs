@@ -17,7 +17,7 @@ public class Player_JumpAttackState : Player_AiredState
             {
                 player.sm.ChangeState(player.idleState);
             }
-            else if (player.wallDetected)
+            else if (player.wallsDetected)
             {
                 player.sm.ChangeState(player.wallSlideState);
             } else

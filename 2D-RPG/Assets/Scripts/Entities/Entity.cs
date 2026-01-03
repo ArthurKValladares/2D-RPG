@@ -14,11 +14,15 @@ public class Entity : MonoBehaviour
     [Header("Entity Collision Detection")]
     [SerializeField] protected float groundCheckDistance;
     [SerializeField] protected float wallCheckDistance;
+    [SerializeField] protected Transform groundCheck;
     [SerializeField] protected Transform primaryWallCheck;
     [SerializeField] protected Transform secondaryWallCheck;
     [SerializeField] protected LayerMask whatIsGround;
     [field: SerializeField] public bool groundDetected { get; protected set; }
-    [field: SerializeField] public bool wallDetected { get; protected set; }
+
+    [field: SerializeField] public bool primaryWallDetected { get; protected set; }
+    [field: SerializeField] public bool secondaryWallDetected { get; protected set; }
+    [field: SerializeField] public bool wallsDetected { get; protected set; }
 
 
     protected virtual void Awake()
@@ -43,7 +47,7 @@ public class Entity : MonoBehaviour
 
     protected virtual void OnDrawGizmos()
     {
-        Gizmos.DrawLine(transform.position, transform.position + new Vector3(0, -groundCheckDistance, 0));
+        Gizmos.DrawLine(groundCheck.position, groundCheck.position + new Vector3(0, -groundCheckDistance, 0));
 
         Vector3 wallCheckVector = new Vector3(FacingDirScale() * wallCheckDistance, 0, 0);
         Gizmos.DrawLine(primaryWallCheck.position, primaryWallCheck.position + wallCheckVector);
@@ -57,12 +61,12 @@ public class Entity : MonoBehaviour
 
     private void HandleCollisionDetection()
     {
-        groundDetected = Physics2D.Raycast(transform.position, Vector2.down, groundCheckDistance, whatIsGround);
+        groundDetected = Physics2D.Raycast(groundCheck.position, Vector2.down, groundCheckDistance, whatIsGround);
 
         Vector2 wallCheckVector = Vector2.right * FacingDirScale();
-        wallDetected =
-            Physics2D.Raycast(primaryWallCheck.position, wallCheckVector, wallCheckDistance, whatIsGround)
-            && Physics2D.Raycast(secondaryWallCheck.position, wallCheckVector, wallCheckDistance, whatIsGround);
+        primaryWallDetected = Physics2D.Raycast(primaryWallCheck.position, wallCheckVector, wallCheckDistance, whatIsGround);
+        secondaryWallDetected = Physics2D.Raycast(secondaryWallCheck.position, wallCheckVector, wallCheckDistance, whatIsGround);
+        wallsDetected = primaryWallDetected && secondaryWallDetected;
     }
 
     public float FacingDirScale()

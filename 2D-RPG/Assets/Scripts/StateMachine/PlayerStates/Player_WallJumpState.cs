@@ -21,7 +21,7 @@ public class Player_WallJumpState : PlayerState
         if (player.rb.linearVelocityY < 0.0f)
         {
             player.sm.ChangeState(player.fallState);
-        } else if (player.wallDetected)
+        } else if (player.wallsDetected)
         {
             player.sm.ChangeState(player.wallSlideState);
         }

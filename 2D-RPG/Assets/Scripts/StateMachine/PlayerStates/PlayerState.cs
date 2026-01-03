@@ -12,7 +12,7 @@ public class PlayerState : EntityState
 
     private bool CanDash()
     {
-        if (player.wallDetected) return false;
+        if (player.wallsDetected) return false;
         if (player.sm.currentState == player.dashState) return false;
 
         return true;

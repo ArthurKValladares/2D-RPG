@@ -14,7 +14,7 @@ public class Player_FallState : Player_AiredState
         if (player.groundDetected)
         {
             player.sm.ChangeState(player.idleState);
-        } else if (player.wallDetected)
+        } else if (player.wallsDetected)
         {
             player.sm.ChangeState(player.wallSlideState);
         }

@@ -46,7 +46,7 @@ public class Player_DashState : PlayerState
 
     private void CancelDashIfNeeded()
     {
-        if (player.wallDetected)
+        if (player.wallsDetected)
         {
             if (player.groundDetected)
             {

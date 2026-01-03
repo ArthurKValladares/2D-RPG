@@ -20,7 +20,7 @@ public class Player_LaunchAttackState : PlayerState
     {
         base.Update();
 
-        if (player.wallDetected)
+        if (player.wallsDetected)
         {
             player.sm.ChangeState(player.wallSlideState);    
         }
