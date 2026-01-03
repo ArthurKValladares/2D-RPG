@@ -25,6 +25,7 @@ public class Player : Entity
     [Range(0.0f, 1.0f)] public float inAirMoveMultiplier = 0.8f;
     [Range(0.0f, 1.0f)] public float wallSlideMultiplier = 0.4f;
     public Vector2 wallJumpForce = new(6.0f, 12.0f);
+    public float wallJumpNoMovementTimer = 0.1f;
     public float dashForce = 20.0f;
     [Space] public float dashTime = 0.25f;
 

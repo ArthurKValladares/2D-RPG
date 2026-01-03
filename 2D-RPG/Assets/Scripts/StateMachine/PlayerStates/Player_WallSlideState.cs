@@ -30,7 +30,10 @@ public class Player_WallSlideState : PlayerState
 
     private void HandleWallSlide()
     {
-        if (player.moveInput.y < 0.0)
+        if (player.moveInput.x != player.FacingDirScale())
+        {
+            player.sm.ChangeState(player.fallState);
+        } else if (player.moveInput.y < 0.0)
         {
             player.SetVelocityX(0.0f);
         } else
