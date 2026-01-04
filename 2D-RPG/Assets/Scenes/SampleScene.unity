@@ -50078,7 +50078,7 @@ GameObject:
   - component: {fileID: 1344131649}
   - component: {fileID: 1344131652}
   - component: {fileID: 1344131651}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Enemy_Skeleton
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -50097,18 +50097,23 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: eef704027277b3f41bb650bd6784d5c7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Enemy_Skeleton
-  groundCheckDistance: 1.51
+  groundCheckDistance: 1.225
   wallCheckDistance: 0.54
   groundCheck: {fileID: 1798055543}
   primaryWallCheck: {fileID: 388050735}
   secondaryWallCheck: {fileID: 0}
   whatIsGround:
     serializedVersion: 2
-    m_Bits: 0
+    m_Bits: 8
   <groundDetected>k__BackingField: 0
   <primaryWallDetected>k__BackingField: 0
   <secondaryWallDetected>k__BackingField: 0
   <wallsDetected>k__BackingField: 0
+  battleMoveSpeed: 3
+  attackDistance: 2
+  battleTimeDuration: 5
+  minRetreatDistance: 1
+  retreateVelocity: {x: 5, y: 3}
   idleTime: 2
   moveSpeed: 1.4
   moveSpeedMultiplier: 1
@@ -50126,7 +50131,7 @@ Transform:
   m_GameObject: {fileID: 1344131648}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 9.36, y: -3.94, z: 0}
+  m_LocalPosition: {x: 8.98, y: -3.85, z: 0}
   m_LocalScale: {x: 1.2, y: 1.2, z: 1.2}
   m_ConstrainProportionsScale: 1
   m_Children:
@@ -50186,7 +50191,7 @@ Rigidbody2D:
   m_UseAutoMass: 0
   m_Mass: 1
   m_LinearDamping: 0
-  m_AngularDamping: 0.05
+  m_AngularDamping: 0
   m_GravityScale: 3.5
   m_Material: {fileID: 0}
   m_IncludeLayers:

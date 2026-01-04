@@ -10,6 +10,8 @@ public class Enemy_Skeleton : Enemy
         moveState = new Enemy_MoveState(this);
         attackState = new Enemy_AttackState(this);
         battleState = new Enemy_BattleState(this);
+
+        attackDistance = 2.0f;
     }
 
     protected override void Start()

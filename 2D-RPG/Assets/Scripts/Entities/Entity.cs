@@ -80,7 +80,7 @@ public class Entity : MonoBehaviour
     {
         return facingRight ? 1.0f : -1.0f;
     }
-    private void HandleFlip(float xVel)
+    public void HandleFlip(float xVel)
     {
         if (xVel > 0 && facingRight == false)
         {

@@ -26,6 +26,11 @@ public class PlayerState : EntityState
         {
             player.sm.ChangeState(player.dashState);
         }
+    }
+
+    public override void UpdateAnimationParameters()
+    {
+        base.UpdateAnimationParameters();
 
         player.animator.SetFloat("yVelocity", player.rb.linearVelocityY);
     }

@@ -7,20 +7,13 @@ public class Enemy_AttackState : EnemyState
     {
     }
 
-    public override void Enter()
-    {
-        base.Enter();
-
-        enemy.SetVelocityX(0);
-    }
-
     public override void Update()
     {
         base.Update();
 
         if (stateEnded)
         {
-            enemy.sm.ChangeState(enemy.idleState);
+            enemy.sm.ChangeState(enemy.battleState);
         }
     }
 }

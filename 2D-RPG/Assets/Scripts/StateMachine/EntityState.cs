@@ -22,6 +22,7 @@ public abstract class EntityState
     public virtual void Update()
     {
         stateTimer -= Time.deltaTime;
+        UpdateAnimationParameters();
     }
 
     public void StateEnded()
@@ -32,5 +33,9 @@ public abstract class EntityState
     public virtual void Exit()
     {
         animator.SetBool(stateParameterName, false);
+    }
+
+    public virtual void UpdateAnimationParameters()
+    {
     }
 }
