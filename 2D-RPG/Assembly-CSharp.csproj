@@ -63,33 +63,36 @@
   <ItemGroup>
     <Compile Include="Assets\Scripts\StateMachine\PlayerStates\Player_LaunchAttackState.cs" />
     <Compile Include="Assets\Scripts\StateMachine\PlayerStates\Player_WallJumpState.cs" />
-    <Compile Include="Assets\Scripts\Entities\Entity.cs" />
-    <Compile Include="Assets\Scripts\Entities\Entity_Combat.cs" />
+    <Compile Include="Assets\Scripts\Entities\Entity\Entity_VFX.cs" />
+    <Compile Include="Assets\Scripts\Entities\Enemy\Enemy_Health.cs" />
+    <Compile Include="Assets\Scripts\Entities\Entity\Entity.cs" />
     <Compile Include="Assets\Scripts\StateMachine\PlayerStates\Player_AiredState.cs" />
-    <Compile Include="Assets\Scripts\Entities\Entity_AnimationTriggers.cs" />
     <Compile Include="Assets\Scripts\StateMachine\EnemyStates\EnemyState.cs" />
     <Compile Include="Assets\Scripts\StateMachine\PlayerStates\Player_MoveState.cs" />
     <Compile Include="Assets\Scripts\StateMachine\PlayerStates\Player_JumpState.cs" />
     <Compile Include="Assets\Scripts\StateMachine\EnemyStates\Enemy_AttackState.cs" />
-    <Compile Include="Assets\Scripts\Entities\Enemy_Skeleton.cs" />
     <Compile Include="Assets\Scripts\StateMachine\PlayerStates\PlayerState.cs" />
-    <Compile Include="Assets\Scripts\Entities\Player.cs" />
     <Compile Include="Assets\Scripts\StateMachine\StateMachine.cs" />
     <Compile Include="Assets\Scripts\StateMachine\PlayerStates\Player_DashState.cs" />
     <Compile Include="Assets\Scripts\StateMachine\EnemyStates\Enemy_MoveState.cs" />
+    <Compile Include="Assets\Scripts\Entities\Enemy\Enemy_Skeleton.cs" />
+    <Compile Include="Assets\Scripts\Entities\Enemy\Enemy.cs" />
     <Compile Include="Assets\Scripts\Parallax\ParallaxLayer.cs" />
     <Compile Include="Assets\Scripts\StateMachine\EnemyStates\Enemy_IdleState.cs" />
-    <Compile Include="Assets\Scripts\StateMachine\EntityState.cs" />
-    <Compile Include="Assets\Scripts\Entities\Enemy.cs" />
+    <Compile Include="Assets\Scripts\Entities\Entity\Entity_Combat.cs" />
     <Compile Include="Assets\Scripts\StateMachine\EnemyStates\Enemy_BattleState.cs" />
     <Compile Include="Assets\Scripts\StateMachine\PlayerStates\Player_IdleState.cs" />
     <Compile Include="Assets\Scripts\StateMachine\PlayerStates\Player_WallSlideState.cs" />
+    <Compile Include="Assets\Scripts\StateMachine\EntityStates\EntityState.cs" />
+    <Compile Include="Assets\Scripts\Entities\Player\Player.cs" />
+    <Compile Include="Assets\Scripts\Entities\Entity\Entity_AnimationTriggers.cs" />
     <Compile Include="Assets\Scripts\StateMachine\EnemyStates\Enemy_GroundedState.cs" />
     <Compile Include="Assets\InputSystem\PlayerInputSet.cs" />
     <Compile Include="Assets\Scripts\StateMachine\PlayerStates\Player_GroundedState.cs" />
     <Compile Include="Assets\Scripts\StateMachine\PlayerStates\Player_FallState.cs" />
     <Compile Include="Assets\Scripts\StateMachine\PlayerStates\Player_JumpAttackState.cs" />
     <Compile Include="Assets\Scripts\Parallax\ParallaxBackground.cs" />
+    <Compile Include="Assets\Scripts\Entities\Entity\Entity_Health.cs" />
     <Compile Include="Assets\Scripts\StateMachine\PlayerStates\Player_BasicAttackState.cs" />
   </ItemGroup>
   <ItemGroup>

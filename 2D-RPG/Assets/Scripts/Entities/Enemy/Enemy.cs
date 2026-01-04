@@ -23,10 +23,30 @@ public class Enemy : Entity
     [SerializeField] protected float playerCheckDistance;
     [SerializeField] protected Transform playerCheck;
     [SerializeField] protected LayerMask whatIsPlayer;
+    public Transform player { get; private set; }
 
     protected override void Awake()
     {
         base.Awake();
+    }
+
+    public Transform TryGettingPlayerTransform()
+    {
+        if (!player)
+        {
+            return PlayerDetection().transform;
+        } else
+        {
+            return player;
+        }
+    }
+
+    public void TryEnteringBattleState(Transform player)
+    {
+        if (sm.currentState == battleState || sm.currentState == attackState) return;
+
+        this.player = player;
+        sm.ChangeState(battleState);
     }
 
     public RaycastHit2D PlayerDetection()

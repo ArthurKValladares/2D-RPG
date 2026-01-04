@@ -50138,6 +50138,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1344131650}
+  - component: {fileID: 1344131654}
+  - component: {fileID: 1344131655}
   - component: {fileID: 1344131653}
   - component: {fileID: 1344131649}
   - component: {fileID: 1344131652}
@@ -50286,7 +50288,35 @@ MonoBehaviour:
   whatIsTarget:
     serializedVersion: 2
     m_Bits: 128
-  targetColliders: []
+  damage: 3
+--- !u!114 &1344131654
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1344131648}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2f74e6127e95cad4c8cc728751004543, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Enemy_Health
+  maxHealth: 4
+  currentHealth: 0
+--- !u!114 &1344131655
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1344131648}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f18bd6d220508614181cfd744ba4a166, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Entity_VFX
+  onDamageMaterial: {fileID: 2100000, guid: 4a5dda86a53061d408958e415a4e6d61, type: 2}
+  onDamageVFXDuration: 0.15
 --- !u!1 &1350776766
 GameObject:
   m_ObjectHideFlags: 0
@@ -50330,13 +50360,15 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1377509244}
+  - component: {fileID: 1377509249}
+  - component: {fileID: 1377509248}
   - component: {fileID: 1377509247}
   - component: {fileID: 1377509243}
   - component: {fileID: 1377509245}
   - component: {fileID: 1377509246}
   m_Layer: 7
   m_Name: Player
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -50480,7 +50512,35 @@ MonoBehaviour:
   whatIsTarget:
     serializedVersion: 2
     m_Bits: 64
-  targetColliders: []
+  damage: 1
+--- !u!114 &1377509248
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1377509242}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 738b5c5220c775244acd16c3ccc8811d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Entity_Health
+  maxHealth: 10
+  currentHealth: 0
+--- !u!114 &1377509249
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1377509242}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f18bd6d220508614181cfd744ba4a166, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Entity_VFX
+  onDamageMaterial: {fileID: 2100000, guid: 4a5dda86a53061d408958e415a4e6d61, type: 2}
+  onDamageVFXDuration: 0.15
 --- !u!1 &1474396422
 GameObject:
   m_ObjectHideFlags: 0

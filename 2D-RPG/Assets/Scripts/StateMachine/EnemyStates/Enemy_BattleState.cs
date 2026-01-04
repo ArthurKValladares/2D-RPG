@@ -14,9 +14,11 @@ public class Enemy_BattleState : EnemyState
     {
         base.Enter();
 
-        if (player == null)
+        UpdateBattleTimer();
+        
+        if (!player)
         {
-            player = enemy.PlayerDetection().transform;
+            player = enemy.TryGettingPlayerTransform();
         }
 
         if (ShouldRetreat())
@@ -33,7 +35,7 @@ public class Enemy_BattleState : EnemyState
         RaycastHit2D player_detection = enemy.PlayerDetection();
         if (player_detection)
         {
-            lastTimeDetectedPlayer = Time.time;
+            UpdateBattleTimer();
         }
 
         if (BattleTimeIsOver())
@@ -50,6 +52,11 @@ public class Enemy_BattleState : EnemyState
         {
             enemy.SetVelocityX(enemy.battleMoveSpeed * PlayerDirScale());
         }
+    }
+
+    private void UpdateBattleTimer()
+    {
+        lastTimeDetectedPlayer = Time.time;
     }
 
     private bool BattleTimeIsOver()
