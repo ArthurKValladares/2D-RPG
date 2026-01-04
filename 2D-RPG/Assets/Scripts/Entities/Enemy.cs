@@ -27,15 +27,13 @@ public class Enemy : Entity
     protected override void Awake()
     {
         base.Awake();
-
-        whatIsPlayer = LayerMask.GetMask("Player");
     }
 
     public RaycastHit2D PlayerDetection()
     {
         RaycastHit2D hit = Physics2D.Raycast(playerCheck.position, Vector2.right * FacingDirScale(), playerCheckDistance, whatIsPlayer | whatIsGround);
 
-        if (hit.collider == null || hit.collider.gameObject.layer != LayerMask.NameToLayer("Player"))
+        if (hit.collider == null || (1 << hit.collider.gameObject.layer) != whatIsPlayer)
         {
             return default;
         }

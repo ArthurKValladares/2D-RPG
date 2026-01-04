@@ -64,7 +64,9 @@
     <Compile Include="Assets\Scripts\StateMachine\PlayerStates\Player_LaunchAttackState.cs" />
     <Compile Include="Assets\Scripts\StateMachine\PlayerStates\Player_WallJumpState.cs" />
     <Compile Include="Assets\Scripts\Entities\Entity.cs" />
+    <Compile Include="Assets\Scripts\Entities\Entity_Combat.cs" />
     <Compile Include="Assets\Scripts\StateMachine\PlayerStates\Player_AiredState.cs" />
+    <Compile Include="Assets\Scripts\Entities\Entity_AnimationTriggers.cs" />
     <Compile Include="Assets\Scripts\StateMachine\EnemyStates\EnemyState.cs" />
     <Compile Include="Assets\Scripts\StateMachine\PlayerStates\Player_MoveState.cs" />
     <Compile Include="Assets\Scripts\StateMachine\PlayerStates\Player_JumpState.cs" />
@@ -89,7 +91,6 @@
     <Compile Include="Assets\Scripts\StateMachine\PlayerStates\Player_JumpAttackState.cs" />
     <Compile Include="Assets\Scripts\Parallax\ParallaxBackground.cs" />
     <Compile Include="Assets\Scripts\StateMachine\PlayerStates\Player_BasicAttackState.cs" />
-    <Compile Include="Assets\Scripts\StateMachine\Entity_AnimationTriggers.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="UnityEngine">

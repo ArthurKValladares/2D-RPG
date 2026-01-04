@@ -24,7 +24,6 @@ public class Entity : MonoBehaviour
     [field: SerializeField] public bool secondaryWallDetected { get; protected set; }
     [field: SerializeField] public bool wallsDetected { get; protected set; }
 
-
     protected virtual void Awake()
     {
         rb = GetComponent<Rigidbody2D>();
