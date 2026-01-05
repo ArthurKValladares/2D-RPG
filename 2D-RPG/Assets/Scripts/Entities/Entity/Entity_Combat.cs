@@ -2,7 +2,6 @@ using UnityEngine;
 
 public class Entity_Combat : MonoBehaviour
 {
-
     [Header("Target Detection")]
     [SerializeField] private float targetCheckRadius;
     [SerializeField] private Transform targetCheck;

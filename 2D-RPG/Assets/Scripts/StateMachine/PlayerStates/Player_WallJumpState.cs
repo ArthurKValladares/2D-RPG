@@ -11,20 +11,15 @@ public class Player_WallJumpState : Player_AiredState
     {
         base.Enter();
 
-        player.SetVelocity(player.wallJumpForce.x * -player.FacingDirScale(), player.wallJumpForce.y);
-
-        stateTimer = player.wallJumpNoMovementTimer;
-        canMove = false;
+        player.ReceivePush(
+            new Vector2(player.wallJumpForce.x * -player.FacingDirScale(), player.wallJumpForce.y),
+            player.wallJumpNoMovementTimer
+        );
     }
 
     public override void Update()
     {
         base.Update();
-
-        if (stateTimer < 0.0f)
-        {
-            canMove = true;
-        }
 
         if (player.rb.linearVelocityY < 0.0f)
         {

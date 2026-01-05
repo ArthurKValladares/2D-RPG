@@ -50163,6 +50163,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: eef704027277b3f41bb650bd6784d5c7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Enemy_Skeleton
+  canOverrideMove: 1
   groundCheckDistance: 1.225
   wallCheckDistance: 0.54
   groundCheck: {fileID: 1798055543}
@@ -50175,7 +50176,7 @@ MonoBehaviour:
   <primaryWallDetected>k__BackingField: 0
   <secondaryWallDetected>k__BackingField: 0
   <wallsDetected>k__BackingField: 0
-  battleMoveSpeed: 3
+  battleMoveSpeed: 5
   attackDistance: 2
   battleTimeDuration: 5
   minRetreatDistance: 1
@@ -50288,7 +50289,7 @@ MonoBehaviour:
   whatIsTarget:
     serializedVersion: 2
     m_Bits: 128
-  damage: 3
+  damage: 1
 --- !u!114 &1344131654
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -50301,8 +50302,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2f74e6127e95cad4c8cc728751004543, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Enemy_Health
-  maxHealth: 4
+  maxHealth: 3
   currentHealth: 0
+  knockbackForce: {x: 1.5, y: 2.5}
+  heavyKnockbackForce: {x: 7, y: 7}
+  knockbackDuration: 0.2
+  heavyKnockbackDuration: 0.5
+  heavyKnockbackThreshold: 0.3
 --- !u!114 &1344131655
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -50385,6 +50391,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1d64933502ecbc9418e6bdf2737a638b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Player
+  canOverrideMove: 1
   groundCheckDistance: 1.34
   wallCheckDistance: 0.46
   groundCheck: {fileID: 1377509244}
@@ -50525,8 +50532,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 738b5c5220c775244acd16c3ccc8811d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Entity_Health
-  maxHealth: 10
+  maxHealth: 5
   currentHealth: 0
+  knockbackForce: {x: 1.5, y: 2.5}
+  heavyKnockbackForce: {x: 7, y: 7}
+  knockbackDuration: 0.2
+  heavyKnockbackDuration: 0.5
+  heavyKnockbackThreshold: 0.3
 --- !u!114 &1377509249
 MonoBehaviour:
   m_ObjectHideFlags: 0

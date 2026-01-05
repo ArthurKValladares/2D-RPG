@@ -1,3 +1,4 @@
+using System.Collections;
 using Unity.IO.LowLevel.Unsafe;
 using UnityEngine;
 using UnityEngine.Windows;
@@ -11,6 +12,8 @@ public class Entity : MonoBehaviour
     
     protected bool facingRight = true;
 
+    public bool canOverrideMove = true;
+
     [Header("Entity Collision Detection")]
     [SerializeField] protected float groundCheckDistance;
     [SerializeField] protected float wallCheckDistance;
@@ -23,6 +26,8 @@ public class Entity : MonoBehaviour
     [field: SerializeField] public bool primaryWallDetected { get; protected set; }
     [field: SerializeField] public bool secondaryWallDetected { get; protected set; }
     [field: SerializeField] public bool wallsDetected { get; protected set; }
+
+    private Coroutine queuedPushedCoroutine;
 
     protected virtual void Awake()
     {
@@ -98,16 +103,44 @@ public class Entity : MonoBehaviour
 
     public void SetVelocityX(float xVel)
     {
+        if (!canOverrideMove) return;
+
         rb.linearVelocityX = xVel;
         HandleFlip(rb.linearVelocityX);
     }
     public void SetVelocityY(float yVel)
     {
+        if (!canOverrideMove) return;
+
         rb.linearVelocityY = yVel;
     }
     public void SetVelocity(float xVel, float yVel)
     {
         SetVelocityX(xVel);
         SetVelocityY(yVel);
+    }
+
+    private IEnumerator PushedCoroutine(Vector2 force, float duration, bool stopAfter)
+    {
+        canOverrideMove = false;
+        rb.linearVelocity = force;
+
+        yield return new WaitForSeconds(duration);
+
+        if (stopAfter)
+        {
+            rb.linearVelocity = Vector2.zero;
+        }
+        canOverrideMove = true;
+    }
+
+    public void ReceivePush(Vector2 force, float duration, bool stopAfter = true)
+    {
+        if (queuedPushedCoroutine != null)
+        {
+            StopCoroutine(queuedPushedCoroutine);
+        }
+
+        queuedPushedCoroutine = StartCoroutine(PushedCoroutine(force, duration, stopAfter));
     }
 }
