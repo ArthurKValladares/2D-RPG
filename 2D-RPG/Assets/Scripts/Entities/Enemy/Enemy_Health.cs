@@ -15,8 +15,8 @@ public class Enemy_Health : Entity_Health
     {
         base.TakeDamage(damage, damageDealer);
 
-        if (damageDealer.GetComponent<Player>()) {
-            enemy.TryEnteringBattleState(damageDealer);
+        if (enemy.sm.currentState != enemy.deadState && damageDealer.GetComponent<Player>()) {
+            enemy.TryEnteringHurtState(damageDealer);
         }
     }
 }

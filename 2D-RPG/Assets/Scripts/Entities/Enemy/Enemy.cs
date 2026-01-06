@@ -6,6 +6,9 @@ public class Enemy : Entity
     public Enemy_MoveState moveState { get; protected set; }
     public Enemy_BattleState battleState { get; protected set; }
     public Enemy_AttackState attackState { get; protected set; }
+    public Enemy_HurtState hurtState { get; protected set; }
+    public Enemy_DeadState deadState { get; protected set; }
+
 
     [Header("Battle State")]
     public float battleMoveSpeed = 3.0f;
@@ -30,6 +33,16 @@ public class Enemy : Entity
         base.Awake();
     }
 
+    private void OnEnable()
+    {
+        Player.OnPlayerDeath += HandlePlayerDeath;
+    }
+
+    private void OnDisable()
+    {
+        Player.OnPlayerDeath -= HandlePlayerDeath;
+    }
+
     public Transform TryGettingPlayerTransform()
     {
         if (!player)
@@ -41,12 +54,12 @@ public class Enemy : Entity
         }
     }
 
-    public void TryEnteringBattleState(Transform player)
+    public void TryEnteringHurtState(Transform player)
     {
-        if (sm.currentState == battleState || sm.currentState == attackState) return;
+        if (sm.currentState == hurtState || sm.currentState == attackState) return;
 
         this.player = player;
-        sm.ChangeState(battleState);
+        sm.ChangeState(hurtState);
     }
 
     public RaycastHit2D PlayerDetection()
@@ -72,5 +85,18 @@ public class Enemy : Entity
         Gizmos.DrawLine(playerCheck.position, playerCheck.position + new Vector3(attackDistance * FacingDirScale(), 0, 0));
         Gizmos.color = Color.green;
         Gizmos.DrawLine(playerCheck.position, playerCheck.position + new Vector3(minRetreatDistance * FacingDirScale(), 0, 0));
+    }
+
+    public override void EntityDeath()
+    {
+        base.EntityDeath();
+
+        sm.ChangeState(deadState);
+    }
+
+    private void HandlePlayerDeath()
+    {
+        player = null;
+        sm.ChangeState(idleState);
     }
 }

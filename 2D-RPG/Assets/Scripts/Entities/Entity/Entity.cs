@@ -143,4 +143,8 @@ public class Entity : MonoBehaviour
 
         queuedPushedCoroutine = StartCoroutine(PushedCoroutine(force, duration, stopAfter));
     }
+
+    public virtual void EntityDeath()
+    {
+    }
 }

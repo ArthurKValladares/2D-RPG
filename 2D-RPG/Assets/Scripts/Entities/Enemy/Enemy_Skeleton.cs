@@ -10,6 +10,8 @@ public class Enemy_Skeleton : Enemy
         moveState = new Enemy_MoveState(this);
         attackState = new Enemy_AttackState(this);
         battleState = new Enemy_BattleState(this);
+        hurtState = new Enemy_HurtState(this);
+        deadState = new Enemy_DeadState(this);
 
         attackDistance = 2.0f;
     }

@@ -1,8 +1,11 @@
+using System;
 using System.Collections;
 using UnityEngine;
 
 public class Player : Entity
 {
+    public static event Action OnPlayerDeath;
+    
     public PlayerInputSet input { get; private set; }
     public Vector2 moveInput { get; private set; }
 
@@ -16,6 +19,8 @@ public class Player : Entity
     public Player_BasicAttackState basicAttackState { get; private set; }
     public Player_JumpAttackState jumpAttackState { get; private set; }
     public Player_LaunchAttackState launchAttackState { get; private set; }
+    public Player_HurtState hurtState { get; private set; }
+    public Player_DeadState deadState { get; private set; }
 
     public float originalGravityscale { get; private set; }
 
@@ -55,6 +60,8 @@ public class Player : Entity
         basicAttackState = new Player_BasicAttackState(this);
         jumpAttackState = new Player_JumpAttackState(this);
         launchAttackState = new Player_LaunchAttackState(this);
+        hurtState = new Player_HurtState(this);
+        deadState = new Player_DeadState(this);
 
         attackVelocities[0] = new Vector2(3.0f, 1.5f);
         attackVelocities[1] = new Vector2(1.5f, 1.5f);
@@ -99,5 +106,20 @@ public class Player : Entity
         yield return new WaitForEndOfFrame();
 
         sm.ChangeState(basicAttackState);
+    }
+
+    public void TryEnteringHurtState()
+    {
+        if (sm.currentState == hurtState) return;
+
+        sm.ChangeState(hurtState);
+    }
+
+    public override void EntityDeath()
+    {
+        base.EntityDeath();
+
+        sm.ChangeState(deadState);
+        OnPlayerDeath?.Invoke();
     }
 }

@@ -29,11 +29,13 @@ public class Entity_Health : MonoBehaviour
         float knockbackDirScale = (transform.position.x > damageDealer.position.x)
                 ? 1.0f
                 : -1.0f;
-        return new Vector2(knockbackForce.x * knockbackDirScale, knockbackForce.y);
+        return new Vector2(knockback.x * knockbackDirScale, knockback.y);
     }
 
     public virtual void TakeDamage(int damage, Transform damageDealer)
     {
+        if (currentHealth < 0) return;
+
         currentHealth -= damage;
 
         if (entity)
@@ -60,6 +62,6 @@ public class Entity_Health : MonoBehaviour
 
     protected void Die()
     {
-        Debug.Log("Entity died");
+        entity.EntityDeath();
     }
 }

@@ -13,7 +13,8 @@ public class Player_WallJumpState : Player_AiredState
 
         player.ReceivePush(
             new Vector2(player.wallJumpForce.x * -player.FacingDirScale(), player.wallJumpForce.y),
-            player.wallJumpNoMovementTimer
+            player.wallJumpNoMovementTimer,
+            false
         );
     }
 
