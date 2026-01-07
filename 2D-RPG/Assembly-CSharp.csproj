@@ -90,14 +90,15 @@
     <Compile Include="Assets\Scripts\Interfaces\IDamagable.cs" />
     <Compile Include="Assets\Scripts\StateMachine\EnemyStates\Enemy_DeadState.cs" />
     <Compile Include="Assets\Scripts\Entities\Entity\Entity_Combat.cs" />
+    <Compile Include="Assets\Scripts\VFX\VFX_AutoController.cs" />
     <Compile Include="Assets\Scripts\StateMachine\EnemyStates\Enemy_BattleState.cs" />
     <Compile Include="Assets\Scripts\StateMachine\PlayerStates\Player_IdleState.cs" />
     <Compile Include="Assets\Scripts\StateMachine\PlayerStates\Player_WallSlideState.cs" />
     <Compile Include="Assets\Scripts\StateMachine\EntityStates\EntityState.cs" />
     <Compile Include="Assets\Scripts\Entities\Player\Player.cs" />
     <Compile Include="Assets\Scripts\Entities\Entity\Entity_AnimationTriggers.cs" />
-    <Compile Include="Assets\Scripts\StateMachine\EnemyStates\Enemy_GroundedState.cs" />
     <Compile Include="Assets\Scripts\Entities\Chest\Chest.cs" />
+    <Compile Include="Assets\Scripts\StateMachine\EnemyStates\Enemy_GroundedState.cs" />
     <Compile Include="Assets\InputSystem\PlayerInputSet.cs" />
     <Compile Include="Assets\Scripts\StateMachine\PlayerStates\Player_GroundedState.cs" />
     <Compile Include="Assets\Scripts\StateMachine\PlayerStates\Player_FallState.cs" />

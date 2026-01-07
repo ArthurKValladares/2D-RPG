@@ -50507,12 +50507,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: aa98e1f4a93c2b548b55275fa6116516, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Entity_Combat
+  damage: 1
   targetCheckRadius: 1.2
   targetCheck: {fileID: 121001728}
   whatIsTarget:
     serializedVersion: 2
     m_Bits: 128
-  damage: 1
 --- !u!114 &1344131654
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -50546,6 +50546,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::Enemy_VFX
   onDamageMaterial: {fileID: 2100000, guid: 4a5dda86a53061d408958e415a4e6d61, type: 2}
   onDamageVFXDuration: 0.15
+  onHitTargetVFX: {fileID: 8417847197012983495, guid: 112aceac7e9e6fd479a94f6bcc7f01d0, type: 3}
+  onHitTargetColor: {r: 0.4433962, g: 0.4433962, b: 0.4433962, a: 1}
   attackAlert: {fileID: 207513933}
 --- !u!1 &1350776766
 GameObject:
@@ -50644,7 +50646,6 @@ MonoBehaviour:
   comboResetTime: 0.3
   launchAttackForce: {x: 8, y: 15}
   launchAttackDuration: 3
-  parryDuration: 0.1
 --- !u!4 &1377509244
 Transform:
   m_ObjectHideFlags: 0
@@ -50742,6 +50743,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::Entity_VFX
   onDamageMaterial: {fileID: 2100000, guid: 4a5dda86a53061d408958e415a4e6d61, type: 2}
   onDamageVFXDuration: 0.15
+  onHitTargetVFX: {fileID: 8417847197012983495, guid: 112aceac7e9e6fd479a94f6bcc7f01d0, type: 3}
+  onHitTargetColor: {r: 1, g: 0.96857584, b: 0, a: 1}
 --- !u!114 &1377509250
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -50773,12 +50776,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: eb1245b698872d24da2e6bdff20e3aa3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Player_Combat
+  damage: 1
   targetCheckRadius: 0.95
   targetCheck: {fileID: 691140534}
   whatIsTarget:
     serializedVersion: 2
     m_Bits: 64
-  damage: 1
+  parryRecoveryDuration: 0.2
 --- !u!1 &1474396422
 GameObject:
   m_ObjectHideFlags: 0
@@ -50876,85 +50880,6 @@ Transform:
   m_Children:
   - {fileID: 792381615}
   - {fileID: 1149052508}
-  m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &1488975879
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1488975882}
-  - component: {fileID: 1488975881}
-  - component: {fileID: 1488975880}
-  m_Layer: 0
-  m_Name: EventSystem
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!114 &1488975880
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1488975879}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 01614664b831546d2ae94a42149d80ac, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Unity.InputSystem::UnityEngine.InputSystem.UI.InputSystemUIInputModule
-  m_SendPointerHoverToParent: 1
-  m_MoveRepeatDelay: 0.5
-  m_MoveRepeatRate: 0.1
-  m_XRTrackingOrigin: {fileID: 0}
-  m_ActionsAsset: {fileID: -944628639613478452, guid: ca9f5fa95ffab41fb9a615ab714db018, type: 3}
-  m_PointAction: {fileID: -1654692200621890270, guid: ca9f5fa95ffab41fb9a615ab714db018, type: 3}
-  m_MoveAction: {fileID: -8784545083839296357, guid: ca9f5fa95ffab41fb9a615ab714db018, type: 3}
-  m_SubmitAction: {fileID: 392368643174621059, guid: ca9f5fa95ffab41fb9a615ab714db018, type: 3}
-  m_CancelAction: {fileID: 7727032971491509709, guid: ca9f5fa95ffab41fb9a615ab714db018, type: 3}
-  m_LeftClickAction: {fileID: 3001919216989983466, guid: ca9f5fa95ffab41fb9a615ab714db018, type: 3}
-  m_MiddleClickAction: {fileID: -2185481485913320682, guid: ca9f5fa95ffab41fb9a615ab714db018, type: 3}
-  m_RightClickAction: {fileID: -4090225696740746782, guid: ca9f5fa95ffab41fb9a615ab714db018, type: 3}
-  m_ScrollWheelAction: {fileID: 6240969308177333660, guid: ca9f5fa95ffab41fb9a615ab714db018, type: 3}
-  m_TrackedDevicePositionAction: {fileID: 6564999863303420839, guid: ca9f5fa95ffab41fb9a615ab714db018, type: 3}
-  m_TrackedDeviceOrientationAction: {fileID: 7970375526676320489, guid: ca9f5fa95ffab41fb9a615ab714db018, type: 3}
-  m_DeselectOnBackgroundClick: 1
-  m_PointerBehavior: 0
-  m_CursorLockBehavior: 0
-  m_ScrollDeltaPerTick: 6
---- !u!114 &1488975881
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1488975879}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 76c392e42b5098c458856cdf6ecaaaa1, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: UnityEngine.UI::UnityEngine.EventSystems.EventSystem
-  m_FirstSelected: {fileID: 0}
-  m_sendNavigationEvents: 1
-  m_DragThreshold: 10
---- !u!4 &1488975882
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1488975879}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1638764518
@@ -51335,6 +51260,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::Entity_VFX
   onDamageMaterial: {fileID: 2100000, guid: 4a5dda86a53061d408958e415a4e6d61, type: 2}
   onDamageVFXDuration: 0.15
+  onHitTargetVFX: {fileID: 0}
+  onHitTargetColor: {r: 1, g: 1, b: 1, a: 1}
 --- !u!1 &2072829375
 GameObject:
   m_ObjectHideFlags: 0
@@ -51473,4 +51400,3 @@ SceneRoots:
   - {fileID: 1481667528}
   - {fileID: 1344131650}
   - {fileID: 2028749008}
-  - {fileID: 1488975882}

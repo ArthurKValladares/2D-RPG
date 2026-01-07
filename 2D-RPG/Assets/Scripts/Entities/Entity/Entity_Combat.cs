@@ -2,11 +2,19 @@ using UnityEngine;
 
 public class Entity_Combat : MonoBehaviour
 {
+    private Entity_VFX entityVFX;
+
+    [SerializeField] private int damage;
+
     [Header("Target Detection")]
     [SerializeField] private float targetCheckRadius;
     [SerializeField] private Transform targetCheck;
     [SerializeField] private LayerMask whatIsTarget;
-    [SerializeField] private int damage;
+
+    private void Awake()
+    {
+        entityVFX = GetComponent<Entity_VFX>();
+    }
 
     public void PerformAttack()
     {
@@ -16,6 +24,7 @@ public class Entity_Combat : MonoBehaviour
             if (damagable != null)
             {
                 damagable.TakeDamage(damage, transform);
+                entityVFX.CreateOnHitTargetVFX(target.transform);
             }
         }
     }
