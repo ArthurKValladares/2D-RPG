@@ -2,6 +2,7 @@ using System.Collections;
 using Unity.IO.LowLevel.Unsafe;
 using UnityEngine;
 using UnityEngine.Windows;
+using System;
 
 public class Entity : MonoBehaviour
 {
@@ -28,6 +29,8 @@ public class Entity : MonoBehaviour
     [field: SerializeField] public bool wallsDetected { get; protected set; }
 
     private Coroutine queuedPushedCoroutine;
+
+    public event Action onFlipped;
 
     protected virtual void Awake()
     {
@@ -99,6 +102,8 @@ public class Entity : MonoBehaviour
     {
         transform.Rotate(0, 180, 0);
         facingRight = !facingRight;
+
+        onFlipped?.Invoke();
     }
 
     public void SetVelocityX(float xVel)

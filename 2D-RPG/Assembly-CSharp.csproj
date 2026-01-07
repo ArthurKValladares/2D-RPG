@@ -84,6 +84,7 @@
     <Compile Include="Assets\Scripts\StateMachine\EnemyStates\Enemy_MoveState.cs" />
     <Compile Include="Assets\Scripts\StateMachine\PlayerStates\Player_ParryState.cs" />
     <Compile Include="Assets\Scripts\Entities\Enemy\Enemy_Skeleton.cs" />
+    <Compile Include="Assets\Scripts\UI\UI_MiniHealthBar.cs" />
     <Compile Include="Assets\Scripts\Entities\Enemy\Enemy.cs" />
     <Compile Include="Assets\Scripts\Parallax\ParallaxLayer.cs" />
     <Compile Include="Assets\Scripts\StateMachine\EnemyStates\Enemy_IdleState.cs" />
