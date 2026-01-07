@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class Entity_Health : MonoBehaviour
+public class Entity_Health : MonoBehaviour, IDamagable
 {
     Entity entity;
     Entity_VFX vfxComponent;
@@ -24,14 +24,6 @@ public class Entity_Health : MonoBehaviour
         vfxComponent = GetComponent<Entity_VFX>();
     }
 
-    private Vector2 GetScaledKnockback(Vector2 knockback, Transform damageDealer)
-    {
-        float knockbackDirScale = (transform.position.x > damageDealer.position.x)
-                ? 1.0f
-                : -1.0f;
-        return new Vector2(knockback.x * knockbackDirScale, knockback.y);
-    }
-
     public virtual void TakeDamage(int damage, Transform damageDealer)
     {
         if (currentHealth < 0) return;
@@ -41,12 +33,12 @@ public class Entity_Health : MonoBehaviour
         if (entity)
         {
             Vector2 knockbackToApply = knockbackForce;
-            if (((float) damage / maxHealth) >= heavyKnockbackThreshold)
+            if (((float)damage / maxHealth) >= heavyKnockbackThreshold)
             {
                 knockbackToApply = heavyKnockbackForce;
             }
 
-            entity.ReceivePush(GetScaledKnockback(knockbackToApply, damageDealer), knockbackDuration);
+            entity.ReceivePush(IDamagable.GetKnockbackForceAwayFromDamage(knockbackToApply, transform, damageDealer), knockbackDuration);
         }
 
         if (vfxComponent)

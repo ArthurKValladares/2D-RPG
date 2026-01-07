@@ -26,6 +26,9 @@ public class Player_GroundedState : PlayerState
         } else if (player.input.Player.LaunchAttack.WasPressedThisFrame())
         {
             player.sm.ChangeState(player.launchAttackState);
+        } else if (player.input.Player.Parry.WasPressedThisFrame())
+        {
+            player.sm.ChangeState(player.parryState);
         }
     }
 }

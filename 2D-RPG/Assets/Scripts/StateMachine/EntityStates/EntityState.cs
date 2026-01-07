@@ -25,6 +25,11 @@ public abstract class EntityState
         UpdateAnimationParameters();
     }
 
+    public bool TimerDone()
+    {
+        return stateTimer <= 0.0f;
+    }
+
     public void StateEnded()
     {
         stateEnded = true;

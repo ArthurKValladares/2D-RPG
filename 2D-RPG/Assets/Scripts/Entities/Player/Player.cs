@@ -21,6 +21,7 @@ public class Player : Entity
     public Player_LaunchAttackState launchAttackState { get; private set; }
     public Player_HurtState hurtState { get; private set; }
     public Player_DeadState deadState { get; private set; }
+    public Player_ParryState parryState { get; private set; }
 
     public float originalGravityscale { get; private set; }
 
@@ -41,6 +42,7 @@ public class Player : Entity
     public float comboResetTime = 0.3f;
     private Coroutine queuedAttackCoroutine;
     public Vector2 launchAttackForce = new(8.0f, 15.0f);
+    public float launchAttackDuration = 3.0f;
 
     protected override void Awake()
     {
@@ -62,6 +64,7 @@ public class Player : Entity
         launchAttackState = new Player_LaunchAttackState(this);
         hurtState = new Player_HurtState(this);
         deadState = new Player_DeadState(this);
+        parryState = new Player_ParryState(this);
 
         attackVelocities[0] = new Vector2(3.0f, 1.5f);
         attackVelocities[1] = new Vector2(1.5f, 1.5f);

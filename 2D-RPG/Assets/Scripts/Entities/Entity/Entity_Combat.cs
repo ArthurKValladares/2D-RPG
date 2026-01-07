@@ -10,22 +10,22 @@ public class Entity_Combat : MonoBehaviour
 
     public void PerformAttack()
     {
-        foreach (Collider2D targets in GetDetectedColliders())
+        foreach (Collider2D target in GetDetectedColliders())
         {
-            Entity_Health healthComponent = targets.GetComponent<Entity_Health>();
-            if (healthComponent)
+            IDamagable damagable = target.GetComponent<IDamagable>();
+            if (damagable != null)
             {
-                healthComponent.TakeDamage(damage, transform);
+                damagable.TakeDamage(damage, transform);
             }
         }
     }
 
-    private Collider2D[] GetDetectedColliders()
+    protected Collider2D[] GetDetectedColliders()
     {
         return Physics2D.OverlapCircleAll(targetCheck.position, targetCheckRadius, whatIsTarget);
     }
 
-    private void OnDrawGizmos()
+    protected virtual void OnDrawGizmos()
     {
         Gizmos.DrawWireSphere(targetCheck.position, targetCheckRadius);
     }

@@ -8,6 +8,7 @@ public class Enemy : Entity
     public Enemy_AttackState attackState { get; protected set; }
     public Enemy_HurtState hurtState { get; protected set; }
     public Enemy_DeadState deadState { get; protected set; }
+    public Enemy_StunnedState stunnedState { get; protected set; }
 
 
     [Header("Battle State")]
@@ -27,6 +28,12 @@ public class Enemy : Entity
     [SerializeField] protected Transform playerCheck;
     [SerializeField] protected LayerMask whatIsPlayer;
     public Transform player { get; private set; }
+
+    // TODO: A lot of this will depend on the attack source later, but this is fine for now
+    [Header("Stunned Details")]
+    public float stunnedDuration;
+    public Vector2 stunnedVelocity;
+    [SerializeField] protected bool canBeStunned;
 
     protected override void Awake()
     {
@@ -98,5 +105,10 @@ public class Enemy : Entity
     {
         player = null;
         sm.ChangeState(idleState);
+    }
+
+    public void EnableCounterWindow(bool enable)
+    {
+        canBeStunned = enable;
     }
 }
