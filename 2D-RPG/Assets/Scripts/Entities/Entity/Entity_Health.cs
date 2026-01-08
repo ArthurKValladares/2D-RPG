@@ -7,8 +7,9 @@ public class Entity_Health : MonoBehaviour, IDamagable
     private Entity_VFX vfxComponent;
     private Slider healthBar;
 
+    [SerializeField] private Entity_Stats stats;
+
     [Header("Health Details")]
-    [SerializeField] protected int maxHealth;
     [SerializeField] protected int currentHealth;
 
     [Header("On-hit Knockback Details")]
@@ -23,8 +24,9 @@ public class Entity_Health : MonoBehaviour, IDamagable
         entity = GetComponent<Entity>();
         vfxComponent = GetComponent<Entity_VFX>();
         healthBar = GetComponentInChildren<Slider>();
+        stats = GetComponentInChildren<Entity_Stats>();
 
-        currentHealth = maxHealth;
+        currentHealth = stats.CalculateMaxHP();
         UpdateHealthBar();
     }
 
@@ -38,7 +40,7 @@ public class Entity_Health : MonoBehaviour, IDamagable
         if (entity)
         {
             Vector2 knockbackToApply = knockbackForce;
-            if (((float)damage / maxHealth) >= heavyKnockbackThreshold)
+            if (((float)damage / stats.CalculateMaxHP()) >= heavyKnockbackThreshold)
             {
                 knockbackToApply = heavyKnockbackForce;
             }
@@ -61,7 +63,7 @@ public class Entity_Health : MonoBehaviour, IDamagable
     {
         if (healthBar == null) return;
 
-        healthBar.value = (float) currentHealth / maxHealth;
+        healthBar.value = (float) currentHealth / stats.CalculateMaxHP();
     }
 
     protected void Die()

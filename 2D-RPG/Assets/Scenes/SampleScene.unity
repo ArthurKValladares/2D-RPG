@@ -50501,6 +50501,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1344131650}
+  - component: {fileID: 1344131656}
   - component: {fileID: 1344131654}
   - component: {fileID: 1344131655}
   - component: {fileID: 1344131653}
@@ -50670,7 +50671,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2f74e6127e95cad4c8cc728751004543, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Enemy_Health
-  maxHealth: 3
+  stats: {fileID: 0}
   currentHealth: 0
   heavyKnockbackThreshold: 0.3
   knockbackForce: {x: 1.5, y: 2.5}
@@ -50694,6 +50695,23 @@ MonoBehaviour:
   onHitTargetVFX: {fileID: 8417847197012983495, guid: 112aceac7e9e6fd479a94f6bcc7f01d0, type: 3}
   onHitTargetColor: {r: 0.4433962, g: 0.4433962, b: 0.4433962, a: 1}
   attackAlert: {fileID: 821280915}
+--- !u!114 &1344131656
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1344131648}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6074247bc32d27044b69c5f4dd265f43, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Entity_Stats
+  baseHP:
+    baseValue: 3
+  vitality:
+    baseValue: 0
+  vitalityHealthMultiplier: 1
 --- !u!1 &1350776766
 GameObject:
   m_ObjectHideFlags: 0
@@ -50738,6 +50756,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1377509244}
   - component: {fileID: 1377509249}
+  - component: {fileID: 1377509252}
   - component: {fileID: 1377509250}
   - component: {fileID: 1377509251}
   - component: {fileID: 1377509243}
@@ -50903,7 +50922,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a224c92b2147fc142817dfc5e935d066, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Player_Health
-  maxHealth: 5
+  stats: {fileID: 0}
   currentHealth: 0
   heavyKnockbackThreshold: 0.3
   knockbackForce: {x: 1.5, y: 2.5}
@@ -50929,6 +50948,23 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 64
   parryRecoveryDuration: 0.2
+--- !u!114 &1377509252
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1377509242}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6074247bc32d27044b69c5f4dd265f43, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Entity_Stats
+  baseHP:
+    baseValue: 3
+  vitality:
+    baseValue: 2
+  vitalityHealthMultiplier: 1
 --- !u!1 &1474396422
 GameObject:
   m_ObjectHideFlags: 0
