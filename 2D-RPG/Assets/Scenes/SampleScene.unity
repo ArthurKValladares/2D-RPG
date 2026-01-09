@@ -50492,6 +50492,11 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!1 &1311138947 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 9164517300847907187, guid: 8c6d40b58ea18ef479551699c0323c8a, type: 3}
+  m_PrefabInstance: {fileID: 231103133}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1344131648
 GameObject:
   m_ObjectHideFlags: 0
@@ -50653,7 +50658,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: aa98e1f4a93c2b548b55275fa6116516, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Entity_Combat
-  damage: 1
   targetCheckRadius: 1.2
   targetCheck: {fileID: 121001728}
   whatIsTarget:
@@ -50671,7 +50675,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2f74e6127e95cad4c8cc728751004543, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Enemy_Health
-  stats: {fileID: 0}
+  healthBarObject: {fileID: 1836009862}
   currentHealth: 0
   heavyKnockbackThreshold: 0.3
   knockbackForce: {x: 1.5, y: 2.5}
@@ -50694,6 +50698,7 @@ MonoBehaviour:
   onDamageVFXDuration: 0.15
   onHitTargetVFX: {fileID: 8417847197012983495, guid: 112aceac7e9e6fd479a94f6bcc7f01d0, type: 3}
   onHitTargetColor: {r: 0.4433962, g: 0.4433962, b: 0.4433962, a: 1}
+  onCritHitTargetVFX: {fileID: 8958994509587034946, guid: 3dcb559b7a6534a4d83f95d66be1ee8f, type: 3}
   attackAlert: {fileID: 821280915}
 --- !u!114 &1344131656
 MonoBehaviour:
@@ -50707,11 +50712,52 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6074247bc32d27044b69c5f4dd265f43, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Entity_Stats
-  baseHP:
-    baseValue: 3
-  vitality:
-    baseValue: 0
-  vitalityHealthMultiplier: 1
+  majorStats:
+    strength:
+      baseValue: 0
+    agility:
+      baseValue: 0
+    intelligence:
+      baseValue: 0
+    vitality:
+      baseValue: 0
+  offensiveStats:
+    physicalDamage:
+      baseValue: 50
+    critPower:
+      baseValue: 0
+    critChance:
+      baseValue: 0
+    armorReduction:
+      baseValue: 0
+    fireDamage:
+      baseValue: 0
+    iceDamage:
+      baseValue: 0
+    lightningDamage:
+      baseValue: 0
+  deffensiveStats:
+    health:
+      baseValue: 150
+    armor:
+      baseValue: 0
+    evasion:
+      baseValue: 0
+    fireResistance:
+      baseValue: 0
+    iceResistance:
+      baseValue: 0
+    lightningResistance:
+      baseValue: 0
+  vitalityHealthMultiplier: 5
+  vitalityArmorMultiplier: 1
+  agilityEvasionMultiplier: 0.5
+  agilityCritChanceMultiplier: 0.3
+  strengthDamageMultiplier: 1
+  strengthCritPowerMultiplier: 0.5
+  maxEvasion: 85
+  armorMitigationConstant: 100
+  armorMitigationCap: 85
 --- !u!1 &1350776766
 GameObject:
   m_ObjectHideFlags: 0
@@ -50910,6 +50956,7 @@ MonoBehaviour:
   onDamageVFXDuration: 0.15
   onHitTargetVFX: {fileID: 8417847197012983495, guid: 112aceac7e9e6fd479a94f6bcc7f01d0, type: 3}
   onHitTargetColor: {r: 1, g: 0.96857584, b: 0, a: 1}
+  onCritHitTargetVFX: {fileID: 8958994509587034946, guid: 3dcb559b7a6534a4d83f95d66be1ee8f, type: 3}
 --- !u!114 &1377509250
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -50922,7 +50969,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a224c92b2147fc142817dfc5e935d066, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Player_Health
-  stats: {fileID: 0}
+  healthBarObject: {fileID: 1311138947}
   currentHealth: 0
   heavyKnockbackThreshold: 0.3
   knockbackForce: {x: 1.5, y: 2.5}
@@ -50941,7 +50988,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: eb1245b698872d24da2e6bdff20e3aa3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Player_Combat
-  damage: 1
   targetCheckRadius: 0.95
   targetCheck: {fileID: 691140534}
   whatIsTarget:
@@ -50960,11 +51006,52 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6074247bc32d27044b69c5f4dd265f43, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Entity_Stats
-  baseHP:
-    baseValue: 3
-  vitality:
-    baseValue: 2
-  vitalityHealthMultiplier: 1
+  majorStats:
+    strength:
+      baseValue: 0
+    agility:
+      baseValue: 0
+    intelligence:
+      baseValue: 0
+    vitality:
+      baseValue: 0
+  offensiveStats:
+    physicalDamage:
+      baseValue: 50
+    critPower:
+      baseValue: 0
+    critChance:
+      baseValue: 0
+    armorReduction:
+      baseValue: 0
+    fireDamage:
+      baseValue: 0
+    iceDamage:
+      baseValue: 0
+    lightningDamage:
+      baseValue: 0
+  deffensiveStats:
+    health:
+      baseValue: 250
+    armor:
+      baseValue: 0
+    evasion:
+      baseValue: 0
+    fireResistance:
+      baseValue: 0
+    iceResistance:
+      baseValue: 0
+    lightningResistance:
+      baseValue: 0
+  vitalityHealthMultiplier: 5
+  vitalityArmorMultiplier: 1
+  agilityEvasionMultiplier: 0.5
+  agilityCritChanceMultiplier: 0.3
+  strengthDamageMultiplier: 1
+  strengthCritPowerMultiplier: 0.5
+  maxEvasion: 85
+  armorMitigationConstant: 100
+  armorMitigationCap: 85
 --- !u!1 &1474396422
 GameObject:
   m_ObjectHideFlags: 0
@@ -51205,6 +51292,11 @@ Transform:
   m_Children: []
   m_Father: {fileID: 1344131650}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1836009862 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 9164517300847907187, guid: 8c6d40b58ea18ef479551699c0323c8a, type: 3}
+  m_PrefabInstance: {fileID: 5513547012242856170}
+  m_PrefabAsset: {fileID: 0}
 --- !u!224 &1848598738 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 211866216687131151, guid: 8c6d40b58ea18ef479551699c0323c8a, type: 3}
@@ -51348,6 +51440,7 @@ MonoBehaviour:
   onDamageVFXDuration: 0.15
   onHitTargetVFX: {fileID: 0}
   onHitTargetColor: {r: 1, g: 1, b: 1, a: 1}
+  onCritHitTargetVFX: {fileID: 0}
 --- !u!1 &2072829375
 GameObject:
   m_ObjectHideFlags: 0
@@ -51571,6 +51664,10 @@ PrefabInstance:
       propertyPath: m_PresetInfoIsWorld
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 7090021718978859443, guid: 8c6d40b58ea18ef479551699c0323c8a, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 8201974873933273135, guid: 8c6d40b58ea18ef479551699c0323c8a, type: 3}
       propertyPath: m_AnchorMax.x
       value: 0
@@ -51582,6 +51679,10 @@ PrefabInstance:
     - target: {fileID: 9164517300847907187, guid: 8c6d40b58ea18ef479551699c0323c8a, type: 3}
       propertyPath: m_Name
       value: HealthBar_UI
+      objectReference: {fileID: 0}
+    - target: {fileID: 9164517300847907187, guid: 8c6d40b58ea18ef479551699c0323c8a, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

@@ -6,11 +6,12 @@ public class Entity_Health : MonoBehaviour, IDamagable
     private Entity entity;
     private Entity_VFX vfxComponent;
     private Slider healthBar;
+    [SerializeField] private GameObject healthBarObject;
 
-    [SerializeField] private Entity_Stats stats;
+    private Entity_Stats stats;
 
     [Header("Health Details")]
-    [SerializeField] protected int currentHealth;
+    [SerializeField] protected float currentHealth;
 
     [Header("On-hit Knockback Details")]
     [SerializeField] private float heavyKnockbackThreshold;
@@ -26,26 +27,34 @@ public class Entity_Health : MonoBehaviour, IDamagable
         healthBar = GetComponentInChildren<Slider>();
         stats = GetComponentInChildren<Entity_Stats>();
 
-        currentHealth = stats.CalculateMaxHP();
-        UpdateHealthBar();
+        SetHP(stats.CalculateMaxHP());
     }
 
-    public virtual void TakeDamage(int damage, Transform damageDealer)
+    public virtual bool TakeDamage(float damage, Transform damageDealer)
     {
-        if (currentHealth < 0) return;
+        if (currentHealth <= 0.0f) return false;
+        if (AttackEvaded())
+        {
+            // TODO: Evasion effect
+            return false;
+        }
 
-        currentHealth -= damage;
-        UpdateHealthBar();
+        Entity_Stats attackerStats = damageDealer.GetComponent<Entity_Stats>();
+        float armorReduction = attackerStats != null
+            ? attackerStats.GetArmorReduction()
+            : 0.0f;
+
+        float mitigation = stats.GetArmorMitigation(armorReduction);
+        float finalDamage = damage * (1.0f - mitigation);
+        Debug.Log(finalDamage);
+
+        ReduceHP(finalDamage);
 
         if (entity)
         {
-            Vector2 knockbackToApply = knockbackForce;
-            if (((float)damage / stats.CalculateMaxHP()) >= heavyKnockbackThreshold)
-            {
-                knockbackToApply = heavyKnockbackForce;
-            }
-
-            entity.ReceivePush(IDamagable.GetKnockbackForceAwayFromDamage(knockbackToApply, transform, damageDealer), knockbackDuration);
+            Vector2 force = GetKnockbackForce(finalDamage, damageDealer);
+            float duration = GetKnockbackDuration(finalDamage);
+            entity.ReceivePush(force, duration);
         }
 
         if (vfxComponent)
@@ -53,10 +62,52 @@ public class Entity_Health : MonoBehaviour, IDamagable
             vfxComponent.PlayOnDamageVFX();
         }
 
-        if (currentHealth <= 0)
+        if (currentHealth <= 0.0f)
         {
             Die();
         }
+
+        return true;
+    }
+
+    private bool IsHeavyAttack(float damage)
+    {
+        float damageHealthPercentage = damage / stats.CalculateMaxHP();
+        return damageHealthPercentage > heavyKnockbackThreshold;
+    }
+
+    private Vector2 GetKnockbackForce(float damage, Transform damageDealer)
+    {
+        Vector2 knockback = IsHeavyAttack(damage)
+            ? heavyKnockbackForce
+            : knockbackForce;
+
+        return IDamagable.GetKnockbackForceAwayFromDamage(knockback, transform, damageDealer);
+    }
+
+    private float GetKnockbackDuration(float damage)
+    {
+        return IsHeavyAttack(damage)
+            ? heavyKnockbackDuration
+            : knockbackDuration;
+    }
+
+    private bool AttackEvaded()
+    {
+        float evasion = stats.CalculateEvasion();
+        return Random.Range(0.0f, 1.0f) < evasion; 
+    }
+
+    private void SetHP(float hp)
+    {
+        currentHealth = hp;
+        UpdateHealthBar();
+    }
+
+    private void ReduceHP(float damage)
+    {
+        currentHealth -= damage;
+        UpdateHealthBar();
     }
 
     private void UpdateHealthBar()
@@ -66,8 +117,12 @@ public class Entity_Health : MonoBehaviour, IDamagable
         healthBar.value = (float) currentHealth / stats.CalculateMaxHP();
     }
 
-    protected void Die()
+    protected virtual void Die()
     {
         entity.EntityDeath();
+
+        if (healthBarObject) {
+            healthBarObject.SetActive(false);
+        }
     }
 }

@@ -64,8 +64,11 @@
     <Compile Include="Assets\Scripts\StateMachine\PlayerStates\Player_LaunchAttackState.cs" />
     <Compile Include="Assets\Scripts\StateMachine\EnemyStates\Enemy_StunnedState.cs" />
     <Compile Include="Assets\Scripts\StateMachine\PlayerStates\Player_WallJumpState.cs" />
+    <Compile Include="Assets\Scripts\Entities\StatSystem\Stat.cs" />
     <Compile Include="Assets\Scripts\Entities\Player\Player_Combat.cs" />
+    <Compile Include="Assets\Scripts\Entities\StatSystem\Stat_DefensiveGroup.cs" />
     <Compile Include="Assets\Scripts\Entities\Entity\Entity_VFX.cs" />
+    <Compile Include="Assets\Scripts\Entities\StatSystem\Stat_OffensiveGroup.cs" />
     <Compile Include="Assets\Scripts\Entities\Enemy\Enemy_Health.cs" />
     <Compile Include="Assets\Scripts\Entities\Entity\Entity.cs" />
     <Compile Include="Assets\Scripts\Entities\Enemy\Enemy_VFX.cs" />
@@ -76,11 +79,11 @@
     <Compile Include="Assets\Scripts\StateMachine\EnemyStates\EnemyState.cs" />
     <Compile Include="Assets\Scripts\StateMachine\PlayerStates\Player_MoveState.cs" />
     <Compile Include="Assets\Scripts\StateMachine\PlayerStates\Player_JumpState.cs" />
+    <Compile Include="Assets\Scripts\Entities\StatSystem\Stat_MajorGroup.cs" />
     <Compile Include="Assets\Scripts\StateMachine\EnemyStates\Enemy_AttackState.cs" />
     <Compile Include="Assets\Scripts\StateMachine\PlayerStates\Player_DeadState.cs" />
     <Compile Include="Assets\Scripts\StateMachine\EnemyStates\Enemy_HurtState.cs" />
     <Compile Include="Assets\Scripts\StateMachine\PlayerStates\PlayerState.cs" />
-    <Compile Include="Assets\Scripts\Entities\Stat.cs" />
     <Compile Include="Assets\Scripts\StateMachine\StateMachine.cs" />
     <Compile Include="Assets\Scripts\StateMachine\PlayerStates\Player_DashState.cs" />
     <Compile Include="Assets\Scripts\StateMachine\EnemyStates\Enemy_MoveState.cs" />

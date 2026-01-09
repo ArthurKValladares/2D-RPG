@@ -11,6 +11,6 @@ public interface IDamagable
         return new Vector2(knockback.x * knockbackDirScale, knockback.y);
     }
 
-    public void TakeDamage(int damage, Transform damageDealer);
+    public bool TakeDamage(float damage, Transform damageDealer);
 }
 

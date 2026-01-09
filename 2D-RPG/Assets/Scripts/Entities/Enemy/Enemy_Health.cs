@@ -3,20 +3,31 @@ using UnityEngine;
 public class Enemy_Health : Entity_Health
 {
     Enemy enemy;
+    Enemy_VFX enemyVFX;
 
     override protected void Awake()
     {
         base.Awake();
 
         enemy = GetComponent<Enemy>();
+        enemyVFX = GetComponent<Enemy_VFX>();
     }
 
-    public override void TakeDamage(int damage, Transform damageDealer)
+    public override bool TakeDamage(float damage, Transform damageDealer)
     {
-        base.TakeDamage(damage, damageDealer);
+        bool tookDamage = base.TakeDamage(damage, damageDealer);
 
-        if (enemy.sm.currentState != enemy.deadState && damageDealer.GetComponent<Player>()) {
+        if (tookDamage && (enemy.sm.currentState != enemy.deadState) && damageDealer.GetComponent<Player>()) {
             enemy.TryEnteringHurtState(damageDealer);
         }
+
+        return tookDamage;
+    }
+
+    protected override void Die()
+    {
+        base.Die();
+
+        enemyVFX.EnableAttackAlert(false);
     }
 }

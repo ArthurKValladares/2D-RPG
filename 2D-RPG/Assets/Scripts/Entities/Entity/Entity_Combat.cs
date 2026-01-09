@@ -3,8 +3,7 @@ using UnityEngine;
 public class Entity_Combat : MonoBehaviour
 {
     private Entity_VFX entityVFX;
-
-    [SerializeField] private int damage;
+    private Entity_Stats stats;
 
     [Header("Target Detection")]
     [SerializeField] private float targetCheckRadius;
@@ -14,6 +13,7 @@ public class Entity_Combat : MonoBehaviour
     private void Awake()
     {
         entityVFX = GetComponent<Entity_VFX>();
+        stats = GetComponent<Entity_Stats>();
     }
 
     public void PerformAttack()
@@ -23,8 +23,12 @@ public class Entity_Combat : MonoBehaviour
             IDamagable damagable = target.GetComponent<IDamagable>();
             if (damagable != null)
             {
-                damagable.TakeDamage(damage, transform);
-                entityVFX.CreateOnHitTargetVFX(target.transform);
+                DamageInfo damageInfo = stats.CalculateDamage();
+                bool tookDamage = damagable.TakeDamage(damageInfo.damageResult, transform);
+                if (tookDamage)
+                {
+                    entityVFX.CreateOnHitTargetVFX(target.transform, damageInfo.wasCritical);
+                }
             }
         }
     }
