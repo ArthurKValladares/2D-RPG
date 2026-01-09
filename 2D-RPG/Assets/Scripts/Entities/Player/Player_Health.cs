@@ -11,9 +11,9 @@ public class Player_Health : Entity_Health
         player = GetComponent<Player>();
     }
 
-    public override bool TakeDamage(float damage, Transform damageDealer)
+    public override bool TakeDamage(float physicalDamage, ElementalDamageInfo elementalDamage, Transform damageDealer)
     {
-        bool tookDamage = base.TakeDamage(damage, damageDealer);
+        bool tookDamage = base.TakeDamage(physicalDamage, elementalDamage, damageDealer);
 
         if (tookDamage && player.sm.currentState != player.deadState)
         {

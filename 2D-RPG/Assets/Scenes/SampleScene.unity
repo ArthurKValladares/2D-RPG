@@ -50755,9 +50755,12 @@ MonoBehaviour:
   agilityCritChanceMultiplier: 0.3
   strengthDamageMultiplier: 1
   strengthCritPowerMultiplier: 0.5
+  intelligenceElementalDamageMultiplier: 1
+  intelligenceElementalResistMultiplier: 0.5
   maxEvasion: 85
   armorMitigationConstant: 100
   armorMitigationCap: 85
+  secondaryElementMultiplier: 0.5
 --- !u!1 &1350776766
 GameObject:
   m_ObjectHideFlags: 0
@@ -51025,7 +51028,7 @@ MonoBehaviour:
     armorReduction:
       baseValue: 0
     fireDamage:
-      baseValue: 0
+      baseValue: 10
     iceDamage:
       baseValue: 0
     lightningDamage:
@@ -51049,9 +51052,12 @@ MonoBehaviour:
   agilityCritChanceMultiplier: 0.3
   strengthDamageMultiplier: 1
   strengthCritPowerMultiplier: 0.5
+  intelligenceElementalDamageMultiplier: 1
+  intelligenceElementalResistMultiplier: 0.5
   maxEvasion: 85
   armorMitigationConstant: 100
   armorMitigationCap: 85
+  secondaryElementMultiplier: 0.5
 --- !u!1 &1474396422
 GameObject:
   m_ObjectHideFlags: 0

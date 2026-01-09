@@ -17,7 +17,7 @@ public class Chest : MonoBehaviour, IDamagable
         vfxComponent = GetComponentInChildren<Entity_VFX>();
     }
 
-    public bool TakeDamage(float _damage, Transform damageDealer)
+    public bool TakeDamage(float _damage, ElementalDamageInfo _elementalDamage, Transform damageDealer)
     {
         if (anim.GetBool("open")) return false;
 

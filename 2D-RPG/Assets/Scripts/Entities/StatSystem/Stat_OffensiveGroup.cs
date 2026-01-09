@@ -1,6 +1,14 @@
 using UnityEngine;
 using System;
 
+public enum ElementalDamageType
+{
+    None = 0,
+    Fire,
+    Ice,
+    Lightning
+};
+
 [Serializable]
 public class Stat_OffensiveGroup
 {

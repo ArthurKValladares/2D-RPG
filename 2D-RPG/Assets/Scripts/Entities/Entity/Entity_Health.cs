@@ -30,7 +30,32 @@ public class Entity_Health : MonoBehaviour, IDamagable
         SetHP(stats.CalculateMaxHP());
     }
 
-    public virtual bool TakeDamage(float damage, Transform damageDealer)
+    private float CalculateFinalPhysicalDamage(float physicalDamage, Entity_Stats attackerStats)
+    {
+        float armorReduction = attackerStats != null
+            ? attackerStats.GetArmorReduction()
+            : 0.0f;
+
+        float armorMitigation = stats.GetArmorMitigation(armorReduction);
+        float finalPhysicalDamage = physicalDamage * (1.0f - armorMitigation);
+
+        return finalPhysicalDamage;
+    }
+
+    private float CalculateFinalElementalDamage(ElementalDamageInfo elementalDamage)
+    {
+        float primaryElementalResistance = stats.GetElementalResistance(elementalDamage.primaryType);
+        float primaryElementalDamage = elementalDamage.primaryDamage * (1.0f - primaryElementalResistance);
+
+        float secondaryElementalResistance = stats.GetElementalResistance(elementalDamage.secondaryType);
+        float secondaryElementalDamage = elementalDamage.secondaryDamage * (1.0f - secondaryElementalResistance);
+
+        float finalElementalDamage = primaryElementalDamage + secondaryElementalDamage;
+
+        return finalElementalDamage;
+    }
+
+    public virtual bool TakeDamage(float physicalDamage, ElementalDamageInfo elementalDamage, Transform damageDealer)
     {
         if (currentHealth <= 0.0f) return false;
         if (AttackEvaded())
@@ -40,20 +65,19 @@ public class Entity_Health : MonoBehaviour, IDamagable
         }
 
         Entity_Stats attackerStats = damageDealer.GetComponent<Entity_Stats>();
-        float armorReduction = attackerStats != null
-            ? attackerStats.GetArmorReduction()
-            : 0.0f;
 
-        float mitigation = stats.GetArmorMitigation(armorReduction);
-        float finalDamage = damage * (1.0f - mitigation);
-        Debug.Log(finalDamage);
+        float finalPhysicalDamage = CalculateFinalPhysicalDamage(physicalDamage, attackerStats);
+        float finalElementalDamage = CalculateFinalElementalDamage(elementalDamage);
+
+        float finalDamage = finalPhysicalDamage + finalElementalDamage;
+        Debug.Log("Physical Damage: " + finalPhysicalDamage + " Elemental Damage: " + finalElementalDamage);
 
         ReduceHP(finalDamage);
 
         if (entity)
         {
-            Vector2 force = GetKnockbackForce(finalDamage, damageDealer);
-            float duration = GetKnockbackDuration(finalDamage);
+            Vector2 force = GetKnockbackForce(finalPhysicalDamage, damageDealer);
+            float duration = GetKnockbackDuration(finalPhysicalDamage);
             entity.ReceivePush(force, duration);
         }
 

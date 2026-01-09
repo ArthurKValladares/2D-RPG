@@ -29,11 +29,15 @@ public class Entity_Stats : MonoBehaviour
     public float agilityCritChanceMultiplier = 0.3f;
     public float strengthDamageMultiplier = 1;
     public float strengthCritPowerMultiplier = 0.5f;
-    
+    public float intelligenceElementalDamageMultiplier = 1.0f;
+    public float intelligenceElementalResistMultiplier = 0.5f;
+
     [Header("Stats Limits")]
     public float maxEvasion = 85.0f;
     public float armorMitigationConstant = 100;
     public float armorMitigationCap = 85.0f;
+    public float secondaryElementMultiplier = 0.5f;
+    public float elementalResistanceCap = 75.0f;
 
     public float CalculateMaxHP()
     {
@@ -94,7 +98,7 @@ public class Entity_Stats : MonoBehaviour
         return (baseCritChance + bonuesritChange) / 100.0f;
     }
 
-    public DamageInfo CalculateDamage()
+    public DamageInfo CalculatePhysicalDamage()
     {
         float baseDamage = offensiveStats.physicalDamage.GetValue();
         float bonusDamage = majorStats.strength.GetValue() * strengthDamageMultiplier;
@@ -102,8 +106,85 @@ public class Entity_Stats : MonoBehaviour
 
         bool wasCritical = Random.Range(0.0f, 1.0f) < GetCritChance();
 
-        float damageResult = wasCritical ? totalBaseDamage + (totalBaseDamage * GetCritPower()) : totalBaseDamage;
+        float damageResult = wasCritical ? totalBaseDamage * GetCritPower() : totalBaseDamage;
 
         return new DamageInfo(damageResult, wasCritical);
+    }
+
+    private float GetBaseElementalDamage(ElementalDamageType ty)
+    {
+        float damage = 0.0f;
+        switch (ty)
+        {
+            case ElementalDamageType.Fire:
+                {
+                    damage = offensiveStats.fireDamage.GetValue();
+                    break;
+                }
+            case ElementalDamageType.Ice:
+                {
+                    damage = offensiveStats.iceDamage.GetValue();
+                    break;
+                }
+            case ElementalDamageType.Lightning:
+                {
+                    damage = offensiveStats.lightningDamage.GetValue();
+                    break;
+                }
+        }
+        return damage;
+    }
+
+    private float CalculateElementalDamageImpl(ElementalDamageType ty)
+    {
+        float basePrimaryElementalDamage = GetBaseElementalDamage(ty);
+
+        float bonusElementalDamage = majorStats.intelligence.GetValue() * intelligenceElementalDamageMultiplier;
+
+        float totalPrimaryDamage = basePrimaryElementalDamage > 0.0 
+            ? basePrimaryElementalDamage + bonusElementalDamage
+            : 0.0f;
+
+        return totalPrimaryDamage;
+    }
+
+    public ElementalDamageInfo CalculateElementalDamage(ElementalDamageType primary, ElementalDamageType secondary = ElementalDamageType.None)
+    {
+        float primaryDamage = CalculateElementalDamageImpl(primary);
+        float secondaryDamage = CalculateElementalDamageImpl(secondary) * secondaryElementMultiplier;
+
+        return new ElementalDamageInfo(primaryDamage, primary, secondaryDamage, secondary);
+    }
+
+    private float GetBaseElementalResistance(ElementalDamageType ty)
+    {
+        float resistance = 0.0f;
+        switch (ty)
+        {
+            case ElementalDamageType.Fire:
+                {
+                    resistance = deffensiveStats.fireResistance.GetValue();
+                    break;
+                }
+            case ElementalDamageType.Ice:
+                {
+                    resistance = deffensiveStats.iceResistance.GetValue();
+                    break;
+                }
+            case ElementalDamageType.Lightning:
+                {
+                    resistance = deffensiveStats.lightningResistance.GetValue();
+                    break;
+                }
+        }
+        return resistance;
+    }
+
+    public float GetElementalResistance(ElementalDamageType ty)
+    {
+        float baseResistance = GetBaseElementalResistance(ty);
+        float bonusResistance = majorStats.intelligence.GetValue() * intelligenceElementalResistMultiplier;
+
+        return Mathf.Clamp(baseResistance + bonusResistance, 0, elementalResistanceCap) / 100.0f;
     }
 }
