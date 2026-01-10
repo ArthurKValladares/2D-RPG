@@ -14,6 +14,7 @@ public class Entity_StatusHandler : MonoBehaviour
     private Coroutine burnCoroutine;
     private Coroutine electrifyCoroutine;
 
+
     private void Awake()
     {
         entity = GetComponent<Entity>();
@@ -26,10 +27,15 @@ public class Entity_StatusHandler : MonoBehaviour
         return currentElement == ElementalDamageType.None;
     }
 
+    private float GetValueAfterResistance(float val, ElementalDamageType element)
+    {
+        float resistance = entityStats.GetElementalResistance(element);
+        return val * (1.0f - resistance);
+    }
+
     public void ApplyChillEffect(float duration, float slowPercentage)
     {
-        float iceResistance = entityStats.GetElementalResistance(ElementalDamageType.Ice);
-        float reducedDuration = duration * (1.0f - iceResistance);
+        float reducedDuration = GetValueAfterResistance(duration, ElementalDamageType.Ice);
 
         entity.SlowDownEntityBy(reducedDuration, slowPercentage);
 
@@ -37,18 +43,28 @@ public class Entity_StatusHandler : MonoBehaviour
         {
             StopCoroutine(chillCoroutine);
         }
-        chillCoroutine = StartCoroutine(ApplyEffectCoroutine(reducedDuration, ElementalDamageType.Ice));
+        chillCoroutine = StartCoroutine(ApplyEffectVFXCoroutine(reducedDuration, ElementalDamageType.Ice));
     }
 
-    public void ApplyBurnEffect(float duration, float damagePerTick)
+    public void ApplyBurnEffect(float duration, int ticksPerSecond, float totalDamage)
     {
+        float reducedDamage = GetValueAfterResistance(totalDamage, ElementalDamageType.Fire);
+
+        entity.ApplyDamagePerTick(duration, ticksPerSecond, reducedDamage);
+
+
+        if (burnCoroutine != null)
+        {
+            StopCoroutine(burnCoroutine);
+        }
+        burnCoroutine = StartCoroutine(ApplyEffectVFXCoroutine(duration, ElementalDamageType.Fire));
     }
 
     public void ApplyElectrifyEffect(float charge, float damageOnFullCharge)
     {
     }
 
-    private IEnumerator ApplyEffectCoroutine(float duration, ElementalDamageType element)
+    private IEnumerator ApplyEffectVFXCoroutine(float duration, ElementalDamageType element)
     {
         currentElement = element;
 

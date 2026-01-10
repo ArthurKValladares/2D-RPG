@@ -13,9 +13,8 @@ public class Entity_Combat : MonoBehaviour
     [Header("Status Effect Duration")]
     [SerializeField] private float defaultStatusDuration = 3.0f;
     [SerializeField] private float chillSlowPercentage = 0.5f;
-    [SerializeField] private float burnDamagePerTick = 1.0f;
+    [SerializeField] private int burnTicksPerSecond = 2;
     [SerializeField] private float electrifyChargePerApplication = 0.2f;
-    [SerializeField] private float electrifyDamage = 10.0f;
 
     private void Awake()
     {
@@ -32,7 +31,7 @@ public class Entity_Combat : MonoBehaviour
             {
                 DamageInfo physicalDamageInfo = stats.CalculatePhysicalDamage();
                 // TODO: Need to get from damage source
-                ElementalDamageInfo elementalInfo = stats.CalculateElementalDamage(ElementalDamageType.Ice);
+                ElementalDamageInfo elementalInfo = stats.CalculateElementalDamage(ElementalDamageType.Fire);
 
                 bool tookDamage = damagable.TakeDamage(physicalDamageInfo.damageResult, elementalInfo, transform);
                 if (tookDamage)
@@ -44,7 +43,7 @@ public class Entity_Combat : MonoBehaviour
         }
     }
 
-    private void ApplyStatusEffect(Collider2D target, ElementalDamageType ty)
+    private void ApplyStatusEffect(Collider2D target, ElementalDamageType ty, float scaleFactor = 1.0f)
     {
         if (ty == ElementalDamageType.None) return;
 
@@ -59,9 +58,11 @@ public class Entity_Combat : MonoBehaviour
                     statusHandler.ApplyChillEffect(defaultStatusDuration, chillSlowPercentage);
                     break;
                 case ElementalDamageType.Fire:
-                    statusHandler.ApplyBurnEffect(defaultStatusDuration, burnDamagePerTick);
+                    float burnDamage = stats.offensiveStats.fireDamage.GetValue() * scaleFactor;
+                    statusHandler.ApplyBurnEffect(defaultStatusDuration, burnTicksPerSecond, burnDamage);
                     break;
                 case ElementalDamageType.Lightning:
+                    float electrifyDamage = stats.offensiveStats.lightningDamage.GetValue() * scaleFactor;
                     statusHandler.ApplyElectrifyEffect(electrifyChargePerApplication, electrifyDamage);
                     break;
             }

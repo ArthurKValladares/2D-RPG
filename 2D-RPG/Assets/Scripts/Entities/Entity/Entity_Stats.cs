@@ -98,7 +98,7 @@ public class Entity_Stats : MonoBehaviour
         return (baseCritChance + bonuesritChange) / 100.0f;
     }
 
-    public DamageInfo CalculatePhysicalDamage()
+    public DamageInfo CalculatePhysicalDamage(float scaleFactor = 1.0f)
     {
         float baseDamage = offensiveStats.physicalDamage.GetValue();
         float bonusDamage = majorStats.strength.GetValue() * strengthDamageMultiplier;
@@ -107,8 +107,9 @@ public class Entity_Stats : MonoBehaviour
         bool wasCritical = Random.Range(0.0f, 1.0f) < GetCritChance();
 
         float damageResult = wasCritical ? totalBaseDamage * GetCritPower() : totalBaseDamage;
+        float scaledDamageResult = damageResult * scaleFactor;
 
-        return new DamageInfo(damageResult, wasCritical);
+        return new DamageInfo(scaledDamageResult, wasCritical);
     }
 
     private float GetBaseElementalDamage(ElementalDamageType ty)
@@ -148,10 +149,10 @@ public class Entity_Stats : MonoBehaviour
         return totalPrimaryDamage;
     }
 
-    public ElementalDamageInfo CalculateElementalDamage(ElementalDamageType primary, ElementalDamageType secondary = ElementalDamageType.None)
+    public ElementalDamageInfo CalculateElementalDamage(ElementalDamageType primary, ElementalDamageType secondary = ElementalDamageType.None, float scaleFactor = 1.0f)
     {
-        float primaryDamage = CalculateElementalDamageImpl(primary);
-        float secondaryDamage = CalculateElementalDamageImpl(secondary) * secondaryElementMultiplier;
+        float primaryDamage = CalculateElementalDamageImpl(primary) * scaleFactor;
+        float secondaryDamage = CalculateElementalDamageImpl(secondary) * secondaryElementMultiplier * scaleFactor;
 
         return new ElementalDamageInfo(primaryDamage, primary, secondaryDamage, secondary);
     }

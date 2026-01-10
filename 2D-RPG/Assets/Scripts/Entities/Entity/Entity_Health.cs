@@ -72,8 +72,6 @@ public class Entity_Health : MonoBehaviour, IDamagable
         float finalDamage = finalPhysicalDamage + finalElementalDamage;
         Debug.Log("Physical Damage: " + finalPhysicalDamage + " Elemental Damage: " + finalElementalDamage);
 
-        ReduceHP(finalDamage);
-
         if (entity)
         {
             Vector2 force = GetKnockbackForce(finalPhysicalDamage, damageDealer);
@@ -86,10 +84,7 @@ public class Entity_Health : MonoBehaviour, IDamagable
             vfxComponent.PlayOnDamageVFX();
         }
 
-        if (currentHealth <= 0.0f)
-        {
-            Die();
-        }
+        ReduceHP(finalDamage);
 
         return true;
     }
@@ -128,10 +123,15 @@ public class Entity_Health : MonoBehaviour, IDamagable
         UpdateHealthBar();
     }
 
-    private void ReduceHP(float damage)
+    public void ReduceHP(float damage)
     {
         currentHealth -= damage;
         UpdateHealthBar();
+
+        if (currentHealth <= 0.0f)
+        {
+            Die();
+        }
     }
 
     private void UpdateHealthBar()

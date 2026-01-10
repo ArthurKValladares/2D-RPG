@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using UnityEngine;
+using static Unity.IntegerTime.RationalTime;
 
 public class Entity : MonoBehaviour
 {
@@ -161,6 +162,31 @@ public class Entity : MonoBehaviour
     protected virtual IEnumerator SlowDownEntityByCoroutine(float duration, float slowPercentage)
     {
         yield return null;
+    }
+
+    public void ApplyDamagePerTick(float duration, int ticksPerSecond, float totalDamage)
+    {
+        StartCoroutine(ApplyDamagePerTickCoroutine(duration, ticksPerSecond, totalDamage));
+    }
+
+    protected virtual IEnumerator ApplyDamagePerTickCoroutine(float duration, int ticksPerSecond, float totalDamage)
+    {
+        Entity_Health entityHealth = GetComponent<Entity_Health>();
+        if (!entityHealth)
+        {
+            yield return null;
+        }
+
+        int tickCount = (int)Mathf.Floor(ticksPerSecond * duration);
+        float damagePerTick = totalDamage / tickCount;
+        float tickInterval = 1.0f / ticksPerSecond;
+
+        for (int i = 0; i < tickCount; ++i)
+        {
+            entityHealth.ReduceHP(damagePerTick);
+
+            yield return new WaitForSeconds(tickInterval);
+        }
     }
 
     public virtual void EntityDeath()

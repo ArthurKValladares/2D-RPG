@@ -50666,9 +50666,8 @@ MonoBehaviour:
     m_Bits: 128
   defaultStatusDuration: 3
   chillSlowPercentage: 0.5
-  burnDamagePerTick: 1
+  burnTicksPerSecond: 2
   electrifyChargePerApplication: 0.2
-  electrifyDamage: 10
 --- !u!114 &1344131654
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -50708,6 +50707,7 @@ MonoBehaviour:
   fireColor: {r: 1, g: 0, b: 0, a: 1}
   iceColor: {r: 0, g: 1, b: 1, a: 1}
   lightningColor: {r: 1, g: 0.92156863, b: 0.015686275, a: 1}
+  blinkingColorTicknterval: 0.25
   attackAlert: {fileID: 821280915}
 --- !u!114 &1344131656
 MonoBehaviour:
@@ -50747,7 +50747,7 @@ MonoBehaviour:
       baseValue: 0
   deffensiveStats:
     health:
-      baseValue: 1500
+      baseValue: 150
     armor:
       baseValue: 0
     evasion:
@@ -50986,6 +50986,7 @@ MonoBehaviour:
   fireColor: {r: 1, g: 0, b: 0, a: 1}
   iceColor: {r: 0, g: 1, b: 1, a: 1}
   lightningColor: {r: 1, g: 0.92156863, b: 0.015686275, a: 1}
+  blinkingColorTicknterval: 0.25
 --- !u!114 &1377509250
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -51024,9 +51025,8 @@ MonoBehaviour:
     m_Bits: 64
   defaultStatusDuration: 3
   chillSlowPercentage: 0.5
-  burnDamagePerTick: 1
+  burnTicksPerSecond: 2
   electrifyChargePerApplication: 0.2
-  electrifyDamage: 10
   parryRecoveryDuration: 0.2
 --- !u!114 &1377509252
 MonoBehaviour:
@@ -51053,20 +51053,20 @@ MonoBehaviour:
     physicalDamage:
       baseValue: 50
     critPower:
-      baseValue: 100
+      baseValue: 0
     critChance:
-      baseValue: 25
+      baseValue: 0
     armorReduction:
       baseValue: 0
     fireDamage:
-      baseValue: 10
+      baseValue: 50.5
     iceDamage:
       baseValue: 0
     lightningDamage:
       baseValue: 0
   deffensiveStats:
     health:
-      baseValue: 2500
+      baseValue: 250
     armor:
       baseValue: 0
     evasion:
@@ -51494,6 +51494,7 @@ MonoBehaviour:
   fireColor: {r: 0, g: 0, b: 0, a: 0}
   iceColor: {r: 0, g: 0, b: 0, a: 0}
   lightningColor: {r: 0, g: 0, b: 0, a: 0}
+  blinkingColorTicknterval: 0.25
 --- !u!1 &2072829375
 GameObject:
   m_ObjectHideFlags: 0
