@@ -1,8 +1,6 @@
-using System.Collections;
-using Unity.IO.LowLevel.Unsafe;
-using UnityEngine;
-using UnityEngine.Windows;
 using System;
+using System.Collections;
+using UnityEngine;
 
 public class Entity : MonoBehaviour
 {
@@ -29,6 +27,7 @@ public class Entity : MonoBehaviour
     [field: SerializeField] public bool wallsDetected { get; protected set; }
 
     private Coroutine queuedPushedCoroutine;
+    private Coroutine slowDownCoroutine;
 
     public event Action onFlipped;
 
@@ -147,6 +146,21 @@ public class Entity : MonoBehaviour
         }
 
         queuedPushedCoroutine = StartCoroutine(PushedCoroutine(force, duration, stopAfter));
+    }
+
+    public void SlowDownEntityBy(float duration, float slowPercentage)
+    {
+        if (slowDownCoroutine != null)
+        {
+            StopCoroutine(slowDownCoroutine);
+        }
+
+        slowDownCoroutine = StartCoroutine(SlowDownEntityByCoroutine(duration, slowPercentage));
+    }
+
+    protected virtual IEnumerator SlowDownEntityByCoroutine(float duration, float slowPercentage)
+    {
+        yield return null;
     }
 
     public virtual void EntityDeath()

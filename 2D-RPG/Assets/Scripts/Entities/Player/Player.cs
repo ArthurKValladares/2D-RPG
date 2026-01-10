@@ -118,6 +118,43 @@ public class Player : Entity
         sm.ChangeState(hurtState);
     }
 
+    protected override IEnumerator SlowDownEntityByCoroutine(float duration, float slowPercentage)
+    {
+        float originalMoveSpeed = moveSpeed;
+        float originalJumpForce = jumpForce;
+        float originalAnimSpeed = animator.speed;
+        Vector2 originalWallJump = wallJumpForce;
+        Vector2 originalLaunchAttack = launchAttackForce;
+        Vector2[] originalAttackVelocities = new Vector2[attackVelocities.Length];
+        Array.Copy(attackVelocities, originalAttackVelocities, attackVelocities.Length);
+
+        float slowMultiplier = 1.0f - slowPercentage;
+
+        moveSpeed = moveSpeed * slowMultiplier;
+        jumpForce = jumpForce * slowMultiplier;
+        animator.speed = animator.speed * slowMultiplier;
+        wallJumpForce = wallJumpForce * slowMultiplier;
+        launchAttackForce = launchAttackForce * slowMultiplier;
+
+        for (int i = 0; i < attackVelocities.Length; i++)
+        {
+            attackVelocities[i] = attackVelocities[i] * slowMultiplier;
+        }
+
+        yield return new WaitForSeconds(duration);
+
+        moveSpeed = originalMoveSpeed;
+        jumpForce = originalJumpForce;
+        animator.speed = originalAnimSpeed;
+        wallJumpForce = originalWallJump;
+        launchAttackForce = originalLaunchAttack;
+
+        for (int i = 0; i < attackVelocities.Length; i++)
+        {
+            attackVelocities[i] = originalAttackVelocities[i];
+        }
+    }
+
     public override void EntityDeath()
     {
         base.EntityDeath();

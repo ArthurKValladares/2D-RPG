@@ -71,6 +71,7 @@
     <Compile Include="Assets\Scripts\Entities\StatSystem\Stat_OffensiveGroup.cs" />
     <Compile Include="Assets\Scripts\Entities\Enemy\Enemy_Health.cs" />
     <Compile Include="Assets\Scripts\Entities\Entity\Entity.cs" />
+    <Compile Include="Assets\Scripts\Entities\Entity\Entity_StatusHandler.cs" />
     <Compile Include="Assets\Scripts\Entities\Enemy\Enemy_VFX.cs" />
     <Compile Include="Assets\Scripts\StateMachine\PlayerStates\Player_AiredState.cs" />
     <Compile Include="Assets\Scripts\Interfaces\ICounterable.cs" />

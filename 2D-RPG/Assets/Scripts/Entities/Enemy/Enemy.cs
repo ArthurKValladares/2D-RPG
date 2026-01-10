@@ -1,3 +1,4 @@
+using System.Collections;
 using UnityEngine;
 
 public class Enemy : Entity
@@ -110,5 +111,24 @@ public class Enemy : Entity
     public void EnableCounterWindow(bool enable)
     {
         canBeStunned = enable;
+    }
+
+    protected override IEnumerator SlowDownEntityByCoroutine(float duration, float slowPercentage)
+    {
+        float originalMoveSpeed = moveSpeed;
+        float originalBattleMoveSpeed = battleMoveSpeed;
+        float originalAnimSpeed = animator.speed;
+
+        float slowMultiplier = (1.0f - slowPercentage);
+
+        moveSpeed *= slowMultiplier;
+        battleMoveSpeed *= slowMultiplier;
+        animator.speed *= slowMultiplier;
+
+        yield return new WaitForSeconds(duration);
+
+        moveSpeed = originalMoveSpeed;
+        battleMoveSpeed = originalBattleMoveSpeed;
+        animator.speed = originalAnimSpeed;
     }
 }
