@@ -20,4 +20,6 @@ public class Stat_OffensiveGroup
     public Stat<float> fireDamage;
     public Stat<float> iceDamage;
     public Stat<float> lightningDamage;
+
+    public Stat<float> attackSpeedMultiplier;
 }

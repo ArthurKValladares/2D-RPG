@@ -7,6 +7,7 @@ public class Entity : MonoBehaviour
 {
     public Rigidbody2D rb { get; protected set; }
     public Animator animator { get; protected set; }
+    public Entity_Stats stats { get; protected set; }
 
     public StateMachine sm { get; protected set; }
     
@@ -36,6 +37,8 @@ public class Entity : MonoBehaviour
     {
         rb = GetComponent<Rigidbody2D>();
         animator = GetComponentInChildren<Animator>();
+        stats = GetComponent<Entity_Stats>();
+
         sm = new StateMachine();
 
         whatIsGround = LayerMask.GetMask("Ground");
@@ -157,6 +160,11 @@ public class Entity : MonoBehaviour
         }
 
         slowDownCoroutine = StartCoroutine(SlowDownEntityByCoroutine(duration, slowPercentage));
+    }
+
+    public void SyncAttackSpeed()
+    {
+        animator.SetFloat("attackSpeedMultiplier", stats.offensiveStats.attackSpeedMultiplier.GetValue());
     }
 
     protected virtual IEnumerator SlowDownEntityByCoroutine(float duration, float slowPercentage)

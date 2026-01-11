@@ -50748,6 +50748,8 @@ MonoBehaviour:
       baseValue: 0
     lightningDamage:
       baseValue: 0
+    attackSpeedMultiplier:
+      baseValue: 1
   deffensiveStats:
     armor:
       baseValue: 0
@@ -51074,6 +51076,8 @@ MonoBehaviour:
       baseValue: 0
     lightningDamage:
       baseValue: 0
+    attackSpeedMultiplier:
+      baseValue: 1
   deffensiveStats:
     armor:
       baseValue: 0
