@@ -42,7 +42,6 @@ public class Entity_Health : MonoBehaviour, IDamagable
         float ticksPerSecond = 1.0f / healthRegenInterval;
         float healthRegenPerTick = healthRegenPerSecond / ticksPerSecond;
 
-        Debug.Log("time: " + Time.time + " Value: " + healthRegenPerTick);
         IncreaseHP(healthRegenPerTick);
     }
 
