@@ -11,7 +11,7 @@ public class Player_JumpAttackState : Player_AiredState
     {
         base.Enter();
 
-        player.SyncAttackSpeed();
+        SyncAttackSpeed(player);
     }
 
     public override void Update()

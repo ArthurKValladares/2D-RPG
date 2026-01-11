@@ -162,11 +162,6 @@ public class Entity : MonoBehaviour
         slowDownCoroutine = StartCoroutine(SlowDownEntityByCoroutine(duration, slowPercentage));
     }
 
-    public void SyncAttackSpeed()
-    {
-        animator.SetFloat("attackSpeedMultiplier", stats.offensiveStats.attackSpeedMultiplier.GetValue());
-    }
-
     protected virtual IEnumerator SlowDownEntityByCoroutine(float duration, float slowPercentage)
     {
         yield return null;

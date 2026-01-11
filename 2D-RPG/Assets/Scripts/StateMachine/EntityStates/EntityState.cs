@@ -1,3 +1,4 @@
+using Unity.VisualScripting.Antlr3.Runtime.Misc;
 using UnityEngine;
 
 public abstract class EntityState
@@ -42,5 +43,10 @@ public abstract class EntityState
 
     public virtual void UpdateAnimationParameters()
     {
+    }
+
+    public void SyncAttackSpeed(Entity entity)
+    {
+        entity.animator.SetFloat("attackSpeedMultiplier", entity.stats.offensiveStats.attackSpeedMultiplier.GetValue());
     }
 }

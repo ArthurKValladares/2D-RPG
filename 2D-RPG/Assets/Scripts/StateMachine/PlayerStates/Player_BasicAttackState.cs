@@ -24,7 +24,7 @@ public class Player_BasicAttackState : PlayerState
     {
         base.Enter();
 
-        player.SyncAttackSpeed();
+        SyncAttackSpeed(player);
 
         ResetComboIfNeeded();
         player.animator.SetInteger("basicAttackIndex", comboIndex);

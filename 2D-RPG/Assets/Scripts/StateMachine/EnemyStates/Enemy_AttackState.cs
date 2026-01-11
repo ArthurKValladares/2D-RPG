@@ -11,7 +11,7 @@ public class Enemy_AttackState : EnemyState
     {
         base.Enter();
 
-        enemy.SyncAttackSpeed();
+        SyncAttackSpeed(enemy);
     }
 
     public override void Update()

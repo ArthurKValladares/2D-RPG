@@ -13,7 +13,7 @@ public class Player_LaunchAttackState : PlayerState
     public override void Enter()
     {
         base.Enter();
-        player.SyncAttackSpeed();
+        SyncAttackSpeed(player);
 
         stateTimer = player.launchAttackDuration;
 
