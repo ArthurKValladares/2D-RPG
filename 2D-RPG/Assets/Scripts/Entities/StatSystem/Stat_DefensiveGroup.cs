@@ -4,10 +4,10 @@ using System;
 [Serializable]
 public class Stat_DefensiveGroup
 {
-    public Stat<float> armor;
-    public Stat<float> evasion;
+    public Stat armor;
+    public Stat evasion;
 
-    public Stat<float> fireResistance;
-    public Stat<float> iceResistance;
-    public Stat<float> lightningResistance;
+    public Stat fireResistance;
+    public Stat iceResistance;
+    public Stat lightningResistance;
 }

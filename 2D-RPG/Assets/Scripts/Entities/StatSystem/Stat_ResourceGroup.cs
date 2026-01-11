@@ -4,6 +4,6 @@ using System;
 [Serializable]
 public class Stat_ResourceGroup
 {
-    public Stat<float> maxHealth;
-    public Stat<float> healthRegenPerSecond;
+    public Stat maxHealth;
+    public Stat healthRegenPerSecond;
 }

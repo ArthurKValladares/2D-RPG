@@ -1,5 +1,20 @@
+using System;
 using System.Collections;
+using UnityEditor.Playables;
 using UnityEngine;
+
+[System.Serializable]
+public class BuffInfo
+{
+    public BuffInfo(StatType ty, float value)
+    {
+        this.ty = ty; 
+        this.value = value;
+    }
+
+    public StatType ty;
+    public float value;
+}
 
 public class BuffObject : MonoBehaviour
 {
@@ -8,7 +23,9 @@ public class BuffObject : MonoBehaviour
     private SpriteRenderer sr;
 
     [Header("Buff Details")]
-    private float buffDuration = 4.0f;
+    [SerializeField] private string buffName;
+    [SerializeField] private BuffInfo[] buffs;
+    [SerializeField] private float buffDuration = 4.0f;
     private bool canBeUsed = true;
 
     [Header("Oscillation")]
@@ -42,15 +59,21 @@ public class BuffObject : MonoBehaviour
         Entity_Stats stats = collision.GetComponent<Entity_Stats>();
         if (!stats)
         {
+            Debug.LogError("Could not find EntityStats in BuffObject collider!");
             yield return null;
         }
 
-        float originalAttackSpeed = stats.offensiveStats.attackSpeedMultiplier.GetValue();
-        stats.offensiveStats.attackSpeedMultiplier.SetValue(originalAttackSpeed + 0.2f);
+        foreach (BuffInfo info in buffs)
+        {
+            stats.GetStat(info.ty).AddModifier(buffName, info.value);
+        }
 
         yield return new WaitForSeconds(buffDuration);
 
-        stats.offensiveStats.attackSpeedMultiplier.SetValue(originalAttackSpeed);
+        foreach (BuffInfo info in buffs)
+        {
+            stats.GetStat(info.ty).RemoveModifier(buffName);
+        }
 
         Destroy(gameObject);
     }

@@ -4,8 +4,9 @@ using System;
 [Serializable]
 public class Stat_MajorGroup
 {
-    public Stat<int> strength;
-    public Stat<int> agility;
-    public Stat<int> intelligence;
-    public Stat<int> vitality;
+    // TODO: need to assert that these are always ints
+    public Stat strength;
+    public Stat agility;
+    public Stat intelligence;
+    public Stat vitality;
 }

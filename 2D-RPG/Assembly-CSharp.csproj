@@ -117,6 +117,7 @@
     <Compile Include="Assets\Scripts\Entities\Entity\Entity_Health.cs" />
     <Compile Include="Assets\Scripts\StateMachine\PlayerStates\Player_BasicAttackState.cs" />
     <Compile Include="Assets\Scripts\Entities\Enemy\Enemy_AnimationTriggers.cs" />
+    <Compile Include="Assets\Scripts\Entities\StatSystem\StatType.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\TextMesh Pro\Shaders\TMPro.cginc" />

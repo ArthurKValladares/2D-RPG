@@ -50727,45 +50727,64 @@ MonoBehaviour:
   majorStats:
     strength:
       baseValue: 0
+      modifiers: []
     agility:
       baseValue: 0
+      modifiers: []
     intelligence:
       baseValue: 0
+      modifiers: []
     vitality:
       baseValue: 0
+      modifiers: []
   offensiveStats:
     physicalDamage:
       baseValue: 25
+      modifiers: []
     critPower:
       baseValue: 0
+      modifiers: []
     critChance:
       baseValue: 0
+      modifiers: []
     armorReduction:
       baseValue: 0
+      modifiers: []
     fireDamage:
       baseValue: 0
+      modifiers: []
     iceDamage:
       baseValue: 0
+      modifiers: []
     lightningDamage:
       baseValue: 0
+      modifiers: []
     attackSpeedMultiplier:
       baseValue: 1
+      modifiers: []
   deffensiveStats:
     armor:
       baseValue: 0
+      modifiers: []
     evasion:
       baseValue: 0
+      modifiers: []
     fireResistance:
       baseValue: 0
+      modifiers: []
     iceResistance:
       baseValue: 0
+      modifiers: []
     lightningResistance:
       baseValue: 0
+      modifiers: []
   resourceStats:
     maxHealth:
       baseValue: 150
+      modifiers: []
     healthRegenPerSecond:
       baseValue: 0
+      modifiers: []
   vitalityHealthMultiplier: 5
   vitalityArmorMultiplier: 1
   agilityEvasionMultiplier: 0.5
@@ -51055,45 +51074,64 @@ MonoBehaviour:
   majorStats:
     strength:
       baseValue: 0
+      modifiers: []
     agility:
       baseValue: 0
+      modifiers: []
     intelligence:
       baseValue: 0
+      modifiers: []
     vitality:
       baseValue: 0
+      modifiers: []
   offensiveStats:
     physicalDamage:
       baseValue: 25
+      modifiers: []
     critPower:
       baseValue: 0
+      modifiers: []
     critChance:
       baseValue: 0
+      modifiers: []
     armorReduction:
       baseValue: 0
+      modifiers: []
     fireDamage:
       baseValue: 0
+      modifiers: []
     iceDamage:
       baseValue: 0
+      modifiers: []
     lightningDamage:
       baseValue: 0
+      modifiers: []
     attackSpeedMultiplier:
       baseValue: 1
+      modifiers: []
   deffensiveStats:
     armor:
       baseValue: 0
+      modifiers: []
     evasion:
       baseValue: 0
+      modifiers: []
     fireResistance:
       baseValue: 0
+      modifiers: []
     iceResistance:
       baseValue: 0
+      modifiers: []
     lightningResistance:
-      baseValue: 100
+      baseValue: 0
+      modifiers: []
   resourceStats:
     maxHealth:
       baseValue: 250
+      modifiers: []
     healthRegenPerSecond:
       baseValue: 10
+      modifiers: []
   vitalityHealthMultiplier: 5
   vitalityArmorMultiplier: 1
   agilityEvasionMultiplier: 0.5
@@ -51472,6 +51510,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8b83fb111f5e0934e94db6fae70e1d1d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::BuffObject
+  buffName: attackSpeedBuff
+  buffs:
+  - ty: 6
+    value: 0.5
+  - ty: 15
+    value: 50
+  buffDuration: 4
   oscillationSpeed: 3
   yOscillationRange: 0.2
 --- !u!4 &1771234599

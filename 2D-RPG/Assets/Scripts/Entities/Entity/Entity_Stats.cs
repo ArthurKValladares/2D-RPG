@@ -1,4 +1,3 @@
-using System.ComponentModel;
 using UnityEngine;
 
 public class DamageInfo
@@ -188,5 +187,36 @@ public class Entity_Stats : MonoBehaviour
         float bonusResistance = majorStats.intelligence.GetValue() * intelligenceElementalResistMultiplier;
 
         return Mathf.Clamp(baseResistance + bonusResistance, 0, elementalResistanceCap) / 100.0f;
+    }
+
+    public Stat GetStat(StatType ty)
+    {
+        switch (ty)
+        {
+            case StatType.MaxHealth: return resourceStats.maxHealth;
+            case StatType.HealthRegen: return resourceStats.healthRegenPerSecond;
+            case StatType.Strength: return majorStats.strength;
+            case StatType.Agility: return majorStats.agility;
+            case StatType.Intelligence: return majorStats.intelligence;
+            case StatType.Vitality: return majorStats.vitality;
+            case StatType.AttackSpeed: return offensiveStats.attackSpeedMultiplier;
+            case StatType.Damage: return offensiveStats.physicalDamage;
+            case StatType.CritChance: return offensiveStats.critChance;
+            case StatType.CritPower: return offensiveStats.critPower;
+            case StatType.ArmorReduction: return offensiveStats.armorReduction;
+            case StatType.FireDamage: return offensiveStats.fireDamage;
+            case StatType.IceDamage: return offensiveStats.iceDamage;
+            case StatType.LightningDamage: return offensiveStats.lightningDamage;
+            case StatType.Armor: return deffensiveStats.armor;
+            case StatType.Evasion: return deffensiveStats.evasion;
+            case StatType.IceResistance: return deffensiveStats.iceResistance;
+            case StatType.FireResistance: return deffensiveStats.fireResistance;
+            case StatType.LightningResistance: return deffensiveStats.lightningResistance;
+            default: 
+            {
+                Debug.LogError($"StatType {ty} not implemented");
+                return null;
+            }
+        };
     }
 }

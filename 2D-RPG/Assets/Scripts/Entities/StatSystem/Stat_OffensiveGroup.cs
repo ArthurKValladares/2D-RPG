@@ -12,14 +12,14 @@ public enum ElementalDamageType
 [Serializable]
 public class Stat_OffensiveGroup
 {
-    public Stat<float> physicalDamage;
-    public Stat<float> critPower;
-    public Stat<float> critChance;
-    public Stat<float> armorReduction;
+    public Stat physicalDamage;
+    public Stat critPower;
+    public Stat critChance;
+    public Stat armorReduction;
 
-    public Stat<float> fireDamage;
-    public Stat<float> iceDamage;
-    public Stat<float> lightningDamage;
+    public Stat fireDamage;
+    public Stat iceDamage;
+    public Stat lightningDamage;
 
-    public Stat<float> attackSpeedMultiplier;
+    public Stat attackSpeedMultiplier;
 }
