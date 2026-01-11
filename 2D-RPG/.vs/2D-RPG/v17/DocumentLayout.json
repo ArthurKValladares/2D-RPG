@@ -11,12 +11,32 @@
       "RelativeMoniker": "D:0:0:{AF9649D8-629F-FA67-8B1F-7976A9E7AF3D}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\entities\\entity\\entity_combat.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
+      "AbsoluteMoniker": "D:0:0:{AF9649D8-629F-FA67-8B1F-7976A9E7AF3D}|Assembly-CSharp.csproj|c:\\users\\arthu\\documents\\projects\\2d-rpg\\2d-rpg\\assets\\scripts\\entities\\entity\\entity_vfx.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{AF9649D8-629F-FA67-8B1F-7976A9E7AF3D}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\entities\\entity\\entity_vfx.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{AF9649D8-629F-FA67-8B1F-7976A9E7AF3D}|Assembly-CSharp.csproj|C:\\Users\\arthu\\Documents\\Projects\\2D-RPG\\2D-RPG\\assets\\scripts\\entities\\entity\\entity_stats.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{AF9649D8-629F-FA67-8B1F-7976A9E7AF3D}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\entities\\entity\\entity_stats.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
+      "AbsoluteMoniker": "D:0:0:{AF9649D8-629F-FA67-8B1F-7976A9E7AF3D}|Assembly-CSharp.csproj|C:\\Users\\arthu\\Documents\\Projects\\2D-RPG\\2D-RPG\\assets\\scripts\\entities\\entity\\entity.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{AF9649D8-629F-FA67-8B1F-7976A9E7AF3D}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\entities\\entity\\entity.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{AF9649D8-629F-FA67-8B1F-7976A9E7AF3D}|Assembly-CSharp.csproj|C:\\Users\\arthu\\Documents\\Projects\\2D-RPG\\2D-RPG\\assets\\scripts\\entities\\entity\\entity_health.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{AF9649D8-629F-FA67-8B1F-7976A9E7AF3D}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\entities\\entity\\entity_health.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{AF9649D8-629F-FA67-8B1F-7976A9E7AF3D}|Assembly-CSharp.csproj|C:\\Users\\arthu\\Documents\\Projects\\2D-RPG\\2D-RPG\\assets\\scripts\\entities\\player\\player.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{AF9649D8-629F-FA67-8B1F-7976A9E7AF3D}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\entities\\player\\player.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{AF9649D8-629F-FA67-8B1F-7976A9E7AF3D}|Assembly-CSharp.csproj|C:\\Users\\arthu\\Documents\\Projects\\2D-RPG\\2D-RPG\\assets\\scripts\\entities\\enemy\\enemy.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{AF9649D8-629F-FA67-8B1F-7976A9E7AF3D}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\entities\\enemy\\enemy.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{AF9649D8-629F-FA67-8B1F-7976A9E7AF3D}|Assembly-CSharp.csproj|C:\\Users\\arthu\\Documents\\Projects\\2D-RPG\\2D-RPG\\assets\\scripts\\entities\\enemy\\enemy_health.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{AF9649D8-629F-FA67-8B1F-7976A9E7AF3D}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\entities\\enemy\\enemy_health.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{AF9649D8-629F-FA67-8B1F-7976A9E7AF3D}|Assembly-CSharp.csproj|C:\\Users\\arthu\\Documents\\Projects\\2D-RPG\\2D-RPG\\assets\\scripts\\statemachine\\playerstates\\player_airedstate.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -39,24 +59,8 @@
       "RelativeMoniker": "D:0:0:{AF9649D8-629F-FA67-8B1F-7976A9E7AF3D}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\statemachine\\playerstates\\player_basicattackstate.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{AF9649D8-629F-FA67-8B1F-7976A9E7AF3D}|Assembly-CSharp.csproj|C:\\Users\\arthu\\Documents\\Projects\\2D-RPG\\2D-RPG\\assets\\scripts\\entities\\enemy\\enemy.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{AF9649D8-629F-FA67-8B1F-7976A9E7AF3D}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\entities\\enemy\\enemy.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{AF9649D8-629F-FA67-8B1F-7976A9E7AF3D}|Assembly-CSharp.csproj|C:\\Users\\arthu\\Documents\\Projects\\2D-RPG\\2D-RPG\\assets\\scripts\\entities\\entity\\entity.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{AF9649D8-629F-FA67-8B1F-7976A9E7AF3D}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\entities\\entity\\entity.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{AF9649D8-629F-FA67-8B1F-7976A9E7AF3D}|Assembly-CSharp.csproj|C:\\Users\\arthu\\Documents\\Projects\\2D-RPG\\2D-RPG\\assets\\scripts\\entities\\player\\player_combat.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{AF9649D8-629F-FA67-8B1F-7976A9E7AF3D}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\entities\\player\\player_combat.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{AF9649D8-629F-FA67-8B1F-7976A9E7AF3D}|Assembly-CSharp.csproj|c:\\users\\arthu\\documents\\projects\\2d-rpg\\2d-rpg\\assets\\scripts\\entities\\entity\\entity_vfx.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{AF9649D8-629F-FA67-8B1F-7976A9E7AF3D}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\entities\\entity\\entity_vfx.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{AF9649D8-629F-FA67-8B1F-7976A9E7AF3D}|Assembly-CSharp.csproj|C:\\Users\\arthu\\Documents\\Projects\\2D-RPG\\2D-RPG\\assets\\scripts\\entities\\entity\\entity_health.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{AF9649D8-629F-FA67-8B1F-7976A9E7AF3D}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\entities\\entity\\entity_health.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{AF9649D8-629F-FA67-8B1F-7976A9E7AF3D}|Assembly-CSharp.csproj|C:\\Users\\arthu\\Documents\\Projects\\2D-RPG\\2D-RPG\\assets\\scripts\\vfx\\vfx_autocontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -77,10 +81,6 @@
     {
       "AbsoluteMoniker": "D:0:0:{AF9649D8-629F-FA67-8B1F-7976A9E7AF3D}|Assembly-CSharp.csproj|C:\\Users\\arthu\\Documents\\Projects\\2D-RPG\\2D-RPG\\assets\\scripts\\entities\\enemy\\enemy_vfx.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{AF9649D8-629F-FA67-8B1F-7976A9E7AF3D}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\entities\\enemy\\enemy_vfx.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{AF9649D8-629F-FA67-8B1F-7976A9E7AF3D}|Assembly-CSharp.csproj|C:\\Users\\arthu\\Documents\\Projects\\2D-RPG\\2D-RPG\\assets\\scripts\\entities\\enemy\\enemy_health.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{AF9649D8-629F-FA67-8B1F-7976A9E7AF3D}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\entities\\enemy\\enemy_health.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{AF9649D8-629F-FA67-8B1F-7976A9E7AF3D}|Assembly-CSharp.csproj|C:\\Users\\arthu\\Documents\\Projects\\2D-RPG\\2D-RPG\\assets\\scripts\\entities\\player\\player_health.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -386,41 +386,132 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 4,
+          "SelectedChildIndex": 1,
           "Children": [
-            {
-              "$type": "Document",
-              "DocumentIndex": 5,
-              "Title": "Player_MoveState.cs",
-              "DocumentMoniker": "C:\\Users\\arthu\\Documents\\Projects\\2D-RPG\\2D-RPG\\Assets\\Scripts\\StateMachine\\PlayerStates\\Player_MoveState.cs",
-              "RelativeDocumentMoniker": "Assets\\Scripts\\StateMachine\\PlayerStates\\Player_MoveState.cs",
-              "ToolTip": "C:\\Users\\arthu\\Documents\\Projects\\2D-RPG\\2D-RPG\\Assets\\Scripts\\StateMachine\\PlayerStates\\Player_MoveState.cs",
-              "RelativeToolTip": "Assets\\Scripts\\StateMachine\\PlayerStates\\Player_MoveState.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-01-10T19:38:05.945Z",
-              "EditorCaption": ""
-            },
             {
               "$type": "Bookmark",
               "Name": "ST:0:0:{88d7674e-67d3-4835-9e0e-aa893dfc985a}"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 0,
+              "Title": "Entity_StatusHandler.cs",
+              "DocumentMoniker": "C:\\Users\\arthu\\Documents\\Projects\\2D-RPG\\2D-RPG\\Assets\\Scripts\\Entities\\Entity\\Entity_StatusHandler.cs",
+              "RelativeDocumentMoniker": "Assets\\Scripts\\Entities\\Entity\\Entity_StatusHandler.cs",
+              "ToolTip": "C:\\Users\\arthu\\Documents\\Projects\\2D-RPG\\2D-RPG\\Assets\\Scripts\\Entities\\Entity\\Entity_StatusHandler.cs",
+              "RelativeToolTip": "Assets\\Scripts\\Entities\\Entity\\Entity_StatusHandler.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA0AAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-01-10T18:24:13.364Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "Entity_Combat.cs",
+              "DocumentMoniker": "C:\\Users\\arthu\\Documents\\Projects\\2D-RPG\\2D-RPG\\Assets\\Scripts\\Entities\\Entity\\Entity_Combat.cs",
+              "RelativeDocumentMoniker": "Assets\\Scripts\\Entities\\Entity\\Entity_Combat.cs",
+              "ToolTip": "C:\\Users\\arthu\\Documents\\Projects\\2D-RPG\\2D-RPG\\Assets\\Scripts\\Entities\\Entity\\Entity_Combat.cs",
+              "RelativeToolTip": "Assets\\Scripts\\Entities\\Entity\\Entity_Combat.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAEEAAABrAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-01-06T17:00:59.288Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "Entity.cs",
+              "DocumentMoniker": "C:\\Users\\arthu\\Documents\\Projects\\2D-RPG\\2D-RPG\\Assets\\Scripts\\Entities\\Entity\\Entity.cs",
+              "RelativeDocumentMoniker": "Assets\\Scripts\\Entities\\Entity\\Entity.cs",
+              "ToolTip": "C:\\Users\\arthu\\Documents\\Projects\\2D-RPG\\2D-RPG\\Assets\\Scripts\\Entities\\Entity\\Entity.cs",
+              "RelativeToolTip": "Assets\\Scripts\\Entities\\Entity\\Entity.cs",
+              "ViewState": "AgIAAJwAAAAAAAAAAAAowKUAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-01-07T17:00:19.233Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
+              "Title": "Enemy.cs",
+              "DocumentMoniker": "C:\\Users\\arthu\\Documents\\Projects\\2D-RPG\\2D-RPG\\Assets\\Scripts\\Entities\\Enemy\\Enemy.cs",
+              "RelativeDocumentMoniker": "Assets\\Scripts\\Entities\\Enemy\\Enemy.cs",
+              "ToolTip": "C:\\Users\\arthu\\Documents\\Projects\\2D-RPG\\2D-RPG\\Assets\\Scripts\\Entities\\Enemy\\Enemy.cs",
+              "RelativeToolTip": "Assets\\Scripts\\Entities\\Enemy\\Enemy.cs",
+              "ViewState": "AgIAAF0AAAAAAAAAAAAuwHkAAAAcAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-01-06T20:44:41.779Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "Entity_Health.cs",
+              "DocumentMoniker": "C:\\Users\\arthu\\Documents\\Projects\\2D-RPG\\2D-RPG\\Assets\\Scripts\\Entities\\Entity\\Entity_Health.cs",
+              "RelativeDocumentMoniker": "Assets\\Scripts\\Entities\\Entity\\Entity_Health.cs",
+              "ToolTip": "C:\\Users\\arthu\\Documents\\Projects\\2D-RPG\\2D-RPG\\Assets\\Scripts\\Entities\\Entity\\Entity_Health.cs",
+              "RelativeToolTip": "Assets\\Scripts\\Entities\\Entity\\Entity_Health.cs",
+              "ViewState": "AgIAAC0AAAAAAAAAAAAvwIUAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-01-06T17:00:50.683Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
               "Title": "Player.cs",
               "DocumentMoniker": "C:\\Users\\arthu\\Documents\\Projects\\2D-RPG\\2D-RPG\\Assets\\Scripts\\Entities\\Player\\Player.cs",
               "RelativeDocumentMoniker": "Assets\\Scripts\\Entities\\Player\\Player.cs",
               "ToolTip": "C:\\Users\\arthu\\Documents\\Projects\\2D-RPG\\2D-RPG\\Assets\\Scripts\\Entities\\Player\\Player.cs",
               "RelativeToolTip": "Assets\\Scripts\\Entities\\Player\\Player.cs",
-              "ViewState": "AgIAAGoAAAAAAAAAAAAqwH8AAABSAAAAAAAAAA==",
+              "ViewState": "AgIAAIMAAAAAAAAAAAAAwIMAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2026-01-06T21:25:43.89Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 7,
+              "DocumentIndex": 2,
+              "Title": "Entity_VFX.cs",
+              "DocumentMoniker": "C:\\Users\\arthu\\Documents\\Projects\\2D-RPG\\2D-RPG\\Assets\\Scripts\\Entities\\Entity\\Entity_VFX.cs",
+              "RelativeDocumentMoniker": "Assets\\Scripts\\Entities\\Entity\\Entity_VFX.cs",
+              "ToolTip": "C:\\Users\\arthu\\Documents\\Projects\\2D-RPG\\2D-RPG\\Assets\\Scripts\\Entities\\Entity\\Entity_VFX.cs",
+              "RelativeToolTip": "Assets\\Scripts\\Entities\\Entity\\Entity_VFX.cs",
+              "ViewState": "AgIAAGcAAAAAAAAAAAAwwH0AAAAFAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-01-06T20:22:49.224Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "Entity_Stats.cs",
+              "DocumentMoniker": "C:\\Users\\arthu\\Documents\\Projects\\2D-RPG\\2D-RPG\\Assets\\Scripts\\Entities\\Entity\\Entity_Stats.cs",
+              "RelativeDocumentMoniker": "Assets\\Scripts\\Entities\\Entity\\Entity_Stats.cs",
+              "ToolTip": "C:\\Users\\arthu\\Documents\\Projects\\2D-RPG\\2D-RPG\\Assets\\Scripts\\Entities\\Entity\\Entity_Stats.cs",
+              "RelativeToolTip": "Assets\\Scripts\\Entities\\Entity\\Entity_Stats.cs",
+              "ViewState": "AgIAAEsAAAAAAAAAAAAMwCcAAAAwAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-01-08T00:23:57.143Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 8,
+              "Title": "Enemy_Health.cs",
+              "DocumentMoniker": "C:\\Users\\arthu\\Documents\\Projects\\2D-RPG\\2D-RPG\\Assets\\Scripts\\Entities\\Enemy\\Enemy_Health.cs",
+              "RelativeDocumentMoniker": "Assets\\Scripts\\Entities\\Enemy\\Enemy_Health.cs",
+              "ToolTip": "C:\\Users\\arthu\\Documents\\Projects\\2D-RPG\\2D-RPG\\Assets\\Scripts\\Entities\\Enemy\\Enemy_Health.cs",
+              "RelativeToolTip": "Assets\\Scripts\\Entities\\Enemy\\Enemy_Health.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAoAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-01-06T17:00:17.182Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 12,
               "Title": "Player_JumpAttackState.cs",
               "DocumentMoniker": "C:\\Users\\arthu\\Documents\\Projects\\2D-RPG\\2D-RPG\\Assets\\Scripts\\StateMachine\\PlayerStates\\Player_JumpAttackState.cs",
               "RelativeDocumentMoniker": "Assets\\Scripts\\StateMachine\\PlayerStates\\Player_JumpAttackState.cs",
@@ -433,46 +524,20 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
-              "Title": "Entity_StatusHandler.cs",
-              "DocumentMoniker": "C:\\Users\\arthu\\Documents\\Projects\\2D-RPG\\2D-RPG\\Assets\\Scripts\\Entities\\Entity\\Entity_StatusHandler.cs",
-              "RelativeDocumentMoniker": "Assets\\Scripts\\Entities\\Entity\\Entity_StatusHandler.cs",
-              "ToolTip": "C:\\Users\\arthu\\Documents\\Projects\\2D-RPG\\2D-RPG\\Assets\\Scripts\\Entities\\Entity\\Entity_StatusHandler.cs",
-              "RelativeToolTip": "Assets\\Scripts\\Entities\\Entity\\Entity_StatusHandler.cs",
-              "ViewState": "AgIAABAAAAAAAAAAAAAzwCEAAAAfAAAAAAAAAA==",
+              "DocumentIndex": 10,
+              "Title": "Player_MoveState.cs",
+              "DocumentMoniker": "C:\\Users\\arthu\\Documents\\Projects\\2D-RPG\\2D-RPG\\Assets\\Scripts\\StateMachine\\PlayerStates\\Player_MoveState.cs",
+              "RelativeDocumentMoniker": "Assets\\Scripts\\StateMachine\\PlayerStates\\Player_MoveState.cs",
+              "ToolTip": "C:\\Users\\arthu\\Documents\\Projects\\2D-RPG\\2D-RPG\\Assets\\Scripts\\StateMachine\\PlayerStates\\Player_MoveState.cs",
+              "RelativeToolTip": "Assets\\Scripts\\StateMachine\\PlayerStates\\Player_MoveState.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-01-10T18:24:13.364Z",
+              "WhenOpened": "2026-01-10T19:38:05.945Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
-              "Title": "Entity_Stats.cs",
-              "DocumentMoniker": "C:\\Users\\arthu\\Documents\\Projects\\2D-RPG\\2D-RPG\\Assets\\Scripts\\Entities\\Entity\\Entity_Stats.cs",
-              "RelativeDocumentMoniker": "Assets\\Scripts\\Entities\\Entity\\Entity_Stats.cs",
-              "ToolTip": "C:\\Users\\arthu\\Documents\\Projects\\2D-RPG\\2D-RPG\\Assets\\Scripts\\Entities\\Entity\\Entity_Stats.cs",
-              "RelativeToolTip": "Assets\\Scripts\\Entities\\Entity\\Entity_Stats.cs",
-              "ViewState": "AgIAAA8AAAAAAAAAAAAMwLYAAAARAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-01-08T00:23:57.143Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 1,
-              "Title": "Entity_Combat.cs",
-              "DocumentMoniker": "C:\\Users\\arthu\\Documents\\Projects\\2D-RPG\\2D-RPG\\Assets\\Scripts\\Entities\\Entity\\Entity_Combat.cs",
-              "RelativeDocumentMoniker": "Assets\\Scripts\\Entities\\Entity\\Entity_Combat.cs",
-              "ToolTip": "C:\\Users\\arthu\\Documents\\Projects\\2D-RPG\\2D-RPG\\Assets\\Scripts\\Entities\\Entity\\Entity_Combat.cs",
-              "RelativeToolTip": "Assets\\Scripts\\Entities\\Entity\\Entity_Combat.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAACEAAAA3AAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-01-06T17:00:59.288Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 8,
+              "DocumentIndex": 13,
               "Title": "Player_BasicAttackState.cs",
               "DocumentMoniker": "C:\\Users\\arthu\\Documents\\Projects\\2D-RPG\\2D-RPG\\Assets\\Scripts\\StateMachine\\PlayerStates\\Player_BasicAttackState.cs",
               "RelativeDocumentMoniker": "Assets\\Scripts\\StateMachine\\PlayerStates\\Player_BasicAttackState.cs",
@@ -486,32 +551,6 @@
             {
               "$type": "Document",
               "DocumentIndex": 9,
-              "Title": "Enemy.cs",
-              "DocumentMoniker": "C:\\Users\\arthu\\Documents\\Projects\\2D-RPG\\2D-RPG\\Assets\\Scripts\\Entities\\Enemy\\Enemy.cs",
-              "RelativeDocumentMoniker": "Assets\\Scripts\\Entities\\Enemy\\Enemy.cs",
-              "ToolTip": "C:\\Users\\arthu\\Documents\\Projects\\2D-RPG\\2D-RPG\\Assets\\Scripts\\Entities\\Enemy\\Enemy.cs",
-              "RelativeToolTip": "Assets\\Scripts\\Entities\\Enemy\\Enemy.cs",
-              "ViewState": "AgIAAGAAAAAAAAAAAAAuwHkAAAAcAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-01-06T20:44:41.779Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 10,
-              "Title": "Entity.cs",
-              "DocumentMoniker": "C:\\Users\\arthu\\Documents\\Projects\\2D-RPG\\2D-RPG\\Assets\\Scripts\\Entities\\Entity\\Entity.cs",
-              "RelativeDocumentMoniker": "Assets\\Scripts\\Entities\\Entity\\Entity.cs",
-              "ToolTip": "C:\\Users\\arthu\\Documents\\Projects\\2D-RPG\\2D-RPG\\Assets\\Scripts\\Entities\\Entity\\Entity.cs",
-              "RelativeToolTip": "Assets\\Scripts\\Entities\\Entity\\Entity.cs",
-              "ViewState": "AgIAAIgAAAAAAAAAAAAAAJYAAAALAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-01-07T17:00:19.233Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 4,
               "Title": "Player_AiredState.cs",
               "DocumentMoniker": "C:\\Users\\arthu\\Documents\\Projects\\2D-RPG\\2D-RPG\\Assets\\Scripts\\StateMachine\\PlayerStates\\Player_AiredState.cs",
               "RelativeDocumentMoniker": "Assets\\Scripts\\StateMachine\\PlayerStates\\Player_AiredState.cs",
@@ -524,20 +563,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 12,
-              "Title": "Entity_VFX.cs",
-              "DocumentMoniker": "C:\\Users\\arthu\\Documents\\Projects\\2D-RPG\\2D-RPG\\Assets\\Scripts\\Entities\\Entity\\Entity_VFX.cs",
-              "RelativeDocumentMoniker": "Assets\\Scripts\\Entities\\Entity\\Entity_VFX.cs",
-              "ToolTip": "C:\\Users\\arthu\\Documents\\Projects\\2D-RPG\\2D-RPG\\Assets\\Scripts\\Entities\\Entity\\Entity_VFX.cs",
-              "RelativeToolTip": "Assets\\Scripts\\Entities\\Entity\\Entity_VFX.cs",
-              "ViewState": "AgIAAA0AAAAAAAAAAADgvxgAAABCAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-01-06T20:22:49.224Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 6,
+              "DocumentIndex": 11,
               "Title": "Player_JumpState.cs",
               "DocumentMoniker": "C:\\Users\\arthu\\Documents\\Projects\\2D-RPG\\2D-RPG\\Assets\\Scripts\\StateMachine\\PlayerStates\\Player_JumpState.cs",
               "RelativeDocumentMoniker": "Assets\\Scripts\\StateMachine\\PlayerStates\\Player_JumpState.cs",
@@ -550,20 +576,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 13,
-              "Title": "Entity_Health.cs",
-              "DocumentMoniker": "C:\\Users\\arthu\\Documents\\Projects\\2D-RPG\\2D-RPG\\Assets\\Scripts\\Entities\\Entity\\Entity_Health.cs",
-              "RelativeDocumentMoniker": "Assets\\Scripts\\Entities\\Entity\\Entity_Health.cs",
-              "ToolTip": "C:\\Users\\arthu\\Documents\\Projects\\2D-RPG\\2D-RPG\\Assets\\Scripts\\Entities\\Entity\\Entity_Health.cs",
-              "RelativeToolTip": "Assets\\Scripts\\Entities\\Entity\\Entity_Health.cs",
-              "ViewState": "AgIAAFUAAAAAAAAAAAAkwF0AAAAUAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-01-06T17:00:50.683Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 11,
+              "DocumentIndex": 14,
               "Title": "Player_Combat.cs",
               "DocumentMoniker": "C:\\Users\\arthu\\Documents\\Projects\\2D-RPG\\2D-RPG\\Assets\\Scripts\\Entities\\Player\\Player_Combat.cs",
               "RelativeDocumentMoniker": "Assets\\Scripts\\Entities\\Player\\Player_Combat.cs",
@@ -576,7 +589,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 16,
+              "DocumentIndex": 17,
               "Title": "Enemy_IdleState.cs",
               "DocumentMoniker": "C:\\Users\\arthu\\Documents\\Projects\\2D-RPG\\2D-RPG\\Assets\\Scripts\\StateMachine\\EnemyStates\\Enemy_IdleState.cs",
               "RelativeDocumentMoniker": "Assets\\Scripts\\StateMachine\\EnemyStates\\Enemy_IdleState.cs",
@@ -588,7 +601,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 14,
+              "DocumentIndex": 15,
               "Title": "VFX_AutoController.cs",
               "DocumentMoniker": "C:\\Users\\arthu\\Documents\\Projects\\2D-RPG\\2D-RPG\\Assets\\Scripts\\VFX\\VFX_AutoController.cs",
               "RelativeDocumentMoniker": "Assets\\Scripts\\VFX\\VFX_AutoController.cs",
@@ -600,7 +613,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 15,
+              "DocumentIndex": 16,
               "Title": "Enemy_HurtState.cs",
               "DocumentMoniker": "C:\\Users\\arthu\\Documents\\Projects\\2D-RPG\\2D-RPG\\Assets\\Scripts\\StateMachine\\EnemyStates\\Enemy_HurtState.cs",
               "RelativeDocumentMoniker": "Assets\\Scripts\\StateMachine\\EnemyStates\\Enemy_HurtState.cs",
@@ -612,7 +625,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 18,
+              "DocumentIndex": 19,
               "Title": "Enemy_VFX.cs",
               "DocumentMoniker": "C:\\Users\\arthu\\Documents\\Projects\\2D-RPG\\2D-RPG\\Assets\\Scripts\\Entities\\Enemy\\Enemy_VFX.cs",
               "RelativeDocumentMoniker": "Assets\\Scripts\\Entities\\Enemy\\Enemy_VFX.cs",
@@ -648,7 +661,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 17,
+              "DocumentIndex": 18,
               "Title": "Stat_OffensiveGroup.cs",
               "DocumentMoniker": "C:\\Users\\arthu\\Documents\\Projects\\2D-RPG\\2D-RPG\\Assets\\Scripts\\Entities\\StatSystem\\Stat_OffensiveGroup.cs",
               "RelativeDocumentMoniker": "Assets\\Scripts\\Entities\\StatSystem\\Stat_OffensiveGroup.cs",
@@ -657,18 +670,6 @@
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAA8AAAAhAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2026-01-08T14:49:03.594Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 19,
-              "Title": "Enemy_Health.cs",
-              "DocumentMoniker": "C:\\Users\\arthu\\Documents\\Projects\\2D-RPG\\2D-RPG\\Assets\\Scripts\\Entities\\Enemy\\Enemy_Health.cs",
-              "RelativeDocumentMoniker": "Assets\\Scripts\\Entities\\Enemy\\Enemy_Health.cs",
-              "ToolTip": "C:\\Users\\arthu\\Documents\\Projects\\2D-RPG\\2D-RPG\\Assets\\Scripts\\Entities\\Enemy\\Enemy_Health.cs",
-              "RelativeToolTip": "Assets\\Scripts\\Entities\\Enemy\\Enemy_Health.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAoAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-01-06T17:00:17.182Z"
             },
             {
               "$type": "Document",

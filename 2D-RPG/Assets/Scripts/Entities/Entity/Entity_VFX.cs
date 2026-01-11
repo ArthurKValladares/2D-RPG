@@ -24,6 +24,7 @@ public class Entity_VFX : MonoBehaviour
     [SerializeField] private Color iceColor = Color.cyan;
     [SerializeField] private Color lightningColor = Color.yellow;
     [SerializeField] private float blinkingColorTicknterval = 0.4f;
+    [SerializeField] public GameObject lightningVFX;
     private Coroutine onStatusVFXCoroutine;
 
     private void Awake()
@@ -119,5 +120,12 @@ public class Entity_VFX : MonoBehaviour
         }
 
         sr.color = originalColor;
+    }
+
+    public void StopAllVFX()
+    {
+        StopAllCoroutines();
+        sr.color = originalColor;
+        sr.material = originalMaterial;
     }
 }

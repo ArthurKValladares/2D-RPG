@@ -5,6 +5,9 @@ MonoImporter:
   serializedVersion: 2
   defaultReferences:
   - onDamageMaterial: {fileID: 2100000, guid: 4a5dda86a53061d408958e415a4e6d61, type: 2}
+  - onHitTargetVFX: {fileID: 8417847197012983495, guid: 112aceac7e9e6fd479a94f6bcc7f01d0, type: 3}
+  - onCritHitTargetVFX: {fileID: 8958994509587034946, guid: 3dcb559b7a6534a4d83f95d66be1ee8f, type: 3}
+  - lightningVFX: {fileID: 5109361871728201888, guid: f8e2f7e2eeeacab4596c1be1c3a88476, type: 3}
   executionOrder: 0
   icon: {instanceID: 0}
   userData: 

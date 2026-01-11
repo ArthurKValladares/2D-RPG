@@ -1,5 +1,4 @@
 using System.Collections;
-using Unity.VisualScripting.Antlr3.Runtime.Misc;
 using UnityEngine;
 
 public class Entity_StatusHandler : MonoBehaviour
@@ -7,12 +6,14 @@ public class Entity_StatusHandler : MonoBehaviour
     private Entity entity;
     private Entity_VFX entityVFX;
     private Entity_Stats entityStats;
+    private Entity_Health entityHealth;
 
     private ElementalDamageType currentElement = ElementalDamageType.None;
 
-    private Coroutine chillCoroutine;
-    private Coroutine burnCoroutine;
     private Coroutine electrifyCoroutine;
+
+    [SerializeField] private float currentLightningCharge = 0.0f;
+    private float maxLightningCharge = 1.0f;
 
 
     private void Awake()
@@ -20,10 +21,13 @@ public class Entity_StatusHandler : MonoBehaviour
         entity = GetComponent<Entity>();
         entityVFX = GetComponent<Entity_VFX>();
         entityStats = GetComponent<Entity_Stats>();
+        entityHealth = GetComponent<Entity_Health>();
     }
 
-    public bool CanApply(ElementalDamageType _element)
+    public bool CanApply(ElementalDamageType element)
     {
+        if (element == ElementalDamageType.Lightning && currentElement == ElementalDamageType.Lightning) return true;
+
         return currentElement == ElementalDamageType.None;
     }
 
@@ -37,41 +41,84 @@ public class Entity_StatusHandler : MonoBehaviour
     {
         float reducedDuration = GetValueAfterResistance(duration, ElementalDamageType.Ice);
 
-        entity.SlowDownEntityBy(reducedDuration, slowPercentage);
+        StartCoroutine(ChillEffectCoroutine(reducedDuration, slowPercentage));
+    }
 
-        if (chillCoroutine != null)
-        {
-            StopCoroutine(chillCoroutine);
-        }
-        chillCoroutine = StartCoroutine(ApplyEffectVFXCoroutine(reducedDuration, ElementalDamageType.Ice));
+    private IEnumerator ChillEffectCoroutine(float duration, float slowPercentage)
+    {
+        currentElement = ElementalDamageType.Ice;
+        entityVFX.PlayOnStatusVFX(duration, currentElement);
+
+        entity.SlowDownEntityBy(duration, slowPercentage);
+        
+
+        yield return new WaitForSeconds(duration);
+
+        currentElement = ElementalDamageType.None;
     }
 
     public void ApplyBurnEffect(float duration, int ticksPerSecond, float totalDamage)
     {
         float reducedDamage = GetValueAfterResistance(totalDamage, ElementalDamageType.Fire);
 
-        entity.ApplyDamagePerTick(duration, ticksPerSecond, reducedDamage);
+        StartCoroutine(BurnEffectCoroutine(duration, ticksPerSecond, reducedDamage));
+    }
 
+    private IEnumerator BurnEffectCoroutine(float duration, int ticksPerSecond, float totalDamage)
+    {
+        currentElement = ElementalDamageType.Fire;
+        entityVFX.PlayOnStatusVFX(duration, currentElement);
 
-        if (burnCoroutine != null)
+        int tickCount = Mathf.RoundToInt(ticksPerSecond * duration);
+        float damagePerTick = totalDamage / tickCount;
+        float tickInterval = 1.0f / ticksPerSecond;
+
+        for (int i = 0; i < tickCount; ++i)
         {
-            StopCoroutine(burnCoroutine);
+            entityHealth.ReduceHP(damagePerTick);
+
+            yield return new WaitForSeconds(tickInterval);
         }
-        burnCoroutine = StartCoroutine(ApplyEffectVFXCoroutine(duration, ElementalDamageType.Fire));
-    }
-
-    public void ApplyElectrifyEffect(float charge, float damageOnFullCharge)
-    {
-    }
-
-    private IEnumerator ApplyEffectVFXCoroutine(float duration, ElementalDamageType element)
-    {
-        currentElement = element;
-
-        entityVFX.PlayOnStatusVFX(duration, element);
-
-        yield return new WaitForSeconds(duration);
 
         currentElement = ElementalDamageType.None;
     }
+
+    public void ApplyElectrifyEffect(float duration, float charge, float damageOnFullCharge)
+    {
+        float reducedCharge = GetValueAfterResistance(charge, ElementalDamageType.Lightning);
+        currentLightningCharge += reducedCharge;
+
+        if (currentLightningCharge >= maxLightningCharge)
+        {
+            Instantiate(entityVFX.lightningVFX, transform.position, Quaternion.identity);
+
+            entityHealth.ReduceHP(damageOnFullCharge);
+
+            StopElectrifyEffect();
+            return;
+        }
+
+        if (electrifyCoroutine != null)
+        {
+            StopCoroutine(electrifyCoroutine);
+        }
+        electrifyCoroutine = StartCoroutine(ElectrifyEffectCoroutine(duration));
+    }
+
+    private IEnumerator ElectrifyEffectCoroutine(float duration)
+    {
+        currentElement = ElementalDamageType.Lightning;
+        entityVFX.PlayOnStatusVFX(duration, currentElement);
+
+        yield return new WaitForSeconds(duration);
+
+        StopElectrifyEffect();
+    }
+
+    private void StopElectrifyEffect()
+    {
+        currentElement = ElementalDamageType.None;
+        currentLightningCharge = 0.0f;
+        entityVFX.StopAllVFX();
+    }    
 }

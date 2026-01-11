@@ -50708,6 +50708,7 @@ MonoBehaviour:
   iceColor: {r: 0, g: 1, b: 1, a: 1}
   lightningColor: {r: 1, g: 0.92156863, b: 0.015686275, a: 1}
   blinkingColorTicknterval: 0.25
+  lightningVFX: {fileID: 5109361871728201888, guid: f8e2f7e2eeeacab4596c1be1c3a88476, type: 3}
   attackAlert: {fileID: 821280915}
 --- !u!114 &1344131656
 MonoBehaviour:
@@ -50732,7 +50733,7 @@ MonoBehaviour:
       baseValue: 0
   offensiveStats:
     physicalDamage:
-      baseValue: 50
+      baseValue: 0
     critPower:
       baseValue: 0
     critChance:
@@ -50783,6 +50784,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2521803e9e63e294aa8bbaef3177d301, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Entity_StatusHandler
+  currentLightningCharge: 0
 --- !u!1 &1350776766
 GameObject:
   m_ObjectHideFlags: 0
@@ -50987,6 +50989,7 @@ MonoBehaviour:
   iceColor: {r: 0, g: 1, b: 1, a: 1}
   lightningColor: {r: 1, g: 0.92156863, b: 0.015686275, a: 1}
   blinkingColorTicknterval: 0.25
+  lightningVFX: {fileID: 5109361871728201888, guid: f8e2f7e2eeeacab4596c1be1c3a88476, type: 3}
 --- !u!114 &1377509250
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -51051,7 +51054,7 @@ MonoBehaviour:
       baseValue: 0
   offensiveStats:
     physicalDamage:
-      baseValue: 50
+      baseValue: 25
     critPower:
       baseValue: 0
     critChance:
@@ -51059,7 +51062,7 @@ MonoBehaviour:
     armorReduction:
       baseValue: 0
     fireDamage:
-      baseValue: 50.5
+      baseValue: 0
     iceDamage:
       baseValue: 0
     lightningDamage:
@@ -51076,7 +51079,7 @@ MonoBehaviour:
     iceResistance:
       baseValue: 0
     lightningResistance:
-      baseValue: 0
+      baseValue: 100
   vitalityHealthMultiplier: 5
   vitalityArmorMultiplier: 1
   agilityEvasionMultiplier: 0.5
@@ -51102,6 +51105,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2521803e9e63e294aa8bbaef3177d301, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Entity_StatusHandler
+  currentLightningCharge: 0
 --- !u!1 &1474396422
 GameObject:
   m_ObjectHideFlags: 0
@@ -51495,6 +51499,7 @@ MonoBehaviour:
   iceColor: {r: 0, g: 0, b: 0, a: 0}
   lightningColor: {r: 0, g: 0, b: 0, a: 0}
   blinkingColorTicknterval: 0.25
+  lightningVFX: {fileID: 0}
 --- !u!1 &2072829375
 GameObject:
   m_ObjectHideFlags: 0

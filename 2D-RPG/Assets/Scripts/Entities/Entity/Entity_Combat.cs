@@ -31,7 +31,7 @@ public class Entity_Combat : MonoBehaviour
             {
                 DamageInfo physicalDamageInfo = stats.CalculatePhysicalDamage();
                 // TODO: Need to get from damage source
-                ElementalDamageInfo elementalInfo = stats.CalculateElementalDamage(ElementalDamageType.Fire);
+                ElementalDamageInfo elementalInfo = stats.CalculateElementalDamage(ElementalDamageType.Lightning);
 
                 bool tookDamage = damagable.TakeDamage(physicalDamageInfo.damageResult, elementalInfo, transform);
                 if (tookDamage)
@@ -63,7 +63,7 @@ public class Entity_Combat : MonoBehaviour
                     break;
                 case ElementalDamageType.Lightning:
                     float electrifyDamage = stats.offensiveStats.lightningDamage.GetValue() * scaleFactor;
-                    statusHandler.ApplyElectrifyEffect(electrifyChargePerApplication, electrifyDamage);
+                    statusHandler.ApplyElectrifyEffect(defaultStatusDuration, electrifyChargePerApplication, electrifyDamage);
                     break;
             }
         }
