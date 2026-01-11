@@ -9,4 +9,8 @@ public class Stat<T>
     public T GetValue() {
         return baseValue;
     }
+
+    public void SetValue(T value) { 
+        baseValue = value;
+    }
 }
