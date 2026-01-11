@@ -50682,6 +50682,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::Enemy_Health
   healthBarObject: {fileID: 1836009862}
   currentHealth: 0
+  canRegenerateHealth: 1
+  healthRegenInterval: 0.5
   heavyKnockbackThreshold: 0.3
   knockbackForce: {x: 1.5, y: 2.5}
   heavyKnockbackForce: {x: 7, y: 7}
@@ -50733,7 +50735,7 @@ MonoBehaviour:
       baseValue: 0
   offensiveStats:
     physicalDamage:
-      baseValue: 0
+      baseValue: 25
     critPower:
       baseValue: 0
     critChance:
@@ -50747,8 +50749,6 @@ MonoBehaviour:
     lightningDamage:
       baseValue: 0
   deffensiveStats:
-    health:
-      baseValue: 150
     armor:
       baseValue: 0
     evasion:
@@ -50758,6 +50758,11 @@ MonoBehaviour:
     iceResistance:
       baseValue: 0
     lightningResistance:
+      baseValue: 0
+  resourceStats:
+    maxHealth:
+      baseValue: 150
+    healthRegenPerSecond:
       baseValue: 0
   vitalityHealthMultiplier: 5
   vitalityArmorMultiplier: 1
@@ -51004,6 +51009,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::Player_Health
   healthBarObject: {fileID: 1311138947}
   currentHealth: 0
+  canRegenerateHealth: 1
+  healthRegenInterval: 0.5
   heavyKnockbackThreshold: 0.3
   knockbackForce: {x: 1.5, y: 2.5}
   heavyKnockbackForce: {x: 7, y: 7}
@@ -51068,8 +51075,6 @@ MonoBehaviour:
     lightningDamage:
       baseValue: 0
   deffensiveStats:
-    health:
-      baseValue: 250
     armor:
       baseValue: 0
     evasion:
@@ -51080,6 +51085,11 @@ MonoBehaviour:
       baseValue: 0
     lightningResistance:
       baseValue: 100
+  resourceStats:
+    maxHealth:
+      baseValue: 250
+    healthRegenPerSecond:
+      baseValue: 10
   vitalityHealthMultiplier: 5
   vitalityArmorMultiplier: 1
   agilityEvasionMultiplier: 0.5

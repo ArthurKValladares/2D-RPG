@@ -31,7 +31,7 @@ public class Entity_Combat : MonoBehaviour
             {
                 DamageInfo physicalDamageInfo = stats.CalculatePhysicalDamage();
                 // TODO: Need to get from damage source
-                ElementalDamageInfo elementalInfo = stats.CalculateElementalDamage(ElementalDamageType.Lightning);
+                ElementalDamageInfo elementalInfo = stats.CalculateElementalDamage(ElementalDamageType.None);
 
                 bool tookDamage = damagable.TakeDamage(physicalDamageInfo.damageResult, elementalInfo, transform);
                 if (tookDamage)

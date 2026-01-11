@@ -12,6 +12,8 @@ public class Entity_Health : MonoBehaviour, IDamagable
 
     [Header("Health Details")]
     [SerializeField] protected float currentHealth;
+    [SerializeField] private bool canRegenerateHealth = true;
+    [SerializeField] private float healthRegenInterval = 0.5f;
 
     [Header("On-hit Knockback Details")]
     [SerializeField] private float heavyKnockbackThreshold;
@@ -28,6 +30,20 @@ public class Entity_Health : MonoBehaviour, IDamagable
         stats = GetComponentInChildren<Entity_Stats>();
 
         SetHP(stats.CalculateMaxHP());
+
+        InvokeRepeating(nameof(RegenerateHealth), 0.0f, healthRegenInterval);
+    }
+
+    private void RegenerateHealth()
+    {
+        float healthRegenPerSecond = stats.resourceStats.healthRegenPerSecond.GetValue();
+        if (!canRegenerateHealth || healthRegenPerSecond <= 0.0f) return;
+
+        float ticksPerSecond = 1.0f / healthRegenInterval;
+        float healthRegenPerTick = healthRegenPerSecond / ticksPerSecond;
+
+        Debug.Log("time: " + Time.time + " Value: " + healthRegenPerTick);
+        IncreaseHP(healthRegenPerTick);
     }
 
     private float CalculateFinalPhysicalDamage(float physicalDamage, Entity_Stats attackerStats)
@@ -132,6 +148,15 @@ public class Entity_Health : MonoBehaviour, IDamagable
         {
             Die();
         }
+    }
+
+    public void IncreaseHP(float amount)
+    {
+        if (currentHealth <= 0.0) return;
+
+        float newHealth = Mathf.Min(currentHealth + amount, stats.CalculateMaxHP());
+
+        SetHP(newHealth);
     }
 
     private void UpdateHealthBar()

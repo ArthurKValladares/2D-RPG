@@ -21,6 +21,7 @@ public class Entity_Stats : MonoBehaviour
     public Stat_MajorGroup majorStats;
     public Stat_OffensiveGroup offensiveStats;
     public Stat_DefensiveGroup deffensiveStats;
+    public Stat_ResourceGroup resourceStats;
 
     [Header("Stats Multipliers")]
     public float vitalityHealthMultiplier = 5;
@@ -41,7 +42,7 @@ public class Entity_Stats : MonoBehaviour
 
     public float CalculateMaxHP()
     {
-        float baseHP = deffensiveStats.health.GetValue();
+        float baseHP = resourceStats.maxHealth.GetValue();
         float bonusHP = majorStats.vitality.GetValue() * vitalityHealthMultiplier;
 
         return baseHP + bonusHP;
