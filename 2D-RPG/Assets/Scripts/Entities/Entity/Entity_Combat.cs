@@ -58,11 +58,11 @@ public class Entity_Combat : MonoBehaviour
                     statusHandler.ApplyChillEffect(defaultStatusDuration, chillSlowPercentage);
                     break;
                 case ElementalDamageType.Fire:
-                    float burnDamage = stats.offensiveStats.fireDamage.GetValue() * scaleFactor;
+                    float burnDamage = stats.offensive.fireDamage.GetValue() * scaleFactor;
                     statusHandler.ApplyBurnEffect(defaultStatusDuration, burnTicksPerSecond, burnDamage);
                     break;
                 case ElementalDamageType.Lightning:
-                    float electrifyDamage = stats.offensiveStats.lightningDamage.GetValue() * scaleFactor;
+                    float electrifyDamage = stats.offensive.lightningDamage.GetValue() * scaleFactor;
                     statusHandler.ApplyElectrifyEffect(defaultStatusDuration, electrifyChargePerApplication, electrifyDamage);
                     break;
             }

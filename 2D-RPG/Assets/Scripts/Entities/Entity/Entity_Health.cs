@@ -36,7 +36,7 @@ public class Entity_Health : MonoBehaviour, IDamagable
 
     private void RegenerateHealth()
     {
-        float healthRegenPerSecond = stats.resourceStats.healthRegenPerSecond.GetValue();
+        float healthRegenPerSecond = stats.resources.healthRegenPerSecond.GetValue();
         if (!canRegenerateHealth || healthRegenPerSecond <= 0.0f) return;
 
         float ticksPerSecond = 1.0f / healthRegenInterval;

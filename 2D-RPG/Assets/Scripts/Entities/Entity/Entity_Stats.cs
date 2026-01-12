@@ -14,13 +14,15 @@ public class DamageInfo
 
 public class Entity_Stats : MonoBehaviour
 {
+    public Stat_SetupSO defaultStatSetup;
+
     [Header("All Percentage values should be in the 0-100 range, not 0-1.")]
 
     [Header("Stats")]
-    public Stat_MajorGroup majorStats;
-    public Stat_OffensiveGroup offensiveStats;
-    public Stat_DefensiveGroup deffensiveStats;
-    public Stat_ResourceGroup resourceStats;
+    public Stat_MajorGroup major;
+    public Stat_OffensiveGroup offensive;
+    public Stat_DefensiveGroup deffensive;
+    public Stat_ResourceGroup resources;
 
     [Header("Stats Multipliers")]
     public float vitalityHealthMultiplier = 5;
@@ -41,16 +43,16 @@ public class Entity_Stats : MonoBehaviour
 
     public float CalculateMaxHP()
     {
-        float baseHP = resourceStats.maxHealth.GetValue();
-        float bonusHP = majorStats.vitality.GetValue() * vitalityHealthMultiplier;
+        float baseHP = resources.maxHealth.GetValue();
+        float bonusHP = major.vitality.GetValue() * vitalityHealthMultiplier;
 
         return baseHP + bonusHP;
     }
 
     public float CalculateEvasion()
     {
-        float baseEvasion = deffensiveStats.evasion.GetValue();
-        float bonusEvasion = majorStats.agility.GetValue() * agilityEvasionMultiplier;
+        float baseEvasion = deffensive.evasion.GetValue();
+        float bonusEvasion = major.agility.GetValue() * agilityEvasionMultiplier;
         float clampedEvasion = Mathf.Clamp(baseEvasion + bonusEvasion, 0.0f, maxEvasion);
         
         return clampedEvasion / 100.0f;
@@ -58,8 +60,8 @@ public class Entity_Stats : MonoBehaviour
 
     private float GetArmor()
     {
-        float baseArmor = deffensiveStats.armor.GetValue();
-        float bonusArmor = majorStats.vitality.GetValue() * vitalityArmorMultiplier;
+        float baseArmor = deffensive.armor.GetValue();
+        float bonusArmor = major.vitality.GetValue() * vitalityArmorMultiplier;
 
         return baseArmor + bonusArmor;
     }
@@ -79,29 +81,29 @@ public class Entity_Stats : MonoBehaviour
 
     public float GetArmorReduction()
     {
-        return offensiveStats.armorReduction.GetValue() / 100.0f;
+        return offensive.armorReduction.GetValue() / 100.0f;
     }
 
     private float GetCritPower()
     {
-        float baseCritPower = offensiveStats.critPower.GetValue();
-        float bonusCritPower = majorStats.strength.GetValue() * strengthCritPowerMultiplier;
+        float baseCritPower = offensive.critPower.GetValue();
+        float bonusCritPower = major.strength.GetValue() * strengthCritPowerMultiplier;
 
         return (baseCritPower + bonusCritPower) / 100.0f;
     }
 
     private float GetCritChance()
     {
-        float baseCritChance = offensiveStats.critChance.GetValue();
-        float bonuesritChange = majorStats.agility.GetValue() * agilityCritChanceMultiplier;
+        float baseCritChance = offensive.critChance.GetValue();
+        float bonuesritChange = major.agility.GetValue() * agilityCritChanceMultiplier;
 
         return (baseCritChance + bonuesritChange) / 100.0f;
     }
 
     public DamageInfo CalculatePhysicalDamage(float scaleFactor = 1.0f)
     {
-        float baseDamage = offensiveStats.physicalDamage.GetValue();
-        float bonusDamage = majorStats.strength.GetValue() * strengthDamageMultiplier;
+        float baseDamage = offensive.physicalDamage.GetValue();
+        float bonusDamage = major.strength.GetValue() * strengthDamageMultiplier;
         float totalBaseDamage = baseDamage + bonusDamage;
 
         bool wasCritical = Random.Range(0.0f, 1.0f) < GetCritChance();
@@ -119,17 +121,17 @@ public class Entity_Stats : MonoBehaviour
         {
             case ElementalDamageType.Fire:
                 {
-                    damage = offensiveStats.fireDamage.GetValue();
+                    damage = offensive.fireDamage.GetValue();
                     break;
                 }
             case ElementalDamageType.Ice:
                 {
-                    damage = offensiveStats.iceDamage.GetValue();
+                    damage = offensive.iceDamage.GetValue();
                     break;
                 }
             case ElementalDamageType.Lightning:
                 {
-                    damage = offensiveStats.lightningDamage.GetValue();
+                    damage = offensive.lightningDamage.GetValue();
                     break;
                 }
         }
@@ -140,7 +142,7 @@ public class Entity_Stats : MonoBehaviour
     {
         float basePrimaryElementalDamage = GetBaseElementalDamage(ty);
 
-        float bonusElementalDamage = majorStats.intelligence.GetValue() * intelligenceElementalDamageMultiplier;
+        float bonusElementalDamage = major.intelligence.GetValue() * intelligenceElementalDamageMultiplier;
 
         float totalPrimaryDamage = basePrimaryElementalDamage > 0.0 
             ? basePrimaryElementalDamage + bonusElementalDamage
@@ -164,17 +166,17 @@ public class Entity_Stats : MonoBehaviour
         {
             case ElementalDamageType.Fire:
                 {
-                    resistance = deffensiveStats.fireResistance.GetValue();
+                    resistance = deffensive.fireResistance.GetValue();
                     break;
                 }
             case ElementalDamageType.Ice:
                 {
-                    resistance = deffensiveStats.iceResistance.GetValue();
+                    resistance = deffensive.iceResistance.GetValue();
                     break;
                 }
             case ElementalDamageType.Lightning:
                 {
-                    resistance = deffensiveStats.lightningResistance.GetValue();
+                    resistance = deffensive.lightningResistance.GetValue();
                     break;
                 }
         }
@@ -184,7 +186,7 @@ public class Entity_Stats : MonoBehaviour
     public float GetElementalResistance(ElementalDamageType ty)
     {
         float baseResistance = GetBaseElementalResistance(ty);
-        float bonusResistance = majorStats.intelligence.GetValue() * intelligenceElementalResistMultiplier;
+        float bonusResistance = major.intelligence.GetValue() * intelligenceElementalResistMultiplier;
 
         return Mathf.Clamp(baseResistance + bonusResistance, 0, elementalResistanceCap) / 100.0f;
     }
@@ -193,30 +195,65 @@ public class Entity_Stats : MonoBehaviour
     {
         switch (ty)
         {
-            case StatType.MaxHealth: return resourceStats.maxHealth;
-            case StatType.HealthRegen: return resourceStats.healthRegenPerSecond;
-            case StatType.Strength: return majorStats.strength;
-            case StatType.Agility: return majorStats.agility;
-            case StatType.Intelligence: return majorStats.intelligence;
-            case StatType.Vitality: return majorStats.vitality;
-            case StatType.AttackSpeed: return offensiveStats.attackSpeedMultiplier;
-            case StatType.Damage: return offensiveStats.physicalDamage;
-            case StatType.CritChance: return offensiveStats.critChance;
-            case StatType.CritPower: return offensiveStats.critPower;
-            case StatType.ArmorReduction: return offensiveStats.armorReduction;
-            case StatType.FireDamage: return offensiveStats.fireDamage;
-            case StatType.IceDamage: return offensiveStats.iceDamage;
-            case StatType.LightningDamage: return offensiveStats.lightningDamage;
-            case StatType.Armor: return deffensiveStats.armor;
-            case StatType.Evasion: return deffensiveStats.evasion;
-            case StatType.IceResistance: return deffensiveStats.iceResistance;
-            case StatType.FireResistance: return deffensiveStats.fireResistance;
-            case StatType.LightningResistance: return deffensiveStats.lightningResistance;
+            case StatType.MaxHealth: return resources.maxHealth;
+            case StatType.HealthRegen: return resources.healthRegenPerSecond;
+            case StatType.Strength: return major.strength;
+            case StatType.Agility: return major.agility;
+            case StatType.Intelligence: return major.intelligence;
+            case StatType.Vitality: return major.vitality;
+            case StatType.AttackSpeed: return offensive.attackSpeedMultiplier;
+            case StatType.Damage: return offensive.physicalDamage;
+            case StatType.CritChance: return offensive.critChance;
+            case StatType.CritPower: return offensive.critPower;
+            case StatType.ArmorReduction: return offensive.armorReduction;
+            case StatType.FireDamage: return offensive.fireDamage;
+            case StatType.IceDamage: return offensive.iceDamage;
+            case StatType.LightningDamage: return offensive.lightningDamage;
+            case StatType.Armor: return deffensive.armor;
+            case StatType.Evasion: return deffensive.evasion;
+            case StatType.IceResistance: return deffensive.iceResistance;
+            case StatType.FireResistance: return deffensive.fireResistance;
+            case StatType.LightningResistance: return deffensive.lightningResistance;
             default: 
             {
                 Debug.LogError($"StatType {ty} not implemented");
                 return null;
             }
         };
+    }
+
+    [ContextMenu("Update Default Stat Setup")]
+    public void ApplyDefaultStatSetup()
+    {
+        if (defaultStatSetup == null)
+        {
+            Debug.Log("No default stat setup assigned");
+            return;
+        }
+
+        resources.maxHealth.SetBaseValue(defaultStatSetup.maxHealth);
+        resources.healthRegenPerSecond.SetBaseValue(defaultStatSetup.healthRegen);
+
+        major.strength.SetBaseValue(defaultStatSetup.strength);
+        major.agility.SetBaseValue(defaultStatSetup.agility);
+        major.intelligence.SetBaseValue(defaultStatSetup.intelligence);
+        major.vitality.SetBaseValue(defaultStatSetup.vitality);
+
+        offensive.attackSpeedMultiplier.SetBaseValue(defaultStatSetup.attackSpeedMultiplier);
+        offensive.physicalDamage.SetBaseValue(defaultStatSetup.damage);
+        offensive.critChance.SetBaseValue(defaultStatSetup.critChance);
+        offensive.critPower.SetBaseValue(defaultStatSetup.critPower);
+        offensive.armorReduction.SetBaseValue(defaultStatSetup.armorReduction);
+
+        offensive.iceDamage.SetBaseValue(defaultStatSetup.iceDamage);
+        offensive.fireDamage.SetBaseValue(defaultStatSetup.fireDamage);
+        offensive.lightningDamage.SetBaseValue(defaultStatSetup.lightningDamage);
+
+        deffensive.armor.SetBaseValue(defaultStatSetup.armor);
+        deffensive.evasion.SetBaseValue(defaultStatSetup.evasion);
+
+        deffensive.iceResistance.SetBaseValue(defaultStatSetup.iceResistance);
+        deffensive.fireResistance.SetBaseValue(defaultStatSetup.fireResistance);
+        deffensive.lightningResistance.SetBaseValue(defaultStatSetup.lightningResistance);
     }
 }

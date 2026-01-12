@@ -47,6 +47,6 @@ public abstract class EntityState
 
     public void SyncAttackSpeed(Entity entity)
     {
-        entity.animator.SetFloat("attackSpeedMultiplier", entity.stats.offensiveStats.attackSpeedMultiplier.GetValue());
+        entity.animator.SetFloat("attackSpeedMultiplier", entity.stats.offensive.attackSpeedMultiplier.GetValue());
     }
 }

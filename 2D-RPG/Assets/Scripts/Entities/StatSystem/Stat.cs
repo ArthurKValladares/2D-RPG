@@ -34,6 +34,11 @@ public class Stat
         return finalValue;
     }
 
+    public void SetBaseValue(float value)
+    {
+        baseValue = value;
+    }
+
     public void AddModifier(string source, float value)
     {
         modifiers.Add(new StatModifier(source, value));

@@ -50724,7 +50724,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6074247bc32d27044b69c5f4dd265f43, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Entity_Stats
-  majorStats:
+  defaultStatSetup: {fileID: 11400000, guid: 1119bef795540ed40bd2daff09dfc8dc, type: 2}
+  major:
     strength:
       baseValue: 0
       modifiers: []
@@ -50737,12 +50738,12 @@ MonoBehaviour:
     vitality:
       baseValue: 0
       modifiers: []
-  offensiveStats:
+  offensive:
     physicalDamage:
-      baseValue: 25
+      baseValue: 10
       modifiers: []
     critPower:
-      baseValue: 0
+      baseValue: 150
       modifiers: []
     critChance:
       baseValue: 0
@@ -50762,7 +50763,7 @@ MonoBehaviour:
     attackSpeedMultiplier:
       baseValue: 1
       modifiers: []
-  deffensiveStats:
+  deffensive:
     armor:
       baseValue: 0
       modifiers: []
@@ -50778,9 +50779,9 @@ MonoBehaviour:
     lightningResistance:
       baseValue: 0
       modifiers: []
-  resourceStats:
+  resources:
     maxHealth:
-      baseValue: 150
+      baseValue: 100
       modifiers: []
     healthRegenPerSecond:
       baseValue: 0
@@ -51071,7 +51072,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6074247bc32d27044b69c5f4dd265f43, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Entity_Stats
-  majorStats:
+  defaultStatSetup: {fileID: 0}
+  major:
     strength:
       baseValue: 0
       modifiers: []
@@ -51084,9 +51086,9 @@ MonoBehaviour:
     vitality:
       baseValue: 0
       modifiers: []
-  offensiveStats:
+  offensive:
     physicalDamage:
-      baseValue: 25
+      baseValue: 0
       modifiers: []
     critPower:
       baseValue: 0
@@ -51107,9 +51109,9 @@ MonoBehaviour:
       baseValue: 0
       modifiers: []
     attackSpeedMultiplier:
-      baseValue: 1
+      baseValue: 0
       modifiers: []
-  deffensiveStats:
+  deffensive:
     armor:
       baseValue: 0
       modifiers: []
@@ -51125,12 +51127,12 @@ MonoBehaviour:
     lightningResistance:
       baseValue: 0
       modifiers: []
-  resourceStats:
+  resources:
     maxHealth:
-      baseValue: 250
+      baseValue: 0
       modifiers: []
     healthRegenPerSecond:
-      baseValue: 10
+      baseValue: 0
       modifiers: []
   vitalityHealthMultiplier: 5
   vitalityArmorMultiplier: 1
