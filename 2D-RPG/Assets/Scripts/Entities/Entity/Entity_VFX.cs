@@ -20,9 +20,9 @@ public class Entity_VFX : MonoBehaviour
 
     [Header("Element VFX")]
     // TODO: right now the on hit vfx and the blinking effect use the same color, could separate
-    [SerializeField] private Color fireColor = Color.red;
-    [SerializeField] private Color iceColor = Color.cyan;
-    [SerializeField] private Color lightningColor = Color.yellow;
+    [SerializeField] public Color fireColor = Color.red;
+    [SerializeField] public Color iceColor = Color.cyan;
+    [SerializeField] public Color lightningColor = Color.yellow;
     [SerializeField] private float blinkingColorTicknterval = 0.4f;
     [SerializeField] public GameObject lightningVFX;
     private Coroutine onStatusVFXCoroutine;

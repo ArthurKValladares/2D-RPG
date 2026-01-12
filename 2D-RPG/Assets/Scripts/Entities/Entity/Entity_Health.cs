@@ -26,7 +26,15 @@ public class Entity_Health : MonoBehaviour, IDamagable
     {
         entity = GetComponent<Entity>();
         vfxComponent = GetComponent<Entity_VFX>();
-        healthBar = GetComponentInChildren<Slider>();
+        Slider[] sliders = GetComponentsInChildren<Slider>();
+        foreach (Slider slider in sliders)
+        {
+            if (slider.CompareTag("HealthBar"))
+            {
+                healthBar = slider;
+                break;
+            }
+        }
         stats = GetComponentInChildren<Entity_Stats>();
 
         SetHP(stats.CalculateMaxHP());

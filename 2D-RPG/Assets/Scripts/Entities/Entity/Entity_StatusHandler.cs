@@ -1,5 +1,7 @@
 using System.Collections;
+using Unity.VisualScripting.Antlr3.Runtime.Misc;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class Entity_StatusHandler : MonoBehaviour
 {
@@ -15,6 +17,10 @@ public class Entity_StatusHandler : MonoBehaviour
     [SerializeField] private float currentLightningCharge = 0.0f;
     private float maxLightningCharge = 1.0f;
 
+    // TODO: Will have a better status bar abstraction soon
+    private Slider statusBar;
+    [SerializeField] private GameObject statusBarObject;
+    private Image statusBarImage;
 
     private void Awake()
     {
@@ -22,6 +28,46 @@ public class Entity_StatusHandler : MonoBehaviour
         entityVFX = GetComponent<Entity_VFX>();
         entityStats = GetComponent<Entity_Stats>();
         entityHealth = GetComponent<Entity_Health>();
+
+        // TODO: Have the same code in Entity_Health, figure out abstraction. Same for SetCharge/UpdateStatusBar/etc
+        Slider[] sliders = GetComponentsInChildren<Slider>();
+        foreach (Slider slider in sliders)
+        {
+            if (slider.CompareTag("StatusBar"))
+            {
+                statusBar = slider;
+                break;
+            }
+        }
+        statusBarImage = statusBar.fillRect.GetComponent<Image>();
+        
+        SetCharge(0.0f);
+    }
+
+    private void SetCharge(float charge)
+    {
+        currentLightningCharge = charge;
+        UpdateStatusBar();
+    }
+
+    private void UpdateStatusBar()
+    {
+        if (statusBar == null) return;
+
+        statusBar.value = currentLightningCharge / maxLightningCharge;
+
+        if (statusBar.value <= 0.0f)
+        {
+            statusBarObject.SetActive(false);
+        } else
+        {
+            statusBarObject.SetActive(true);
+        }
+    }
+
+    private void UpdateStatusBarColor(Color color)
+    {
+        statusBarImage.color = color;
     }
 
     public bool CanApply(ElementalDamageType element)
@@ -86,7 +132,8 @@ public class Entity_StatusHandler : MonoBehaviour
     public void ApplyElectrifyEffect(float duration, float charge, float damageOnFullCharge)
     {
         float reducedCharge = GetValueAfterResistance(charge, ElementalDamageType.Lightning);
-        currentLightningCharge += reducedCharge;
+        UpdateStatusBarColor(entityVFX.lightningColor);
+        SetCharge(currentLightningCharge + reducedCharge);
 
         if (currentLightningCharge >= maxLightningCharge)
         {
@@ -118,7 +165,7 @@ public class Entity_StatusHandler : MonoBehaviour
     private void StopElectrifyEffect()
     {
         currentElement = ElementalDamageType.None;
-        currentLightningCharge = 0.0f;
+        SetCharge(0.0f);
         entityVFX.StopAllVFX();
     }    
 }
