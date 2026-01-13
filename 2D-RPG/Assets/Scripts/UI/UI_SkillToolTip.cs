@@ -21,6 +21,6 @@ public class UI_SkillToolTip : UI_ToolTip
         skillName.text = skillData.name;
         skillDescription.text = skillData.description;
         skillRequirements.text = "Requirements:\n" +
-            "- " + skillData.cost + " Skill Points.";
+            "- " + skillData.cost + " Skill Point(s).";
     }
 }

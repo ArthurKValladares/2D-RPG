@@ -63,6 +63,7 @@
   <ItemGroup>
     <Compile Include="Assets\Scripts\StateMachine\PlayerStates\Player_LaunchAttackState.cs" />
     <Compile Include="Assets\Scripts\StateMachine\EnemyStates\Enemy_StunnedState.cs" />
+    <Compile Include="Assets\Scripts\UI\UI_TreeConnection.cs" />
     <Compile Include="Assets\Scripts\StateMachine\PlayerStates\Player_WallJumpState.cs" />
     <Compile Include="Assets\Scripts\UI\UI_TreeNode.cs" />
     <Compile Include="Assets\Scripts\Entities\StatSystem\Stat_ResourceGroup.cs" />
@@ -91,6 +92,7 @@
     <Compile Include="Assets\Scripts\Entities\BuffObject\BuffObject.cs" />
     <Compile Include="Assets\Scripts\StateMachine\PlayerStates\PlayerState.cs" />
     <Compile Include="Assets\Scripts\Entities\StatSystem\Stat_SetupSO.cs" />
+    <Compile Include="Assets\Scripts\UI\UI_TreeConnectionHandler.cs" />
     <Compile Include="Assets\Scripts\UI\UI_SkillToolTip.cs" />
     <Compile Include="Assets\Scripts\StateMachine\StateMachine.cs" />
     <Compile Include="Assets\Scripts\StateMachine\PlayerStates\Player_DashState.cs" />
