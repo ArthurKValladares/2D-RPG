@@ -4,6 +4,9 @@ using UnityEngine.UI;
 
 public class UI_TreeNode : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler, IPointerDownHandler
 {
+    [SerializeField] private Skill_DataSO skillDataSO;
+
+    [SerializeField] private string skillName;
     [SerializeField] private Image skillIcon;
 
     [SerializeField] private string skillLockedColorHex = "#6E6E6E";
@@ -72,5 +75,17 @@ public class UI_TreeNode : MonoBehaviour, IPointerEnterHandler, IPointerExitHand
         Color color;
         ColorUtility.TryParseHtmlString(skillLockedColorHex, out color);
         return color;
+    }
+
+    private void OnValidate()
+    {
+        if (skillDataSO == null)
+        {
+            return;
+        }
+
+        skillName = skillDataSO.skillName;
+        skillIcon.sprite = skillDataSO.icon;
+        gameObject.name = "UI Tree Node - " + skillName;
     }
 }

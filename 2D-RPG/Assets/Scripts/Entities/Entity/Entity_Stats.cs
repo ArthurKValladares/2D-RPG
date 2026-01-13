@@ -14,7 +14,7 @@ public class DamageInfo
 
 public class Entity_Stats : MonoBehaviour
 {
-    public Stat_SetupSO defaultStatSetup;
+    [SerializeField] private Stat_SetupSO defaultStatSetup;
 
     [Header("All Percentage values should be in the 0-100 range, not 0-1.")]
 
