@@ -4,11 +4,16 @@ using UnityEngine.UI;
 
 public class UI_TreeNode : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler, IPointerDownHandler
 {
+    private UI ui;
+    private RectTransform rect;
+
     [SerializeField] private Skill_DataSO skillDataSO;
 
+    [Header("Skill Details")]
     [SerializeField] private string skillName;
     [SerializeField] private Image skillIcon;
 
+    [Header("Locked Skill Display Details")]
     [SerializeField] private string skillLockedColorHex = "#6E6E6E";
     private Color skillLockedColor;
     [SerializeField]  private float highlightIntensity = 1.5f;
@@ -18,6 +23,9 @@ public class UI_TreeNode : MonoBehaviour, IPointerEnterHandler, IPointerExitHand
 
     private void Awake()
     {
+        ui = GetComponentInParent<UI>();
+        rect = GetComponent<RectTransform>();
+
         skillLockedColor = GetColorByHex(skillLockedColorHex);
 
         SetColor(skillLockedColor);    
@@ -56,6 +64,8 @@ public class UI_TreeNode : MonoBehaviour, IPointerEnterHandler, IPointerExitHand
 
     public void OnPointerEnter(PointerEventData eventData)
     {
+        ui.skillToolTip.ShowTooltip(true, rect, skillDataSO);
+
         if (!isLearned)
         {
             SetColor(skillLockedColor * highlightIntensity);
@@ -64,6 +74,8 @@ public class UI_TreeNode : MonoBehaviour, IPointerEnterHandler, IPointerExitHand
 
     public void OnPointerExit(PointerEventData eventData)
     {
+        ui.skillToolTip.ShowTooltip(false, null);
+
         if (!isLearned)
         {
             SetColor(skillLockedColor);
@@ -73,7 +85,7 @@ public class UI_TreeNode : MonoBehaviour, IPointerEnterHandler, IPointerExitHand
     private Color GetColorByHex(string hex)
     {
         Color color;
-        ColorUtility.TryParseHtmlString(skillLockedColorHex, out color);
+        ColorUtility.TryParseHtmlString(hex, out color);
         return color;
     }
 

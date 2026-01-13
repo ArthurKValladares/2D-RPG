@@ -84,12 +84,14 @@
     <Compile Include="Assets\Scripts\StateMachine\PlayerStates\Player_MoveState.cs" />
     <Compile Include="Assets\Scripts\StateMachine\PlayerStates\Player_JumpState.cs" />
     <Compile Include="Assets\Scripts\Entities\StatSystem\Stat_MajorGroup.cs" />
+    <Compile Include="Assets\Scripts\UI\UI_ToolTip.cs" />
     <Compile Include="Assets\Scripts\StateMachine\EnemyStates\Enemy_AttackState.cs" />
     <Compile Include="Assets\Scripts\StateMachine\PlayerStates\Player_DeadState.cs" />
     <Compile Include="Assets\Scripts\StateMachine\EnemyStates\Enemy_HurtState.cs" />
     <Compile Include="Assets\Scripts\Entities\BuffObject\BuffObject.cs" />
     <Compile Include="Assets\Scripts\StateMachine\PlayerStates\PlayerState.cs" />
     <Compile Include="Assets\Scripts\Entities\StatSystem\Stat_SetupSO.cs" />
+    <Compile Include="Assets\Scripts\UI\UI_SkillToolTip.cs" />
     <Compile Include="Assets\Scripts\StateMachine\StateMachine.cs" />
     <Compile Include="Assets\Scripts\StateMachine\PlayerStates\Player_DashState.cs" />
     <Compile Include="Assets\Scripts\StateMachine\EnemyStates\Enemy_MoveState.cs" />
@@ -118,6 +120,7 @@
     <Compile Include="Assets\Scripts\StateMachine\PlayerStates\Player_JumpAttackState.cs" />
     <Compile Include="Assets\Scripts\Parallax\ParallaxBackground.cs" />
     <Compile Include="Assets\Scripts\Entities\Player\Player_Health.cs" />
+    <Compile Include="Assets\Scripts\UI\UI.cs" />
     <Compile Include="Assets\Scripts\Entities\Entity\Entity_Health.cs" />
     <Compile Include="Assets\Scripts\StateMachine\PlayerStates\Player_BasicAttackState.cs" />
     <Compile Include="Assets\Scripts\Entities\Enemy\Enemy_AnimationTriggers.cs" />
