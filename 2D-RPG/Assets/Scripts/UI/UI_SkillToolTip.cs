@@ -17,7 +17,9 @@ public class UI_SkillToolTip : UI_ToolTip
     [Header("Text Color Details")]
     [SerializeField] private string metConditionsHex;
     [SerializeField] private string notMetConditionsHex;
+    private string originalNotMetConditionsHex;
     [SerializeField] private string importantInfoHex;
+    private string originalImportantInfoHex;
     [SerializeField] private Color exampleColor;
 
     [Space]
@@ -34,6 +36,9 @@ public class UI_SkillToolTip : UI_ToolTip
 
         ui = GetComponentInParent<UI>();
         skillTree = ui.GetComponentInChildren<UI_SkillTree>();
+
+        originalNotMetConditionsHex = notMetConditionsHex;
+        originalImportantInfoHex = importantInfoHex;
     }
 
     public override void ShowTooltip(bool show, RectTransform targetRect)
@@ -50,11 +55,15 @@ public class UI_SkillToolTip : UI_ToolTip
         skillName.text = node.skillData.name;
         skillDescription.text = node.skillData.description;
         
+        skillRequirements.text = PickRequirementsText(node);
+    }
 
+    private string PickRequirementsText(UI_TreeNode node)
+    {
         string lockedSkillString = Helpers.GetColoredText(importantInfoHex, lockedOutText);
         string requirementsString = GetRequirements(node.skillData.cost, node.neededTreeNodes, node.conflictNodes);
 
-        skillRequirements.text = node.IsLocked()
+        return node.IsLocked()
             ? lockedSkillString
             : requirementsString;
     }
@@ -79,36 +88,43 @@ public class UI_SkillToolTip : UI_ToolTip
 
         if (conflictNodes.Length > 0)
         {
+            // NOTE: We always use the original colors in locks out since we don't want to be part of the blinking effect
             sb.AppendLine();
-            sb.AppendLine(Helpers.GetColoredText(importantInfoHex, "Locks Out:"));
+            sb.AppendLine(Helpers.GetColoredText(originalImportantInfoHex, "Locks Out:"));
             foreach ( UI_TreeNode node in conflictNodes)
             {
-                sb.AppendLine(Helpers.GetColoredText(importantInfoHex, $"- {node.skillData.skillName}"));
+                sb.AppendLine(Helpers.GetColoredText(originalImportantInfoHex, $"- {node.skillData.skillName}"));
             }
         }
 
         return sb.ToString();
     }
 
-    public void LockedSkillEffect()
+    public void HighlightNotMetRequirementsEffect(UI_TreeNode node)
     {
         if (textEffectCo != null)
         {
             StopCoroutine(textEffectCo);
         }
 
-        textEffectCo = StartCoroutine(TextBlinkEffectCo(skillRequirements, blinkInterval, blinkCount));
+        textEffectCo = StartCoroutine(TextBlinkEffectCo(node, skillRequirements, blinkInterval, blinkCount));
     }
 
-    private IEnumerator TextBlinkEffectCo(TextMeshProUGUI text, float blinkInterval, int blinkCount)
+    private IEnumerator TextBlinkEffectCo(UI_TreeNode node, TextMeshProUGUI text, float blinkInterval, int blinkCount)
     {
         for (int i = 0; i < blinkCount; i++)
         {
-            text.text = Helpers.GetColoredText(notMetConditionsHex, lockedOutText);
+            text.text = PickRequirementsText(node);
             yield return new WaitForSeconds(blinkInterval);
 
-            text.text = Helpers.GetColoredText(importantInfoHex, lockedOutText);
+            notMetConditionsHex = originalImportantInfoHex;
+            importantInfoHex = originalNotMetConditionsHex;
+
+            text.text = PickRequirementsText(node);
             yield return new WaitForSeconds(blinkInterval);
+
+            notMetConditionsHex = originalNotMetConditionsHex;
+            importantInfoHex = originalImportantInfoHex;
         }
     }
 }

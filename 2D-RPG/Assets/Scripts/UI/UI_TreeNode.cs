@@ -119,10 +119,9 @@ public class UI_TreeNode : MonoBehaviour, IPointerEnterHandler, IPointerExitHand
         {
             Learn();
         }
-        else if (IsLocked())
+        else if (!IsLearned() || IsLocked())
         {
-            // TODO: I could blink on the correct requirements that have not been met as well later on
-            ui.skillToolTip.LockedSkillEffect();
+            ui.skillToolTip.HighlightNotMetRequirementsEffect(this);
         }
     }
 
