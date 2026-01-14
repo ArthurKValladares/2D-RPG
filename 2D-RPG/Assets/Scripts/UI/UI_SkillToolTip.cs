@@ -51,7 +51,7 @@ public class UI_SkillToolTip : UI_ToolTip
         skillDescription.text = node.skillData.description;
         
 
-        string lockedSkillString = GetColoredText(importantInfoHex, lockedOutText);
+        string lockedSkillString = Helpers.GetColoredText(importantInfoHex, lockedOutText);
         string requirementsString = GetRequirements(node.skillData.cost, node.neededTreeNodes, node.conflictNodes);
 
         skillRequirements.text = node.IsLocked()
@@ -67,23 +67,23 @@ public class UI_SkillToolTip : UI_ToolTip
         string costColor = skillTree.HasEnoughSkillPoints(skillCost)
             ? metConditionsHex
             : notMetConditionsHex;
-        sb.AppendLine($"<color={costColor}>- {skillCost} Skill Point(s)</color>");
+        sb.AppendLine(Helpers.GetColoredText(costColor, $"- {skillCost} Skill Point(s)"));
 
         foreach (UI_TreeNode node in neededNodes)
         {
             string nodeColor = node.IsLearned()
                 ? metConditionsHex
                 : notMetConditionsHex;
-            sb.AppendLine($"<color={nodeColor}>- {node.skillData.skillName}</color>");
+            sb.AppendLine(Helpers.GetColoredText(nodeColor, $"- {node.skillData.skillName}"));
         }
 
         if (conflictNodes.Length > 0)
         {
             sb.AppendLine();
-            sb.AppendLine($"<color={importantInfoHex}>Locks Out:</color>");
+            sb.AppendLine(Helpers.GetColoredText(importantInfoHex, "Locks Out:"));
             foreach ( UI_TreeNode node in conflictNodes)
             {
-                sb.AppendLine($"<color={importantInfoHex}>- {node.skillData.skillName}</color>");
+                sb.AppendLine(Helpers.GetColoredText(importantInfoHex, $"- {node.skillData.skillName}"));
             }
         }
 
@@ -104,16 +104,11 @@ public class UI_SkillToolTip : UI_ToolTip
     {
         for (int i = 0; i < blinkCount; i++)
         {
-            text.text = GetColoredText(notMetConditionsHex, lockedOutText);
+            text.text = Helpers.GetColoredText(notMetConditionsHex, lockedOutText);
             yield return new WaitForSeconds(blinkInterval);
 
-            text.text = GetColoredText(importantInfoHex, lockedOutText);
+            text.text = Helpers.GetColoredText(importantInfoHex, lockedOutText);
             yield return new WaitForSeconds(blinkInterval);
         }
-    }
-
-    private string GetColoredText(string colorHex, string text)
-    {
-        return $"<color={colorHex}>{text}</color>";
     }
 }

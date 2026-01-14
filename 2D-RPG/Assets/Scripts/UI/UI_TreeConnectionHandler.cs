@@ -101,4 +101,17 @@ public class UI_TreeConnectionHandler : MonoBehaviour
             detail.childNode.UpdateConnections();
         }
     }
+
+    public void LockAllConnections()
+    {
+        foreach (UI_TreeConnectionDetails detail in details)
+        {
+            if (detail.childNode == null) continue;
+
+            UI_TreeNode node = detail.childNode.GetComponent<UI_TreeNode>();
+            node.SetLocked(true);
+
+            detail.childNode.LockAllConnections();
+        }
+    }
 }

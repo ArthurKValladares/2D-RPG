@@ -149,6 +149,8 @@ public class UI_TreeNode : MonoBehaviour, IPointerEnterHandler, IPointerExitHand
         foreach (UI_TreeNode node in conflictNodes)
         {
             node.SetLocked(true);
+
+            node.connectionHandler.LockAllConnections();
         }
     }
 

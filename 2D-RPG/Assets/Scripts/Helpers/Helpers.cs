@@ -9,4 +9,9 @@ public class Helpers
         ColorUtility.TryParseHtmlString(hex, out color);
         return color;
     }
+
+    static public string GetColoredText(string colorHex, string text)
+    {
+        return $"<color={colorHex}>{text}</color>";
+    }
 }
