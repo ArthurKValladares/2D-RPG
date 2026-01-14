@@ -7,6 +7,7 @@ public class UI_TreeNode : MonoBehaviour, IPointerEnterHandler, IPointerExitHand
     private UI ui;
     private RectTransform rect;
     private UI_SkillTree skillTree;
+    private UI_TreeConnectionHandler connectionHandler;
 
     [Header("Skill Details")]
     [SerializeField] public Skill_DataSO skillData;
@@ -29,6 +30,7 @@ public class UI_TreeNode : MonoBehaviour, IPointerEnterHandler, IPointerExitHand
         ui = GetComponentInParent<UI>();
         rect = GetComponent<RectTransform>();
         skillTree = GetComponentInParent<UI_SkillTree>();
+        connectionHandler = GetComponent<UI_TreeConnectionHandler>();
 
         skillLockedColor = Helpers.GetColorByHex(skillLockedColorHex);
 
@@ -47,6 +49,23 @@ public class UI_TreeNode : MonoBehaviour, IPointerEnterHandler, IPointerExitHand
         LockConflictingSkills();
 
         SetColor(Color.white);
+        connectionHandler.ConnectionImageLearned(true);
+    }
+
+    public void Refund()
+    {
+        if (IsLearned())
+        {
+            skillTree.AddSkillPoints(skillData.cost);
+        }
+
+        isLearned = false;
+        isLocked = false;
+
+        SetColor(skillLockedColor);
+        connectionHandler.ConnectionImageLearned(false);
+
+        // TODO: Will need to remove skill from manager
     }
 
     public bool IsLocked()
@@ -100,9 +119,10 @@ public class UI_TreeNode : MonoBehaviour, IPointerEnterHandler, IPointerExitHand
         {
             Learn();
         }
-        else
+        else if (IsLocked())
         {
-            Debug.Log("cannot be learned");
+            // TODO: I could blink on the correct requirements that have not been met as well later on
+            ui.skillToolTip.LockedSkillEffect();
         }
     }
 
@@ -110,20 +130,18 @@ public class UI_TreeNode : MonoBehaviour, IPointerEnterHandler, IPointerExitHand
     {
         ui.skillToolTip.ShowTooltip(true, rect, this);
 
-        if (!isLearned)
-        {
-            SetColor(skillLockedColor * highlightIntensity);
-        }
+        if (isLearned || isLocked) return;
+
+        SetColor(skillLockedColor * highlightIntensity);
     }
 
     public void OnPointerExit(PointerEventData eventData)
     {
         ui.skillToolTip.ShowTooltip(false, null);
 
-        if (!isLearned)
-        {
-            SetColor(skillLockedColor);
-        }
+        if (isLearned || isLocked) return;
+
+        SetColor(skillLockedColor);
     }
 
     private void LockConflictingSkills()

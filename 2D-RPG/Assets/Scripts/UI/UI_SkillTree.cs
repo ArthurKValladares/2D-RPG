@@ -2,7 +2,13 @@ using UnityEngine;
 
 public class UI_SkillTree : MonoBehaviour
 {
-    public int skillPoints;
+    [SerializeField] private int skillPoints;
+    [SerializeField] private UI_TreeConnectionHandler[] parentNodes;
+
+    private void Start()
+    {
+        UpdateAllConnections();
+    }
 
     public bool HasEnoughSkillPoints(int points)
     {
@@ -17,5 +23,30 @@ public class UI_SkillTree : MonoBehaviour
         }
 
         skillPoints = Mathf.Max(0, skillPoints - points);
+    }
+
+    public void AddSkillPoints(int points)
+    {
+        skillPoints += points;
+    }
+
+    [ContextMenu("Update All Connections")]
+    public void UpdateAllConnections()
+    {
+        foreach (UI_TreeConnectionHandler node in parentNodes)
+        {
+            node.UpdateAllConnections();
+        }
+    }
+
+    [ContextMenu("Refund All")]
+    public void RefundAllSkills()
+    {
+        UI_TreeNode[] treeNodes = GetComponentsInChildren<UI_TreeNode>();
+
+        foreach (UI_TreeNode node in treeNodes)
+        {
+            node.Refund();
+        }
     }
 }
