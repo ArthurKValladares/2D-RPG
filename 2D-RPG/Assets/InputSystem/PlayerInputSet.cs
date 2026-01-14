@@ -145,6 +145,15 @@ public partial class @PlayerInputSet: IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""ToggleSkillTree"",
+                    ""type"": ""Button"",
+                    ""id"": ""427c985d-36e1-4780-b650-2562390ec3d9"",
+                    ""expectedControlType"": """",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
                 }
             ],
             ""bindings"": [
@@ -242,7 +251,7 @@ public partial class @PlayerInputSet: IInputActionCollection2, IDisposable
                     ""path"": ""<Keyboard>/f"",
                     ""interactions"": """",
                     ""processors"": """",
-                    ""groups"": """",
+                    ""groups"": "";Keyboard & Mouse"",
                     ""action"": ""LaunchAttack"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
@@ -255,6 +264,17 @@ public partial class @PlayerInputSet: IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""groups"": "";Keyboard & Mouse"",
                     ""action"": ""Parry"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""9b6be772-3b54-402b-8eb8-bbd42a96e164"",
+                    ""path"": ""<Keyboard>/l"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": "";Keyboard & Mouse"",
+                    ""action"": ""ToggleSkillTree"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 }
@@ -288,6 +308,7 @@ public partial class @PlayerInputSet: IInputActionCollection2, IDisposable
         m_Player_Attack = m_Player.FindAction("Attack", throwIfNotFound: true);
         m_Player_LaunchAttack = m_Player.FindAction("LaunchAttack", throwIfNotFound: true);
         m_Player_Parry = m_Player.FindAction("Parry", throwIfNotFound: true);
+        m_Player_ToggleSkillTree = m_Player.FindAction("ToggleSkillTree", throwIfNotFound: true);
     }
 
     ~@PlayerInputSet()
@@ -374,6 +395,7 @@ public partial class @PlayerInputSet: IInputActionCollection2, IDisposable
     private readonly InputAction m_Player_Attack;
     private readonly InputAction m_Player_LaunchAttack;
     private readonly InputAction m_Player_Parry;
+    private readonly InputAction m_Player_ToggleSkillTree;
     /// <summary>
     /// Provides access to input actions defined in input action map "Player".
     /// </summary>
@@ -409,6 +431,10 @@ public partial class @PlayerInputSet: IInputActionCollection2, IDisposable
         /// Provides access to the underlying input action "Player/Parry".
         /// </summary>
         public InputAction @Parry => m_Wrapper.m_Player_Parry;
+        /// <summary>
+        /// Provides access to the underlying input action "Player/ToggleSkillTree".
+        /// </summary>
+        public InputAction @ToggleSkillTree => m_Wrapper.m_Player_ToggleSkillTree;
         /// <summary>
         /// Provides access to the underlying input action map instance.
         /// </summary>
@@ -453,6 +479,9 @@ public partial class @PlayerInputSet: IInputActionCollection2, IDisposable
             @Parry.started += instance.OnParry;
             @Parry.performed += instance.OnParry;
             @Parry.canceled += instance.OnParry;
+            @ToggleSkillTree.started += instance.OnToggleSkillTree;
+            @ToggleSkillTree.performed += instance.OnToggleSkillTree;
+            @ToggleSkillTree.canceled += instance.OnToggleSkillTree;
         }
 
         /// <summary>
@@ -482,6 +511,9 @@ public partial class @PlayerInputSet: IInputActionCollection2, IDisposable
             @Parry.started -= instance.OnParry;
             @Parry.performed -= instance.OnParry;
             @Parry.canceled -= instance.OnParry;
+            @ToggleSkillTree.started -= instance.OnToggleSkillTree;
+            @ToggleSkillTree.performed -= instance.OnToggleSkillTree;
+            @ToggleSkillTree.canceled -= instance.OnToggleSkillTree;
         }
 
         /// <summary>
@@ -577,5 +609,12 @@ public partial class @PlayerInputSet: IInputActionCollection2, IDisposable
         /// <seealso cref="UnityEngine.InputSystem.InputAction.performed" />
         /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
         void OnParry(InputAction.CallbackContext context);
+        /// <summary>
+        /// Method invoked when associated input action "ToggleSkillTree" is either <see cref="UnityEngine.InputSystem.InputAction.started" />, <see cref="UnityEngine.InputSystem.InputAction.performed" /> or <see cref="UnityEngine.InputSystem.InputAction.canceled" />.
+        /// </summary>
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.started" />
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.performed" />
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
+        void OnToggleSkillTree(InputAction.CallbackContext context);
     }
 }

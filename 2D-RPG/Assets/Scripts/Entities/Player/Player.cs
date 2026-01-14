@@ -4,6 +4,9 @@ using UnityEngine;
 
 public class Player : Entity
 {
+    // TODO: In the future, this and the input set for it should not be in Player
+    private UI ui;
+
     public static event Action OnPlayerDeath;
     
     public PlayerInputSet input { get; private set; }
@@ -48,6 +51,8 @@ public class Player : Entity
     {
         base.Awake();
 
+        ui = FindFirstObjectByType<UI>();
+
         originalGravityscale = rb.gravityScale;
 
         input = new PlayerInputSet();
@@ -87,6 +92,9 @@ public class Player : Entity
         };
         input.Player.Movement.canceled += ctx => {
             moveInput = Vector2.zero;
+        };
+        input.Player.ToggleSkillTree.performed += ctx => {
+            ui.ToggleSkillTree();
         };
     }
 

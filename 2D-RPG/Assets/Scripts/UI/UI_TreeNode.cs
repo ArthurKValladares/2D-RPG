@@ -164,4 +164,15 @@ public class UI_TreeNode : MonoBehaviour, IPointerEnterHandler, IPointerExitHand
         skillIcon.sprite = skillData.icon;
         gameObject.name = "UI Tree Node - " + skillName;
     }
+
+    private void OnDisable()
+    {
+        if (IsLearned())
+        {
+            SetColor(Color.white);
+        } else
+        {
+            SetColor(skillLockedColor);
+        }
+    }
 }
