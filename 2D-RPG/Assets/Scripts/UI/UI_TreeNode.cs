@@ -6,40 +6,84 @@ public class UI_TreeNode : MonoBehaviour, IPointerEnterHandler, IPointerExitHand
 {
     private UI ui;
     private RectTransform rect;
-
-    [SerializeField] private Skill_DataSO skillDataSO;
+    private UI_SkillTree skillTree;
 
     [Header("Skill Details")]
+    [SerializeField] public Skill_DataSO skillData;
     [SerializeField] private string skillName;
     [SerializeField] private Image skillIcon;
 
-    [Header("Locked Skill Display Details")]
-    [SerializeField] private string skillLockedColorHex = "#6E6E6E";
-    private Color skillLockedColor;
-    [SerializeField]  private float highlightIntensity = 1.5f;
-
+    [Header("Unlock Details")]
+    public UI_TreeNode[] neededTreeNodes;
+    public UI_TreeNode[] conflictNodes;
     private bool isLearned;
     private bool isLocked;
+
+    [Header("Locked Skill Display Details")]
+    [SerializeField] private string skillLockedColorHex = "#6E6E6E";
+    [SerializeField] private Color skillLockedColor;
+    [SerializeField] private float highlightIntensity = 1.5f;
 
     private void Awake()
     {
         ui = GetComponentInParent<UI>();
         rect = GetComponent<RectTransform>();
+        skillTree = GetComponentInParent<UI_SkillTree>();
 
-        skillLockedColor = GetColorByHex(skillLockedColorHex);
+        skillLockedColor = Helpers.GetColorByHex(skillLockedColorHex);
 
         SetColor(skillLockedColor);    
+    }
+
+    public bool IsLearned()
+    {
+        return isLearned;
     }
 
     private void Learn()
     {
         isLearned = true;
+        skillTree.RemoveSkillPoints(skillData.cost);
+        LockConflictingSkills();
+
         SetColor(Color.white);
+    }
+
+    public bool IsLocked()
+    {
+        return isLocked;
+    }
+
+    public void SetLocked(bool locked)
+    {
+        isLocked = locked;
     }
 
     private bool CanBeLearned()
     {
         if (isLocked || isLearned) return false;
+
+        if (!skillTree.HasEnoughSkillPoints(skillData.cost))
+        {
+            return false;
+        }
+
+        foreach (UI_TreeNode node in neededTreeNodes)
+        {
+            if (!node.IsLearned())
+            {
+                return false;
+            }
+        }
+
+        foreach (UI_TreeNode node in conflictNodes)
+        {
+            if (node.IsLearned())
+            {
+                return false;
+            }
+        }
+
         return true;
     }
 
@@ -64,7 +108,7 @@ public class UI_TreeNode : MonoBehaviour, IPointerEnterHandler, IPointerExitHand
 
     public void OnPointerEnter(PointerEventData eventData)
     {
-        ui.skillToolTip.ShowTooltip(true, rect, skillDataSO);
+        ui.skillToolTip.ShowTooltip(true, rect, this);
 
         if (!isLearned)
         {
@@ -82,22 +126,23 @@ public class UI_TreeNode : MonoBehaviour, IPointerEnterHandler, IPointerExitHand
         }
     }
 
-    private Color GetColorByHex(string hex)
+    private void LockConflictingSkills()
     {
-        Color color;
-        ColorUtility.TryParseHtmlString(hex, out color);
-        return color;
+        foreach (UI_TreeNode node in conflictNodes)
+        {
+            node.SetLocked(true);
+        }
     }
 
     private void OnValidate()
     {
-        if (skillDataSO == null)
+        if (skillData == null)
         {
             return;
         }
 
-        skillName = skillDataSO.skillName;
-        skillIcon.sprite = skillDataSO.icon;
+        skillName = skillData.skillName;
+        skillIcon.sprite = skillData.icon;
         gameObject.name = "UI Tree Node - " + skillName;
     }
 }

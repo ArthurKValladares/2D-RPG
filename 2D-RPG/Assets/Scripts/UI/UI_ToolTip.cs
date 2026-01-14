@@ -9,7 +9,7 @@ public class UI_ToolTip : MonoBehaviour
     [SerializeField] private Vector2 offsetsFromEdge;
     private float xTotalOffset;
 
-    private void Awake()
+    protected virtual void Awake()
     {
         rect = GetComponent<RectTransform>();
         xTotalOffset = rect.sizeDelta.x / 2.0f + offsetsFromEdge.x;

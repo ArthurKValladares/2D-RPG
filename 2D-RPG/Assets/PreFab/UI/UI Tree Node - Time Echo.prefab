@@ -203,11 +203,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b614d30d4fd8acd4ba7b55baabab585f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::UI_TreeNode
-  skillDataSO: {fileID: 11400000, guid: 6d5a7fa875d1589499b75f7b413bebbf, type: 2}
+  skillData: {fileID: 0}
   skillName: Time Echo
   skillIcon: {fileID: 1702530733741190924}
+  neededTreeNodes: []
+  conflictNodes: []
   skillLockedColorHex: '#6E6E6E'
-  highlightIntensity: 1.5
+  skillLockedColor: {r: 0, g: 0, b: 0, a: 0}
+  highlightIntensity: 1.75
 --- !u!114 &4647119540099970105
 MonoBehaviour:
   m_ObjectHideFlags: 0

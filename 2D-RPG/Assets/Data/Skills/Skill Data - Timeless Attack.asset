@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 593791c73c4010148bf53d40b02a324f, type: 3}
   m_Name: Skill Data - Timeless Attack
   m_EditorClassIdentifier: Assembly-CSharp::Skill_DataSO
-  skillName: Offensive Echo
+  skillName: Timeless Attack
   description: '* The Time Echo can perform one attack'
   icon: {fileID: 454124213, guid: 13e7f4220636690408b25bae11ca9834, type: 3}
   cost: 2
