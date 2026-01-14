@@ -13,15 +13,15 @@ public class Enemy_Health : Entity_Health
         enemyVFX = GetComponent<Enemy_VFX>();
     }
 
-    public override bool TakeDamage(float physicalDamage, ElementalDamageInfo elementalDamage, Transform damageDealer)
+    public override HitInfo TakeDamage(float physicalDamage, ElementalDamageInfo elementalDamage, Transform damageDealer)
     {
-        bool tookDamage = base.TakeDamage(physicalDamage, elementalDamage, damageDealer);
+        HitInfo hitInfo = base.TakeDamage(physicalDamage, elementalDamage, damageDealer);
 
-        if (tookDamage && (enemy.sm.currentState != enemy.deadState) && damageDealer.GetComponent<Player>()) {
+        if (hitInfo.didHit && (enemy.sm.currentState != enemy.deadState) && damageDealer.GetComponent<Player>()) {
             enemy.TryEnteringHurtState(damageDealer);
         }
 
-        return tookDamage;
+        return hitInfo;
     }
 
     protected override void Die()

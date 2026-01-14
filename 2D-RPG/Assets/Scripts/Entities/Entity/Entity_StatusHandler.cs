@@ -19,7 +19,7 @@ public class Entity_StatusHandler : MonoBehaviour
 
     // TODO: Will have a better status bar abstraction soon
     private Slider statusBar;
-    [SerializeField] private GameObject statusBarObject;
+    public GameObject statusBarObject;
     private Image statusBarImage;
 
     private void Awake()
@@ -58,11 +58,18 @@ public class Entity_StatusHandler : MonoBehaviour
 
         if (statusBar.value <= 0.0f)
         {
-            statusBarObject.SetActive(false);
+            SetStatusBarVisible(false);
         } else
         {
-            statusBarObject.SetActive(true);
+            SetStatusBarVisible(true);
         }
+    }
+
+    public void SetStatusBarVisible(bool visible)
+    {
+        if (statusBar == null) return;
+
+        statusBarObject.SetActive(visible);
     }
 
     private void UpdateStatusBarColor(Color color)

@@ -27,16 +27,18 @@ public class Entity_Combat : MonoBehaviour
         foreach (Collider2D target in GetDetectedColliders())
         {
             IDamagable damagable = target.GetComponent<IDamagable>();
-            if (damagable != null)
-            {
-                DamageInfo physicalDamageInfo = stats.CalculatePhysicalDamage();
-                // TODO: Need to get from damage source
-                ElementalDamageInfo elementalInfo = stats.CalculateElementalDamage(ElementalDamageType.Lightning);
+            if (damagable == null) continue;
 
-                bool tookDamage = damagable.TakeDamage(physicalDamageInfo.damageResult, elementalInfo, transform);
-                if (tookDamage)
+            DamageInfo physicalDamageInfo = stats.CalculatePhysicalDamage();
+            // TODO: Need to get from damage source
+            ElementalDamageInfo elementalInfo = stats.CalculateElementalDamage(ElementalDamageType.Lightning);
+
+            HitInfo hitInfo = damagable.TakeDamage(physicalDamageInfo.damageResult, elementalInfo, transform);
+            if (hitInfo.didHit)
+            {
+                entityVFX.CreateOnHitTargetVFX(target.transform, physicalDamageInfo.wasCritical, elementalInfo.primaryType);
+                if (!hitInfo.killedVictim)
                 {
-                    entityVFX.CreateOnHitTargetVFX(target.transform, physicalDamageInfo.wasCritical, elementalInfo.primaryType);
                     ApplyStatusEffect(target, elementalInfo.primaryType);
                 }
             }

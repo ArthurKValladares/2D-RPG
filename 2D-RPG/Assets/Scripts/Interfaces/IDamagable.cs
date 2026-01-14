@@ -19,6 +19,20 @@ public class ElementalDamageInfo
     public ElementalDamageType secondaryType;
 };
 
+public class HitInfo
+{
+    public HitInfo(bool didHit, float damage = 0.0f, bool killedVictim = false)
+    {
+        this.didHit = didHit;
+        this.damage = damage;
+        this.killedVictim = killedVictim;
+    }
+
+    public bool didHit;
+    public float damage;
+    public bool killedVictim;
+}
+
 public interface IDamagable
 {
     public static Vector2 GetKnockbackForceAwayFromDamage(Vector2 knockback, Transform entityTransform, Transform damageDealer)
@@ -30,6 +44,6 @@ public interface IDamagable
         return new Vector2(knockback.x * knockbackDirScale, knockback.y);
     }
 
-    public bool TakeDamage(float physicalDamage, ElementalDamageInfo elementalDamage, Transform damageDealer);
+    public HitInfo TakeDamage(float physicalDamage, ElementalDamageInfo elementalDamage, Transform damageDealer);
 }
 

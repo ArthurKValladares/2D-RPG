@@ -169,5 +169,7 @@ public class Entity : MonoBehaviour
 
     public virtual void EntityDeath()
     {
+        Entity_StatusHandler statusHandler = GetComponentInChildren<Entity_StatusHandler>();
+        statusHandler.SetStatusBarVisible(false);
     }
 }

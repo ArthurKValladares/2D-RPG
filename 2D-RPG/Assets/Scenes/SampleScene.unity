@@ -52495,6 +52495,10 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.y
       value: 0.6
       objectReference: {fileID: 0}
+    - target: {fileID: 4315120984630412071, guid: 46bb15ea81dd34244a999c970740ebeb, type: 3}
+      propertyPath: offensive.physicalDamage.baseValue
+      value: 25
+      objectReference: {fileID: 0}
     - target: {fileID: 4773617306189445349, guid: 46bb15ea81dd34244a999c970740ebeb, type: 3}
       propertyPath: m_AnchorMax.x
       value: 0

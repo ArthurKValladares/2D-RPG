@@ -78,13 +78,13 @@ public class Entity_Health : MonoBehaviour, IDamagable
         return finalElementalDamage;
     }
 
-    public virtual bool TakeDamage(float physicalDamage, ElementalDamageInfo elementalDamage, Transform damageDealer)
+    public virtual HitInfo TakeDamage(float physicalDamage, ElementalDamageInfo elementalDamage, Transform damageDealer)
     {
-        if (currentHealth <= 0.0f) return false;
+        if (currentHealth <= 0.0f) return new HitInfo(false);
         if (AttackEvaded())
         {
             // TODO: Evasion effect
-            return false;
+            return new HitInfo(false);
         }
 
         Entity_Stats attackerStats = damageDealer.GetComponent<Entity_Stats>();
@@ -93,7 +93,6 @@ public class Entity_Health : MonoBehaviour, IDamagable
         float finalElementalDamage = CalculateFinalElementalDamage(elementalDamage);
 
         float finalDamage = finalPhysicalDamage + finalElementalDamage;
-        Debug.Log("Physical Damage: " + finalPhysicalDamage + " Elemental Damage: " + finalElementalDamage);
 
         if (entity)
         {
@@ -109,7 +108,8 @@ public class Entity_Health : MonoBehaviour, IDamagable
 
         ReduceHP(finalDamage);
 
-        return true;
+        bool killedVictim = currentHealth <= 0.0f;
+        return new HitInfo(true, finalDamage, killedVictim);
     }
 
     private bool IsHeavyAttack(float damage)
