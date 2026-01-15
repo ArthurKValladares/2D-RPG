@@ -68,6 +68,7 @@
     <Compile Include="Assets\Scripts\UI\UI_TreeNode.cs" />
     <Compile Include="Assets\Scripts\Entities\StatSystem\Stat_ResourceGroup.cs" />
     <Compile Include="Assets\Scripts\Entities\StatSystem\Stat.cs" />
+    <Compile Include="Assets\Scripts\Entities\SkillObjects\SkillObject_Base.cs" />
     <Compile Include="Assets\Scripts\SkillSystem\Skill_DataSO.cs" />
     <Compile Include="Assets\Scripts\Entities\Player\Player_Combat.cs" />
     <Compile Include="Assets\Scripts\UI\UI_SkillTree.cs" />
@@ -121,6 +122,7 @@
     <Compile Include="Assets\Scripts\Entities\Entity\Entity_AnimationTriggers.cs" />
     <Compile Include="Assets\Scripts\Entities\Chest\Chest.cs" />
     <Compile Include="Assets\Scripts\StateMachine\EnemyStates\Enemy_GroundedState.cs" />
+    <Compile Include="Assets\Scripts\Entities\SkillObjects\SkillObject_Shard.cs" />
     <Compile Include="Assets\InputSystem\PlayerInputSet.cs" />
     <Compile Include="Assets\Scripts\StateMachine\PlayerStates\Player_GroundedState.cs" />
     <Compile Include="Assets\Scripts\StateMachine\PlayerStates\Player_FallState.cs" />
@@ -129,6 +131,7 @@
     <Compile Include="Assets\Scripts\Entities\Player\Player_Health.cs" />
     <Compile Include="Assets\Scripts\UI\UI.cs" />
     <Compile Include="Assets\Scripts\Entities\Player\Player_SkillManager.cs" />
+    <Compile Include="Assets\Scripts\SkillSystem\Skill_Shard.cs" />
     <Compile Include="Assets\Scripts\Entities\Entity\Entity_Health.cs" />
     <Compile Include="Assets\Scripts\StateMachine\PlayerStates\Player_BasicAttackState.cs" />
     <Compile Include="Assets\Scripts\Entities\Enemy\Enemy_AnimationTriggers.cs" />

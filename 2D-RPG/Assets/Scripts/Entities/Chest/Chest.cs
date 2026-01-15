@@ -17,7 +17,7 @@ public class Chest : MonoBehaviour, IDamagable
         vfxComponent = GetComponentInChildren<Entity_VFX>();
     }
 
-    public HitInfo TakeDamage(float _damage, ElementalDamageInfo _elementalDamage, Transform damageDealer)
+    public HitInfo TakeDamage(PhysicalDamageInfo _physicalDamage, ElementalDamageInfo _elementalDamage, Transform damageDealer)
     {
         if (anim.GetBool("open")) return new HitInfo(false);
 

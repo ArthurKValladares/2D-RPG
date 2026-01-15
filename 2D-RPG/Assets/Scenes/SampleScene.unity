@@ -676,6 +676,7 @@ GameObject:
   m_Component:
   - component: {fileID: 451814433}
   - component: {fileID: 451814434}
+  - component: {fileID: 451814435}
   m_Layer: 7
   m_Name: SkillHolder
   m_TagString: Untagged
@@ -713,6 +714,23 @@ MonoBehaviour:
   skillType: 0
   upgradeType: 0
   cooldown: 3
+--- !u!114 &451814435
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 451814432}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bb471b43a6d4b8143b5e428e6db21b3b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Skill_Shard
+  skillType: 2
+  upgradeType: 0
+  cooldown: 3
+  shardObject: {fileID: 6409541315499900898, guid: 378c433e7e09ad741ac3fbcd7d8096a6, type: 3}
+  detonationTime: 1.5
 --- !u!1 &471497703
 GameObject:
   m_ObjectHideFlags: 0
@@ -1205,10 +1223,10 @@ RectTransform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 441005853}
-  - {fileID: 1942083807}
-  - {fileID: 902586404}
   - {fileID: 1349452969}
   - {fileID: 47459121}
+  - {fileID: 1942083807}
+  - {fileID: 902586404}
   m_Father: {fileID: 1808924241}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
@@ -51984,12 +52002,12 @@ RectTransform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1986817610}
+  - {fileID: 1110017358}
+  - {fileID: 1147268391}
   - {fileID: 954252157}
   - {fileID: 1756164217}
   - {fileID: 1668016960}
   - {fileID: 2089480501}
-  - {fileID: 1110017358}
-  - {fileID: 1147268391}
   m_Father: {fileID: 1808924241}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
@@ -53492,6 +53510,14 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 437151966780410433, guid: 8766557d3dc67ff48808dcad0b79db5b, type: 3}
+      propertyPath: m_SortingLayer
+      value: -1
+      objectReference: {fileID: 0}
+    - target: {fileID: 437151966780410433, guid: 8766557d3dc67ff48808dcad0b79db5b, type: 3}
+      propertyPath: m_SortingLayerID
+      value: -1680305051
+      objectReference: {fileID: 0}
     - target: {fileID: 3481292836358754153, guid: 8766557d3dc67ff48808dcad0b79db5b, type: 3}
       propertyPath: m_Name
       value: BuffObject

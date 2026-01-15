@@ -4,7 +4,7 @@ public enum SkillType
 {
     Dash,
     TimeEcho,
-    TimeShard,
+    Shard,
 }
 
 public enum SkillUpgradeType

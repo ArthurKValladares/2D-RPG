@@ -78,7 +78,7 @@ public class Entity_Health : MonoBehaviour, IDamagable
         return finalElementalDamage;
     }
 
-    public virtual HitInfo TakeDamage(float physicalDamage, ElementalDamageInfo elementalDamage, Transform damageDealer)
+    public virtual HitInfo TakeDamage(PhysicalDamageInfo physicalDamage, ElementalDamageInfo elementalDamage, Transform damageDealer)
     {
         if (currentHealth <= 0.0f) return new HitInfo(false);
         if (AttackEvaded())
@@ -89,7 +89,7 @@ public class Entity_Health : MonoBehaviour, IDamagable
 
         Entity_Stats attackerStats = damageDealer.GetComponent<Entity_Stats>();
 
-        float finalPhysicalDamage = CalculateFinalPhysicalDamage(physicalDamage, attackerStats);
+        float finalPhysicalDamage = CalculateFinalPhysicalDamage(physicalDamage.damageResult, attackerStats);
         float finalElementalDamage = CalculateFinalElementalDamage(elementalDamage);
 
         float finalDamage = finalPhysicalDamage + finalElementalDamage;

@@ -11,7 +11,7 @@ public class Player_Health : Entity_Health
         player = GetComponent<Player>();
     }
 
-    public override HitInfo TakeDamage(float physicalDamage, ElementalDamageInfo elementalDamage, Transform damageDealer)
+    public override HitInfo TakeDamage(PhysicalDamageInfo physicalDamage, ElementalDamageInfo elementalDamage, Transform damageDealer)
     {
         HitInfo hitInfo = base.TakeDamage(physicalDamage, elementalDamage, damageDealer);
 

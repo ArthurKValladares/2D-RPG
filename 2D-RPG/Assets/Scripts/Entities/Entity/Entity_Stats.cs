@@ -1,8 +1,8 @@
 using UnityEngine;
 
-public class DamageInfo
+public class PhysicalDamageInfo
 {
-    public DamageInfo(float damageResult, bool wasCritical)
+    public PhysicalDamageInfo(float damageResult, bool wasCritical)
     {
         this.damageResult = damageResult;
         this.wasCritical = wasCritical;
@@ -100,7 +100,7 @@ public class Entity_Stats : MonoBehaviour
         return (baseCritChance + bonuesritChange) / 100.0f;
     }
 
-    public DamageInfo CalculatePhysicalDamage(float scaleFactor = 1.0f)
+    public PhysicalDamageInfo CalculatePhysicalDamage(float scaleFactor = 1.0f)
     {
         float baseDamage = offensive.physicalDamage.GetValue();
         float bonusDamage = major.strength.GetValue() * strengthDamageMultiplier;
@@ -111,7 +111,7 @@ public class Entity_Stats : MonoBehaviour
         float damageResult = wasCritical ? totalBaseDamage * GetCritPower() : totalBaseDamage;
         float scaledDamageResult = damageResult * scaleFactor;
 
-        return new DamageInfo(scaledDamageResult, wasCritical);
+        return new PhysicalDamageInfo(scaledDamageResult, wasCritical);
     }
 
     private float GetBaseElementalDamage(ElementalDamageType ty)

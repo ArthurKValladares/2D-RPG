@@ -103,6 +103,13 @@ public class Player : Entity
         input.Player.ToggleSkillTree.performed += ctx => {
             ui.ToggleSkillTree();
         };
+        input.Player.Spell.performed += ctx =>
+        {
+            if (skillManager.shard.CanUseSkill())
+            {
+                skillManager.shard.CreateShard();
+            }
+        };
     }
 
     private void OnDisable()

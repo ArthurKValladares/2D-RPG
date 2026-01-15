@@ -29,11 +29,11 @@ public class Entity_Combat : MonoBehaviour
             IDamagable damagable = target.GetComponent<IDamagable>();
             if (damagable == null) continue;
 
-            DamageInfo physicalDamageInfo = stats.CalculatePhysicalDamage();
-            // TODO: Need to get from damage source
+            PhysicalDamageInfo physicalDamageInfo = stats.CalculatePhysicalDamage();
+            // TODO: Need to get element from damage source
             ElementalDamageInfo elementalInfo = stats.CalculateElementalDamage(ElementalDamageType.None);
 
-            HitInfo hitInfo = damagable.TakeDamage(physicalDamageInfo.damageResult, elementalInfo, transform);
+            HitInfo hitInfo = damagable.TakeDamage(physicalDamageInfo, elementalInfo, transform);
             if (hitInfo.didHit)
             {
                 entityVFX.CreateOnHitTargetVFX(target.transform, physicalDamageInfo.wasCritical, elementalInfo.primaryType);
