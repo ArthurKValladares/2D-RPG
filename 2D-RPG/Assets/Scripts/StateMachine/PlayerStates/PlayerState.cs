@@ -14,6 +14,7 @@ public class PlayerState : EntityState
     {
         if (player.wallsDetected) return false;
         if (player.sm.currentState == player.dashState) return false;
+        if (!player.skillManager.dash.CanUseSkill()) return false;
 
         return true;
     }
@@ -24,6 +25,7 @@ public class PlayerState : EntityState
 
         if (player.input.Player.Dash.WasPressedThisFrame() && CanDash())
         {
+            player.skillManager.dash.SetSkillJustUsed();
             player.sm.ChangeState(player.dashState);
         }
     }

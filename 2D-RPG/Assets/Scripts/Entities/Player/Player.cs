@@ -8,10 +8,13 @@ public class Player : Entity
     private UI ui;
 
     public static event Action OnPlayerDeath;
-    
+
+    public Player_SkillManager skillManager { get; private set; }
+
     public PlayerInputSet input { get; private set; }
     public Vector2 moveInput { get; private set; }
 
+    #region StateVariables
     public Player_IdleState idleState { get; protected set; }
     public Player_MoveState moveState { get; protected set; }
     public Player_JumpState jumpState { get; private set; }
@@ -25,6 +28,7 @@ public class Player : Entity
     public Player_HurtState hurtState { get; private set; }
     public Player_DeadState deadState { get; private set; }
     public Player_ParryState parryState { get; private set; }
+    #endregion
 
     public float originalGravityscale { get; private set; }
 
@@ -52,6 +56,7 @@ public class Player : Entity
         base.Awake();
 
         ui = FindFirstObjectByType<UI>();
+        skillManager = GetComponent<Player_SkillManager>();
 
         originalGravityscale = rb.gravityScale;
 
