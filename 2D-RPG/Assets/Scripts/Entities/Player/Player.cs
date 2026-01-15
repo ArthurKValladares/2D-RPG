@@ -10,6 +10,7 @@ public class Player : Entity
     public static event Action OnPlayerDeath;
 
     public Player_SkillManager skillManager { get; private set; }
+    public Player_VFX playerVFX;
 
     public PlayerInputSet input { get; private set; }
     public Vector2 moveInput { get; private set; }
@@ -57,6 +58,7 @@ public class Player : Entity
 
         ui = FindFirstObjectByType<UI>();
         skillManager = GetComponent<Player_SkillManager>();
+        playerVFX = GetComponent<Player_VFX>();
 
         originalGravityscale = rb.gravityScale;
 

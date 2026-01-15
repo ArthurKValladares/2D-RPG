@@ -82,6 +82,7 @@
     <Compile Include="Assets\Scripts\Interfaces\ICounterable.cs" />
     <Compile Include="Assets\Scripts\Entities\Entity\Entity_Stats.cs" />
     <Compile Include="Assets\Scripts\StateMachine\PlayerStates\Player_HurtState.cs" />
+    <Compile Include="Assets\Scripts\Entities\Player\Player_VFX.cs" />
     <Compile Include="Assets\Scripts\StateMachine\EnemyStates\EnemyState.cs" />
     <Compile Include="Assets\Scripts\StateMachine\PlayerStates\Player_MoveState.cs" />
     <Compile Include="Assets\Scripts\StateMachine\PlayerStates\Player_JumpState.cs" />
@@ -113,6 +114,7 @@
     <Compile Include="Assets\Scripts\Helpers\Helpers.cs" />
     <Compile Include="Assets\Scripts\StateMachine\EnemyStates\Enemy_BattleState.cs" />
     <Compile Include="Assets\Scripts\StateMachine\PlayerStates\Player_IdleState.cs" />
+    <Compile Include="Assets\Scripts\SkillSystem\SkillTypes.cs" />
     <Compile Include="Assets\Scripts\StateMachine\PlayerStates\Player_WallSlideState.cs" />
     <Compile Include="Assets\Scripts\StateMachine\EntityStates\EntityState.cs" />
     <Compile Include="Assets\Scripts\Entities\Player\Player.cs" />

@@ -50,10 +50,14 @@ public class UI_TreeNode : MonoBehaviour, IPointerEnterHandler, IPointerExitHand
 
         SetColor(Color.white);
         connectionHandler.ConnectionImageLearned(true);
+
+        skillTree.skillManager.GetSkillByType(skillData.skillType).SetUpgradeType(skillData.upgradeData);
     }
 
     public void Refund()
     {
+        // TODO: Default abilities cannot be refunded.
+
         if (IsLearned())
         {
             skillTree.AddSkillPoints(skillData.cost);
@@ -65,7 +69,7 @@ public class UI_TreeNode : MonoBehaviour, IPointerEnterHandler, IPointerExitHand
         SetColor(skillLockedColor);
         connectionHandler.ConnectionImageLearned(false);
 
-        // TODO: Will need to remove skill from manager
+        skillTree.skillManager.GetSkillByType(skillData.skillType).SetUpgradeType(new UpgradeData());
     }
 
     public bool IsLocked()

@@ -122,9 +122,9 @@ public class Entity_StatusHandler : MonoBehaviour
         currentElement = ElementalDamageType.Fire;
         entityVFX.PlayOnStatusVFX(duration, currentElement);
 
-        int tickCount = Mathf.RoundToInt(ticksPerSecond * duration);
-        float damagePerTick = totalDamage / tickCount;
         float tickInterval = 1.0f / ticksPerSecond;
+        int tickCount = (int) Mathf.Floor(ticksPerSecond * duration);
+        float damagePerTick = totalDamage / tickCount;
 
         for (int i = 0; i < tickCount; ++i)
         {

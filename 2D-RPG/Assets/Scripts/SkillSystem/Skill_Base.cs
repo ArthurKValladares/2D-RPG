@@ -3,6 +3,8 @@ using UnityEngine;
 public class Skill_Base : MonoBehaviour
 {
     [Header("General Details")]
+    [SerializeField] private SkillType skillType;
+    [SerializeField] private SkillUpgradeType upgradeType;
     [SerializeField] private float cooldown;
     private float lastTimeUsed;
 
@@ -15,11 +17,30 @@ public class Skill_Base : MonoBehaviour
     {
         if (IsOnCooldown())
         {
-            Debug.Log("On Cooldown: Used " + TimeSinceLastUsed() + "s ago. Cooldown " + cooldown + "s");
+            // TODO: Will need a cooldown effect later
             return false;
         }
 
         return true;
+    }
+
+    public void SetUpgradeType(UpgradeData upgrade)
+    {
+        upgradeType = upgrade.upgradeType;
+        cooldown = upgrade.cooldown;
+    }
+
+    public bool IsLearned(SkillUpgradeType upgradeTy)
+    {
+        return this.upgradeType == upgradeTy;
+    }
+
+    public virtual void OnStartEffect()
+    {
+    }
+
+    public virtual void OnEndEffect()
+    {
     }
 
     private float TimeSinceLastUsed()

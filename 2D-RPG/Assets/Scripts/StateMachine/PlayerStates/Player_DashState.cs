@@ -13,6 +13,9 @@ public class Player_DashState : PlayerState
 
         stateTimer = player.dashTime;
         player.rb.gravityScale = 0.0f;
+
+        player.playerVFX.DoImageEchoVFX(stateTimer);
+        player.skillManager.dash.OnStartEffect();
     }
 
     public override void Exit()
@@ -21,6 +24,8 @@ public class Player_DashState : PlayerState
 
         player.SetVelocity(0.0f, 0.0f);
         player.rb.gravityScale = player.originalGravityscale;
+
+        player.skillManager.dash.OnEndEffect();
     }
 
     public override void Update()
