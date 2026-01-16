@@ -1,3 +1,4 @@
+using UnityEngine.Assertions;
 using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
@@ -34,7 +35,16 @@ public class UI_TreeNode : MonoBehaviour, IPointerEnterHandler, IPointerExitHand
 
         skillLockedColor = Helpers.GetColorByHex(skillLockedColorHex);
 
-        SetColor(skillLockedColor);    
+        SetColor(skillLockedColor);
+    }
+
+    private void Start()
+    {
+        if (skillData.learnedByDefault)
+        {
+            Assert.IsTrue(skillData.cost == 0);
+            Learn();
+        }
     }
 
     public bool IsLearned()
@@ -56,7 +66,7 @@ public class UI_TreeNode : MonoBehaviour, IPointerEnterHandler, IPointerExitHand
 
     public void Refund()
     {
-        // TODO: Default abilities cannot be refunded.
+        if (skillData.learnedByDefault) return;
 
         if (IsLearned())
         {
@@ -151,9 +161,17 @@ public class UI_TreeNode : MonoBehaviour, IPointerEnterHandler, IPointerExitHand
     {
         foreach (UI_TreeNode node in conflictNodes)
         {
-            node.SetLocked(true);
+            node.LockAllChildNodes();
+        }
+    }
 
-            node.connectionHandler.LockAllConnections();
+    private void LockAllChildNodes()
+    {
+        isLocked = true;
+
+        foreach (UI_TreeNode node in connectionHandler.GetChildNodes())
+        {
+            node.LockAllChildNodes();
         }
     }
 

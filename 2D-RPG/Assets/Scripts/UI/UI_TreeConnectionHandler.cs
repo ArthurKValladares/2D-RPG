@@ -1,4 +1,5 @@
 using System;
+using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -102,16 +103,17 @@ public class UI_TreeConnectionHandler : MonoBehaviour
         }
     }
 
-    public void LockAllConnections()
+    public UI_TreeNode[] GetChildNodes()
     {
+        List<UI_TreeNode> childNodes = new List<UI_TreeNode>();
+
         foreach (UI_TreeConnectionDetails detail in details)
         {
             if (detail.childNode == null) continue;
 
-            UI_TreeNode node = detail.childNode.GetComponent<UI_TreeNode>();
-            node.SetLocked(true);
-
-            detail.childNode.LockAllConnections();
+            childNodes.Add(detail.childNode.GetComponent<UI_TreeNode>());
         }
+
+        return childNodes.ToArray();
     }
 }

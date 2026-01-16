@@ -14,6 +14,9 @@ public class Skill_DataSO : ScriptableObject
     public int cost;
     public SkillType skillType;
     public UpgradeData upgradeData;
+
+    [Space]
+    public bool learnedByDefault;
 }
 
 [System.Serializable]

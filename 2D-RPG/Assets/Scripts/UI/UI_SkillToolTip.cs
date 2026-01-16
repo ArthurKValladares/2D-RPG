@@ -80,6 +80,8 @@ public class UI_SkillToolTip : UI_ToolTip
 
         foreach (UI_TreeNode node in neededNodes)
         {
+            if (node == null) continue;
+
             string nodeColor = node.IsLearned()
                 ? metConditionsHex
                 : notMetConditionsHex;
@@ -93,6 +95,8 @@ public class UI_SkillToolTip : UI_ToolTip
             sb.AppendLine(Helpers.GetColoredText(originalImportantInfoHex, "Locks Out:"));
             foreach ( UI_TreeNode node in conflictNodes)
             {
+                if (node == null) continue;
+
                 sb.AppendLine(Helpers.GetColoredText(originalImportantInfoHex, $"- {node.skillData.skillName}"));
             }
         }

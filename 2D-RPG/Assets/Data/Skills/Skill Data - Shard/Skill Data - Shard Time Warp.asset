@@ -10,16 +10,14 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 593791c73c4010148bf53d40b02a324f, type: 3}
-  m_Name: Skill Data - Dash
+  m_Name: Skill Data - Shard Time Warp
   m_EditorClassIdentifier: Assembly-CSharp::Skill_DataSO
-  skillName: Dash
-  description: '- Dash to avoid attacks.
-
-    - You cannot take damage while dashing.'
-  icon: {fileID: -996421496, guid: 13e7f4220636690408b25bae11ca9834, type: 3}
-  cost: 0
-  skillType: 0
+  skillName: Shard Time Warp
+  description: "- Create a time echo on arrival.\n(Inherits all upgrades of Time
+    Echo Skill Tree)\L"
+  icon: {fileID: 812716561, guid: 13e7f4220636690408b25bae11ca9834, type: 3}
+  cost: 3
+  skillType: 2
   upgradeData:
-    upgradeType: 1
+    upgradeType: 10
     cooldown: 3
-  learnedByDefault: 1

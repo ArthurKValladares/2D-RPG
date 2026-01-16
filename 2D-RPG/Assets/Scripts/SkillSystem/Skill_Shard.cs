@@ -7,6 +7,8 @@ public class Skill_Shard : Skill_Base
 
     public void CreateShard()
     {
+        if (upgradeType == SkillUpgradeType.None) return;
+
         GameObject shardObj = Instantiate(shardObject, transform.position, Quaternion.identity);
         SkillObject_Shard shard = shardObj.GetComponent<SkillObject_Shard>();
 

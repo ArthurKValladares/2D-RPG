@@ -10,16 +10,18 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 593791c73c4010148bf53d40b02a324f, type: 3}
-  m_Name: Skill Data - Dash
+  m_Name: Skill Data - Shard
   m_EditorClassIdentifier: Assembly-CSharp::Skill_DataSO
-  skillName: Dash
-  description: '- Dash to avoid attacks.
+  skillName: Shard
+  description: 'Details:
 
-    - You cannot take damage while dashing.'
-  icon: {fileID: -996421496, guid: 13e7f4220636690408b25bae11ca9834, type: 3}
-  cost: 0
-  skillType: 0
+    - Create a shard filled with elemental magic.
+
+    -
+    The shard explodes when touched by an enemy or time goes up'
+  icon: {fileID: 2028568999, guid: 13e7f4220636690408b25bae11ca9834, type: 3}
+  cost: 1
+  skillType: 2
   upgradeData:
-    upgradeType: 1
+    upgradeType: 6
     cooldown: 3
-  learnedByDefault: 1

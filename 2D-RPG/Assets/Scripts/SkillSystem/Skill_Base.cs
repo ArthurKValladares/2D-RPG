@@ -4,7 +4,7 @@ public class Skill_Base : MonoBehaviour
 {
     [Header("General Details")]
     [SerializeField] private SkillType skillType;
-    [SerializeField] private SkillUpgradeType upgradeType;
+    [SerializeField] protected SkillUpgradeType upgradeType;
     [SerializeField] private float cooldown;
     private float lastTimeUsed;
 
@@ -15,6 +15,8 @@ public class Skill_Base : MonoBehaviour
 
     public bool CanUseSkill()
     {
+        if (upgradeType == SkillUpgradeType.None) return false;
+
         if (IsOnCooldown())
         {
             // TODO: Will need a cooldown effect later
