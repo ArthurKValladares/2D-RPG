@@ -23,6 +23,7 @@ public class PlayerState : EntityState
     {
         base.Update();
 
+        // TODO: Dash should be handled like shard
         if (player.input.Player.Dash.WasPressedThisFrame() && CanDash())
         {
             player.skillManager.dash.SetSkillJustUsed();

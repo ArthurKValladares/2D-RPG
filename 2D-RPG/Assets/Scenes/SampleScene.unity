@@ -887,6 +887,8 @@ MonoBehaviour:
   cooldown: 3
   shardObject: {fileID: 6409541315499900898, guid: 378c433e7e09ad741ac3fbcd7d8096a6, type: 3}
   detonationTime: 1.5
+  movementSpeed: 5
+  maxCharges: 3
 --- !u!1001 &454479146
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -52775,10 +52777,10 @@ RectTransform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1986817610}
-  - {fileID: 954252157}
-  - {fileID: 1756164217}
   - {fileID: 1668016960}
   - {fileID: 2089480501}
+  - {fileID: 954252157}
+  - {fileID: 1756164217}
   - {fileID: 1110017358}
   - {fileID: 1147268391}
   m_Father: {fileID: 1808924241}
@@ -53838,7 +53840,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1808924241
 RectTransform:
   m_ObjectHideFlags: 0

@@ -5,7 +5,7 @@ public class Skill_Base : MonoBehaviour
     [Header("General Details")]
     [SerializeField] private SkillType skillType;
     [SerializeField] protected SkillUpgradeType upgradeType;
-    [SerializeField] private float cooldown;
+    [SerializeField] protected float cooldown;
     private float lastTimeUsed;
 
     protected virtual void Awake()
@@ -24,6 +24,15 @@ public class Skill_Base : MonoBehaviour
         }
 
         return true;
+    }
+
+    public virtual void TryToUseSkill()
+    {
+    }
+
+    public void SetSkillJustUsed()
+    {
+        lastTimeUsed = Time.time;
     }
 
     public void SetUpgradeType(UpgradeData upgrade)
@@ -52,20 +61,6 @@ public class Skill_Base : MonoBehaviour
 
     private bool IsOnCooldown()
     {
-        return (Time.time - lastTimeUsed) < cooldown;
-    }
-
-    public void SetSkillJustUsed()
-    {
-        lastTimeUsed = Time.time;
-    }
-
-    private void ReduceCooldownBy(float time)
-    {
-        lastTimeUsed -= time;
-    }
-    private void IncreaseCooldownBy(float time)
-    {
-        lastTimeUsed += time;
+        return TimeSinceLastUsed() < cooldown;
     }
 }
