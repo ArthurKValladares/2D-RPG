@@ -137,6 +137,11 @@ public class Player : Entity
         sm.ChangeState(hurtState);
     }
 
+    public void TeleportPlayer(Vector2 pos)
+    {
+        transform.position = pos;
+    }
+
     protected override IEnumerator SlowDownEntityByCoroutine(float duration, float slowPercentage)
     {
         float originalMoveSpeed = moveSpeed;

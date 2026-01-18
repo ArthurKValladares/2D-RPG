@@ -9,7 +9,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2833881606707364213}
-  - component: {fileID: 2007474352216161550}
   - component: {fileID: 3685129464965271361}
   - component: {fileID: 166973387901898080}
   - component: {fileID: 8272396999978975905}
@@ -45,28 +44,6 @@ Transform:
   - {fileID: 222267160406269870}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &2007474352216161550
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 905807874446326591}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f18bd6d220508614181cfd744ba4a166, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::Entity_VFX
-  onDamageMaterial: {fileID: 2100000, guid: 4a5dda86a53061d408958e415a4e6d61, type: 2}
-  onDamageVFXDuration: 0.15
-  onHitTargetColor: {r: 1, g: 1, b: 1, a: 1}
-  onHitTargetVFX: {fileID: 8417847197012983495, guid: 112aceac7e9e6fd479a94f6bcc7f01d0, type: 3}
-  onCritHitTargetVFX: {fileID: 8958994509587034946, guid: 3dcb559b7a6534a4d83f95d66be1ee8f, type: 3}
-  fireColor: {r: 1, g: 0, b: 0, a: 1}
-  iceColor: {r: 0, g: 1, b: 1, a: 1}
-  lightningColor: {r: 1, g: 0.92156863, b: 0.015686275, a: 1}
-  blinkingColorTicknterval: 0.25
-  lightningVFX: {fileID: 5109361871728201888, guid: f8e2f7e2eeeacab4596c1be1c3a88476, type: 3}
 --- !u!114 &3685129464965271361
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -236,6 +213,7 @@ MonoBehaviour:
   <primaryWallDetected>k__BackingField: 0
   <secondaryWallDetected>k__BackingField: 0
   <wallsDetected>k__BackingField: 0
+  playerVFX: {fileID: 0}
   moveSpeed: 8
   jumpForce: 12
   inAirMoveMultiplier: 0.8

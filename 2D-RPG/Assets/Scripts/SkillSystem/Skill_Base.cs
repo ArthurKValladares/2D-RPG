@@ -2,6 +2,9 @@ using UnityEngine;
 
 public class Skill_Base : MonoBehaviour
 {
+    protected Player player;
+    protected Player_Health playerHealth;
+
     [Header("General Details")]
     [SerializeField] private SkillType skillType;
     [SerializeField] protected SkillUpgradeType upgradeType;
@@ -10,6 +13,9 @@ public class Skill_Base : MonoBehaviour
 
     protected virtual void Awake()
     {
+        player = GetComponentInParent<Player>();
+        playerHealth = GetComponentInParent<Player_Health>();
+
         lastTimeUsed = Time.time - cooldown;
     }
 
@@ -59,8 +65,21 @@ public class Skill_Base : MonoBehaviour
         return Time.time - lastTimeUsed;
     }
 
-    private bool IsOnCooldown()
+    protected bool IsOnCooldown()
     {
         return TimeSinceLastUsed() < cooldown;
+    }
+
+    //
+    // Generic Skill Components
+    //
+
+    protected void SwapLocationWithPlayer(Transform entityToSwap)
+    {
+        Vector2 entityPos = entityToSwap.transform.position;
+        Vector2 playerPos = player.transform.position;
+
+        entityToSwap.transform.position = playerPos;
+        player.TeleportPlayer(entityPos);
     }
 }

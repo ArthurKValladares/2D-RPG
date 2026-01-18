@@ -889,6 +889,8 @@ MonoBehaviour:
   detonationTime: 1.5
   movementSpeed: 5
   maxCharges: 3
+  teleportShardDuration: 10
+  explosionDelayAfterSwap: 0
 --- !u!1001 &454479146
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1530,10 +1532,10 @@ RectTransform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 441005853}
-  - {fileID: 1942083807}
-  - {fileID: 902586404}
   - {fileID: 1349452969}
   - {fileID: 47459121}
+  - {fileID: 1942083807}
+  - {fileID: 902586404}
   m_Father: {fileID: 1808924241}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
@@ -52777,10 +52779,10 @@ RectTransform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1986817610}
-  - {fileID: 1668016960}
-  - {fileID: 2089480501}
   - {fileID: 954252157}
   - {fileID: 1756164217}
+  - {fileID: 1668016960}
+  - {fileID: 2089480501}
   - {fileID: 1110017358}
   - {fileID: 1147268391}
   m_Father: {fileID: 1808924241}
@@ -53840,7 +53842,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &1808924241
 RectTransform:
   m_ObjectHideFlags: 0
@@ -55120,8 +55122,7 @@ PrefabInstance:
       propertyPath: m_AnchorMax.y
       value: 0
       objectReference: {fileID: 0}
-    m_RemovedComponents:
-    - {fileID: 2007474352216161550, guid: e9302bc495f014241aa885ec5ab81af6, type: 3}
+    m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects:
     - targetCorrespondingSourceObject: {fileID: 2833881606707364213, guid: e9302bc495f014241aa885ec5ab81af6, type: 3}

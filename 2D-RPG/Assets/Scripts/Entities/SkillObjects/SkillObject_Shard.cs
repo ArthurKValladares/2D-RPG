@@ -3,6 +3,8 @@ using UnityEngine;
 
 public class SkillObject_Shard : SkillObject_Base
 {
+    public event Action OnExplode;
+
     [Header("Explosion Data")]
     [SerializeField] private GameObject vfxGameObject;
     [SerializeField] private Color explosionColor = Color.white;
@@ -48,6 +50,8 @@ public class SkillObject_Shard : SkillObject_Base
         GameObject explosionObject = Instantiate(vfxGameObject, transform.position, Quaternion.identity);
         SpriteRenderer explosionSR = explosionObject.GetComponentInChildren<SpriteRenderer>();
         explosionSR.color = explosionColor;
+
+        OnExplode?.Invoke();
 
         Destroy(gameObject);
     }

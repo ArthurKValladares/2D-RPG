@@ -11,7 +11,7 @@ public class Entity_Health : MonoBehaviour, IDamagable
     private Entity_Stats stats;
 
     [Header("Health Details")]
-    [SerializeField] protected float currentHealth;
+    [SerializeField] protected float currentHP;
     [SerializeField] private bool canRegenerateHealth = true;
     [SerializeField] private float healthRegenInterval = 0.5f;
 
@@ -80,7 +80,7 @@ public class Entity_Health : MonoBehaviour, IDamagable
 
     public virtual HitInfo TakeDamage(PhysicalDamageInfo physicalDamage, ElementalDamageInfo elementalDamage, Transform damageDealer)
     {
-        if (currentHealth <= 0.0f) return new HitInfo(false);
+        if (currentHP <= 0.0f) return new HitInfo(false);
         if (AttackEvaded())
         {
             // TODO: Evasion effect
@@ -108,7 +108,7 @@ public class Entity_Health : MonoBehaviour, IDamagable
 
         ReduceHP(finalDamage);
 
-        bool killedVictim = currentHealth <= 0.0f;
+        bool killedVictim = currentHP <= 0.0f;
         return new HitInfo(true, finalDamage, killedVictim);
     }
 
@@ -140,18 +140,28 @@ public class Entity_Health : MonoBehaviour, IDamagable
         return Random.Range(0.0f, 1.0f) < evasion; 
     }
 
-    private void SetHP(float hp)
+    public float GetCurrentHPPercentage()
     {
-        currentHealth = hp;
+        return currentHP / stats.CalculateMaxHP();
+    }
+
+    public void SetHP(float hp)
+    {
+        currentHP = hp;
         UpdateHealthBar();
+    }
+
+    public void SetHPPercentage(float percentage)
+    {
+        SetHP(Mathf.Clamp01(percentage) * stats.CalculateMaxHP());
     }
 
     public void ReduceHP(float damage)
     {
-        currentHealth -= damage;
+        currentHP -= damage;
         UpdateHealthBar();
 
-        if (currentHealth <= 0.0f)
+        if (currentHP <= 0.0f)
         {
             Die();
         }
@@ -159,9 +169,9 @@ public class Entity_Health : MonoBehaviour, IDamagable
 
     public void IncreaseHP(float amount)
     {
-        if (currentHealth <= 0.0) return;
+        if (currentHP <= 0.0) return;
 
-        float newHealth = Mathf.Min(currentHealth + amount, stats.CalculateMaxHP());
+        float newHealth = Mathf.Min(currentHP + amount, stats.CalculateMaxHP());
 
         SetHP(newHealth);
     }
@@ -170,7 +180,7 @@ public class Entity_Health : MonoBehaviour, IDamagable
     {
         if (healthBar == null) return;
 
-        healthBar.value = (float) currentHealth / stats.CalculateMaxHP();
+        healthBar.value = (float) currentHP / stats.CalculateMaxHP();
     }
 
     protected virtual void Die()

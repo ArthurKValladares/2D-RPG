@@ -16,6 +16,11 @@ public class Skill_Shard : Skill_Base
     private int currentCharges;
     private bool isRecharging;
 
+    [Header("Teleport Info")]
+    [SerializeField] private float teleportShardDuration;
+    [SerializeField] private float explosionDelayAfterSwap;
+    private float playerHPPercentageOnCreation;
+
     private SkillObject_Shard currentShard;
 
     protected override void Awake()
@@ -41,6 +46,16 @@ public class Skill_Shard : Skill_Base
         if (IsLearned(SkillUpgradeType.Shard_Multicast))
         {
             ShardSkillMulticast();
+        }
+
+        if (IsLearned(SkillUpgradeType.Shard_Teleport))
+        {
+            ShardSkillTeleport();
+        }
+
+        if (IsLearned(SkillUpgradeType.Shard_TeleportHpRewind))
+        {
+            ShardSkillTeleportHpRewind();
         }
     }
 
@@ -71,12 +86,66 @@ public class Skill_Shard : Skill_Base
         }
     }
 
+    private void ShardSkillTeleport()
+    {
+        if (currentShard == null)
+        {
+            CreateShard();
+        }
+        else
+        {
+            SwapLocationWithPlayer(currentShard.transform);
+            currentShard.SetupShardToExplode(explosionDelayAfterSwap);
+            SetSkillJustUsed();
+        }
+    }
+
+    private void ShardSkillTeleportHpRewind()
+    {
+        if (currentShard == null)
+        {
+            CreateShard();
+            playerHPPercentageOnCreation = playerHealth.GetCurrentHPPercentage();
+        }
+        else
+        {
+            SwapLocationWithPlayer(currentShard.transform);
+            currentShard.SetupShardToExplode(explosionDelayAfterSwap);
+            playerHealth.SetHPPercentage(playerHPPercentageOnCreation);
+            SetSkillJustUsed();
+        }
+    }
+
+    private float GetDetonationTime()
+    {
+        if (IsLearned(SkillUpgradeType.Shard_Teleport) || IsLearned(SkillUpgradeType.Shard_TeleportHpRewind))
+        {
+            return teleportShardDuration;
+        }
+
+        return detonationTime;
+    }
+
     private void CreateShard()
     {
         GameObject shardObj = Instantiate(shardObject, transform.position, Quaternion.identity);
         currentShard = shardObj.GetComponent<SkillObject_Shard>();
 
-        currentShard.SetupShardToExplode(detonationTime);
+        currentShard.SetupShardToExplode(GetDetonationTime());
+
+        if (IsLearned(SkillUpgradeType.Shard_Teleport) || IsLearned(SkillUpgradeType.Shard_TeleportHpRewind))
+        {
+           currentShard.OnExplode += ForceOnCooldown;
+        }
+    }
+
+    private void ForceOnCooldown()
+    {
+        if (!IsOnCooldown())
+        {
+            SetSkillJustUsed();
+            currentShard.OnExplode -= ForceOnCooldown;
+        }
     }
 
     private IEnumerator ShardRechargeCo()
