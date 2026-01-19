@@ -1,6 +1,7 @@
 using UnityEngine;
 using System;
 
+// TODO: Add more later
 public enum ElementalDamageType
 {
     None = 0,

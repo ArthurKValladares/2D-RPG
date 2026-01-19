@@ -10,6 +10,12 @@ public class SkillObject_Base : MonoBehaviour
     [Header("Surround Checking")]
     [SerializeField] protected float surroundCheckRadius = 10.0f;
 
+    protected Entity_Stats playerStats;
+
+    protected DamageScaleData damageScaleData;
+    protected ElementalDamageType primaryElementalDamage;
+    protected ElementalDamageType secondaryElementalDamage;
+
     private void Awake()
     {
         if (targetCheck == null)
@@ -21,15 +27,35 @@ public class SkillObject_Base : MonoBehaviour
     protected void DamageEnemiesInRadius(Transform t, float radius)
     {
         Collider2D[] enemies = EnemiesAround(t, radius);
-        foreach (Collider2D enemyCollider in enemies)
+        foreach (Collider2D target in enemies)
         {
-            IDamagable damagable = enemyCollider.GetComponent<IDamagable>();
+            IDamagable damagable = target.GetComponent<IDamagable>();
             if (damagable == null) continue;
 
-            // TODO: hard-coded for now
-            PhysicalDamageInfo physicalDamageInfo = new PhysicalDamageInfo(1.0f, false);
-            ElementalDamageInfo elementalInfo = new ElementalDamageInfo(1.0f, ElementalDamageType.None);
+            //
+            // TODO: This is very copy-paste from Entity_Combat
+            //
+            PhysicalDamageInfo physicalDamageInfo = playerStats.CalculatePhysicalDamage(damageScaleData.phyiscal);
+            ElementalDamageInfo elementalInfo = playerStats.CalculateElementalDamage(primaryElementalDamage, secondaryElementalDamage, damageScaleData.secondaryElementMultiplier, damageScaleData.elemental);
+
             HitInfo hitInfo = damagable.TakeDamage(physicalDamageInfo, elementalInfo, transform);
+
+            if (hitInfo.didHit)
+            {
+                // TODO: on hit VFX?
+                //entityVFX.CreateOnHitTargetVFX(target.transform, physicalDamageInfo.wasCritical, elementalInfo.primaryType);
+
+                if (!hitInfo.killedVictim && primaryElementalDamage != ElementalDamageType.None)
+                {
+                    ElementalEffectData effectData = new ElementalEffectData(playerStats, damageScaleData);
+
+                    Entity_StatusHandler statusHandler = target.GetComponent<Entity_StatusHandler>();
+                    statusHandler.ApplyStatusEffect(primaryElementalDamage, effectData);
+                }
+            }
+            //
+            //
+            //
         }
     }
 

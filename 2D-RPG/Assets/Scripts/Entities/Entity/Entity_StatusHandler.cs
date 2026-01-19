@@ -1,4 +1,5 @@
 using System.Collections;
+using System.Data;
 using Unity.VisualScripting.Antlr3.Runtime.Misc;
 using UnityEngine;
 using UnityEngine.UI;
@@ -13,14 +14,16 @@ public class Entity_StatusHandler : MonoBehaviour
     private ElementalDamageType currentElement = ElementalDamageType.None;
 
     private Coroutine electrifyCoroutine;
-
-    [SerializeField] private float currentLightningCharge = 0.0f;
-    private float maxLightningCharge = 1.0f;
+    private float currentLightningCharge = 0.0f;
 
     // TODO: Will have a better status bar abstraction soon
     private Slider statusBar;
     public GameObject statusBarObject;
     private Image statusBarImage;
+
+    // Constants
+    const float MAX_ELECTRIFY_CHARGE = 1.0f;
+    const int BURN_TICKS_PER_SECOND = 4;
 
     private void Awake()
     {
@@ -29,7 +32,7 @@ public class Entity_StatusHandler : MonoBehaviour
         entityStats = GetComponent<Entity_Stats>();
         entityHealth = GetComponent<Entity_Health>();
 
-        // TODO: Have the same code in Entity_Health, figure out abstraction. Same for SetCharge/UpdateStatusBar/etc
+        // TODO: I have the same code in Entity_Health, figure out abstraction. Same for SetCharge/UpdateStatusBar/etc
         Slider[] sliders = GetComponentsInChildren<Slider>();
         foreach (Slider slider in sliders)
         {
@@ -44,44 +47,29 @@ public class Entity_StatusHandler : MonoBehaviour
         SetCharge(0.0f);
     }
 
-    private void SetCharge(float charge)
-    {
-        currentLightningCharge = charge;
-        UpdateStatusBar();
-    }
-
-    private void UpdateStatusBar()
-    {
-        if (statusBar == null) return;
-
-        statusBar.value = currentLightningCharge / maxLightningCharge;
-
-        if (statusBar.value <= 0.0f)
-        {
-            SetStatusBarVisible(false);
-        } else
-        {
-            SetStatusBarVisible(true);
-        }
-    }
-
-    public void SetStatusBarVisible(bool visible)
-    {
-        if (statusBar == null) return;
-
-        statusBarObject.SetActive(visible);
-    }
-
-    private void UpdateStatusBarColor(Color color)
-    {
-        statusBarImage.color = color;
-    }
-
     public bool CanApply(ElementalDamageType element)
     {
         if (element == ElementalDamageType.Lightning && currentElement == ElementalDamageType.Lightning) return true;
 
         return currentElement == ElementalDamageType.None;
+    }
+
+    public void ApplyStatusEffect(ElementalDamageType element, ElementalEffectData data)
+    {
+        if (!CanApply(element)) return;
+
+        switch (element)
+        {
+            case ElementalDamageType.Ice:
+                ApplyChillEffect(data.chillDuration, data.chillSlowPercentage);
+                break;
+            case ElementalDamageType.Fire:
+                ApplyBurnEffect(data.burnDuration, BURN_TICKS_PER_SECOND, data.burnTotalDamage);
+                break;
+            case ElementalDamageType.Lightning:
+                ApplyElectrifyEffect(data.electrifyDuration, data.electrifyCharge, data.electrifyDamageOnFullCharge);
+                break;
+        }
     }
 
     private float GetValueAfterResistance(float val, ElementalDamageType element)
@@ -90,7 +78,11 @@ public class Entity_StatusHandler : MonoBehaviour
         return val * (1.0f - resistance);
     }
 
-    public void ApplyChillEffect(float duration, float slowPercentage)
+    //
+    // Chill
+    //
+
+    private void ApplyChillEffect(float duration, float slowPercentage)
     {
         float reducedDuration = GetValueAfterResistance(duration, ElementalDamageType.Ice);
 
@@ -110,9 +102,14 @@ public class Entity_StatusHandler : MonoBehaviour
         currentElement = ElementalDamageType.None;
     }
 
-    public void ApplyBurnEffect(float duration, int ticksPerSecond, float totalDamage)
+    //
+    // Burn
+    //
+
+    private void ApplyBurnEffect(float duration, int ticksPerSecond, float totalDamage)
     {
         float reducedDamage = GetValueAfterResistance(totalDamage, ElementalDamageType.Fire);
+        Debug.Log($"Stat burn effect for {totalDamage} in {duration} seconds.");
 
         StartCoroutine(BurnEffectCoroutine(duration, ticksPerSecond, reducedDamage));
     }
@@ -129,6 +126,7 @@ public class Entity_StatusHandler : MonoBehaviour
         for (int i = 0; i < tickCount; ++i)
         {
             entityHealth.ReduceHP(damagePerTick);
+            Debug.Log($"Tick burn for {damagePerTick}.");
 
             yield return new WaitForSeconds(tickInterval);
         }
@@ -136,17 +134,28 @@ public class Entity_StatusHandler : MonoBehaviour
         currentElement = ElementalDamageType.None;
     }
 
-    public void ApplyElectrifyEffect(float duration, float charge, float damageOnFullCharge)
+    //
+    // Electrify
+    //
+
+    private void SetCharge(float charge)
+    {
+        currentLightningCharge = charge;
+        UpdateStatusBar();
+    }
+
+    private void ApplyElectrifyEffect(float duration, float charge, float damageOnFullCharge)
     {
         float reducedCharge = GetValueAfterResistance(charge, ElementalDamageType.Lightning);
         UpdateStatusBarColor(entityVFX.lightningColor);
         SetCharge(currentLightningCharge + reducedCharge);
 
-        if (currentLightningCharge >= maxLightningCharge)
+        if (currentLightningCharge >= MAX_ELECTRIFY_CHARGE)
         {
             Instantiate(entityVFX.lightningVFX, transform.position, Quaternion.identity);
 
             entityHealth.ReduceHP(damageOnFullCharge);
+            Debug.Log($"trigger electrify for {damageOnFullCharge}.");
 
             StopElectrifyEffect();
             return;
@@ -174,5 +183,37 @@ public class Entity_StatusHandler : MonoBehaviour
         currentElement = ElementalDamageType.None;
         SetCharge(0.0f);
         entityVFX.StopAllVFX();
-    }    
+    }
+
+    //
+    // Status Bar
+    //
+
+    public void SetStatusBarVisible(bool visible)
+    {
+        if (statusBar == null) return;
+
+        statusBarObject.SetActive(visible);
+    }
+
+    private void UpdateStatusBar()
+    {
+        if (statusBar == null) return;
+
+        statusBar.value = currentLightningCharge / MAX_ELECTRIFY_CHARGE;
+
+        if (statusBar.value <= 0.0f)
+        {
+            SetStatusBarVisible(false);
+        }
+        else
+        {
+            SetStatusBarVisible(true);
+        }
+    }
+
+    private void UpdateStatusBarColor(Color color)
+    {
+        statusBarImage.color = color;
+    }
 }

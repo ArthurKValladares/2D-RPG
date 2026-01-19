@@ -93,6 +93,7 @@ public class Entity_Health : MonoBehaviour, IDamagable
         float finalElementalDamage = CalculateFinalElementalDamage(elementalDamage);
 
         float finalDamage = finalPhysicalDamage + finalElementalDamage;
+        Debug.Log($"Entity: {gameObject.name} took damage. Physical: {finalPhysicalDamage} Elemental: {finalElementalDamage}");
 
         if (entity)
         {

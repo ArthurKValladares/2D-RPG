@@ -867,6 +867,21 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 968ee3610005e8844b080bb8637cb0ed, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Skill_Dash
+  player: {fileID: 0}
+  playerHealth: {fileID: 0}
+  damageScaleData:
+    phyiscal: 1
+    elemental: 1
+    secondaryElementMultiplier: 0.5
+    chillDuration: 3
+    chillSlowPercentage: 0.2
+    burnDuratin: 3
+    burnDamageScale: 1
+    electrifyDuration: 3
+    electrifyDamageScale: 1
+    electrifyCharge: 0.4
+  primaryElementalDamage: 0
+  secondaryElementalDamage: 0
   skillType: 0
   upgradeType: 0
   cooldown: 3
@@ -882,6 +897,21 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bb471b43a6d4b8143b5e428e6db21b3b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Skill_Shard
+  player: {fileID: 0}
+  playerHealth: {fileID: 0}
+  damageScaleData:
+    phyiscal: 1
+    elemental: 1
+    secondaryElementMultiplier: 0.5
+    chillDuration: 3
+    chillSlowPercentage: 0.2
+    burnDuratin: 3
+    burnDamageScale: 1
+    electrifyDuration: 3
+    electrifyDamageScale: 1
+    electrifyCharge: 0.4
+  primaryElementalDamage: 3
+  secondaryElementalDamage: 0
   skillType: 2
   upgradeType: 0
   cooldown: 3
@@ -55066,6 +55096,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Player
       objectReference: {fileID: 0}
+    - target: {fileID: 1959215018417140902, guid: e9302bc495f014241aa885ec5ab81af6, type: 3}
+      propertyPath: primaryElementalDamage
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 2833881606707364213, guid: e9302bc495f014241aa885ec5ab81af6, type: 3}
       propertyPath: m_LocalPosition.x
       value: -5.23
@@ -55105,6 +55139,22 @@ PrefabInstance:
     - target: {fileID: 2833881606707364213, guid: e9302bc495f014241aa885ec5ab81af6, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3685129464965271361, guid: e9302bc495f014241aa885ec5ab81af6, type: 3}
+      propertyPath: offensive.iceDamage.baseValue
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 3685129464965271361, guid: e9302bc495f014241aa885ec5ab81af6, type: 3}
+      propertyPath: offensive.fireDamage.baseValue
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 3685129464965271361, guid: e9302bc495f014241aa885ec5ab81af6, type: 3}
+      propertyPath: offensive.physicalDamage.baseValue
+      value: 15
+      objectReference: {fileID: 0}
+    - target: {fileID: 3685129464965271361, guid: e9302bc495f014241aa885ec5ab81af6, type: 3}
+      propertyPath: offensive.lightningDamage.baseValue
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 5551618757726774417, guid: e9302bc495f014241aa885ec5ab81af6, type: 3}
       propertyPath: m_AnchorMax.x

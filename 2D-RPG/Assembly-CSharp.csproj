@@ -78,6 +78,7 @@
     <Compile Include="Assets\Scripts\Entities\Enemy\Enemy_Health.cs" />
     <Compile Include="Assets\Scripts\Entities\Entity\Entity.cs" />
     <Compile Include="Assets\Scripts\Entities\Entity\Entity_StatusHandler.cs" />
+    <Compile Include="Assets\Scripts\Data\ElementalEffectData.cs" />
     <Compile Include="Assets\Scripts\Entities\Enemy\Enemy_VFX.cs" />
     <Compile Include="Assets\Scripts\StateMachine\PlayerStates\Player_AiredState.cs" />
     <Compile Include="Assets\Scripts\Interfaces\ICounterable.cs" />
@@ -110,6 +111,7 @@
     <Compile Include="Assets\Scripts\StateMachine\EnemyStates\Enemy_IdleState.cs" />
     <Compile Include="Assets\Scripts\Interfaces\IDamagable.cs" />
     <Compile Include="Assets\Scripts\StateMachine\EnemyStates\Enemy_DeadState.cs" />
+    <Compile Include="Assets\Scripts\Data\DamageScaleData.cs" />
     <Compile Include="Assets\Scripts\Entities\Entity\Entity_Combat.cs" />
     <Compile Include="Assets\Scripts\VFX\VFX_AutoController.cs" />
     <Compile Include="Assets\Scripts\Helpers\Helpers.cs" />

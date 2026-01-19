@@ -5,6 +5,10 @@ public class Entity_Combat : MonoBehaviour
     private Entity_VFX entityVFX;
     private Entity_Stats stats;
 
+    public DamageScaleData basicAttackScale;
+    public ElementalDamageType primaryElementalDamage = ElementalDamageType.None;
+    public ElementalDamageType secondaryElementalDamage = ElementalDamageType.None;
+
     [Header("Target Detection")]
     [SerializeField] private float targetCheckRadius;
     [SerializeField] private Transform targetCheck;
@@ -29,44 +33,21 @@ public class Entity_Combat : MonoBehaviour
             IDamagable damagable = target.GetComponent<IDamagable>();
             if (damagable == null) continue;
 
-            PhysicalDamageInfo physicalDamageInfo = stats.CalculatePhysicalDamage();
-            // TODO: Need to get element from damage source
-            ElementalDamageInfo elementalInfo = stats.CalculateElementalDamage(ElementalDamageType.None);
+            PhysicalDamageInfo physicalDamageInfo = stats.CalculatePhysicalDamage(basicAttackScale.phyiscal);
+            ElementalDamageInfo elementalInfo = stats.CalculateElementalDamage(primaryElementalDamage, secondaryElementalDamage, basicAttackScale.secondaryElementMultiplier, basicAttackScale.elemental);
 
             HitInfo hitInfo = damagable.TakeDamage(physicalDamageInfo, elementalInfo, transform);
             if (hitInfo.didHit)
             {
                 entityVFX.CreateOnHitTargetVFX(target.transform, physicalDamageInfo.wasCritical, elementalInfo.primaryType);
-                if (!hitInfo.killedVictim)
+
+                if (!hitInfo.killedVictim && primaryElementalDamage != ElementalDamageType.None)
                 {
-                    ApplyStatusEffect(target, elementalInfo.primaryType);
+                    ElementalEffectData effectData = new ElementalEffectData(stats, basicAttackScale);
+
+                    Entity_StatusHandler statusHandler = target.GetComponent<Entity_StatusHandler>();
+                    statusHandler.ApplyStatusEffect(primaryElementalDamage, effectData);
                 }
-            }
-        }
-    }
-
-    private void ApplyStatusEffect(Collider2D target, ElementalDamageType ty, float scaleFactor = 1.0f)
-    {
-        if (ty == ElementalDamageType.None) return;
-
-        Entity_StatusHandler statusHandler = target.GetComponent<Entity_StatusHandler>();
-        if (!statusHandler) return;
-
-        if (statusHandler.CanApply(ty))
-        {
-            switch (ty)
-            {
-                case ElementalDamageType.Ice:
-                    statusHandler.ApplyChillEffect(defaultStatusDuration, chillSlowPercentage);
-                    break;
-                case ElementalDamageType.Fire:
-                    float burnDamage = stats.offensive.fireDamage.GetValue() * scaleFactor;
-                    statusHandler.ApplyBurnEffect(defaultStatusDuration, burnTicksPerSecond, burnDamage);
-                    break;
-                case ElementalDamageType.Lightning:
-                    float electrifyDamage = stats.offensive.lightningDamage.GetValue() * scaleFactor;
-                    statusHandler.ApplyElectrifyEffect(defaultStatusDuration, electrifyChargePerApplication, electrifyDamage);
-                    break;
             }
         }
     }

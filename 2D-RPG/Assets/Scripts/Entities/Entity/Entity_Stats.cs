@@ -38,7 +38,6 @@ public class Entity_Stats : MonoBehaviour
     public float maxEvasion = 85.0f;
     public float armorMitigationConstant = 100;
     public float armorMitigationCap = 85.0f;
-    public float secondaryElementMultiplier = 0.5f;
     public float elementalResistanceCap = 75.0f;
 
     public float CalculateMaxHP()
@@ -100,7 +99,7 @@ public class Entity_Stats : MonoBehaviour
         return (baseCritChance + bonuesritChange) / 100.0f;
     }
 
-    public PhysicalDamageInfo CalculatePhysicalDamage(float scaleFactor = 1.0f)
+    public PhysicalDamageInfo CalculatePhysicalDamage(float scaleFactor)
     {
         float baseDamage = offensive.physicalDamage.GetValue();
         float bonusDamage = major.strength.GetValue() * strengthDamageMultiplier;
@@ -140,6 +139,8 @@ public class Entity_Stats : MonoBehaviour
 
     private float CalculateElementalDamageImpl(ElementalDamageType ty)
     {
+        if (ty == ElementalDamageType.None) return 0.0f;
+
         float basePrimaryElementalDamage = GetBaseElementalDamage(ty);
 
         float bonusElementalDamage = major.intelligence.GetValue() * intelligenceElementalDamageMultiplier;
@@ -151,7 +152,7 @@ public class Entity_Stats : MonoBehaviour
         return totalPrimaryDamage;
     }
 
-    public ElementalDamageInfo CalculateElementalDamage(ElementalDamageType primary, ElementalDamageType secondary = ElementalDamageType.None, float scaleFactor = 1.0f)
+    public ElementalDamageInfo CalculateElementalDamage(ElementalDamageType primary, ElementalDamageType secondary, float secondaryElementMultiplier, float scaleFactor)
     {
         float primaryDamage = CalculateElementalDamageImpl(primary) * scaleFactor;
         float secondaryDamage = CalculateElementalDamageImpl(secondary) * secondaryElementMultiplier * scaleFactor;

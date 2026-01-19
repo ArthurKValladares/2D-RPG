@@ -2,8 +2,12 @@ using UnityEngine;
 
 public class Skill_Base : MonoBehaviour
 {
-    protected Player player;
-    protected Player_Health playerHealth;
+    public Player player;
+    public Player_Health playerHealth;
+
+    public DamageScaleData damageScaleData;
+    public ElementalDamageType primaryElementalDamage;
+    public ElementalDamageType secondaryElementalDamage;
 
     [Header("General Details")]
     [SerializeField] private SkillType skillType;
@@ -45,6 +49,7 @@ public class Skill_Base : MonoBehaviour
     {
         upgradeType = upgrade.upgradeType;
         cooldown = upgrade.cooldown;
+        damageScaleData = upgrade.damageScaleData;
     }
 
     public bool IsLearned(SkillUpgradeType upgradeTy)

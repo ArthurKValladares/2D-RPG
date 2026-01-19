@@ -95,7 +95,7 @@ public class Skill_Shard : Skill_Base
         else
         {
             SwapLocationWithPlayer(currentShard.transform);
-            currentShard.SetupShardToExplode(explosionDelayAfterSwap);
+            currentShard.SetupShardToExplode(this);
             SetSkillJustUsed();
         }
     }
@@ -110,13 +110,13 @@ public class Skill_Shard : Skill_Base
         else
         {
             SwapLocationWithPlayer(currentShard.transform);
-            currentShard.SetupShardToExplode(explosionDelayAfterSwap);
+            currentShard.SetupShardToExplode(this);
             playerHealth.SetHPPercentage(playerHPPercentageOnCreation);
             SetSkillJustUsed();
         }
     }
 
-    private float GetDetonationTime()
+    public float GetDetonationTime()
     {
         if (IsLearned(SkillUpgradeType.Shard_Teleport) || IsLearned(SkillUpgradeType.Shard_TeleportHpRewind))
         {
@@ -131,7 +131,7 @@ public class Skill_Shard : Skill_Base
         GameObject shardObj = Instantiate(shardObject, transform.position, Quaternion.identity);
         currentShard = shardObj.GetComponent<SkillObject_Shard>();
 
-        currentShard.SetupShardToExplode(GetDetonationTime());
+        currentShard.SetupShardToExplode(this);
 
         if (IsLearned(SkillUpgradeType.Shard_Teleport) || IsLearned(SkillUpgradeType.Shard_TeleportHpRewind))
         {

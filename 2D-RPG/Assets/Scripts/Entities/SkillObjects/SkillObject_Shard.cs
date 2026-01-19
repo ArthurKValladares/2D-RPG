@@ -4,6 +4,7 @@ using UnityEngine;
 public class SkillObject_Shard : SkillObject_Base
 {
     public event Action OnExplode;
+    private Skill_Shard shardSKill;
 
     [Header("Explosion Data")]
     [SerializeField] private GameObject vfxGameObject;
@@ -24,9 +25,20 @@ public class SkillObject_Shard : SkillObject_Base
         transform.position = Vector3.MoveTowards(transform.position, target.position, speed * Time.deltaTime);
     }
 
-    public void SetupShardToExplode(float detonationTime)
+    private void SetupDamageInfo(Skill_Base skill)
     {
-        Invoke(nameof(Explode), detonationTime);
+        playerStats = skill.player.stats;
+        damageScaleData = skill.damageScaleData;
+        primaryElementalDamage = skill.primaryElementalDamage;
+        secondaryElementalDamage = skill.secondaryElementalDamage;
+    }
+
+    public void SetupShardToExplode(Skill_Shard shardSKill)
+    {
+        this.shardSKill = shardSKill;
+        SetupDamageInfo(shardSKill);
+
+        Invoke(nameof(Explode), shardSKill.GetDetonationTime());
     }
 
     public void SetupToMoveTowardsClosestTarget(float speed)
