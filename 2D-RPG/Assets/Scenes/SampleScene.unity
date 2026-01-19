@@ -873,6 +873,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::Skill_Dash
   player: {fileID: 0}
   playerHealth: {fileID: 0}
+  skillType: 0
+  upgradeType: 0
+  cooldown: 3
   damageScaleData:
     phyiscal: 1
     elemental: 1
@@ -886,9 +889,6 @@ MonoBehaviour:
     electrifyCharge: 0.4
   primaryElementalDamage: 0
   secondaryElementalDamage: 0
-  skillType: 0
-  upgradeType: 0
-  cooldown: 3
 --- !u!114 &451814435
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -903,6 +903,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::Skill_Shard
   player: {fileID: 0}
   playerHealth: {fileID: 0}
+  skillType: 2
+  upgradeType: 0
+  cooldown: 3
   damageScaleData:
     phyiscal: 1
     elemental: 1
@@ -916,9 +919,6 @@ MonoBehaviour:
     electrifyCharge: 0.4
   primaryElementalDamage: 3
   secondaryElementalDamage: 0
-  skillType: 2
-  upgradeType: 0
-  cooldown: 3
   shardObject: {fileID: 6409541315499900898, guid: 378c433e7e09ad741ac3fbcd7d8096a6, type: 3}
   detonationTime: 1.5
   movementSpeed: 5
@@ -1566,10 +1566,10 @@ RectTransform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 441005853}
+  - {fileID: 902586404}
+  - {fileID: 1942083807}
   - {fileID: 1349452969}
   - {fileID: 47459121}
-  - {fileID: 1942083807}
-  - {fileID: 902586404}
   m_Father: {fileID: 1808924241}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
@@ -52774,9 +52774,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::Player_VFX
   onDamageMaterial: {fileID: 2100000, guid: 4a5dda86a53061d408958e415a4e6d61, type: 2}
   onDamageVFXDuration: 0.15
-  onHitTargetColor: {r: 1, g: 1, b: 1, a: 1}
   onHitTargetVFX: {fileID: 8417847197012983495, guid: 112aceac7e9e6fd479a94f6bcc7f01d0, type: 3}
   onCritHitTargetVFX: {fileID: 8958994509587034946, guid: 3dcb559b7a6534a4d83f95d66be1ee8f, type: 3}
+  noEffectColor: {r: 1, g: 1, b: 1, a: 1}
   fireColor: {r: 1, g: 0, b: 0, a: 1}
   iceColor: {r: 0, g: 1, b: 1, a: 1}
   lightningColor: {r: 1, g: 0.92156863, b: 0.015686275, a: 1}
@@ -52815,10 +52815,10 @@ RectTransform:
   - {fileID: 1986817610}
   - {fileID: 954252157}
   - {fileID: 1756164217}
-  - {fileID: 1668016960}
-  - {fileID: 2089480501}
   - {fileID: 1110017358}
   - {fileID: 1147268391}
+  - {fileID: 1668016960}
+  - {fileID: 2089480501}
   m_Father: {fileID: 1808924241}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
@@ -54577,6 +54577,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Chest
       objectReference: {fileID: 0}
+    - target: {fileID: 1812515858430159745, guid: 6d8195aaafb7bbc488666075805dde84, type: 3}
+      propertyPath: m_Layer
+      value: 9
+      objectReference: {fileID: 0}
     - target: {fileID: 6917272072650274968, guid: 6d8195aaafb7bbc488666075805dde84, type: 3}
       propertyPath: m_LocalPosition.x
       value: 1.95
@@ -54852,6 +54856,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: Enemy_Skeleton
       objectReference: {fileID: 0}
+    - target: {fileID: 7730802667008589691, guid: 46bb15ea81dd34244a999c970740ebeb, type: 3}
+      propertyPath: targetMasks.Array.size
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7730802667008589691, guid: 46bb15ea81dd34244a999c970740ebeb, type: 3}
+      propertyPath: targetMasks.Array.data[0].m_Bits
+      value: 160
+      objectReference: {fileID: 0}
     - target: {fileID: 8172706564780782080, guid: 46bb15ea81dd34244a999c970740ebeb, type: 3}
       propertyPath: m_LocalPosition.x
       value: 8.98
@@ -55101,8 +55113,20 @@ PrefabInstance:
       value: Player
       objectReference: {fileID: 0}
     - target: {fileID: 1959215018417140902, guid: e9302bc495f014241aa885ec5ab81af6, type: 3}
+      propertyPath: whatIsTarget.m_Bits
+      value: 576
+      objectReference: {fileID: 0}
+    - target: {fileID: 1959215018417140902, guid: e9302bc495f014241aa885ec5ab81af6, type: 3}
       propertyPath: primaryElementalDamage
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1959215018417140902, guid: e9302bc495f014241aa885ec5ab81af6, type: 3}
+      propertyPath: targetMasks.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1959215018417140902, guid: e9302bc495f014241aa885ec5ab81af6, type: 3}
+      propertyPath: targetMasks.Array.data[0].m_Bits
+      value: 64
       objectReference: {fileID: 0}
     - target: {fileID: 2833881606707364213, guid: e9302bc495f014241aa885ec5ab81af6, type: 3}
       propertyPath: m_LocalPosition.x
