@@ -8,7 +8,6 @@ public class SkillObject_Shard : SkillObject_Base
 
     [Header("Explosion Data")]
     [SerializeField] private GameObject vfxGameObject;
-    [SerializeField] private Color explosionColor = Color.white;
 
     private Transform target;
     private float speed;
@@ -61,7 +60,7 @@ public class SkillObject_Shard : SkillObject_Base
 
         GameObject explosionObject = Instantiate(vfxGameObject, transform.position, Quaternion.identity);
         SpriteRenderer explosionSR = explosionObject.GetComponentInChildren<SpriteRenderer>();
-        explosionSR.color = explosionColor;
+        explosionSR.color = shardSKill.player.playerVFX.GetOnHitVFXColor(primaryElementalDamage);
 
         OnExplode?.Invoke();
 

@@ -245,7 +245,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7553937776255434268, guid: 88cf4fdc576a8d14697ffc4f2017018d, type: 3}
       propertyPath: neededTreeNodes.Array.size
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 7553937776255434268, guid: 88cf4fdc576a8d14697ffc4f2017018d, type: 3}
       propertyPath: 'conflictNodes.Array.data[0]'
@@ -255,6 +255,10 @@ PrefabInstance:
       propertyPath: 'neededTreeNodes.Array.data[0]'
       value: 
       objectReference: {fileID: 441005852}
+    - target: {fileID: 7553937776255434268, guid: 88cf4fdc576a8d14697ffc4f2017018d, type: 3}
+      propertyPath: 'neededTreeNodes.Array.data[1]'
+      value: 
+      objectReference: {fileID: 697978794}
     - target: {fileID: 7940428038477556051, guid: 88cf4fdc576a8d14697ffc4f2017018d, type: 3}
       propertyPath: m_LocalRotation.w
       value: 0.7071068

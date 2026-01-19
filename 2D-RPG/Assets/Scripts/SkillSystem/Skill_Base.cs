@@ -4,21 +4,23 @@ public class Skill_Base : MonoBehaviour
 {
     public Player player;
     public Player_Health playerHealth;
-
-    public DamageScaleData damageScaleData;
-    public ElementalDamageType primaryElementalDamage;
-    public ElementalDamageType secondaryElementalDamage;
+    protected Player_SkillManager playerSkillManager;
 
     [Header("General Details")]
     [SerializeField] private SkillType skillType;
     [SerializeField] protected SkillUpgradeType upgradeType;
     [SerializeField] protected float cooldown;
+    public DamageScaleData damageScaleData;
+    public ElementalDamageType primaryElementalDamage;
+    public ElementalDamageType secondaryElementalDamage;
+
     private float lastTimeUsed;
 
     protected virtual void Awake()
     {
         player = GetComponentInParent<Player>();
         playerHealth = GetComponentInParent<Player_Health>();
+        playerSkillManager = GetComponentInParent<Player_SkillManager>();
 
         lastTimeUsed = Time.time - cooldown;
     }
@@ -50,6 +52,8 @@ public class Skill_Base : MonoBehaviour
         upgradeType = upgrade.upgradeType;
         cooldown = upgrade.cooldown;
         damageScaleData = upgrade.damageScaleData;
+        primaryElementalDamage = upgrade.primaryElementalDamage;
+        secondaryElementalDamage = upgrade.secondaryElementalDamage;
     }
 
     public bool IsLearned(SkillUpgradeType upgradeTy)

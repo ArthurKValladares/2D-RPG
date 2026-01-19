@@ -14,12 +14,12 @@ public class Entity_VFX : MonoBehaviour
     private Coroutine onDamageCoroutine;
 
     [Header("On Doing Damage VFX")]
-    [SerializeField] private Color onHitTargetColor = Color.white;
     [SerializeField] private GameObject onHitTargetVFX;    
     [SerializeField] private GameObject onCritHitTargetVFX;
 
     [Header("Element VFX")]
     // TODO: right now the on hit vfx and the blinking effect use the same color, could separate
+    [SerializeField] public Color noEffectColor = Color.white;
     [SerializeField] public Color fireColor = Color.red;
     [SerializeField] public Color iceColor = Color.cyan;
     [SerializeField] public Color lightningColor = Color.yellow;
@@ -35,21 +35,21 @@ public class Entity_VFX : MonoBehaviour
         originalMaterial = sr.material;
     }
 
-    private Color GetOnHitVFXColor(ElementalDamageType ty)
+    public Color GetOnHitVFXColor(ElementalDamageType ty)
     {
         switch (ty)
         {
             case ElementalDamageType.None:
-                return onHitTargetColor;
+                return noEffectColor;
             case ElementalDamageType.Fire:
                 return fireColor;
             case ElementalDamageType.Ice:
                 return iceColor;
             case ElementalDamageType.Lightning: 
                 return lightningColor;
+            default:
+                return Color.white;
         }
-
-        return onHitTargetColor;
     }
 
     public void CreateOnHitTargetVFX(Transform target, bool wasCritical, ElementalDamageType elementalTy)

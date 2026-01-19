@@ -31,4 +31,7 @@ public class UpgradeData
     public SkillUpgradeType upgradeType;
     public float cooldown;
     public DamageScaleData damageScaleData;
+
+    public ElementalDamageType primaryElementalDamage;
+    public ElementalDamageType secondaryElementalDamage;
 }

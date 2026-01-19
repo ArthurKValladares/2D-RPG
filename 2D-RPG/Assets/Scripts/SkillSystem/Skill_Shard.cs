@@ -139,6 +139,18 @@ public class Skill_Shard : Skill_Base
         }
     }
 
+    public void CreateRawShard()
+    {
+        GameObject shardObj = Instantiate(shardObject, transform.position, Quaternion.identity);
+        SkillObject_Shard shardSkill = shardObj.GetComponent<SkillObject_Shard>();
+        shardSkill.SetupShardToExplode(this);
+
+        if (IsLearned(SkillUpgradeType.Shard_MoveToEnemy) || IsLearned(SkillUpgradeType.Shard_Multicast))
+        {
+            shardSkill.SetupToMoveTowardsClosestTarget(movementSpeed);
+        }
+    }
+
     private void ForceOnCooldown()
     {
         if (!IsOnCooldown())

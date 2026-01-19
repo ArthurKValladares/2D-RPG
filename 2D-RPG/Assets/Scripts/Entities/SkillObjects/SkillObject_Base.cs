@@ -47,10 +47,12 @@ public class SkillObject_Base : MonoBehaviour
 
                 if (!hitInfo.killedVictim && primaryElementalDamage != ElementalDamageType.None)
                 {
-                    ElementalEffectData effectData = new ElementalEffectData(playerStats, damageScaleData);
-
                     Entity_StatusHandler statusHandler = target.GetComponent<Entity_StatusHandler>();
-                    statusHandler?.ApplyStatusEffect(primaryElementalDamage, effectData);
+                    if (statusHandler)
+                    {
+                        ElementalEffectData effectData = new ElementalEffectData(playerStats, damageScaleData);
+                        statusHandler.ApplyStatusEffect(primaryElementalDamage, effectData);
+                    }
                 }
             }
             //
