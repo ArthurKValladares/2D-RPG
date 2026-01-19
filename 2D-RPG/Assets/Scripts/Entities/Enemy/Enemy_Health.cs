@@ -13,9 +13,9 @@ public class Enemy_Health : Entity_Health
         enemyVFX = GetComponent<Enemy_VFX>();
     }
 
-    public override HitInfo TakeDamage(PhysicalDamageInfo physicalDamage, ElementalDamageInfo elementalDamage, Transform damageDealer)
+    public override HitInfo TakeDamage(AttackData attackData, Transform damageDealer)
     {
-        HitInfo hitInfo = base.TakeDamage(physicalDamage, elementalDamage, damageDealer);
+        HitInfo hitInfo = base.TakeDamage(attackData, damageDealer);
 
         if (hitInfo.didHit && (enemy.sm.currentState != enemy.deadState) && damageDealer.GetComponent<Player>()) {
             enemy.TryEnteringHurtState(damageDealer);

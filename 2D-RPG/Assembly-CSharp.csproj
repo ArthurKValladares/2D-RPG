@@ -117,6 +117,7 @@
     <Compile Include="Assets\Scripts\Helpers\Helpers.cs" />
     <Compile Include="Assets\Scripts\StateMachine\EnemyStates\Enemy_BattleState.cs" />
     <Compile Include="Assets\Scripts\StateMachine\PlayerStates\Player_IdleState.cs" />
+    <Compile Include="Assets\Scripts\Data\AttackData.cs" />
     <Compile Include="Assets\Scripts\SkillSystem\SkillTypes.cs" />
     <Compile Include="Assets\Scripts\StateMachine\PlayerStates\Player_WallSlideState.cs" />
     <Compile Include="Assets\Scripts\StateMachine\EntityStates\EntityState.cs" />

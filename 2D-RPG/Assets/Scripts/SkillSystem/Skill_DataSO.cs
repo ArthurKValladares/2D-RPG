@@ -10,13 +10,11 @@ public class Skill_DataSO : ScriptableObject
     public string description;
     public Sprite icon;
     
-    [Space]
+    [Header("Unlock & Upgrades")]
     public int cost;
     public SkillType skillType;
-    public UpgradeData upgradeData;
-
-    [Space]
     public bool learnedByDefault;
+    public UpgradeData upgradeData;
 }
 
 [System.Serializable]

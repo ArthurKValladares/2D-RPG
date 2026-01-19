@@ -11,6 +11,7 @@ public class SkillObject_Base : MonoBehaviour
     [SerializeField] protected float surroundCheckRadius = 10.0f;
 
     protected Entity_Stats playerStats;
+    protected Entity_VFX playerVFX;
 
     protected DamageScaleData damageScaleData;
     protected ElementalDamageType primaryElementalDamage;
@@ -32,32 +33,10 @@ public class SkillObject_Base : MonoBehaviour
             IDamagable damagable = target.GetComponent<IDamagable>();
             if (damagable == null) continue;
 
-            //
-            // TODO: This is very copy-paste from Entity_Combat
-            //
-            PhysicalDamageInfo physicalDamageInfo = playerStats.CalculatePhysicalDamage(damageScaleData.phyiscal);
-            ElementalDamageInfo elementalInfo = playerStats.CalculateElementalDamage(primaryElementalDamage, secondaryElementalDamage, damageScaleData.secondaryElementMultiplier, damageScaleData.elemental);
+            AttackData attackData = new AttackData(playerStats, damageScaleData, primaryElementalDamage, secondaryElementalDamage);
 
-            HitInfo hitInfo = damagable.TakeDamage(physicalDamageInfo, elementalInfo, transform);
-
-            if (hitInfo.didHit)
-            {
-                // TODO: on hit VFX?
-                //entityVFX.CreateOnHitTargetVFX(target.transform, physicalDamageInfo.wasCritical, elementalInfo.primaryType);
-
-                if (!hitInfo.killedVictim && primaryElementalDamage != ElementalDamageType.None)
-                {
-                    Entity_StatusHandler statusHandler = target.GetComponent<Entity_StatusHandler>();
-                    if (statusHandler)
-                    {
-                        ElementalEffectData effectData = new ElementalEffectData(playerStats, damageScaleData);
-                        statusHandler.ApplyStatusEffect(primaryElementalDamage, effectData);
-                    }
-                }
-            }
-            //
-            //
-            //
+            HitInfo hitInfo = damagable.TakeDamage(attackData, transform);
+            attackData.ApplyElementalEffect(playerVFX, target, hitInfo);
         }
     }
 

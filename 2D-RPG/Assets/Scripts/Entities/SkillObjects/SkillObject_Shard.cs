@@ -32,10 +32,17 @@ public class SkillObject_Shard : SkillObject_Base
         secondaryElementalDamage = skill.secondaryElementalDamage;
     }
 
+    private void SetupVFXInfo(Skill_Base skill)
+    {
+        this.playerVFX = skill.player.playerVFX;
+    }
+
     public void SetupShardToExplode(Skill_Shard shardSKill)
     {
         this.shardSKill = shardSKill;
+
         SetupDamageInfo(shardSKill);
+        SetupVFXInfo(shardSKill);
 
         Invoke(nameof(Explode), shardSKill.GetDetonationTime());
     }

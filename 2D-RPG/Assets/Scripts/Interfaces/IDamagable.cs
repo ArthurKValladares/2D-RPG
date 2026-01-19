@@ -44,6 +44,6 @@ public interface IDamagable
         return new Vector2(knockback.x * knockbackDirScale, knockback.y);
     }
 
-    public HitInfo TakeDamage(PhysicalDamageInfo physicalDamage, ElementalDamageInfo elementalDamage, Transform damageDealer);
+    public HitInfo TakeDamage(AttackData attackData, Transform damageDealer);
 }
 

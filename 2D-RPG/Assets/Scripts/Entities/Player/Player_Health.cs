@@ -11,9 +11,9 @@ public class Player_Health : Entity_Health
         player = GetComponent<Player>();
     }
 
-    public override HitInfo TakeDamage(PhysicalDamageInfo physicalDamage, ElementalDamageInfo elementalDamage, Transform damageDealer)
+    public override HitInfo TakeDamage(AttackData attackData, Transform damageDealer)
     {
-        HitInfo hitInfo = base.TakeDamage(physicalDamage, elementalDamage, damageDealer);
+        HitInfo hitInfo = base.TakeDamage(attackData, damageDealer);
 
         if (hitInfo.didHit && player.sm.currentState != player.deadState)
         {

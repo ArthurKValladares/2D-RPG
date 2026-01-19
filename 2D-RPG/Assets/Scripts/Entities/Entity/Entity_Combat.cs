@@ -33,24 +33,10 @@ public class Entity_Combat : MonoBehaviour
             IDamagable damagable = target.GetComponent<IDamagable>();
             if (damagable == null) continue;
 
-            PhysicalDamageInfo physicalDamageInfo = stats.CalculatePhysicalDamage(basicAttackScale.phyiscal);
-            ElementalDamageInfo elementalInfo = stats.CalculateElementalDamage(primaryElementalDamage, secondaryElementalDamage, basicAttackScale.secondaryElementMultiplier, basicAttackScale.elemental);
+            AttackData attackData = new AttackData(stats, basicAttackScale,primaryElementalDamage, secondaryElementalDamage);
 
-            HitInfo hitInfo = damagable.TakeDamage(physicalDamageInfo, elementalInfo, transform);
-            if (hitInfo.didHit)
-            {
-                entityVFX.CreateOnHitTargetVFX(target.transform, physicalDamageInfo.wasCritical, elementalInfo.primaryType);
-
-                if (!hitInfo.killedVictim && primaryElementalDamage != ElementalDamageType.None)
-                {
-                    Entity_StatusHandler statusHandler = target.GetComponent<Entity_StatusHandler>();
-                    if (statusHandler)
-                    {
-                        ElementalEffectData effectData = new ElementalEffectData(stats, basicAttackScale);
-                        statusHandler.ApplyStatusEffect(primaryElementalDamage, effectData);
-                    }
-                }
-            }
+            HitInfo hitInfo = damagable.TakeDamage(attackData, transform);
+            attackData.ApplyElementalEffect(entityVFX, target, hitInfo);
         }
     }
 
