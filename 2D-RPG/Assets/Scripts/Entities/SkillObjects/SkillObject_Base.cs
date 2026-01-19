@@ -50,7 +50,7 @@ public class SkillObject_Base : MonoBehaviour
                     ElementalEffectData effectData = new ElementalEffectData(playerStats, damageScaleData);
 
                     Entity_StatusHandler statusHandler = target.GetComponent<Entity_StatusHandler>();
-                    statusHandler.ApplyStatusEffect(primaryElementalDamage, effectData);
+                    statusHandler?.ApplyStatusEffect(primaryElementalDamage, effectData);
                 }
             }
             //

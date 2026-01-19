@@ -43,10 +43,12 @@ public class Entity_Combat : MonoBehaviour
 
                 if (!hitInfo.killedVictim && primaryElementalDamage != ElementalDamageType.None)
                 {
-                    ElementalEffectData effectData = new ElementalEffectData(stats, basicAttackScale);
-
                     Entity_StatusHandler statusHandler = target.GetComponent<Entity_StatusHandler>();
-                    statusHandler.ApplyStatusEffect(primaryElementalDamage, effectData);
+                    if (statusHandler)
+                    {
+                        ElementalEffectData effectData = new ElementalEffectData(stats, basicAttackScale);
+                        statusHandler.ApplyStatusEffect(primaryElementalDamage, effectData);
+                    }
                 }
             }
         }
