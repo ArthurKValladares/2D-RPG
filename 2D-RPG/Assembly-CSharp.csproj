@@ -92,6 +92,7 @@
     <Compile Include="Assets\Scripts\UI\UI_ToolTip.cs" />
     <Compile Include="Assets\Scripts\StateMachine\EnemyStates\Enemy_AttackState.cs" />
     <Compile Include="Assets\Scripts\StateMachine\PlayerStates\Player_DeadState.cs" />
+    <Compile Include="Assets\Scripts\StateMachine\PlayerStates\Player_SwordThrowState.cs" />
     <Compile Include="Assets\Scripts\StateMachine\EnemyStates\Enemy_HurtState.cs" />
     <Compile Include="Assets\Scripts\Entities\BuffObject\BuffObject.cs" />
     <Compile Include="Assets\Scripts\StateMachine\PlayerStates\PlayerState.cs" />

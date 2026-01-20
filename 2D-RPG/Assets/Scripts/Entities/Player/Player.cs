@@ -13,7 +13,11 @@ public class Player : Entity
     public Player_VFX playerVFX;
 
     public PlayerInputSet input { get; private set; }
+    public Entity_Health health;
+    public Entity_StatusHandler statusHandler { get; private set; }
+
     public Vector2 moveInput { get; private set; }
+    public Vector2 mousePosition { get; private set; }
 
     #region StateVariables
     public Player_IdleState idleState { get; protected set; }
@@ -29,6 +33,7 @@ public class Player : Entity
     public Player_HurtState hurtState { get; private set; }
     public Player_DeadState deadState { get; private set; }
     public Player_ParryState parryState { get; private set; }
+    public Player_SwordThrowState swordThrowState { get; private set; }
     #endregion
 
     public float originalGravityscale { get; private set; }
@@ -59,6 +64,8 @@ public class Player : Entity
         ui = FindFirstObjectByType<UI>();
         skillManager = GetComponent<Player_SkillManager>();
         playerVFX = GetComponent<Player_VFX>();
+        health = GetComponent<Entity_Health>();
+        statusHandler = GetComponent<Entity_StatusHandler>();
 
         originalGravityscale = rb.gravityScale;
 
@@ -77,6 +84,7 @@ public class Player : Entity
         hurtState = new Player_HurtState(this);
         deadState = new Player_DeadState(this);
         parryState = new Player_ParryState(this);
+        swordThrowState = new Player_SwordThrowState(this);
 
         attackVelocities[0] = new Vector2(3.0f, 1.5f);
         attackVelocities[1] = new Vector2(1.5f, 1.5f);
@@ -100,11 +108,19 @@ public class Player : Entity
         input.Player.Movement.canceled += ctx => {
             moveInput = Vector2.zero;
         };
+
+        input.Player.Mouse.performed += ctx =>
+        {
+            mousePosition = ctx.ReadValue<Vector2>();
+        };
+
         input.Player.ToggleSkillTree.performed += ctx => {
             ui.ToggleSkillTree();
         };
+
         input.Player.Spell.performed += ctx =>
         {
+            // TODO: different skills later
             skillManager.shard.TryToUseSkill();
         };
     }
@@ -140,6 +156,16 @@ public class Player : Entity
     public void TeleportPlayer(Vector2 pos)
     {
         transform.position = pos;
+    }
+
+    public Vector2 DirectionToMouse()
+    {
+        Vector2 playerPos = transform.position;
+        Vector2 worldMousePos = Camera.main.ScreenToWorldPoint(mousePosition);
+        
+        Vector2 dir = worldMousePos - playerPos;
+
+        return dir.normalized;
     }
 
     protected override IEnumerator SlowDownEntityByCoroutine(float duration, float slowPercentage)

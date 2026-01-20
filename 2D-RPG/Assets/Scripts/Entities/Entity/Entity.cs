@@ -90,6 +90,7 @@ public class Entity : MonoBehaviour
     {
         return facingRight ? 1.0f : -1.0f;
     }
+
     public void HandleFlip(float xVel)
     {
         if (xVel > 0 && facingRight == false)
@@ -101,6 +102,7 @@ public class Entity : MonoBehaviour
             Flip();
         }
     }
+
     public void Flip()
     {
         transform.Rotate(0, 180, 0);
