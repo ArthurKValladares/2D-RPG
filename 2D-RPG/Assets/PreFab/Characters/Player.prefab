@@ -129,7 +129,6 @@ MonoBehaviour:
   maxEvasion: 85
   armorMitigationConstant: 100
   armorMitigationCap: 85
-  secondaryElementMultiplier: 0.5
   elementalResistanceCap: 75
 --- !u!114 &166973387901898080
 MonoBehaviour:
@@ -143,7 +142,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2521803e9e63e294aa8bbaef3177d301, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Entity_StatusHandler
-  currentLightningCharge: 0
   statusBarObject: {fileID: 3036100739298149110}
 --- !u!114 &8272396999978975905
 MonoBehaviour:
@@ -158,7 +156,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Player_Health
   healthBarObject: {fileID: 4897361698123279821}
-  currentHealth: 0
+  currentHP: 0
   canRegenerateHealth: 1
   healthRegenInterval: 0.5
   heavyKnockbackThreshold: 0.3
@@ -178,6 +176,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: eb1245b698872d24da2e6bdff20e3aa3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Player_Combat
+  basicAttackScale:
+    phyiscal: 1
+    elemental: 1
+    secondaryElementMultiplier: 0.5
+    chillDuration: 3
+    chillSlowPercentage: 0.2
+    burnDuratin: 3
+    burnDamageScale: 1
+    electrifyDuration: 3
+    electrifyDamageScale: 1
+    electrifyCharge: 0.4
+  primaryElementalDamage: 0
+  secondaryElementalDamage: 0
   targetCheckRadius: 0.95
   targetCheck: {fileID: 2478987421055681219}
   whatIsTarget:
@@ -214,6 +225,7 @@ MonoBehaviour:
   <secondaryWallDetected>k__BackingField: 0
   <wallsDetected>k__BackingField: 0
   playerVFX: {fileID: 0}
+  health: {fileID: 0}
   moveSpeed: 8
   jumpForce: 12
   inAirMoveMultiplier: 0.8
@@ -367,7 +379,6 @@ GameObject:
   - component: {fileID: 4756007284435635327}
   - component: {fileID: 7342222920464696917}
   - component: {fileID: 3142249664043754835}
-  - component: {fileID: 1137807647294047364}
   m_Layer: 0
   m_Name: Animator
   m_TagString: Untagged
@@ -470,19 +481,6 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
---- !u!114 &1137807647294047364
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3130539099349235841}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ca32410b8601b8e4f979995c9076d628, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::Player_AnimationTriggers
-  combat: {fileID: 0}
 --- !u!1 &3302167076829403686
 GameObject:
   m_ObjectHideFlags: 0

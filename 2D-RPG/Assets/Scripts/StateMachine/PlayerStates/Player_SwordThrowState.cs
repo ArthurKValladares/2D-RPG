@@ -11,7 +11,15 @@ public class Player_SwordThrowState : PlayerState
     {
         base.Enter();
 
+        player.skillManager.swordThrow.EnableDots(true);
+    }
+
+    public override void Exit()
+    {
+        base.Exit();
+
         SetSwordThrowPerformed(false);
+        player.skillManager.swordThrow.EnableDots(false);
     }
 
     public override void Update()
@@ -22,16 +30,19 @@ public class Player_SwordThrowState : PlayerState
 
         Vector2 dirToMouse = player.DirectionToMouse();
         player.HandleFlip(dirToMouse.x);
+        player.skillManager.swordThrow.PredictTrajectory(dirToMouse);
+
+        if (player.input.Player.Attack.WasPressedThisFrame())
+        {
+            player.skillManager.swordThrow.ConfirmTrajectory(dirToMouse);
+            player.skillManager.swordThrow.EnableDots(false);
+
+            SetSwordThrowPerformed(true);
+        }
 
         if (player.input.Player.RangedAttack.WasReleasedThisFrame() || stateEnded)
         {
             player.sm.ChangeState(player.idleState);
-            return;
-        }
-
-        if (player.input.Player.Attack.WasPressedThisFrame())
-        {
-            SetSwordThrowPerformed(true);
         }
     }
 

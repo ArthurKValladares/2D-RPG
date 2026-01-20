@@ -107,6 +107,7 @@
     <Compile Include="Assets\Scripts\Entities\Enemy\Enemy_Skeleton.cs" />
     <Compile Include="Assets\Scripts\SkillSystem\Skill_Dash.cs" />
     <Compile Include="Assets\Scripts\Entities\Enemy\Enemy.cs" />
+    <Compile Include="Assets\Scripts\Entities\Player\Player_AnimationTriggers.cs" />
     <Compile Include="Assets\Scripts\Parallax\ParallaxLayer.cs" />
     <Compile Include="Assets\Scripts\SkillSystem\Skill_Base.cs" />
     <Compile Include="Assets\Scripts\StateMachine\EnemyStates\Enemy_IdleState.cs" />
@@ -136,6 +137,7 @@
     <Compile Include="Assets\Scripts\UI\UI.cs" />
     <Compile Include="Assets\Scripts\Entities\Player\Player_SkillManager.cs" />
     <Compile Include="Assets\Scripts\SkillSystem\Skill_Shard.cs" />
+    <Compile Include="Assets\Scripts\SkillSystem\Skill_SwordThrow.cs" />
     <Compile Include="Assets\Scripts\Entities\Entity\Entity_Health.cs" />
     <Compile Include="Assets\Scripts\StateMachine\PlayerStates\Player_BasicAttackState.cs" />
     <Compile Include="Assets\Scripts\Entities\Enemy\Enemy_AnimationTriggers.cs" />

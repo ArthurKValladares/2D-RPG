@@ -5,6 +5,7 @@ public enum SkillType
     Dash,
     TimeEcho,
     Shard,
+    SwordThrow
 }
 
 public enum SkillUpgradeType
@@ -23,5 +24,11 @@ public enum SkillUpgradeType
     Shard_MoveToEnemy,
     Shard_Multicast,
     Shard_Teleport,
-    Shard_TeleportHpRewind
+    Shard_TeleportHpRewind,
+
+    // Sword throw tree
+    SwordThrow,
+    SwordThrow_Spin,
+    SwordThrow_Pierce,
+    SwordThrow_Bounce,
 }

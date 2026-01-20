@@ -23,7 +23,7 @@ public class Player_GroundedState : PlayerState
         } else if (player.input.Player.Attack.WasPressedThisFrame())
         {
             player.sm.ChangeState(player.basicAttackState);
-        } else if (player.input.Player.RangedAttack.WasPressedThisFrame())
+        } else if (player.input.Player.RangedAttack.WasPressedThisFrame() && player.skillManager.swordThrow.CanUseSkill())
         {
             player.sm.ChangeState(player.swordThrowState);
         } else if (player.input.Player.Parry.WasPressedThisFrame())

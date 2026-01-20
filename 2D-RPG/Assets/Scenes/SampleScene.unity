@@ -837,6 +837,7 @@ GameObject:
   - component: {fileID: 451814433}
   - component: {fileID: 451814434}
   - component: {fileID: 451814435}
+  - component: {fileID: 451814436}
   m_Layer: 7
   m_Name: SkillHolder
   m_TagString: Untagged
@@ -925,6 +926,41 @@ MonoBehaviour:
   maxCharges: 3
   teleportShardDuration: 10
   explosionDelayAfterSwap: 0
+--- !u!114 &451814436
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 451814432}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 245f0eba320fe9f429719bbae2f3da8f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Skill_SwordThrow
+  player: {fileID: 0}
+  playerHealth: {fileID: 0}
+  skillType: 3
+  upgradeType: 11
+  cooldown: 3
+  damageScaleData:
+    phyiscal: 1
+    elemental: 1
+    secondaryElementMultiplier: 0.5
+    chillDuration: 3
+    chillSlowPercentage: 0.2
+    burnDuratin: 3
+    burnDamageScale: 1
+    electrifyDuration: 3
+    electrifyDamageScale: 1
+    electrifyCharge: 0.4
+  primaryElementalDamage: 0
+  secondaryElementalDamage: 0
+  throwForce: 5
+  swordGravity: 3.5
+  trajectoryPredictionDot: {fileID: 8705790766492443423, guid: 78278f5a77de4e1488b90ad92f38e0ab, type: 3}
+  numberOfDots: 20
+  spaceBetweenDots: 0.05
 --- !u!1001 &454479146
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1164,6 +1200,24 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!1 &504109315 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3130539099349235841, guid: e9302bc495f014241aa885ec5ab81af6, type: 3}
+  m_PrefabInstance: {fileID: 7697859133730428993}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &504109320
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 504109315}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 97c95269d69df8444ab6fc42a6efb5d4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Player_AnimationTriggers
+  combat: {fileID: 0}
 --- !u!1 &505949269
 GameObject:
   m_ObjectHideFlags: 0
@@ -1566,10 +1620,10 @@ RectTransform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 441005853}
-  - {fileID: 902586404}
-  - {fileID: 1942083807}
   - {fileID: 1349452969}
   - {fileID: 47459121}
+  - {fileID: 1942083807}
+  - {fileID: 902586404}
   m_Father: {fileID: 1808924241}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
@@ -52815,10 +52869,10 @@ RectTransform:
   - {fileID: 1986817610}
   - {fileID: 954252157}
   - {fileID: 1756164217}
-  - {fileID: 1110017358}
-  - {fileID: 1147268391}
   - {fileID: 1668016960}
   - {fileID: 2089480501}
+  - {fileID: 1110017358}
+  - {fileID: 1147268391}
   m_Father: {fileID: 1808924241}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
@@ -55213,6 +55267,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 905807874446326591, guid: e9302bc495f014241aa885ec5ab81af6, type: 3}
       insertIndex: 7
       addedObject: {fileID: 1377509253}
+    - targetCorrespondingSourceObject: {fileID: 3130539099349235841, guid: e9302bc495f014241aa885ec5ab81af6, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 504109320}
   m_SourcePrefab: {fileID: 100100000, guid: e9302bc495f014241aa885ec5ab81af6, type: 3}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
