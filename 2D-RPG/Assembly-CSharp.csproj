@@ -101,6 +101,7 @@
     <Compile Include="Assets\Scripts\UI\UI_TreeConnectionHandler.cs" />
     <Compile Include="Assets\Scripts\UI\UI_SkillToolTip.cs" />
     <Compile Include="Assets\Scripts\StateMachine\StateMachine.cs" />
+    <Compile Include="Assets\Scripts\Entities\SkillObjects\SkillObject_SwordPierce.cs" />
     <Compile Include="Assets\Scripts\StateMachine\PlayerStates\Player_DashState.cs" />
     <Compile Include="Assets\Scripts\StateMachine\EnemyStates\Enemy_MoveState.cs" />
     <Compile Include="Assets\Scripts\InGameUI\UI_MiniHealthBar.cs" />

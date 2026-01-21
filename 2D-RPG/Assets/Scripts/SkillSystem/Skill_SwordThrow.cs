@@ -10,12 +10,16 @@ public class Skill_SwordThrow : Skill_Base
     [SerializeField] private float throwForce = 5.0f;
     [SerializeField] private float comebackSpeed = 20.0f;
 
+    [Header("Pierce Upgrade")]
+    [SerializeField] private GameObject pierceSwordPrefab;
+    public int pierceAmount = 2;
+
     [Header("Trajectory Prediction")]
-    private float swordGravity;
     [SerializeField] private GameObject trajectoryPredictionDot;
     [SerializeField] private int numberOfDots = 20;
     [SerializeField] private float spaceBetweenDots = 0.05f;
     private Transform[] dots;
+    private float swordGravity;
 
     private Vector2 confirmedDirection;
 
@@ -60,9 +64,24 @@ public class Skill_SwordThrow : Skill_Base
         confirmedDirection = direction;
     }
 
+    private GameObject GetCorrectSword()
+    {
+        if (upgradeType == SkillUpgradeType.SwordThrow)
+        {
+            return swordPrefab;
+        }
+
+        if (upgradeType == SkillUpgradeType.SwordThrow_Pierce)
+        {
+            return pierceSwordPrefab;
+        }
+
+        Debug.LogError($"Uninplemented Sword Throw prefab for upgrade {upgradeType}");
+        return swordPrefab;
+    }
     public void ThrowSword()
     {
-        GameObject newSword = Instantiate(swordPrefab, dots[1].position, Quaternion.identity);
+        GameObject newSword = Instantiate(GetCorrectSword(), dots[1].position, Quaternion.identity);
         currentSword = newSword.GetComponent<SkillObject_Sword>();
 
         currentSword.SetupSword(this, GetThrowForceInDirection(confirmedDirection));

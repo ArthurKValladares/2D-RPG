@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1 &2937509890515315221
+--- !u!1 &4756797196766106790
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -8,8 +8,8 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 8543189632271623797}
-  - component: {fileID: 8762070290881327525}
+  - component: {fileID: 8708031256236099423}
+  - component: {fileID: 459508831514493143}
   m_Layer: 0
   m_Name: Animator
   m_TagString: Untagged
@@ -17,28 +17,28 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &8543189632271623797
+--- !u!4 &8708031256236099423
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2937509890515315221}
+  m_GameObject: {fileID: 4756797196766106790}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0.92387956, w: 0.38268343}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 4282839627744889968}
+  m_Father: {fileID: 5476488615602450015}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 135}
---- !u!212 &8762070290881327525
+--- !u!212 &459508831514493143
 SpriteRenderer:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2937509890515315221}
+  m_GameObject: {fileID: 4756797196766106790}
   m_Enabled: 1
   m_CastShadows: 0
   m_ReceiveShadows: 0
@@ -90,7 +90,7 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!1 &4998888907723115309
+--- !u!1 &4881648453101568455
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -98,41 +98,41 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 4282839627744889968}
-  - component: {fileID: 586229815005279651}
-  - component: {fileID: 7968885893436815889}
-  - component: {fileID: 6373820227055985145}
+  - component: {fileID: 5476488615602450015}
+  - component: {fileID: 7979025827420319710}
+  - component: {fileID: 7992321379571261671}
+  - component: {fileID: 3547040523752789516}
   m_Layer: 10
-  m_Name: SkillObject_Sword
+  m_Name: SkillObject_SwordPierce
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &4282839627744889968
+--- !u!4 &5476488615602450015
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4998888907723115309}
+  m_GameObject: {fileID: 4881648453101568455}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -8.9111, y: -0.8655, z: 0}
+  m_LocalPosition: {x: -8.33, y: -1.16, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 8543189632271623797}
+  - {fileID: 8708031256236099423}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!50 &586229815005279651
+--- !u!50 &7979025827420319710
 Rigidbody2D:
   serializedVersion: 5
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4998888907723115309}
+  m_GameObject: {fileID: 4881648453101568455}
   m_BodyType: 0
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
@@ -152,13 +152,13 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 1
   m_Constraints: 0
---- !u!58 &7968885893436815889
+--- !u!58 &7992321379571261671
 CircleCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4998888907723115309}
+  m_GameObject: {fileID: 4881648453101568455}
   m_Enabled: 1
   serializedVersion: 3
   m_Density: 1
@@ -188,24 +188,24 @@ CircleCollider2D:
   m_CompositeOrder: 0
   m_Offset: {x: 0, y: 0}
   m_Radius: 0.35
---- !u!114 &6373820227055985145
+--- !u!114 &3547040523752789516
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4998888907723115309}
+  m_GameObject: {fileID: 4881648453101568455}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 72efe77bb7e223f45a39f2df89f586fb, type: 3}
+  m_Script: {fileID: 11500000, guid: 7f041e0ad0915f545b87664e965bf27e, type: 3}
   m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::SkillObject_SwordRegular
+  m_EditorClassIdentifier: Assembly-CSharp::SkillObject_SwordPierce
   whatIsEnemy:
     serializedVersion: 2
     m_Bits: 64
-  targetCheck: {fileID: 4282839627744889968}
+  targetCheck: {fileID: 5476488615602450015}
   targetCheckRadius: 0
   surroundCheckRadius: 0
   comebackSpeed: 20
   maxDistanceFromPlayer: 25
-  damageRadius: 1
+  damageRadius: 0.35

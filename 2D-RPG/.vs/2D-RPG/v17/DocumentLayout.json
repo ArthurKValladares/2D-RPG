@@ -3,7 +3,15 @@
   "WorkspaceRootPath": "C:\\Users\\arthu\\Documents\\Projects\\2D-RPG\\2D-RPG\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{AF9649D8-629F-FA67-8B1F-7976A9E7AF3D}|Assembly-CSharp.csproj|C:\\Users\\arthu\\Documents\\Projects\\2D-RPG\\2D-RPG\\assets\\scripts\\entities\\skillobjects\\skillobject_sword.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{AF9649D8-629F-FA67-8B1F-7976A9E7AF3D}|Assembly-CSharp.csproj|C:\\Users\\arthu\\Documents\\Projects\\2D-RPG\\2D-RPG\\assets\\scripts\\ui\\ui_treeconnectionhandler.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{AF9649D8-629F-FA67-8B1F-7976A9E7AF3D}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\ui\\ui_treeconnectionhandler.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{AF9649D8-629F-FA67-8B1F-7976A9E7AF3D}|Assembly-CSharp.csproj|C:\\Users\\arthu\\Documents\\Projects\\2D-RPG\\2D-RPG\\assets\\scripts\\ui\\ui_treenode.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{AF9649D8-629F-FA67-8B1F-7976A9E7AF3D}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\ui\\ui_treenode.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{AF9649D8-629F-FA67-8B1F-7976A9E7AF3D}|Assembly-CSharp.csproj|c:\\users\\arthu\\documents\\projects\\2d-rpg\\2d-rpg\\assets\\scripts\\entities\\skillobjects\\skillobject_sword.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{AF9649D8-629F-FA67-8B1F-7976A9E7AF3D}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\entities\\skillobjects\\skillobject_sword.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
@@ -23,7 +31,7 @@
       "RelativeMoniker": "D:0:0:{AF9649D8-629F-FA67-8B1F-7976A9E7AF3D}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\skillsystem\\skill_base.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{AF9649D8-629F-FA67-8B1F-7976A9E7AF3D}|Assembly-CSharp.csproj|c:\\users\\arthu\\documents\\projects\\2d-rpg\\2d-rpg\\assets\\scripts\\skillsystem\\skill_swordthrow.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{AF9649D8-629F-FA67-8B1F-7976A9E7AF3D}|Assembly-CSharp.csproj|C:\\Users\\arthu\\Documents\\Projects\\2D-RPG\\2D-RPG\\assets\\scripts\\skillsystem\\skill_swordthrow.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{AF9649D8-629F-FA67-8B1F-7976A9E7AF3D}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\skillsystem\\skill_swordthrow.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
@@ -111,10 +119,6 @@
       "RelativeMoniker": "D:0:0:{AF9649D8-629F-FA67-8B1F-7976A9E7AF3D}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\skillsystem\\skill_dataso.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{AF9649D8-629F-FA67-8B1F-7976A9E7AF3D}|Assembly-CSharp.csproj|C:\\Users\\arthu\\Documents\\Projects\\2D-RPG\\2D-RPG\\assets\\scripts\\ui\\ui_treenode.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{AF9649D8-629F-FA67-8B1F-7976A9E7AF3D}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\ui\\ui_treenode.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{AF9649D8-629F-FA67-8B1F-7976A9E7AF3D}|Assembly-CSharp.csproj|C:\\Users\\arthu\\Documents\\Projects\\2D-RPG\\2D-RPG\\assets\\scripts\\data\\damagescaledata.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{AF9649D8-629F-FA67-8B1F-7976A9E7AF3D}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\data\\damagescaledata.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
@@ -137,10 +141,6 @@
     {
       "AbsoluteMoniker": "D:0:0:{AF9649D8-629F-FA67-8B1F-7976A9E7AF3D}|Assembly-CSharp.csproj|C:\\Users\\arthu\\Documents\\Projects\\2D-RPG\\2D-RPG\\assets\\scripts\\entities\\enemy\\enemy.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{AF9649D8-629F-FA67-8B1F-7976A9E7AF3D}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\entities\\enemy\\enemy.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{AF9649D8-629F-FA67-8B1F-7976A9E7AF3D}|Assembly-CSharp.csproj|C:\\Users\\arthu\\Documents\\Projects\\2D-RPG\\2D-RPG\\assets\\scripts\\ui\\ui_treeconnectionhandler.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{AF9649D8-629F-FA67-8B1F-7976A9E7AF3D}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\ui\\ui_treeconnectionhandler.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{AF9649D8-629F-FA67-8B1F-7976A9E7AF3D}|Assembly-CSharp.csproj|C:\\Users\\arthu\\Documents\\Projects\\2D-RPG\\2D-RPG\\assets\\scripts\\ui\\ui_skilltooltip.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -206,7 +206,7 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 6,
+          "SelectedChildIndex": 5,
           "Children": [
             {
               "$type": "Bookmark",
@@ -214,84 +214,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 11,
-              "Title": "Skill_Dash.cs",
-              "DocumentMoniker": "C:\\Users\\arthu\\Documents\\Projects\\2D-RPG\\2D-RPG\\Assets\\Scripts\\SkillSystem\\Skill_Dash.cs",
-              "RelativeDocumentMoniker": "Assets\\Scripts\\SkillSystem\\Skill_Dash.cs",
-              "ToolTip": "C:\\Users\\arthu\\Documents\\Projects\\2D-RPG\\2D-RPG\\Assets\\Scripts\\SkillSystem\\Skill_Dash.cs",
-              "RelativeToolTip": "Assets\\Scripts\\SkillSystem\\Skill_Dash.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAACQAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-01-15T01:19:12.113Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 6,
-              "Title": "Skill_Shard.cs",
-              "DocumentMoniker": "C:\\Users\\arthu\\Documents\\Projects\\2D-RPG\\2D-RPG\\Assets\\Scripts\\SkillSystem\\Skill_Shard.cs",
-              "RelativeDocumentMoniker": "Assets\\Scripts\\SkillSystem\\Skill_Shard.cs",
-              "ToolTip": "C:\\Users\\arthu\\Documents\\Projects\\2D-RPG\\2D-RPG\\Assets\\Scripts\\SkillSystem\\Skill_Shard.cs",
-              "RelativeToolTip": "Assets\\Scripts\\SkillSystem\\Skill_Shard.cs",
-              "ViewState": "AgIAAJYAAAAAAAAAAAAIwAMAAAAkAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-01-15T22:54:59.033Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 2,
-              "Title": "SkillObject_Base.cs",
-              "DocumentMoniker": "C:\\Users\\arthu\\Documents\\Projects\\2D-RPG\\2D-RPG\\Assets\\Scripts\\Entities\\SkillObjects\\SkillObject_Base.cs",
-              "RelativeDocumentMoniker": "Assets\\Scripts\\Entities\\SkillObjects\\SkillObject_Base.cs",
-              "ToolTip": "C:\\Users\\arthu\\Documents\\Projects\\2D-RPG\\2D-RPG\\Assets\\Scripts\\Entities\\SkillObjects\\SkillObject_Base.cs",
-              "RelativeToolTip": "Assets\\Scripts\\Entities\\SkillObjects\\SkillObject_Base.cs",
-              "ViewState": "AgIAAC8AAAAAAAAAAAAgwB4AAAA4AAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-01-16T22:19:57.865Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 4,
-              "Title": "Skill_Base.cs",
-              "DocumentMoniker": "C:\\Users\\arthu\\Documents\\Projects\\2D-RPG\\2D-RPG\\Assets\\Scripts\\SkillSystem\\Skill_Base.cs",
-              "RelativeDocumentMoniker": "Assets\\Scripts\\SkillSystem\\Skill_Base.cs",
-              "ToolTip": "C:\\Users\\arthu\\Documents\\Projects\\2D-RPG\\2D-RPG\\Assets\\Scripts\\SkillSystem\\Skill_Base.cs",
-              "RelativeToolTip": "Assets\\Scripts\\SkillSystem\\Skill_Base.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAcAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-01-15T01:10:46.251Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
               "DocumentIndex": 3,
-              "Title": "AttackData.cs",
-              "DocumentMoniker": "C:\\Users\\arthu\\Documents\\Projects\\2D-RPG\\2D-RPG\\Assets\\Scripts\\Data\\AttackData.cs",
-              "RelativeDocumentMoniker": "Assets\\Scripts\\Data\\AttackData.cs",
-              "ToolTip": "C:\\Users\\arthu\\Documents\\Projects\\2D-RPG\\2D-RPG\\Assets\\Scripts\\Data\\AttackData.cs",
-              "RelativeToolTip": "Assets\\Scripts\\Data\\AttackData.cs",
-              "ViewState": "AgIAAAgAAAAAAAAAAAAAwB0AAAAMAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-01-19T01:22:20.617Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 0,
-              "Title": "SkillObject_Sword.cs",
-              "DocumentMoniker": "C:\\Users\\arthu\\Documents\\Projects\\2D-RPG\\2D-RPG\\Assets\\Scripts\\Entities\\SkillObjects\\SkillObject_Sword.cs",
-              "RelativeDocumentMoniker": "Assets\\Scripts\\Entities\\SkillObjects\\SkillObject_Sword.cs",
-              "ToolTip": "C:\\Users\\arthu\\Documents\\Projects\\2D-RPG\\2D-RPG\\Assets\\Scripts\\Entities\\SkillObjects\\SkillObject_Sword.cs",
-              "RelativeToolTip": "Assets\\Scripts\\Entities\\SkillObjects\\SkillObject_Sword.cs",
-              "ViewState": "AgIAACcAAAAAAAAAAAA7wA0AAAAlAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-01-20T22:14:19.678Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 1,
               "Title": "SkillObject_Shard.cs",
               "DocumentMoniker": "C:\\Users\\arthu\\Documents\\Projects\\2D-RPG\\2D-RPG\\Assets\\Scripts\\Entities\\SkillObjects\\SkillObject_Shard.cs",
               "RelativeDocumentMoniker": "Assets\\Scripts\\Entities\\SkillObjects\\SkillObject_Shard.cs",
@@ -299,12 +222,11 @@
               "RelativeToolTip": "Assets\\Scripts\\Entities\\SkillObjects\\SkillObject_Shard.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAB8AAAAIAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-01-15T22:58:59.04Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-01-15T22:58:59.04Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 12,
+              "DocumentIndex": 14,
               "Title": "SkillTypes.cs",
               "DocumentMoniker": "C:\\Users\\arthu\\Documents\\Projects\\2D-RPG\\2D-RPG\\Assets\\Scripts\\SkillSystem\\SkillTypes.cs",
               "RelativeDocumentMoniker": "Assets\\Scripts\\SkillSystem\\SkillTypes.cs",
@@ -316,7 +238,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 5,
+              "DocumentIndex": 7,
               "Title": "Skill_SwordThrow.cs",
               "DocumentMoniker": "C:\\Users\\arthu\\Documents\\Projects\\2D-RPG\\2D-RPG\\Assets\\Scripts\\SkillSystem\\Skill_SwordThrow.cs",
               "RelativeDocumentMoniker": "Assets\\Scripts\\SkillSystem\\Skill_SwordThrow.cs",
@@ -324,12 +246,11 @@
               "RelativeToolTip": "Assets\\Scripts\\SkillSystem\\Skill_SwordThrow.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAACMAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-01-20T01:50:26.914Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-01-20T01:50:26.914Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 9,
+              "DocumentIndex": 11,
               "Title": "Player_SwordThrowState.cs",
               "DocumentMoniker": "C:\\Users\\arthu\\Documents\\Projects\\2D-RPG\\2D-RPG\\Assets\\Scripts\\StateMachine\\PlayerStates\\Player_SwordThrowState.cs",
               "RelativeDocumentMoniker": "Assets\\Scripts\\StateMachine\\PlayerStates\\Player_SwordThrowState.cs",
@@ -341,7 +262,106 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 7,
+              "DocumentIndex": 0,
+              "Title": "UI_TreeConnectionHandler.cs",
+              "DocumentMoniker": "C:\\Users\\arthu\\Documents\\Projects\\2D-RPG\\2D-RPG\\Assets\\Scripts\\UI\\UI_TreeConnectionHandler.cs",
+              "RelativeDocumentMoniker": "Assets\\Scripts\\UI\\UI_TreeConnectionHandler.cs",
+              "ToolTip": "C:\\Users\\arthu\\Documents\\Projects\\2D-RPG\\2D-RPG\\Assets\\Scripts\\UI\\UI_TreeConnectionHandler.cs",
+              "RelativeToolTip": "Assets\\Scripts\\UI\\UI_TreeConnectionHandler.cs",
+              "ViewState": "AgIAACMAAAAAAAAAAAAgwHUAAAAFAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-01-13T21:59:49.535Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "UI_TreeNode.cs",
+              "DocumentMoniker": "C:\\Users\\arthu\\Documents\\Projects\\2D-RPG\\2D-RPG\\Assets\\Scripts\\UI\\UI_TreeNode.cs",
+              "RelativeDocumentMoniker": "Assets\\Scripts\\UI\\UI_TreeNode.cs",
+              "ToolTip": "C:\\Users\\arthu\\Documents\\Projects\\2D-RPG\\2D-RPG\\Assets\\Scripts\\UI\\UI_TreeNode.cs",
+              "RelativeToolTip": "Assets\\Scripts\\UI\\UI_TreeNode.cs",
+              "ViewState": "AgIAAAQAAAAAAAAAAADgv1EAAABBAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-01-13T22:56:58.464Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "SkillObject_Sword.cs",
+              "DocumentMoniker": "C:\\Users\\arthu\\Documents\\Projects\\2D-RPG\\2D-RPG\\Assets\\Scripts\\Entities\\SkillObjects\\SkillObject_Sword.cs",
+              "RelativeDocumentMoniker": "Assets\\Scripts\\Entities\\SkillObjects\\SkillObject_Sword.cs",
+              "ToolTip": "C:\\Users\\arthu\\Documents\\Projects\\2D-RPG\\2D-RPG\\Assets\\Scripts\\Entities\\SkillObjects\\SkillObject_Sword.cs",
+              "RelativeToolTip": "Assets\\Scripts\\Entities\\SkillObjects\\SkillObject_Sword.cs",
+              "ViewState": "AgIAACgAAAAAAAAAAAAkwA0AAAAlAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-01-20T22:14:19.678Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "AttackData.cs",
+              "DocumentMoniker": "C:\\Users\\arthu\\Documents\\Projects\\2D-RPG\\2D-RPG\\Assets\\Scripts\\Data\\AttackData.cs",
+              "RelativeDocumentMoniker": "Assets\\Scripts\\Data\\AttackData.cs",
+              "ToolTip": "C:\\Users\\arthu\\Documents\\Projects\\2D-RPG\\2D-RPG\\Assets\\Scripts\\Data\\AttackData.cs",
+              "RelativeToolTip": "Assets\\Scripts\\Data\\AttackData.cs",
+              "ViewState": "AgIAAAgAAAAAAAAAAAAAwB0AAAAMAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-01-19T01:22:20.617Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "Skill_Base.cs",
+              "DocumentMoniker": "C:\\Users\\arthu\\Documents\\Projects\\2D-RPG\\2D-RPG\\Assets\\Scripts\\SkillSystem\\Skill_Base.cs",
+              "RelativeDocumentMoniker": "Assets\\Scripts\\SkillSystem\\Skill_Base.cs",
+              "ToolTip": "C:\\Users\\arthu\\Documents\\Projects\\2D-RPG\\2D-RPG\\Assets\\Scripts\\SkillSystem\\Skill_Base.cs",
+              "RelativeToolTip": "Assets\\Scripts\\SkillSystem\\Skill_Base.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAcAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-01-15T01:10:46.251Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "SkillObject_Base.cs",
+              "DocumentMoniker": "C:\\Users\\arthu\\Documents\\Projects\\2D-RPG\\2D-RPG\\Assets\\Scripts\\Entities\\SkillObjects\\SkillObject_Base.cs",
+              "RelativeDocumentMoniker": "Assets\\Scripts\\Entities\\SkillObjects\\SkillObject_Base.cs",
+              "ToolTip": "C:\\Users\\arthu\\Documents\\Projects\\2D-RPG\\2D-RPG\\Assets\\Scripts\\Entities\\SkillObjects\\SkillObject_Base.cs",
+              "RelativeToolTip": "Assets\\Scripts\\Entities\\SkillObjects\\SkillObject_Base.cs",
+              "ViewState": "AgIAAC8AAAAAAAAAAAAgwB4AAAA4AAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-01-16T22:19:57.865Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 8,
+              "Title": "Skill_Shard.cs",
+              "DocumentMoniker": "C:\\Users\\arthu\\Documents\\Projects\\2D-RPG\\2D-RPG\\Assets\\Scripts\\SkillSystem\\Skill_Shard.cs",
+              "RelativeDocumentMoniker": "Assets\\Scripts\\SkillSystem\\Skill_Shard.cs",
+              "ToolTip": "C:\\Users\\arthu\\Documents\\Projects\\2D-RPG\\2D-RPG\\Assets\\Scripts\\SkillSystem\\Skill_Shard.cs",
+              "RelativeToolTip": "Assets\\Scripts\\SkillSystem\\Skill_Shard.cs",
+              "ViewState": "AgIAAJYAAAAAAAAAAAAIwAMAAAAkAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-01-15T22:54:59.033Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 13,
+              "Title": "Skill_Dash.cs",
+              "DocumentMoniker": "C:\\Users\\arthu\\Documents\\Projects\\2D-RPG\\2D-RPG\\Assets\\Scripts\\SkillSystem\\Skill_Dash.cs",
+              "RelativeDocumentMoniker": "Assets\\Scripts\\SkillSystem\\Skill_Dash.cs",
+              "ToolTip": "C:\\Users\\arthu\\Documents\\Projects\\2D-RPG\\2D-RPG\\Assets\\Scripts\\SkillSystem\\Skill_Dash.cs",
+              "RelativeToolTip": "Assets\\Scripts\\SkillSystem\\Skill_Dash.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAACQAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-01-15T01:19:12.113Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 9,
               "Title": "Player_AnimationTriggers.cs",
               "DocumentMoniker": "C:\\Users\\arthu\\Documents\\Projects\\2D-RPG\\2D-RPG\\Assets\\Scripts\\Entities\\Player\\Player_AnimationTriggers.cs",
               "RelativeDocumentMoniker": "Assets\\Scripts\\Entities\\Player\\Player_AnimationTriggers.cs",
@@ -353,7 +373,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 10,
+              "DocumentIndex": 12,
               "Title": "Player_SkillManager.cs",
               "DocumentMoniker": "C:\\Users\\arthu\\Documents\\Projects\\2D-RPG\\2D-RPG\\Assets\\Scripts\\Entities\\Player\\Player_SkillManager.cs",
               "RelativeDocumentMoniker": "Assets\\Scripts\\Entities\\Player\\Player_SkillManager.cs",
@@ -365,7 +385,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 8,
+              "DocumentIndex": 10,
               "Title": "Player_GroundedState.cs",
               "DocumentMoniker": "C:\\Users\\arthu\\Documents\\Projects\\2D-RPG\\2D-RPG\\Assets\\Scripts\\StateMachine\\PlayerStates\\Player_GroundedState.cs",
               "RelativeDocumentMoniker": "Assets\\Scripts\\StateMachine\\PlayerStates\\Player_GroundedState.cs",
@@ -377,7 +397,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 13,
+              "DocumentIndex": 15,
               "Title": "Player.cs",
               "DocumentMoniker": "C:\\Users\\arthu\\Documents\\Projects\\2D-RPG\\2D-RPG\\Assets\\Scripts\\Entities\\Player\\Player.cs",
               "RelativeDocumentMoniker": "Assets\\Scripts\\Entities\\Player\\Player.cs",
@@ -389,7 +409,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 16,
+              "DocumentIndex": 18,
               "Title": "PlayerState.cs",
               "DocumentMoniker": "C:\\Users\\arthu\\Documents\\Projects\\2D-RPG\\2D-RPG\\Assets\\Scripts\\StateMachine\\PlayerStates\\PlayerState.cs",
               "RelativeDocumentMoniker": "Assets\\Scripts\\StateMachine\\PlayerStates\\PlayerState.cs",
@@ -401,7 +421,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 18,
+              "DocumentIndex": 20,
               "Title": "Player_WallJumpState.cs",
               "DocumentMoniker": "C:\\Users\\arthu\\Documents\\Projects\\2D-RPG\\2D-RPG\\Assets\\Scripts\\StateMachine\\PlayerStates\\Player_WallJumpState.cs",
               "RelativeDocumentMoniker": "Assets\\Scripts\\StateMachine\\PlayerStates\\Player_WallJumpState.cs",
@@ -413,7 +433,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 15,
+              "DocumentIndex": 17,
               "Title": "Player_ParryState.cs",
               "DocumentMoniker": "C:\\Users\\arthu\\Documents\\Projects\\2D-RPG\\2D-RPG\\Assets\\Scripts\\StateMachine\\PlayerStates\\Player_ParryState.cs",
               "RelativeDocumentMoniker": "Assets\\Scripts\\StateMachine\\PlayerStates\\Player_ParryState.cs",
@@ -425,7 +445,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 17,
+              "DocumentIndex": 19,
               "Title": "Player_BasicAttackState.cs",
               "DocumentMoniker": "C:\\Users\\arthu\\Documents\\Projects\\2D-RPG\\2D-RPG\\Assets\\Scripts\\StateMachine\\PlayerStates\\Player_BasicAttackState.cs",
               "RelativeDocumentMoniker": "Assets\\Scripts\\StateMachine\\PlayerStates\\Player_BasicAttackState.cs",
@@ -437,7 +457,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 14,
+              "DocumentIndex": 16,
               "Title": "Entity.cs",
               "DocumentMoniker": "C:\\Users\\arthu\\Documents\\Projects\\2D-RPG\\2D-RPG\\Assets\\Scripts\\Entities\\Entity\\Entity.cs",
               "RelativeDocumentMoniker": "Assets\\Scripts\\Entities\\Entity\\Entity.cs",
@@ -445,12 +465,11 @@
               "RelativeToolTip": "Assets\\Scripts\\Entities\\Entity\\Entity.cs",
               "ViewState": "AgIAAGEAAAAAAAAAAAD4v2oAAAAEAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-01-14T23:10:48.728Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-01-14T23:10:48.728Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 20,
+              "DocumentIndex": 22,
               "Title": "Entity_VFX.cs",
               "DocumentMoniker": "C:\\Users\\arthu\\Documents\\Projects\\2D-RPG\\2D-RPG\\Assets\\Scripts\\Entities\\Entity\\Entity_VFX.cs",
               "RelativeDocumentMoniker": "Assets\\Scripts\\Entities\\Entity\\Entity_VFX.cs",
@@ -462,7 +481,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 19,
+              "DocumentIndex": 21,
               "Title": "Entity_Combat.cs",
               "DocumentMoniker": "C:\\Users\\arthu\\Documents\\Projects\\2D-RPG\\2D-RPG\\Assets\\Scripts\\Entities\\Entity\\Entity_Combat.cs",
               "RelativeDocumentMoniker": "Assets\\Scripts\\Entities\\Entity\\Entity_Combat.cs",
@@ -474,7 +493,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 21,
+              "DocumentIndex": 23,
               "Title": "Enemy_Health.cs",
               "DocumentMoniker": "C:\\Users\\arthu\\Documents\\Projects\\2D-RPG\\2D-RPG\\Assets\\Scripts\\Entities\\Enemy\\Enemy_Health.cs",
               "RelativeDocumentMoniker": "Assets\\Scripts\\Entities\\Enemy\\Enemy_Health.cs",
@@ -486,7 +505,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 22,
+              "DocumentIndex": 24,
               "Title": "Player_Health.cs",
               "DocumentMoniker": "C:\\Users\\arthu\\Documents\\Projects\\2D-RPG\\2D-RPG\\Assets\\Scripts\\Entities\\Player\\Player_Health.cs",
               "RelativeDocumentMoniker": "Assets\\Scripts\\Entities\\Player\\Player_Health.cs",
@@ -498,7 +517,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 23,
+              "DocumentIndex": 25,
               "Title": "Entity_Health.cs",
               "DocumentMoniker": "C:\\Users\\arthu\\Documents\\Projects\\2D-RPG\\2D-RPG\\Assets\\Scripts\\Entities\\Entity\\Entity_Health.cs",
               "RelativeDocumentMoniker": "Assets\\Scripts\\Entities\\Entity\\Entity_Health.cs",
@@ -510,7 +529,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 24,
+              "DocumentIndex": 26,
               "Title": "Chest.cs",
               "DocumentMoniker": "C:\\Users\\arthu\\Documents\\Projects\\2D-RPG\\2D-RPG\\Assets\\Scripts\\Entities\\Chest\\Chest.cs",
               "RelativeDocumentMoniker": "Assets\\Scripts\\Entities\\Chest\\Chest.cs",
@@ -522,7 +541,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 25,
+              "DocumentIndex": 27,
               "Title": "IDamagable.cs",
               "DocumentMoniker": "C:\\Users\\arthu\\Documents\\Projects\\2D-RPG\\2D-RPG\\Assets\\Scripts\\Interfaces\\IDamagable.cs",
               "RelativeDocumentMoniker": "Assets\\Scripts\\Interfaces\\IDamagable.cs",
@@ -534,7 +553,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 26,
+              "DocumentIndex": 28,
               "Title": "Skill_DataSO.cs",
               "DocumentMoniker": "C:\\Users\\arthu\\Documents\\Projects\\2D-RPG\\2D-RPG\\Assets\\Scripts\\SkillSystem\\Skill_DataSO.cs",
               "RelativeDocumentMoniker": "Assets\\Scripts\\SkillSystem\\Skill_DataSO.cs",
@@ -546,19 +565,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 27,
-              "Title": "UI_TreeNode.cs",
-              "DocumentMoniker": "C:\\Users\\arthu\\Documents\\Projects\\2D-RPG\\2D-RPG\\Assets\\Scripts\\UI\\UI_TreeNode.cs",
-              "RelativeDocumentMoniker": "Assets\\Scripts\\UI\\UI_TreeNode.cs",
-              "ToolTip": "C:\\Users\\arthu\\Documents\\Projects\\2D-RPG\\2D-RPG\\Assets\\Scripts\\UI\\UI_TreeNode.cs",
-              "RelativeToolTip": "Assets\\Scripts\\UI\\UI_TreeNode.cs",
-              "ViewState": "AgIAADsAAAAAAAAAAAAlwFEAAABBAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-01-13T22:56:58.464Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 28,
+              "DocumentIndex": 29,
               "Title": "DamageScaleData.cs",
               "DocumentMoniker": "C:\\Users\\arthu\\Documents\\Projects\\2D-RPG\\2D-RPG\\Assets\\Scripts\\Data\\DamageScaleData.cs",
               "RelativeDocumentMoniker": "Assets\\Scripts\\Data\\DamageScaleData.cs",
@@ -570,7 +577,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 29,
+              "DocumentIndex": 30,
               "Title": "Entity_Stats.cs",
               "DocumentMoniker": "C:\\Users\\arthu\\Documents\\Projects\\2D-RPG\\2D-RPG\\Assets\\Scripts\\Entities\\Entity\\Entity_Stats.cs",
               "RelativeDocumentMoniker": "Assets\\Scripts\\Entities\\Entity\\Entity_Stats.cs",
@@ -582,7 +589,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 30,
+              "DocumentIndex": 31,
               "Title": "ElementalEffectData.cs",
               "DocumentMoniker": "C:\\Users\\arthu\\Documents\\Projects\\2D-RPG\\2D-RPG\\Assets\\Scripts\\Data\\ElementalEffectData.cs",
               "RelativeDocumentMoniker": "Assets\\Scripts\\Data\\ElementalEffectData.cs",
@@ -594,7 +601,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 31,
+              "DocumentIndex": 32,
               "Title": "Entity_StatusHandler.cs",
               "DocumentMoniker": "C:\\Users\\arthu\\Documents\\Projects\\2D-RPG\\2D-RPG\\Assets\\Scripts\\Entities\\Entity\\Entity_StatusHandler.cs",
               "RelativeDocumentMoniker": "Assets\\Scripts\\Entities\\Entity\\Entity_StatusHandler.cs",
@@ -606,7 +613,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 32,
+              "DocumentIndex": 33,
               "Title": "Stat_OffensiveGroup.cs",
               "DocumentMoniker": "C:\\Users\\arthu\\Documents\\Projects\\2D-RPG\\2D-RPG\\Assets\\Scripts\\Entities\\StatSystem\\Stat_OffensiveGroup.cs",
               "RelativeDocumentMoniker": "Assets\\Scripts\\Entities\\StatSystem\\Stat_OffensiveGroup.cs",
@@ -618,7 +625,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 33,
+              "DocumentIndex": 34,
               "Title": "Enemy.cs",
               "DocumentMoniker": "C:\\Users\\arthu\\Documents\\Projects\\2D-RPG\\2D-RPG\\Assets\\Scripts\\Entities\\Enemy\\Enemy.cs",
               "RelativeDocumentMoniker": "Assets\\Scripts\\Entities\\Enemy\\Enemy.cs",
@@ -639,18 +646,6 @@
               "ViewState": "AgIAADsAAAAAAAAAAAAhwF8AAAATAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2026-01-13T23:16:22.436Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 34,
-              "Title": "UI_TreeConnectionHandler.cs",
-              "DocumentMoniker": "C:\\Users\\arthu\\Documents\\Projects\\2D-RPG\\2D-RPG\\Assets\\Scripts\\UI\\UI_TreeConnectionHandler.cs",
-              "RelativeDocumentMoniker": "Assets\\Scripts\\UI\\UI_TreeConnectionHandler.cs",
-              "ToolTip": "C:\\Users\\arthu\\Documents\\Projects\\2D-RPG\\2D-RPG\\Assets\\Scripts\\UI\\UI_TreeConnectionHandler.cs",
-              "RelativeToolTip": "Assets\\Scripts\\UI\\UI_TreeConnectionHandler.cs",
-              "ViewState": "AgIAAGIAAAAAAAAAAAAUwHUAAAAFAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-01-13T21:59:49.535Z"
             },
             {
               "$type": "Document",

@@ -5,9 +5,13 @@ public class SkillObject_Sword : SkillObject_Base
     protected Skill_SwordThrow swordThrow;
     protected Rigidbody2D rb;
 
+    [Header("Sword Return Details")]
     [SerializeField] private float comebackSpeed = 20.0f;
     [SerializeField] private float maxDistanceFromPlayer = 25.0f;
     protected bool shouldComeback;
+
+    [Header("Damage Details")]
+    [SerializeField] protected float damageRadius = 1.0f;
 
     public virtual void SetupSword(Skill_SwordThrow swordThrow, Vector2 throwForce)
     {
@@ -31,10 +35,15 @@ public class SkillObject_Sword : SkillObject_Base
         HandleComeback();
     }
 
+    protected void DamageEnemies()
+    {
+        DamageEnemiesInRadius(transform, damageRadius);
+    }
+
     protected virtual void OnTriggerEnter2D(Collider2D collision)
     {
         StopSword(collision);
-        DamageEnemiesInRadius(transform, 1.0f);
+        DamageEnemies();    
     }
 
     protected void StopSword(Collider2D collision)
@@ -60,5 +69,13 @@ public class SkillObject_Sword : SkillObject_Base
         {
             Destroy(gameObject);
         }
+    }
+
+    protected override void OnDrawGizmos()
+    {
+        base.OnDrawGizmos();
+
+        Gizmos.color = Color.red;
+        Gizmos.DrawWireSphere(transform.position, damageRadius);
     }
 }

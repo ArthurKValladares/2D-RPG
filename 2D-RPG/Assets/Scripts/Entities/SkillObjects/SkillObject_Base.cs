@@ -18,14 +18,6 @@ public class SkillObject_Base : MonoBehaviour
     protected ElementalDamageType primaryElementalDamage;
     protected ElementalDamageType secondaryElementalDamage;
 
-    private void Awake()
-    {
-        if (targetCheck == null)
-        {
-            targetCheck = transform;
-        }
-    }
-
     protected void DamageEnemiesInRadius(Transform t, float radius)
     {
         Collider2D[] enemies = EnemiesAround(t, radius);
@@ -77,6 +69,12 @@ public class SkillObject_Base : MonoBehaviour
 
     protected virtual void OnDrawGizmos()
     {
+        // TODO: is this the right place for this assingnment?
+        if (targetCheck == null)
+        {
+            targetCheck = transform;
+        }
+
         Gizmos.color = Color.blue;
         Gizmos.DrawWireSphere(targetCheck.position, targetCheckRadius);
         Gizmos.color = Color.green;
