@@ -2,12 +2,16 @@ using UnityEngine;
 
 public class Skill_SwordThrow : Skill_Base
 {
+    private SkillObject_Sword currentSword;
+
     [Header("Throw Details")]
+    [SerializeField] private GameObject swordPrefab;
     [Range(0.0f, 10.0f)]
     [SerializeField] private float throwForce = 5.0f;
-    [SerializeField] private float swordGravity = 3.5f;
+    [SerializeField] private float comebackSpeed = 20.0f;
 
     [Header("Trajectory Prediction")]
+    private float swordGravity;
     [SerializeField] private GameObject trajectoryPredictionDot;
     [SerializeField] private int numberOfDots = 20;
     [SerializeField] private float spaceBetweenDots = 0.05f;
@@ -18,7 +22,20 @@ public class Skill_SwordThrow : Skill_Base
     protected override void Awake()
     {
         base.Awake();
+
+        swordGravity = swordPrefab.GetComponent<Rigidbody2D>().gravityScale;
         dots = GenerateDots();
+    }
+
+    public override bool CanUseSkill()
+    {
+        if (currentSword != null)
+        {
+            currentSword.SendSwordBackToPlayer();
+            return false;
+        }
+
+        return base.CanUseSkill();
     }
 
     public void EnableDots(bool enabled)
@@ -45,14 +62,25 @@ public class Skill_SwordThrow : Skill_Base
 
     public void ThrowSword()
     {
-        Debug.Log("Threw Sword!");
+        GameObject newSword = Instantiate(swordPrefab, dots[1].position, Quaternion.identity);
+        currentSword = newSword.GetComponent<SkillObject_Sword>();
+
+        currentSword.SetupSword(this, GetThrowForceInDirection(confirmedDirection));
+    }
+
+    private float GetScaledThrowForce()
+    {
+        return throwForce * 10.0f;
+    }
+
+    private Vector2 GetThrowForceInDirection(Vector2 direction)
+    {
+        return direction * GetScaledThrowForce();
     }
 
     private Vector2 GetTrajectoryPoint(Vector2 direction, float t)
     {
-        float scaledThrowForce = throwForce * 10.0f;
-
-        Vector2 initialVelocity = direction * scaledThrowForce;
+        Vector2 initialVelocity = GetThrowForceInDirection(direction);
 
         // The formula for the position of an object under constant acceleration is:
         // position(t) = 1/2 * acc_force * t^2

@@ -24,25 +24,12 @@ public class SkillObject_Shard : SkillObject_Base
         transform.position = Vector3.MoveTowards(transform.position, target.position, speed * Time.deltaTime);
     }
 
-    private void SetupDamageInfo(Skill_Base skill)
-    {
-        playerStats = skill.player.stats;
-        damageScaleData = skill.damageScaleData;
-        primaryElementalDamage = skill.primaryElementalDamage;
-        secondaryElementalDamage = skill.secondaryElementalDamage;
-    }
-
-    private void SetupVFXInfo(Skill_Base skill)
-    {
-        this.playerVFX = skill.player.playerVFX;
-    }
 
     public void SetupShardToExplode(Skill_Shard shardSKill)
     {
         this.shardSKill = shardSKill;
 
-        SetupDamageInfo(shardSKill);
-        SetupVFXInfo(shardSKill);
+        SetupSkillData(shardSKill);
 
         Invoke(nameof(Explode), shardSKill.GetDetonationTime());
     }

@@ -954,10 +954,11 @@ MonoBehaviour:
     electrifyDuration: 3
     electrifyDamageScale: 1
     electrifyCharge: 0.4
-  primaryElementalDamage: 0
+  primaryElementalDamage: 2
   secondaryElementalDamage: 0
+  swordPrefab: {fileID: 4998888907723115309, guid: a647b4aacb950a64998032322fe8d546, type: 3}
   throwForce: 5
-  swordGravity: 3.5
+  comebackSpeed: 20
   trajectoryPredictionDot: {fileID: 8705790766492443423, guid: 78278f5a77de4e1488b90ad92f38e0ab, type: 3}
   numberOfDots: 20
   spaceBetweenDots: 0.05

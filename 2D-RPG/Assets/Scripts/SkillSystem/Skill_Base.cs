@@ -22,10 +22,12 @@ public class Skill_Base : MonoBehaviour
         playerHealth = GetComponentInParent<Player_Health>();
         playerSkillManager = GetComponentInParent<Player_SkillManager>();
 
+        damageScaleData = new DamageScaleData();
+
         lastTimeUsed = Time.time - cooldown;
     }
 
-    public bool CanUseSkill()
+    public virtual bool CanUseSkill()
     {
         if (upgradeType == SkillUpgradeType.None) return false;
 

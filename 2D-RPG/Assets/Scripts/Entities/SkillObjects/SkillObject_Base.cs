@@ -12,6 +12,7 @@ public class SkillObject_Base : MonoBehaviour
 
     protected Entity_Stats playerStats;
     protected Entity_VFX playerVFX;
+    protected Transform playerTransform;
 
     protected DamageScaleData damageScaleData;
     protected ElementalDamageType primaryElementalDamage;
@@ -30,12 +31,12 @@ public class SkillObject_Base : MonoBehaviour
         Collider2D[] enemies = EnemiesAround(t, radius);
         foreach (Collider2D target in enemies)
         {
-            IDamagable damagable = target.GetComponent<IDamagable>();
-            if (damagable == null) continue;
+            if (!target.TryGetComponent<IDamagable>(out var damagable)) continue;
 
             AttackData attackData = new AttackData(playerStats, damageScaleData, primaryElementalDamage, secondaryElementalDamage);
 
             HitInfo hitInfo = damagable.TakeDamage(attackData, transform);
+            // TODO: THis name is not really true, it does more than that
             attackData.ApplyElementalEffect(playerVFX, target, hitInfo);
         }
     }
@@ -61,6 +62,17 @@ public class SkillObject_Base : MonoBehaviour
         }
 
         return target;
+    }
+
+    protected void SetupSkillData(Skill_Base skill)
+    { 
+        damageScaleData = skill.damageScaleData;
+        primaryElementalDamage = skill.primaryElementalDamage;
+        secondaryElementalDamage = skill.secondaryElementalDamage;
+
+        playerStats = skill.player.stats;
+        playerTransform = skill.player.transform.root;
+        playerVFX = skill.player.playerVFX;
     }
 
     protected virtual void OnDrawGizmos()
