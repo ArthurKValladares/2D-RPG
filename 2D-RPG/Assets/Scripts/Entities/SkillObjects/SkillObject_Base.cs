@@ -14,9 +14,16 @@ public class SkillObject_Base : MonoBehaviour
     protected Entity_VFX playerVFX;
     protected Transform playerTransform;
 
+    protected Animator anim;
+
     protected DamageScaleData damageScaleData;
     protected ElementalDamageType primaryElementalDamage;
     protected ElementalDamageType secondaryElementalDamage;
+
+    protected virtual void Awake()
+    {
+        anim = GetComponentInChildren<Animator>();
+    }
 
     protected void DamageEnemiesInRadius(Transform t, float radius)
     {

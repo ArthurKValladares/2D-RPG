@@ -83,6 +83,7 @@
     <Compile Include="Assets\Scripts\StateMachine\PlayerStates\Player_AiredState.cs" />
     <Compile Include="Assets\Scripts\Interfaces\ICounterable.cs" />
     <Compile Include="Assets\Scripts\Entities\SkillObjects\SkillObject_Sword.cs" />
+    <Compile Include="Assets\Scripts\Entities\SkillObjects\SkillObject_SwordSpin.cs" />
     <Compile Include="Assets\Scripts\Entities\Entity\Entity_Stats.cs" />
     <Compile Include="Assets\Scripts\StateMachine\PlayerStates\Player_HurtState.cs" />
     <Compile Include="Assets\Scripts\Entities\Player\Player_VFX.cs" />
@@ -113,6 +114,7 @@
     <Compile Include="Assets\Scripts\Parallax\ParallaxLayer.cs" />
     <Compile Include="Assets\Scripts\SkillSystem\Skill_Base.cs" />
     <Compile Include="Assets\Scripts\StateMachine\EnemyStates\Enemy_IdleState.cs" />
+    <Compile Include="Assets\Scripts\Entities\SkillObjects\SkillObject_SwordBounce.cs" />
     <Compile Include="Assets\Scripts\Interfaces\IDamagable.cs" />
     <Compile Include="Assets\Scripts\StateMachine\EnemyStates\Enemy_DeadState.cs" />
     <Compile Include="Assets\Scripts\Data\DamageScaleData.cs" />

@@ -22,8 +22,8 @@ MonoBehaviour:
     upgradeType: 12
     cooldown: 3
     damageScaleData:
-      phyiscal: 1
-      elemental: 1
+      phyiscal: 0.3
+      elemental: 0.3
       secondaryElementMultiplier: 0.5
       chillDuration: 3
       chillSlowPercentage: 0.2

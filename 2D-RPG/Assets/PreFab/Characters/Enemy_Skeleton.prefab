@@ -346,7 +346,6 @@ MonoBehaviour:
   maxEvasion: 85
   armorMitigationConstant: 100
   armorMitigationCap: 85
-  secondaryElementMultiplier: 0.5
   elementalResistanceCap: 75
 --- !u!114 &6931086831319127604
 MonoBehaviour:
@@ -360,7 +359,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2521803e9e63e294aa8bbaef3177d301, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Entity_StatusHandler
-  currentLightningCharge: 0
   statusBarObject: {fileID: 2791571857654348121}
 --- !u!114 &71476633638516573
 MonoBehaviour:
@@ -375,7 +373,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Enemy_Health
   healthBarObject: {fileID: 5531239449492124089}
-  currentHealth: 0
+  currentHP: 0
   canRegenerateHealth: 1
   healthRegenInterval: 0.5
   heavyKnockbackThreshold: 0.3
@@ -397,9 +395,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::Enemy_VFX
   onDamageMaterial: {fileID: 2100000, guid: 4a5dda86a53061d408958e415a4e6d61, type: 2}
   onDamageVFXDuration: 0.15
-  onHitTargetColor: {r: 1, g: 1, b: 1, a: 1}
   onHitTargetVFX: {fileID: 8417847197012983495, guid: 112aceac7e9e6fd479a94f6bcc7f01d0, type: 3}
   onCritHitTargetVFX: {fileID: 8958994509587034946, guid: 3dcb559b7a6534a4d83f95d66be1ee8f, type: 3}
+  noEffectColor: {r: 1, g: 1, b: 1, a: 1}
   fireColor: {r: 1, g: 0, b: 0, a: 1}
   iceColor: {r: 0, g: 1, b: 1, a: 1}
   lightningColor: {r: 1, g: 0.92156863, b: 0.015686275, a: 1}
@@ -418,6 +416,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: aa98e1f4a93c2b548b55275fa6116516, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Entity_Combat
+  basicAttackScale:
+    phyiscal: 1
+    elemental: 1
+    secondaryElementMultiplier: 0.5
+    chillDuration: 3
+    chillSlowPercentage: 0.2
+    burnDuratin: 3
+    burnDamageScale: 1
+    electrifyDuration: 3
+    electrifyDamageScale: 1
+    electrifyCharge: 0.4
+  primaryElementalDamage: 0
+  secondaryElementalDamage: 0
   targetCheckRadius: 1.2
   targetCheck: {fileID: 6355609749475469413}
   whatIsTarget:
@@ -458,7 +469,7 @@ MonoBehaviour:
   minRetreatDistance: 1
   retreateVelocity: {x: 5, y: 3}
   idleTime: 2
-  moveSpeed: 1.4
+  moveSpeed: 1.5
   moveSpeedMultiplier: 1
   playerCheckDistance: 4.38
   playerCheck: {fileID: 1341853081371085435}

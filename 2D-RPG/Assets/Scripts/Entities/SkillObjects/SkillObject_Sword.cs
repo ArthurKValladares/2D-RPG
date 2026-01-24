@@ -6,9 +6,9 @@ public class SkillObject_Sword : SkillObject_Base
     protected Rigidbody2D rb;
 
     [Header("Sword Return Details")]
-    [SerializeField] private float comebackSpeed = 20.0f;
-    [SerializeField] private float maxDistanceFromPlayer = 25.0f;
+    private float comebackSpeed;
     protected bool shouldComeback;
+    [SerializeField] private float maxDistanceFromPlayer = 25.0f;
 
     [Header("Damage Details")]
     [SerializeField] protected float damageRadius = 1.0f;
@@ -16,6 +16,7 @@ public class SkillObject_Sword : SkillObject_Base
     public virtual void SetupSword(Skill_SwordThrow swordThrow, Vector2 throwForce)
     {
         this.swordThrow = swordThrow;
+        this.comebackSpeed = swordThrow.currentComebackSpeed;
 
         SetupSkillData(swordThrow);
 
@@ -28,7 +29,7 @@ public class SkillObject_Sword : SkillObject_Base
         shouldComeback = true;
     }
 
-    private void Update()
+    protected virtual void Update()
     {
         transform.right = rb.linearVelocity;
 

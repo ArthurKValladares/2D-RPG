@@ -4,15 +4,38 @@ public class Skill_SwordThrow : Skill_Base
 {
     private SkillObject_Sword currentSword;
 
+    private float currentThrowForce;
+    public float currentComebackSpeed;
+
     [Header("Throw Details")]
     [SerializeField] private GameObject swordPrefab;
-    [Range(0.0f, 10.0f)]
-    [SerializeField] private float throwForce = 5.0f;
-    [SerializeField] private float comebackSpeed = 20.0f;
+    [SerializeField] private float regularThrowForce = 5.0f;
+    [SerializeField] private float regularComebackSpeed = 20.0f;    
 
     [Header("Pierce Upgrade")]
     [SerializeField] private GameObject pierceSwordPrefab;
     public int pierceAmount = 2;
+    [Range(0.0f, 10.0f)]
+    [SerializeField] private float pierceThrowForce = 8.0f;
+    [SerializeField] private float pierceComebackSpeed = 20.0f;
+
+    [Header("Spin Upgrade")]
+    [SerializeField] private GameObject spinSwordPrefab;
+    public float maxTravelDistance = 5.0f;
+    public float attacksPerSecond = 6.0f;
+    public float maxSpinDuration = 3.0f;
+    [Range(0.0f, 10.0f)]
+    [SerializeField] private float spinThrowForce = 4.0f;
+    [SerializeField] private float spinComebackSpeed = 20.0f;
+
+    [Header("Bounce Upgrade")]
+    [SerializeField] private GameObject bounceSwordPrefab;
+    public float bounceSpeed = 15.0f;
+    public int bounceCount = 3;
+    public float bounceRadius = 10.0f;
+    [Range(0.0f, 10.0f)]
+    [SerializeField] private float bounceThrowForce = 6.0f;
+    [SerializeField] private float bounceComebackSpeed = 20.0f;
 
     [Header("Trajectory Prediction")]
     [SerializeField] private GameObject trajectoryPredictionDot;
@@ -33,6 +56,8 @@ public class Skill_SwordThrow : Skill_Base
 
     public override bool CanUseSkill()
     {
+        UpdateCurrentValues();
+
         if (currentSword != null)
         {
             currentSword.SendSwordBackToPlayer();
@@ -64,21 +89,80 @@ public class Skill_SwordThrow : Skill_Base
         confirmedDirection = direction;
     }
 
+    private void UpdateCurrentValues()
+    {
+        switch (upgradeType)
+        {
+            case SkillUpgradeType.SwordThrow:
+            {
+                currentThrowForce = regularThrowForce;
+                currentComebackSpeed = regularComebackSpeed;
+                break;
+            }
+            case SkillUpgradeType.SwordThrow_Pierce:
+            {
+                currentThrowForce = pierceThrowForce;
+                currentComebackSpeed = pierceComebackSpeed;
+                break;
+            }
+            case SkillUpgradeType.SwordThrow_Spin:
+            {
+                currentThrowForce = spinThrowForce;
+                currentComebackSpeed = spinComebackSpeed;
+                break;
+            }
+            case SkillUpgradeType.SwordThrow_Bounce:
+            {
+                currentThrowForce = bounceThrowForce;
+                currentComebackSpeed = bounceComebackSpeed;
+                break;
+            }
+            default:
+            {
+                Debug.LogError($"Uninplemented Sword Throw prefab for upgrade {upgradeType}");
+                break;
+            }
+        }
+    }
+
     private GameObject GetCorrectSword()
     {
         if (upgradeType == SkillUpgradeType.SwordThrow)
         {
+            currentThrowForce = regularThrowForce;
+            currentComebackSpeed = regularComebackSpeed;
+
             return swordPrefab;
         }
 
         if (upgradeType == SkillUpgradeType.SwordThrow_Pierce)
         {
+            currentThrowForce = pierceThrowForce;
+            currentComebackSpeed = pierceComebackSpeed;
+
             return pierceSwordPrefab;
+        }
+
+        if (IsLearned(SkillUpgradeType.SwordThrow_Spin))
+        {
+            currentThrowForce = spinThrowForce;
+            currentComebackSpeed = spinComebackSpeed;
+
+            return spinSwordPrefab;
+        }
+
+        if (IsLearned(SkillUpgradeType.SwordThrow_Bounce))
+        {
+            currentThrowForce = bounceThrowForce;
+            currentComebackSpeed = bounceComebackSpeed;
+
+            return bounceSwordPrefab;
         }
 
         Debug.LogError($"Uninplemented Sword Throw prefab for upgrade {upgradeType}");
         return swordPrefab;
     }
+
     public void ThrowSword()
     {
         GameObject newSword = Instantiate(GetCorrectSword(), dots[1].position, Quaternion.identity);
@@ -89,7 +173,7 @@ public class Skill_SwordThrow : Skill_Base
 
     private float GetScaledThrowForce()
     {
-        return throwForce * 10.0f;
+        return currentThrowForce * 10.0f;
     }
 
     private Vector2 GetThrowForceInDirection(Vector2 direction)
