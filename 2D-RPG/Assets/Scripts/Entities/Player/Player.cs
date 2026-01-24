@@ -118,10 +118,14 @@ public class Player : Entity
             ui.ToggleSkillTree();
         };
 
+        // TODO: better system for different skills later
         input.Player.Spell.performed += ctx =>
         {
-            // TODO: different skills later
             skillManager.shard.TryToUseSkill();
+        };
+        input.Player.Spell.performed += ctx =>
+        {
+            skillManager.timeEcho.TryToUseSkill();
         };
     }
 

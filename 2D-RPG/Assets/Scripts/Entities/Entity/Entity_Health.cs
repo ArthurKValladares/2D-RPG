@@ -12,7 +12,7 @@ public class Entity_Health : MonoBehaviour, IDamagable
 
     [Header("Health Details")]
     [SerializeField] protected float currentHP;
-    [SerializeField] private bool canRegenerateHealth = true;
+    [SerializeField] private bool canRegenerateHealth = false;
     [SerializeField] private float healthRegenInterval = 0.5f;
 
     [Header("On-hit Knockback Details")]
@@ -26,6 +26,7 @@ public class Entity_Health : MonoBehaviour, IDamagable
     {
         entity = GetComponent<Entity>();
         vfxComponent = GetComponent<Entity_VFX>();
+
         Slider[] sliders = GetComponentsInChildren<Slider>();
         foreach (Slider slider in sliders)
         {
@@ -35,11 +36,13 @@ public class Entity_Health : MonoBehaviour, IDamagable
                 break;
             }
         }
+
         stats = GetComponentInChildren<Entity_Stats>();
-
-        SetHP(stats.CalculateMaxHP());
-
-        InvokeRepeating(nameof(RegenerateHealth), 0.0f, healthRegenInterval);
+        if (stats)
+        {
+            SetHP(stats.CalculateMaxHP());
+            InvokeRepeating(nameof(RegenerateHealth), 0.0f, healthRegenInterval);
+        }
     }
 
     private void RegenerateHealth()
@@ -59,7 +62,7 @@ public class Entity_Health : MonoBehaviour, IDamagable
             ? attackerStats.GetArmorReduction()
             : 0.0f;
 
-        float armorMitigation = stats.GetArmorMitigation(armorReduction);
+        float armorMitigation = stats ? stats.GetArmorMitigation(armorReduction) : 0.0f;
         float finalPhysicalDamage = physicalDamage * (1.0f - armorMitigation);
 
         return finalPhysicalDamage;
@@ -67,10 +70,10 @@ public class Entity_Health : MonoBehaviour, IDamagable
 
     private float CalculateFinalElementalDamage(ElementalDamageInfo elementalDamage)
     {
-        float primaryElementalResistance = stats.GetElementalResistance(elementalDamage.primaryType);
+        float primaryElementalResistance = stats ? stats.GetElementalResistance(elementalDamage.primaryType) : 0.0f;
         float primaryElementalDamage = elementalDamage.primaryDamage * (1.0f - primaryElementalResistance);
 
-        float secondaryElementalResistance = stats.GetElementalResistance(elementalDamage.secondaryType);
+        float secondaryElementalResistance = stats ? stats.GetElementalResistance(elementalDamage.secondaryType) : 0.0f;
         float secondaryElementalDamage = elementalDamage.secondaryDamage * (1.0f - secondaryElementalResistance);
 
         float finalElementalDamage = primaryElementalDamage + secondaryElementalDamage;
@@ -115,6 +118,8 @@ public class Entity_Health : MonoBehaviour, IDamagable
 
     private bool IsHeavyAttack(float damage)
     {
+        if (!stats) return false;
+        
         float damageHealthPercentage = damage / stats.CalculateMaxHP();
         return damageHealthPercentage > heavyKnockbackThreshold;
     }
@@ -137,7 +142,7 @@ public class Entity_Health : MonoBehaviour, IDamagable
 
     private bool AttackEvaded()
     {
-        float evasion = stats.CalculateEvasion();
+        float evasion = stats ? stats.CalculateEvasion() : 0.0f;
         return Random.Range(0.0f, 1.0f) < evasion; 
     }
 
@@ -186,7 +191,10 @@ public class Entity_Health : MonoBehaviour, IDamagable
 
     protected virtual void Die()
     {
-        entity.EntityDeath();
+        if (entity)
+        {
+            entity.EntityDeath();
+        }
 
         if (healthBarObject) {
             healthBarObject.SetActive(false);

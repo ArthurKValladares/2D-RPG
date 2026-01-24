@@ -3,6 +3,7 @@ using UnityEngine;
 public class Enemy_BattleState : EnemyState
 {
     private Transform player;
+    private Transform lastTarget;
     private float lastTimeDetectedPlayer;
 
     public Enemy_BattleState(Enemy enemy)
@@ -36,6 +37,7 @@ public class Enemy_BattleState : EnemyState
         if (player_detection)
         {
             UpdateBattleTimer();
+            UpdateTargetIfNeeded(player_detection.transform);
         }
 
         if (BattleTimeIsOver())
@@ -51,6 +53,15 @@ public class Enemy_BattleState : EnemyState
         else if (!enemy.wallsDetected && enemy.groundDetected)
         {
             enemy.SetVelocityX(enemy.battleMoveSpeed * PlayerDirScale());
+        }
+    }
+
+    private void UpdateTargetIfNeeded(Transform newTarget)
+    {
+        if (newTarget != lastTarget)
+        {
+            player = newTarget;
+            lastTarget = newTarget;
         }
     }
 

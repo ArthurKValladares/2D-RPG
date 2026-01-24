@@ -18,3 +18,21 @@ MonoBehaviour:
     * The clone distracts enemies'
   icon: {fileID: 10464439, guid: 13e7f4220636690408b25bae11ca9834, type: 3}
   cost: 1
+  skillType: 1
+  learnedByDefault: 0
+  upgradeData:
+    upgradeType: 15
+    cooldown: 3
+    damageScaleData:
+      phyiscal: 1
+      elemental: 1
+      secondaryElementMultiplier: 0.5
+      chillDuration: 3
+      chillSlowPercentage: 0.2
+      burnDuratin: 3
+      burnDamageScale: 1
+      electrifyDuration: 3
+      electrifyDamageScale: 1
+      electrifyCharge: 0.4
+    primaryElementalDamage: 0
+    secondaryElementalDamage: 0

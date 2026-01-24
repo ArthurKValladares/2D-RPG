@@ -374,8 +374,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::Enemy_Health
   healthBarObject: {fileID: 5531239449492124089}
   currentHP: 0
-  canRegenerateHealth: 1
-  healthRegenInterval: 0.5
+  canRegenerateHealth: 0
+  healthRegenInterval: 0
   heavyKnockbackThreshold: 0.3
   knockbackForce: {x: 1.5, y: 2.5}
   heavyKnockbackForce: {x: 7, y: 7}
