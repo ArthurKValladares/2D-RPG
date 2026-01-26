@@ -64,6 +64,7 @@
     <Compile Include="Assets\Scripts\StateMachine\PlayerStates\Player_LaunchAttackState.cs" />
     <Compile Include="Assets\Scripts\StateMachine\EnemyStates\Enemy_StunnedState.cs" />
     <Compile Include="Assets\Scripts\UI\UI_TreeConnection.cs" />
+    <Compile Include="Assets\Scripts\SkillSystem\SkillObjects\SkillObject_AnimationTriggers.cs" />
     <Compile Include="Assets\Scripts\StateMachine\PlayerStates\Player_WallJumpState.cs" />
     <Compile Include="Assets\Scripts\UI\UI_TreeNode.cs" />
     <Compile Include="Assets\Scripts\SkillSystem\SkillObjects\SkillObject_Base.cs" />

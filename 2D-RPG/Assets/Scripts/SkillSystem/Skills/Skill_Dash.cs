@@ -39,6 +39,6 @@ public class Skill_Dash : Skill_Base
 
     private void CreateClone()
     {
-        playerSkillManager.timeEcho.CreateRawTimeEcho();
+        playerSkillManager.timeEcho.CreateTimeEcho();
     }
 }

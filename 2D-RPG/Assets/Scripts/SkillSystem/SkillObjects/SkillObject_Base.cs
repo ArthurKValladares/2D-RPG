@@ -22,6 +22,9 @@ public class SkillObject_Base : MonoBehaviour
     protected ElementalDamageType primaryElementalDamage;
     protected ElementalDamageType secondaryElementalDamage;
 
+    protected bool targetGotHit;
+    protected Transform lastTarget;
+
     protected virtual void Awake()
     {
         anim = GetComponentInChildren<Animator>();
@@ -38,8 +41,15 @@ public class SkillObject_Base : MonoBehaviour
             AttackData attackData = new AttackData(playerStats, damageScaleData, primaryElementalDamage, secondaryElementalDamage);
 
             HitInfo hitInfo = damagable.TakeDamage(attackData, transform);
+            targetGotHit = hitInfo.didHit;
+
             // TODO: THis name is not really true, it does more than that
             attackData.ApplyElementalEffect(playerVFX, target, hitInfo);
+
+            if (hitInfo.didHit)
+            {
+                lastTarget = target.transform;
+            }
         }
     }
 

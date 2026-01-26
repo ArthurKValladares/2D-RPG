@@ -25,6 +25,7 @@ public class AttackData
 
     public void ApplyElementalEffect(Entity_VFX entityVFX, Collider2D target, HitInfo hitInfo)
     {
+        // TODO: Maybe remove hitInfo as param, maybe not
         if (hitInfo.didHit)
         {
             entityVFX.CreateOnHitTargetVFX(target.transform, physicalDamageInfo.wasCritical, primaryElementalDamage);
