@@ -10,8 +10,11 @@ public class SkillObject_Base : MonoBehaviour
     [Header("Surround Checking")]
     [SerializeField] protected float surroundCheckRadius = 10.0f;
 
+    protected Player_SkillManager skillManager;
     protected Entity_Stats playerStats;
+    protected Entity_Health playerHealth;
     protected Entity_VFX playerVFX;
+    protected Entity_StatusHandler playerStatusHandler;
     protected Transform playerTransform;
 
     protected Animator anim;
@@ -77,13 +80,16 @@ public class SkillObject_Base : MonoBehaviour
     }
 
     protected void SetupSkillData(Skill_Base skill)
-    { 
+    {
         damageScaleData = skill.damageScaleData;
         primaryElementalDamage = skill.primaryElementalDamage;
         secondaryElementalDamage = skill.secondaryElementalDamage;
 
+        skillManager = skill.player.skillManager;
         playerStats = skill.player.stats;
+        playerHealth = skill.player.health;
         playerTransform = skill.player.transform.root;
+        playerStatusHandler = skill.player.statusHandler;
         playerVFX = skill.player.playerVFX;
     }
 

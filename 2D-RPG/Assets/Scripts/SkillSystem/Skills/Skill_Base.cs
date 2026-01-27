@@ -49,6 +49,16 @@ public class Skill_Base : MonoBehaviour
         lastTimeUsed = Time.time;
     }
 
+    public void ReduceCooldownBy(float seconds)
+    {
+        lastTimeUsed -= seconds;
+    }
+
+    public void IncreaseCooldownBy(float seconds)
+    {
+        lastTimeUsed += seconds;
+    }
+
     public void SetUpgradeType(UpgradeData upgrade)
     {
         upgradeType = upgrade.upgradeType;

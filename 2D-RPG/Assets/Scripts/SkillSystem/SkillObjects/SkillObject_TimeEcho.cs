@@ -11,6 +11,7 @@ public class SkillObject_TimeEcho : SkillObject_Base
     [SerializeField] private float damageRadius = 1.0f;
     public int maxAttacks;
 
+    private SkillObject_Health echoHealth;
     private TrailRenderer wispTrail;
     private Transform playerTranform;
     private float wispMoveSpeed;
@@ -23,15 +24,16 @@ public class SkillObject_TimeEcho : SkillObject_Base
 
     public void SetupTimeEcho(Skill_TimeEcho timeEcho)
     {
+        SetupSkillData(timeEcho);
+
         this.timeEcho = timeEcho;
         this.maxAttacks = timeEcho.GetMaxAttacks();
 
+        this.echoHealth = GetComponent<SkillObject_Health>();
         this.wispTrail = GetComponentInChildren<TrailRenderer>();
         wispTrail.gameObject.SetActive(false);
         this.playerTransform = timeEcho.transform.root;
         this.wispMoveSpeed = timeEcho.wispMoveSpeed;
-
-        SetupSkillData(timeEcho);
 
         anim.SetBool("canAttack", maxAttacks > 0);
 
@@ -127,6 +129,19 @@ public class SkillObject_TimeEcho : SkillObject_Base
 
     private void HandlePlayerTouch()
     {
+        float healAmount = echoHealth.lastDamageTaken * timeEcho.GetPercentOfDamageHealed();
+        playerHealth.IncreaseHP(healAmount);
+
+        float cooldownToReduce = timeEcho.GetCooldownReductionInSeconds();
+        if (cooldownToReduce > 0.0f)
+        {
+            skillManager.ReduceAllCooldownsBy(cooldownToReduce);
+        }
+
+        if (timeEcho.CanRemoveNegativeEffects())
+        {
+            playerStatusHandler.RemoveAllNegativeEffects();
+        }
     }
 
     protected override void OnDrawGizmos()

@@ -14,6 +14,7 @@ public class Entity_Health : MonoBehaviour, IDamagable
     [SerializeField] protected float currentHP;
     [SerializeField] private bool canRegenerateHealth = false;
     [SerializeField] private float healthRegenInterval = 0.5f;
+    public float lastDamageTaken { get; private set; }
 
     [Header("On-hit Knockback Details")]
     [SerializeField] private float heavyKnockbackThreshold;
@@ -111,6 +112,7 @@ public class Entity_Health : MonoBehaviour, IDamagable
         }
 
         ReduceHP(finalDamage);
+        lastDamageTaken = finalDamage;
 
         bool killedVictim = currentHP <= 0.0f;
         return new HitInfo(true, finalDamage, killedVictim);

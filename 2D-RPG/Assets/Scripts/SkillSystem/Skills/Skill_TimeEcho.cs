@@ -11,6 +11,8 @@ public class Skill_TimeEcho : Skill_Base
 
     [Header("Wisp Upgrades")]
     [SerializeField] public float wispMoveSpeed = 15.0f;
+    [SerializeField] private float damagePercentHealed = 0.3f;
+    [SerializeField] private float cooldownReducedInSeconds = 1.0f;
 
     public override void TryToUseSkill()
     {
@@ -55,6 +57,36 @@ public class Skill_TimeEcho : Skill_Base
         return IsLearned(SkillUpgradeType.TimeEcho_HealWisp) 
             || IsLearned(SkillUpgradeType.TimeEcho_CleanseWisp)
             || IsLearned(SkillUpgradeType.TimeEcho_CooldownWisp);
+    }
+
+    public float GetPercentOfDamageHealed()
+    {
+        if (ShouldBeWisp())
+        {
+            return damagePercentHealed;
+        }
+
+        return 0.0f;
+    }
+
+    public float GetCooldownReductionInSeconds()
+    {
+        if (IsLearned(SkillUpgradeType.TimeEcho_CooldownWisp))
+        {
+            return cooldownReducedInSeconds;
+        }
+
+        return 0.0f;
+    }
+
+    public bool CanRemoveNegativeEffects()
+    {
+        if (IsLearned(SkillUpgradeType.TimeEcho_CleanseWisp))
+        {
+            return true;
+        }
+
+        return false;
     }
 
     public void CreateTimeEcho(Vector3? position = null)

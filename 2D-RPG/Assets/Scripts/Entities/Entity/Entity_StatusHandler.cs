@@ -78,6 +78,14 @@ public class Entity_StatusHandler : MonoBehaviour
         return val * (1.0f - resistance);
     }
 
+    public void RemoveAllNegativeEffects()
+    {
+        StopAllCoroutines();
+        currentElement = ElementalDamageType.None;
+        entityVFX.StopAllVFX();
+        currentLightningCharge = 0.0f;
+    }
+
     //
     // Chill
     //
