@@ -11,6 +11,11 @@ public class SkillObject_TimeEcho : SkillObject_Base
     [SerializeField] private float damageRadius = 1.0f;
     public int maxAttacks;
 
+    private TrailRenderer wispTrail;
+    private Transform playerTranform;
+    private float wispMoveSpeed;
+    private bool isWisp = false;
+
     [Header("Collision Detection")]
     [SerializeField] protected float groundCheckDistance;
     [SerializeField] protected Transform groundCheck;
@@ -20,6 +25,11 @@ public class SkillObject_TimeEcho : SkillObject_Base
     {
         this.timeEcho = timeEcho;
         this.maxAttacks = timeEcho.GetMaxAttacks();
+
+        this.wispTrail = GetComponentInChildren<TrailRenderer>();
+        wispTrail.gameObject.SetActive(false);
+        this.playerTransform = timeEcho.transform.root;
+        this.wispMoveSpeed = timeEcho.wispMoveSpeed;
 
         SetupSkillData(timeEcho);
 
@@ -49,9 +59,14 @@ public class SkillObject_TimeEcho : SkillObject_Base
 
     private void Update()
     {
-        anim.SetFloat("yVelocity", rb.linearVelocityY);
-
-        StopHorizontalMovement();
+        if (isWisp)
+        {
+            HandleWispMovement();
+        } else
+        {
+            anim.SetFloat("yVelocity", rb.linearVelocityY);
+            StopHorizontalMovement();
+        }
     }
 
     private void FlipToTarget()
@@ -78,7 +93,40 @@ public class SkillObject_TimeEcho : SkillObject_Base
     public void HandleDeath()
     {
         Instantiate(onDeathVFX, transform.position, Quaternion.identity);
-        Destroy(gameObject);
+
+        if (timeEcho.ShouldBeWisp())
+        {
+            TurnIntoWisp();
+        } else
+        {
+            Destroy(gameObject);
+        }
+    }
+
+    private void TurnIntoWisp()
+    {
+        isWisp = true;
+        anim.gameObject.SetActive(false);
+        wispTrail.gameObject.SetActive(true);
+        rb.simulated = false;
+    }
+
+    private void HandleWispMovement()
+    {
+        transform.position = Vector2.MoveTowards(transform.position, playerTransform.position, wispMoveSpeed * Time.deltaTime);
+
+        float distance = Vector2.Distance(transform.position, playerTransform.position);
+        // TODO: Sorta repeat this in sword throw, maybe standardize somehow
+        float distanceEpsilon = 0.5f;
+        if (distance < distanceEpsilon)
+        {
+            HandlePlayerTouch();
+            Destroy(gameObject);
+        }
+    }
+
+    private void HandlePlayerTouch()
+    {
     }
 
     protected override void OnDrawGizmos()

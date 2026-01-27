@@ -64,7 +64,9 @@ public class SkillObject_Sword : SkillObject_Base
 
         transform.position = Vector2.MoveTowards(transform.position, playerTransform.position, comebackSpeed * Time.deltaTime);
 
-        if (distance < 0.5f)
+        // TODO: Sorta repeat this in wisp/time echo, maybe standardize somehow
+        float distanceEpsilon = 0.5f;
+        if (distance < distanceEpsilon)
         {
             Destroy(gameObject);
         }

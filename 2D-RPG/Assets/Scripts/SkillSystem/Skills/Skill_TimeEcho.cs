@@ -8,6 +8,10 @@ public class Skill_TimeEcho : Skill_Base
     [Header("Attack Upgrades")]
     [SerializeField] public int maxAttacks = 3;
     [SerializeField] private float duplicateChance = 0.3f;
+
+    [Header("Wisp Upgrades")]
+    [SerializeField] public float wispMoveSpeed = 15.0f;
+
     public override void TryToUseSkill()
     {
         if (CanUseSkill())
@@ -44,6 +48,13 @@ public class Skill_TimeEcho : Skill_Base
         }
 
         return duplicateChance;
+    }
+
+    public bool ShouldBeWisp()
+    {
+        return IsLearned(SkillUpgradeType.TimeEcho_HealWisp) 
+            || IsLearned(SkillUpgradeType.TimeEcho_CleanseWisp)
+            || IsLearned(SkillUpgradeType.TimeEcho_CooldownWisp);
     }
 
     public void CreateTimeEcho(Vector3? position = null)
