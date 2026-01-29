@@ -139,6 +139,7 @@
     <Compile Include="Assets\Scripts\StateMachine\EnemyStates\Enemy_GroundedState.cs" />
     <Compile Include="Assets\InputSystem\PlayerInputSet.cs" />
     <Compile Include="Assets\Scripts\StateMachine\PlayerStates\Player_GroundedState.cs" />
+    <Compile Include="Assets\Scripts\SkillSystem\SkillObjects\SkillObject_DomainExpansion.cs" />
     <Compile Include="Assets\Scripts\SkillSystem\Skills\Skill_Shard.cs" />
     <Compile Include="Assets\Scripts\StateMachine\PlayerStates\Player_FallState.cs" />
     <Compile Include="Assets\Scripts\StateMachine\PlayerStates\Player_JumpAttackState.cs" />

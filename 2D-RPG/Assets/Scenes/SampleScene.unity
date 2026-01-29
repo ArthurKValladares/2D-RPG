@@ -1492,6 +1492,15 @@ MonoBehaviour:
     electrifyCharge: 0.4
   primaryElementalDamage: 0
   secondaryElementalDamage: 0
+  domainExpansionPrefab: {fileID: 2637603157365521151, guid: 1c3c69389add0ce4795eb1cae03f197e, type: 3}
+  maximumSizeScale: 10
+  transformationDuration: 0.1
+  baseDomainDuration: 5
+  baseSlowDownPercentage: 0.9
+  shardDomainDuration: 5
+  shardSlowDownPercentage: 0.9
+  echoDomainDuration: 5
+  echoSlowDownPercentage: 0.9
 --- !u!1001 &454479146
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -56661,10 +56670,10 @@ RectTransform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 697978796}
+  - {fileID: 646210217}
   - {fileID: 1799350485}
   - {fileID: 104952739}
   - {fileID: 1903550911}
-  - {fileID: 646210217}
   m_Father: {fileID: 1808924241}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
