@@ -69,8 +69,10 @@
     <Compile Include="Assets\Scripts\UI\UI_TreeNode.cs" />
     <Compile Include="Assets\Scripts\SkillSystem\SkillObjects\SkillObject_Base.cs" />
     <Compile Include="Assets\Scripts\Entities\StatSystem\Stat_ResourceGroup.cs" />
+    <Compile Include="Assets\Scripts\SkillSystem\Skills\Skill_DomainExpansion.cs" />
     <Compile Include="Assets\Scripts\SkillSystem\Skills\SkillTypes.cs" />
     <Compile Include="Assets\Scripts\Entities\StatSystem\Stat.cs" />
+    <Compile Include="Assets\Scripts\StateMachine\PlayerStates\Player_DomainExpansionState.cs" />
     <Compile Include="Assets\Scripts\Entities\Player\Player_Combat.cs" />
     <Compile Include="Assets\Scripts\UI\UI_SkillTree.cs" />
     <Compile Include="Assets\Scripts\Entities\StatSystem\Stat_DefensiveGroup.cs" />

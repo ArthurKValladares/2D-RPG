@@ -5,7 +5,8 @@ public enum SkillType
     Dash,
     TimeEcho,
     Shard,
-    SwordThrow
+    SwordThrow,
+    DomainExpansion
 }
 
 public enum SkillUpgradeType
@@ -40,4 +41,9 @@ public enum SkillUpgradeType
     TimeEcho_HealWisp,
     TimeEcho_CleanseWisp,
     TimeEcho_CooldownWisp,
+
+    // Domain Expansion tree
+    Domain_SlowDown,
+    Domain_EchoSpam,
+    Domain_ShardSpam,
 }

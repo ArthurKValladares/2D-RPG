@@ -7,6 +7,8 @@ public class Player : Entity
     // TODO: In the future, this and the input set for it should not be in Player
     private UI ui;
 
+    private CapsuleCollider2D capsuleCollider;
+
     public static event Action OnPlayerDeath;
 
     public Player_SkillManager skillManager { get; private set; }
@@ -34,6 +36,7 @@ public class Player : Entity
     public Player_DeadState deadState { get; private set; }
     public Player_ParryState parryState { get; private set; }
     public Player_SwordThrowState swordThrowState { get; private set; }
+    public Player_DomainExpansionState domainExpansionState { get; private set; }
     #endregion
 
     public float originalGravityscale { get; private set; }
@@ -62,6 +65,8 @@ public class Player : Entity
         base.Awake();
 
         ui = FindFirstObjectByType<UI>();
+
+        capsuleCollider = GetComponent<CapsuleCollider2D>();
         skillManager = GetComponent<Player_SkillManager>();
         playerVFX = GetComponent<Player_VFX>();
         health = GetComponent<Entity_Health>();
@@ -85,6 +90,7 @@ public class Player : Entity
         deadState = new Player_DeadState(this);
         parryState = new Player_ParryState(this);
         swordThrowState = new Player_SwordThrowState(this);
+        domainExpansionState = new Player_DomainExpansionState(this);
 
         attackVelocities[0] = new Vector2(3.0f, 1.5f);
         attackVelocities[1] = new Vector2(1.5f, 1.5f);
@@ -172,6 +178,20 @@ public class Player : Entity
         return dir.normalized;
     }
 
+    public float OpenDistanceAbovePlayer(float maxDistance = float.PositiveInfinity)
+    {
+        float yEpsilon = 0.5f;
+        float distanceToTopOfCollider = (capsuleCollider.size.y / 2.0f) + capsuleCollider.offset.y + yEpsilon;
+
+        float effectiveMaxDistance = maxDistance == float.PositiveInfinity 
+            ? float.PositiveInfinity 
+            : maxDistance - distanceToTopOfCollider;
+
+        RaycastHit2D hit = Physics2D.Raycast(transform.position, Vector2.up, effectiveMaxDistance, whatIsGround);
+
+        return hit.collider != null ? (hit.distance - distanceToTopOfCollider) : effectiveMaxDistance;
+    }
+
     protected override IEnumerator SlowDownEntityByCoroutine(float duration, float slowPercentage)
     {
         float originalMoveSpeed = moveSpeed;
@@ -215,5 +235,17 @@ public class Player : Entity
 
         sm.ChangeState(deadState);
         OnPlayerDeath?.Invoke();
+    }
+
+    protected override void OnDrawGizmos()
+    {
+        base.OnDrawGizmos();
+
+        if (capsuleCollider)
+        {
+            float distance = OpenDistanceAbovePlayer(30.0f);
+            Gizmos.color = Color.yellow;
+            Gizmos.DrawLine(transform.position, transform.position + new Vector3(0, distance, 0));
+        }
     }
 }

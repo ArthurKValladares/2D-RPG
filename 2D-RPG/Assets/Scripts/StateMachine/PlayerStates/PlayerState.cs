@@ -29,6 +29,19 @@ public class PlayerState : EntityState
             player.skillManager.dash.SetSkillJustUsed();
             player.sm.ChangeState(player.dashState);
         }
+
+        if (player.input.Player.UltimateSpell.WasPressedThisFrame() && player.skillManager.domainExpansion.CanUseSkill())
+        {
+            if (player.skillManager.domainExpansion.InstantDomain())
+            {
+                player.skillManager.domainExpansion.CreateDomain();
+            } else
+            {
+                player.sm.ChangeState(player.domainExpansionState);
+            }
+
+            player.skillManager.domainExpansion.SetSkillJustUsed();
+        }
     }
 
     public override void UpdateAnimationParameters()
