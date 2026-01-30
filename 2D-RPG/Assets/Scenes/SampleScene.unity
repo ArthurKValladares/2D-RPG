@@ -1496,11 +1496,11 @@ MonoBehaviour:
   maximumSizeScale: 10
   transformationDuration: 0.1
   baseDomainDuration: 5
-  baseSlowDownPercentage: 0.9
+  baseSlowDownPercentage: 0.7
   shardDomainDuration: 5
-  shardSlowDownPercentage: 0.9
+  shardSlowDownPercentage: 0.7
   echoDomainDuration: 5
-  echoSlowDownPercentage: 0.9
+  echoSlowDownPercentage: 0.7
 --- !u!1001 &454479146
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2400,9 +2400,9 @@ RectTransform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 441005853}
+  - {fileID: 1942083807}
   - {fileID: 1349452969}
   - {fileID: 47459121}
-  - {fileID: 1942083807}
   - {fileID: 902586404}
   m_Father: {fileID: 1808924241}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -54567,12 +54567,12 @@ RectTransform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1986817610}
-  - {fileID: 1110017358}
-  - {fileID: 1147268391}
-  - {fileID: 1668016960}
-  - {fileID: 2089480501}
   - {fileID: 954252157}
   - {fileID: 1756164217}
+  - {fileID: 1668016960}
+  - {fileID: 2089480501}
+  - {fileID: 1110017358}
+  - {fileID: 1147268391}
   m_Father: {fileID: 1808924241}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
@@ -56671,9 +56671,9 @@ RectTransform:
   m_Children:
   - {fileID: 697978796}
   - {fileID: 646210217}
-  - {fileID: 1799350485}
   - {fileID: 104952739}
   - {fileID: 1903550911}
+  - {fileID: 1799350485}
   m_Father: {fileID: 1808924241}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
@@ -57237,12 +57237,16 @@ PrefabInstance:
       value: Player
       objectReference: {fileID: 0}
     - target: {fileID: 1959215018417140902, guid: e9302bc495f014241aa885ec5ab81af6, type: 3}
+      propertyPath: chillSlowPercentage
+      value: 0.9
+      objectReference: {fileID: 0}
+    - target: {fileID: 1959215018417140902, guid: e9302bc495f014241aa885ec5ab81af6, type: 3}
       propertyPath: whatIsTarget.m_Bits
       value: 576
       objectReference: {fileID: 0}
     - target: {fileID: 1959215018417140902, guid: e9302bc495f014241aa885ec5ab81af6, type: 3}
       propertyPath: primaryElementalDamage
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 1959215018417140902, guid: e9302bc495f014241aa885ec5ab81af6, type: 3}
       propertyPath: targetMasks.Array.size
@@ -57251,6 +57255,10 @@ PrefabInstance:
     - target: {fileID: 1959215018417140902, guid: e9302bc495f014241aa885ec5ab81af6, type: 3}
       propertyPath: targetMasks.Array.data[0].m_Bits
       value: 64
+      objectReference: {fileID: 0}
+    - target: {fileID: 1959215018417140902, guid: e9302bc495f014241aa885ec5ab81af6, type: 3}
+      propertyPath: basicAttackScale.chillSlowPercentage
+      value: 0.5
       objectReference: {fileID: 0}
     - target: {fileID: 2833881606707364213, guid: e9302bc495f014241aa885ec5ab81af6, type: 3}
       propertyPath: m_LocalPosition.x

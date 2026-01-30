@@ -14,12 +14,6 @@ public class Entity_Combat : MonoBehaviour
     [SerializeField] private Transform targetCheck;
     [SerializeField] private LayerMask whatIsTarget;
 
-    [Header("Status Effect Duration")]
-    [SerializeField] private float defaultStatusDuration = 3.0f;
-    [SerializeField] private float chillSlowPercentage = 0.5f;
-    [SerializeField] private int burnTicksPerSecond = 2;
-    [SerializeField] private float electrifyChargePerApplication = 0.2f;
-
     private void Awake()
     {
         entityVFX = GetComponent<Entity_VFX>();
@@ -33,7 +27,7 @@ public class Entity_Combat : MonoBehaviour
             IDamagable damagable = target.GetComponent<IDamagable>();
             if (damagable == null) continue;
 
-            AttackData attackData = new AttackData(stats, basicAttackScale,primaryElementalDamage, secondaryElementalDamage);
+            AttackData attackData = new AttackData(stats, basicAttackScale, primaryElementalDamage, secondaryElementalDamage);
 
             HitInfo hitInfo = damagable.TakeDamage(attackData, transform);
             attackData.ApplyElementalEffect(entityVFX, target, hitInfo);

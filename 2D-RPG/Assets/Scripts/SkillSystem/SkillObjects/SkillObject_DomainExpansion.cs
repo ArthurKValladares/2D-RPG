@@ -57,4 +57,24 @@ public class SkillObject_DomainExpansion : SkillObject_Base
         
         isShrinking = true;
     }
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        Enemy enemy = collision.GetComponent<Enemy>();
+
+        if (enemy)
+        {
+            enemy.SlowDownEntityBy(domainDuration, slowDownPercentage, true);
+        }
+    }
+
+    private void OnTriggerExit2D(Collider2D collision)
+    {
+        Enemy enemy = collision.GetComponent<Enemy>();
+
+        if (enemy)
+        {
+            enemy.StopSlowDown();
+        }
+    }
 }

@@ -11,15 +11,15 @@ public class Skill_DomainExpansion : Skill_Base
 
     [Header("Slow Down/Base Upgrade")]
     [SerializeField] private float baseDomainDuration = 5.0f;
-    [SerializeField] private float baseSlowDownPercentage = 0.9f;
+    [SerializeField] private float baseSlowDownPercentage = 0.7f;
 
     [Header("Shard Upgrade")]
     [SerializeField] private float shardDomainDuration = 5.0f;
-    [SerializeField] private float shardSlowDownPercentage = 0.9f;
+    [SerializeField] private float shardSlowDownPercentage = 0.7f;
 
     [Header("Echo Upgrade")]
     [SerializeField] private float echoDomainDuration = 5.0f;
-    [SerializeField] private float echoSlowDownPercentage = 0.9f;
+    [SerializeField] private float echoSlowDownPercentage = 0.7f;
 
     public bool InstantDomain()
     {

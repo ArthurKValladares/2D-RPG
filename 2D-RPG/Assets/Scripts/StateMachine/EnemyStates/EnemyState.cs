@@ -20,7 +20,7 @@ public class EnemyState : EntityState
         base.UpdateAnimationParameters();
 
         animator.SetFloat("moveAnimMultiplier", enemy.moveSpeedMultiplier);
-        animator.SetFloat("battleAnimMultiplier", enemy.battleMoveSpeed / enemy.moveSpeed);
+        animator.SetFloat("battleAnimMultiplier", enemy.GetBattleMoveSpeed() / enemy.GetMoveSpeed());
         animator.SetFloat("xVelocity", enemy.rb.linearVelocityX);
     }
 }

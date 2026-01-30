@@ -13,7 +13,7 @@ public class Enemy : Entity
 
 
     [Header("Battle State")]
-    public float battleMoveSpeed = 3.0f;
+    private float battleMoveSpeed = 3.0f;
     public float attackDistance;
     public float battleTimeDuration = 5.0f;
     public float minRetreatDistance = 1.5f;
@@ -21,7 +21,7 @@ public class Enemy : Entity
 
     [Header("Movement Details")]
     public float idleTime = 2.0f;
-    public float moveSpeed = 1.4f;
+    private float moveSpeed = 1.4f;
     public float moveSpeedMultiplier = 1.0f;
 
     [Header("Player Detection")]
@@ -35,6 +35,8 @@ public class Enemy : Entity
     public float stunnedDuration;
     public Vector2 stunnedVelocity;
     [SerializeField] protected bool canBeStunned;
+
+    public float activeSlowMultiplier { get; private set; } = 1.0f;
 
     protected override void Awake()
     {
@@ -113,22 +115,32 @@ public class Enemy : Entity
         canBeStunned = enable;
     }
 
+    public float GetMoveSpeed()
+    {
+        return moveSpeed * activeSlowMultiplier;
+    }
+
+    public float GetBattleMoveSpeed()
+    {
+        return battleMoveSpeed * activeSlowMultiplier;
+    }
+
     protected override IEnumerator SlowDownEntityByCoroutine(float duration, float slowPercentage)
     {
-        float originalMoveSpeed = moveSpeed;
-        float originalBattleMoveSpeed = battleMoveSpeed;
-        float originalAnimSpeed = animator.speed;
+        activeSlowMultiplier = 1.0f - slowPercentage;
 
-        float slowMultiplier = (1.0f - slowPercentage);
-
-        moveSpeed *= slowMultiplier;
-        battleMoveSpeed *= slowMultiplier;
-        animator.speed *= slowMultiplier;
+        animator.speed *= activeSlowMultiplier;
 
         yield return new WaitForSeconds(duration);
 
-        moveSpeed = originalMoveSpeed;
-        battleMoveSpeed = originalBattleMoveSpeed;
-        animator.speed = originalAnimSpeed;
+        StopSlowDown();
+    }
+
+    public override void StopSlowDown()
+    {
+        activeSlowMultiplier = 1.0f;
+        animator.speed = 1.0f;
+
+        base.StopSlowDown();
     }
 }

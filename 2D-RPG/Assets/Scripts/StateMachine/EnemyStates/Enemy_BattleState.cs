@@ -24,7 +24,7 @@ public class Enemy_BattleState : EnemyState
 
         if (ShouldRetreat())
         {
-            enemy.rb.linearVelocity = new(enemy.retreateVelocity.x * -PlayerDirScale(), enemy.retreateVelocity.y);
+            enemy.rb.linearVelocity = new(enemy.retreateVelocity.x * enemy.activeSlowMultiplier * -PlayerDirScale(), enemy.retreateVelocity.y);
             enemy.HandleFlip(PlayerDirScale());
         }
     }
@@ -52,7 +52,7 @@ public class Enemy_BattleState : EnemyState
         }
         else if (!enemy.wallsDetected && enemy.groundDetected)
         {
-            enemy.SetVelocityX(enemy.battleMoveSpeed * PlayerDirScale());
+            enemy.SetVelocityX(enemy.GetBattleMoveSpeed() * PlayerDirScale());
         }
     }
 

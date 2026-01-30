@@ -154,11 +154,17 @@ public class Entity : MonoBehaviour
         queuedPushedCoroutine = StartCoroutine(PushedCoroutine(force, duration, stopAfter));
     }
 
-    public void SlowDownEntityBy(float duration, float slowPercentage)
+    public void SlowDownEntityBy(float duration, float slowPercentage, bool canOverrideSlowEffect = false)
     {
         if (slowDownCoroutine != null)
         {
-            StopCoroutine(slowDownCoroutine);
+            if (canOverrideSlowEffect)
+            {
+                StopCoroutine(slowDownCoroutine);
+            } else
+            {
+                return;
+            }
         }
 
         slowDownCoroutine = StartCoroutine(SlowDownEntityByCoroutine(duration, slowPercentage));
@@ -167,6 +173,11 @@ public class Entity : MonoBehaviour
     protected virtual IEnumerator SlowDownEntityByCoroutine(float duration, float slowPercentage)
     {
         yield return null;
+    }
+
+    public virtual void StopSlowDown()
+    {
+        slowDownCoroutine = null;
     }
 
     public virtual void EntityDeath()
