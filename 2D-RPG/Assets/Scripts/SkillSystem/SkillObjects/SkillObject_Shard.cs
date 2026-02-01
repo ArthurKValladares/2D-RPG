@@ -34,10 +34,11 @@ public class SkillObject_Shard : SkillObject_Base
         Invoke(nameof(Explode), shardSKill.GetDetonationTime());
     }
 
-    public void SetupToMoveTowardsClosestTarget(float speed)
+    public void SetupToMoveTowardsTarget(Transform newTarget = null)
     {
-        target = FindClosestTarget();
-        this.speed = speed;
+        this.speed = shardSKill.GetSpeed();
+
+        this.target = newTarget != null ? newTarget : FindClosestTarget();
     }
 
     private void OnTriggerEnter2D(Collider2D collision)

@@ -10,20 +10,20 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 593791c73c4010148bf53d40b02a324f, type: 3}
-  m_Name: Skill Data - Sword Throw
+  m_Name: Skill Data - Shard Domain
   m_EditorClassIdentifier: Assembly-CSharp::Skill_DataSO
-  skillName: Sword Throw
-  description: Throw your sword to damage enemies.
-  icon: {fileID: 1719046370, guid: 13e7f4220636690408b25bae11ca9834, type: 3}
-  cost: 0
-  skillType: 3
+  skillName: Shard Domain
+  description: The sword spins like a chainsaw for N seconds.
+  icon: {fileID: -1578379100, guid: 13e7f4220636690408b25bae11ca9834, type: 3}
+  cost: 1
+  skillType: 4
   learnedByDefault: 0
   upgradeData:
-    upgradeType: 11
+    upgradeType: 24
     cooldown: 3
     damageScaleData:
-      phyiscal: 1
-      elemental: 1
+      phyiscal: 0.3
+      elemental: 0.3
       secondaryElementMultiplier: 0.5
       chillDuration: 3
       chillSlowPercentage: 0.2
@@ -32,5 +32,5 @@ MonoBehaviour:
       electrifyDuration: 3
       electrifyDamageScale: 1
       electrifyCharge: 0.4
-    primaryElementalDamage: 2
+    primaryElementalDamage: 0
     secondaryElementalDamage: 0

@@ -46,6 +46,7 @@ public class SkillObject_DomainExpansion : SkillObject_Base
 
         if (elapsedTime >= transformationDuration && isShrinking)
         {
+            domainExpansion.ClearTargets();
             Destroy(gameObject);
         }
     }
@@ -64,6 +65,7 @@ public class SkillObject_DomainExpansion : SkillObject_Base
 
         if (enemy)
         {
+            domainExpansion.AddTarget(enemy);
             enemy.SlowDownEntityBy(domainDuration, slowDownPercentage, true);
         }
     }

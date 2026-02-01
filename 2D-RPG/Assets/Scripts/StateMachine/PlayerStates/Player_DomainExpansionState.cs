@@ -13,7 +13,6 @@ public class Player_DomainExpansionState : PlayerState
     // TODO: These need to be a part of the skill later
     static float riseMaxDistance = 3.0f;
     static float riseSpeed = 25.0f;
-    static float levitationDuration = 2.0f;
 
     public Player_DomainExpansionState(Player player)
         : base(player, "jumpFall")
@@ -47,7 +46,6 @@ public class Player_DomainExpansionState : PlayerState
         base.Update();
 
         float currDistance = Vector2.Distance(originalPosition, player.transform.position);
-        Debug.Log(currDistance + " " + finalRiseDistance);
         if (currDistance >= finalRiseDistance && isLevitating == false)
         {
             Levitate();
@@ -55,7 +53,7 @@ public class Player_DomainExpansionState : PlayerState
 
         if (isLevitating)
         {
-            // TODO: DO stuff
+            player.skillManager.domainExpansion.DoSpellCasting();
 
             if (TimerDone())
             {
@@ -70,7 +68,7 @@ public class Player_DomainExpansionState : PlayerState
         player.rb.linearVelocity = Vector2.zero;
         player.rb.gravityScale = 0.0f;
 
-        stateTimer = levitationDuration;
+        stateTimer = player.skillManager.domainExpansion.GetDomainDuration();
 
         if (!createdDomain)
         {

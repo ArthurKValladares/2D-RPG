@@ -1,4 +1,4 @@
-using Unity.Cinemachine;
+using System.Collections.Generic;
 using UnityEngine;
 
 public class Skill_DomainExpansion : Skill_Base
@@ -16,10 +16,18 @@ public class Skill_DomainExpansion : Skill_Base
     [Header("Shard Upgrade")]
     [SerializeField] private float shardDomainDuration = 5.0f;
     [SerializeField] private float shardSlowDownPercentage = 0.7f;
+    [SerializeField] private int shardsToCast = 10;
 
     [Header("Echo Upgrade")]
     [SerializeField] private float echoDomainDuration = 5.0f;
     [SerializeField] private float echoSlowDownPercentage = 0.7f;
+    [SerializeField] private int echosToCast = 10;
+
+    private float spellTimer;
+    private float spellsPerSecond;
+
+    private List<Enemy> trappedTargets = new List<Enemy>();
+    private Transform currentTarget;
 
     public bool InstantDomain()
     {
@@ -31,6 +39,8 @@ public class Skill_DomainExpansion : Skill_Base
         GameObject domain = Instantiate(domainExpansionPrefab, transform.position, Quaternion.identity);
         SkillObject_DomainExpansion domainObject = domain.GetComponent<SkillObject_DomainExpansion>();
         domainObject.SetupDomain(this);
+
+        spellsPerSecond = GetSpellsToCast() / GetDomainDuration();
     }
 
     public float GetDomainDuration()
@@ -65,5 +75,82 @@ public class Skill_DomainExpansion : Skill_Base
         }
         Debug.LogError("Did not implement GetSlowDownPercentage for upgrade of type: " + upgradeType);
         return baseSlowDownPercentage;
+    }
+
+    private int GetSpellsToCast()
+    {
+        if (IsLearned(SkillUpgradeType.Domain_ShardSpam))
+        {
+            return shardsToCast;
+        }
+        else if (IsLearned(SkillUpgradeType.Domain_EchoSpam))
+        {
+            return echosToCast;
+        }
+
+        return 0;
+    }
+
+    public void DoSpellCasting()
+    {
+        spellTimer -= Time.deltaTime;
+
+        if (currentTarget == null)
+        {
+            currentTarget = FindRandomTargetInDomain();
+        }
+
+        if (currentTarget != null && spellTimer <= 0.0f)
+        {
+            CastSpell(currentTarget);
+
+            spellTimer = 1.0f / spellsPerSecond;
+            currentTarget = null;
+        }
+    }
+
+    public void AddTarget(Enemy enemy)
+    {
+        trappedTargets.Add(enemy);
+    }
+
+    public void ClearTargets()
+    {
+        foreach (Enemy enemy in trappedTargets)
+        {
+            enemy.StopSlowDown();
+        }
+
+        trappedTargets.Clear();
+    }
+
+    private Transform FindRandomTargetInDomain()
+    {
+        if (trappedTargets.Count == 0) return null;
+        
+        int idx = Random.Range(0, trappedTargets.Count);
+        Transform target = trappedTargets[idx].transform;
+
+        if (target == null)
+        {
+            trappedTargets.RemoveAt(idx);
+            return FindRandomTargetInDomain();
+        }
+
+        return target;
+    }
+
+    private void CastSpell(Transform target)
+    {
+        if (IsLearned(SkillUpgradeType.Domain_ShardSpam))
+        {
+            SkillObject_Shard shard = player.skillManager.shard.CreateShard(currentTarget);
+        }
+        else if (IsLearned(SkillUpgradeType.Domain_EchoSpam))
+        {
+            Vector3 offset = Random.value < 0.5f ? new Vector2(1.0f, 0.0f) : new Vector2(-1.0f, 0.0f);
+
+            player.skillManager.timeEcho.CreateTimeEcho(currentTarget.position + offset);
+        }
     }
 }

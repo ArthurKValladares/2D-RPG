@@ -59,16 +59,55 @@ public class Skill_Shard : Skill_Base
         }
     }
 
+    public float GetDetonationTime()
+    {
+        if (IsLearned(SkillUpgradeType.Shard_Teleport) || IsLearned(SkillUpgradeType.Shard_TeleportHpRewind))
+        {
+            return teleportShardDuration;
+        }
+
+        return detonationTime;
+    }
+
+    public float GetSpeed()
+    {
+        return movementSpeed;
+    }
+
+    public bool CanMove()
+    {
+        return IsLearned(SkillUpgradeType.Shard_MoveToEnemy) || IsLearned(SkillUpgradeType.Shard_Multicast);
+    }
+
+    public SkillObject_Shard CreateShard(Transform target = null)
+    {
+        GameObject shardObj = Instantiate(shardObject, transform.position, Quaternion.identity);
+        SkillObject_Shard shardSkill = shardObj.GetComponent<SkillObject_Shard>();
+        shardSkill.SetupShardToExplode(this);
+
+        if (CanMove() || target != null)
+        {
+            shardSkill.SetupToMoveTowardsTarget(target);
+        }
+
+        if (IsLearned(SkillUpgradeType.Shard_Teleport) || IsLearned(SkillUpgradeType.Shard_TeleportHpRewind))
+        {
+            shardSkill.OnExplode += ForceOnCooldown;
+        }
+
+        return shardSkill;
+    }
+
     private void ShardSkillBasic()
     {
-        CreateShard();
+        currentShard = CreateShard();
         SetSkillJustUsed();
     }
 
     private void ShardSkillMoveToEnemy()
     {
-        CreateShard();
-        currentShard.SetupToMoveTowardsClosestTarget(movementSpeed);
+        currentShard = CreateShard();
+        currentShard.SetupToMoveTowardsTarget();
         SetSkillJustUsed();
     }
 
@@ -76,8 +115,8 @@ public class Skill_Shard : Skill_Base
     {
         if (currentCharges <= 0) return;
 
-        CreateShard();
-        currentShard.SetupToMoveTowardsClosestTarget(movementSpeed);
+        currentShard = CreateShard();
+        currentShard.SetupToMoveTowardsTarget();
 
         --currentCharges;
         if (!isRecharging)
@@ -90,7 +129,7 @@ public class Skill_Shard : Skill_Base
     {
         if (currentShard == null)
         {
-            CreateShard();
+            currentShard = CreateShard();
         }
         else
         {
@@ -104,7 +143,7 @@ public class Skill_Shard : Skill_Base
     {
         if (currentShard == null)
         {
-            CreateShard();
+            currentShard = CreateShard();
             playerHPPercentageOnCreation = playerHealth.GetCurrentHPPercentage();
         }
         else
@@ -114,38 +153,6 @@ public class Skill_Shard : Skill_Base
             playerHealth.SetHPPercentage(playerHPPercentageOnCreation);
             SetSkillJustUsed();
         }
-    }
-
-    public float GetDetonationTime()
-    {
-        if (IsLearned(SkillUpgradeType.Shard_Teleport) || IsLearned(SkillUpgradeType.Shard_TeleportHpRewind))
-        {
-            return teleportShardDuration;
-        }
-
-        return detonationTime;
-    }
-
-    private void CreateShard(bool assignToCurrent = true)
-    {
-        GameObject shardObj = Instantiate(shardObject, transform.position, Quaternion.identity);
-        SkillObject_Shard shardSkill = shardObj.GetComponent<SkillObject_Shard>();
-        shardSkill.SetupShardToExplode(this);
-
-        if (IsLearned(SkillUpgradeType.Shard_MoveToEnemy) || IsLearned(SkillUpgradeType.Shard_Multicast))
-        {
-            shardSkill.SetupToMoveTowardsClosestTarget(movementSpeed);
-        }
-
-        if (assignToCurrent)
-        {
-            currentShard = shardSkill;
-        }
-    }
-
-    public void CreateRawShard()
-    {
-        CreateShard(false);
     }
 
     private void ForceOnCooldown()
