@@ -117,11 +117,6 @@ public class Skill_SwordThrow : Skill_Base
                 currentComebackSpeed = bounceComebackSpeed;
                 break;
             }
-            default:
-            {
-                Debug.LogError($"Uninplemented Sword Throw prefab for upgrade {upgradeType}");
-                break;
-            }
         }
     }
 
@@ -169,6 +164,8 @@ public class Skill_SwordThrow : Skill_Base
         currentSword = newSword.GetComponent<SkillObject_Sword>();
 
         currentSword.SetupSword(this, GetThrowForceInDirection(confirmedDirection));
+
+        SetSkillJustUsed();
     }
 
     private float GetScaledThrowForce()

@@ -13,7 +13,7 @@ public class PlayerState : EntityState
     private bool CanDash()
     {
         if (player.wallsDetected) return false;
-        if (player.sm.currentState == player.dashState) return false;
+        if (player.sm.currentState == player.dashState || player.sm.currentState == player.domainExpansionState) return false;
         if (!player.skillManager.dash.CanUseSkill()) return false;
 
         return true;

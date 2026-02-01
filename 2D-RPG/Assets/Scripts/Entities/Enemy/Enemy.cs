@@ -11,6 +11,8 @@ public class Enemy : Entity
     public Enemy_DeadState deadState { get; protected set; }
     public Enemy_StunnedState stunnedState { get; protected set; }
 
+    public Entity_Health health;
+
 
     [Header("Battle State")]
     private float battleMoveSpeed = 3.0f;
@@ -41,6 +43,8 @@ public class Enemy : Entity
     protected override void Awake()
     {
         base.Awake();
+
+        health = GetComponent<Enemy_Health>();
     }
 
     private void OnEnable()

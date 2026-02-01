@@ -11,7 +11,7 @@ public class Entity_Health : MonoBehaviour, IDamagable
     private Entity_Stats stats;
 
     [Header("Health Details")]
-    [SerializeField] protected float currentHP;
+    [SerializeField] public float currentHP;
     [SerializeField] private bool canRegenerateHealth = false;
     [SerializeField] private float healthRegenInterval = 0.5f;
     public float lastDamageTaken { get; private set; }
@@ -22,6 +22,8 @@ public class Entity_Health : MonoBehaviour, IDamagable
     [SerializeField] private Vector2 heavyKnockbackForce;
     [SerializeField] private float knockbackDuration;    
     [SerializeField] private float heavyKnockbackDuration;
+
+    private bool canTakeDamage = true;
 
     protected virtual void Awake()
     {
@@ -84,7 +86,7 @@ public class Entity_Health : MonoBehaviour, IDamagable
 
     public virtual HitInfo TakeDamage(AttackData attackData, Transform damageDealer)
     {
-        if (currentHP <= 0.0f) return new HitInfo(false);
+        if (!canTakeDamage || currentHP <= 0.0f) return new HitInfo(false);
         if (AttackEvaded())
         {
             // TODO: Evasion effect
@@ -116,6 +118,11 @@ public class Entity_Health : MonoBehaviour, IDamagable
 
         bool killedVictim = currentHP <= 0.0f;
         return new HitInfo(true, finalDamage, killedVictim);
+    }
+
+    public void SetCanTakeDamage(bool canTakeDamage)
+    {
+        this.canTakeDamage = canTakeDamage;
     }
 
     private bool IsHeavyAttack(float damage)

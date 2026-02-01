@@ -16,6 +16,8 @@ public class Player_DashState : PlayerState
 
         player.playerVFX.DoImageEchoVFX(stateTimer);
         player.skillManager.dash.OnStartEffect();
+
+        player.health.SetCanTakeDamage(false);
     }
 
     public override void Exit()
@@ -26,6 +28,8 @@ public class Player_DashState : PlayerState
         player.rb.gravityScale = player.originalGravityscale;
 
         player.skillManager.dash.OnEndEffect();
+
+        player.health.SetCanTakeDamage(true);
     }
 
     public override void Update()

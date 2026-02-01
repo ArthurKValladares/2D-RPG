@@ -126,18 +126,14 @@ public class Skill_DomainExpansion : Skill_Base
 
     private Transform FindRandomTargetInDomain()
     {
+        trappedTargets.RemoveAll(enemy => enemy == null || enemy.health.currentHP <= 0);
+
         if (trappedTargets.Count == 0) return null;
-        
+
         int idx = Random.Range(0, trappedTargets.Count);
-        Transform target = trappedTargets[idx].transform;
+        Enemy enemy = trappedTargets[idx];
 
-        if (target == null)
-        {
-            trappedTargets.RemoveAt(idx);
-            return FindRandomTargetInDomain();
-        }
-
-        return target;
+        return enemy.transform;
     }
 
     private void CastSpell(Transform target)

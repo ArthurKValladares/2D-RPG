@@ -49,6 +49,11 @@ public class Skill_Base : MonoBehaviour
         lastTimeUsed = Time.time;
     }
 
+    public void ResetCooldown()
+    {
+        lastTimeUsed = Time.time - cooldown;
+    }
+
     public void ReduceCooldownBy(float seconds)
     {
         lastTimeUsed -= seconds;
@@ -66,6 +71,8 @@ public class Skill_Base : MonoBehaviour
         damageScaleData = upgrade.damageScaleData;
         primaryElementalDamage = upgrade.primaryElementalDamage;
         secondaryElementalDamage = upgrade.secondaryElementalDamage;
+
+        ResetCooldown();
     }
 
     public bool IsLearned(SkillUpgradeType upgradeTy)

@@ -12,6 +12,7 @@ public class UI_SkillToolTip : UI_ToolTip
 
     [SerializeField] private TextMeshProUGUI skillName;
     [SerializeField] private TextMeshProUGUI skillDescription;
+    [SerializeField] private TextMeshProUGUI skillCooldown;
     [SerializeField] private TextMeshProUGUI skillRequirements;
 
     [Header("Text Color Details")]
@@ -54,7 +55,7 @@ public class UI_SkillToolTip : UI_ToolTip
 
         skillName.text = node.skillData.name;
         skillDescription.text = node.skillData.description;
-        
+        skillCooldown.text = "Cooldown: " + node.skillData.upgradeData.cooldown + "s";
         skillRequirements.text = PickRequirementsText(node);
     }
 

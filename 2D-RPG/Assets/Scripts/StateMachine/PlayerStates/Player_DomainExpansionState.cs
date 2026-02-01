@@ -29,6 +29,8 @@ public class Player_DomainExpansionState : PlayerState
         finalRiseDistance = player.OpenDistanceAbovePlayer(riseMaxDistance);
 
         player.SetVelocity(0.0f, riseSpeed);
+
+        player.health.SetCanTakeDamage(false);
     }
 
     public override void Exit()
@@ -39,6 +41,8 @@ public class Player_DomainExpansionState : PlayerState
 
         isLevitating = false;
         createdDomain = false;
+
+        player.health.SetCanTakeDamage(true);
     }
 
     public override void Update()
