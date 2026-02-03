@@ -6,17 +6,28 @@ public class ElementalDamageInfo
         float primaryDamage, ElementalDamageType primaryType,
         float secondaryDamage = 0.0f, ElementalDamageType secondaryType = ElementalDamageType.None)
     {
-        this.primaryDamage = primaryDamage;
         this.primaryType = primaryType;
-
-        this.secondaryDamage = secondaryDamage;
+        this.primaryDamage = SanityCheckDamage(primaryType, primaryDamage);
+        
         this.secondaryType = secondaryType;
+        this.secondaryDamage = SanityCheckDamage(secondaryType, secondaryDamage);
     } 
 
     public float primaryDamage;
     public ElementalDamageType primaryType;
     public float secondaryDamage;
     public ElementalDamageType secondaryType;
+
+    private static float SanityCheckDamage(ElementalDamageType ty, float damage)
+    {
+        if (ty == ElementalDamageType.None && damage != 0.0f)
+        {
+            Debug.LogWarning("Trying to apply elemental damage without having an elemental damage type");
+            return 0.0f;
+        }
+
+        return damage;
+    }
 };
 
 public class HitInfo
