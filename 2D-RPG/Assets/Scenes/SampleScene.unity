@@ -1744,6 +1744,9 @@ MonoBehaviour:
   wispMoveSpeed: 15
   damagePercentHealed: 0.3
   cooldownReducedInSeconds: 1
+  healWispColor: {r: 0.20479989, g: 1, b: 0, a: 1}
+  cleanseWispColor: {r: 0.98233366, g: 1, b: 0, a: 1}
+  cooldownWispColor: {r: 0, g: 0.8264365, b: 1, a: 1}
 --- !u!114 &451814438
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -55162,10 +55165,10 @@ RectTransform:
   - {fileID: 1986817610}
   - {fileID: 954252157}
   - {fileID: 1756164217}
-  - {fileID: 1668016960}
-  - {fileID: 2089480501}
   - {fileID: 1110017358}
   - {fileID: 1147268391}
+  - {fileID: 1668016960}
+  - {fileID: 2089480501}
   m_Father: {fileID: 1808924241}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}

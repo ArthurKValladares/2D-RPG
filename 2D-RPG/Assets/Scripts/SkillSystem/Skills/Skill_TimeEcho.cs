@@ -13,6 +13,9 @@ public class Skill_TimeEcho : Skill_Base
     [SerializeField] public float wispMoveSpeed = 15.0f;
     [SerializeField] private float damagePercentHealed = 0.3f;
     [SerializeField] private float cooldownReducedInSeconds = 1.0f;
+    [SerializeField] private Color healWispColor;
+    [SerializeField] private Color cleanseWispColor;
+    [SerializeField] private Color cooldownWispColor;
 
     public override void TryToUseSkill()
     {
@@ -57,6 +60,23 @@ public class Skill_TimeEcho : Skill_Base
         return IsLearned(SkillUpgradeType.TimeEcho_HealWisp) 
             || IsLearned(SkillUpgradeType.TimeEcho_CleanseWisp)
             || IsLearned(SkillUpgradeType.TimeEcho_CooldownWisp);
+    }
+
+    public Color GetWispColor()
+    {
+        if (IsLearned(SkillUpgradeType.TimeEcho_HealWisp))
+        {
+            return healWispColor;
+        }
+        else if (IsLearned(SkillUpgradeType.TimeEcho_CleanseWisp))
+        {
+            return cleanseWispColor;
+        }
+        else if (IsLearned(SkillUpgradeType.TimeEcho_CooldownWisp))
+        {
+            return cooldownWispColor;
+        }
+        return Color.white;
     }
 
     public float GetPercentOfDamageHealed()

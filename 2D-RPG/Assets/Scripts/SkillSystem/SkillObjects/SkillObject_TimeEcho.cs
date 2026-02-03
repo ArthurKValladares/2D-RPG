@@ -39,7 +39,40 @@ public class SkillObject_TimeEcho : SkillObject_Base
 
         FlipToTarget();
 
+        SetGradientColor(timeEcho);
+
         Invoke(nameof(HandleDeath), timeEcho.GetEchoDuration());
+    }
+
+    private void SetGradientColor(Skill_TimeEcho timeEcho)
+    {
+        Gradient newGradient = new();
+
+        int count = this.wispTrail.colorGradient.colorKeys.Length;
+        GradientColorKey[] newColorKeys = new GradientColorKey[count];
+
+        float time0 = this.wispTrail.colorGradient.colorKeys[0].time;
+        Color color0 = timeEcho.GetWispColor();
+        newColorKeys[0] = new GradientColorKey(color0, time0);
+
+        for (int i = 1; i < count; i++)
+        {
+            float time = this.wispTrail.colorGradient.colorKeys[i].time;
+            Color color = this.wispTrail.colorGradient.colorKeys[i].color;
+            newColorKeys[i] = new GradientColorKey(color, time);
+        }
+
+        count = this.wispTrail.colorGradient.alphaKeys.Length;
+        GradientAlphaKey[] newAlphaKeys = new GradientAlphaKey[count];
+        for (int i = 0; i < count; i++)
+        {
+            float time = this.wispTrail.colorGradient.alphaKeys[i].time;
+            float alpha = this.wispTrail.colorGradient.alphaKeys[i].alpha;
+            newAlphaKeys[i] = new GradientAlphaKey(alpha, time);
+        }
+
+        newGradient.SetKeys(newColorKeys, newAlphaKeys);
+        this.wispTrail.colorGradient = newGradient;
     }
 
     public void PerformAttack()
