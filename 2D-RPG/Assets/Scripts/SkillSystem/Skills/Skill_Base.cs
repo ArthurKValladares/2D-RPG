@@ -34,6 +34,7 @@ public class Skill_Base : MonoBehaviour
         if (IsOnCooldown())
         {
             // TODO: Will need a cooldown effect later
+            Debug.Log("On Cooldown. CD: " + cooldown + " Last Used: " + TimeSinceLastUsed());
             return false;
         }
 
