@@ -12,16 +12,19 @@ public class Skill_DomainExpansion : Skill_Base
     [Header("Slow Down/Base Upgrade")]
     [SerializeField] private float baseDomainDuration = 5.0f;
     [SerializeField] private float baseSlowDownPercentage = 0.7f;
+    [SerializeField] private Color baseColor;
 
     [Header("Shard Upgrade")]
     [SerializeField] private float shardDomainDuration = 5.0f;
     [SerializeField] private float shardSlowDownPercentage = 0.7f;
     [SerializeField] private int shardsToCast = 10;
+    [SerializeField] private Color shardColor;
 
     [Header("Echo Upgrade")]
     [SerializeField] private float echoDomainDuration = 5.0f;
     [SerializeField] private float echoSlowDownPercentage = 0.7f;
     [SerializeField] private int echosToCast = 10;
+    [SerializeField] private Color echoColor;
 
     private float spellTimer;
     private float spellsPerSecond;
@@ -75,6 +78,24 @@ public class Skill_DomainExpansion : Skill_Base
         }
         Debug.LogError("Did not implement GetSlowDownPercentage for upgrade of type: " + upgradeType);
         return baseSlowDownPercentage;
+    }
+
+    public Color GetDomainColor()
+    {
+        if (IsLearned(SkillUpgradeType.Domain_SlowDown))
+        {
+            return baseColor;
+        }
+        else if (IsLearned(SkillUpgradeType.Domain_ShardSpam))
+        {
+            return shardColor;
+        }
+        else if (IsLearned(SkillUpgradeType.Domain_EchoSpam))
+        {
+            return echoColor;
+        }
+        Debug.LogError("Did not implement GetDomainColor for upgrade of type: " + upgradeType);
+        return Color.white;
     }
 
     private int GetSpellsToCast()

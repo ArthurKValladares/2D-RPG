@@ -26,6 +26,9 @@ public class SkillObject_DomainExpansion : SkillObject_Base
         targetScale = maximumSizeScale;
         startTransformationTime = Time.time;
 
+        SpriteRenderer sr = gameObject.GetComponentInChildren<SpriteRenderer>();
+        sr.color = domainExpansion.GetDomainColor();
+
         Invoke(nameof(ShrinkDomain), domainDuration);
     }
 

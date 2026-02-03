@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Skill Data - Echo Domain
   m_EditorClassIdentifier: Assembly-CSharp::Skill_DataSO
   skillName: Echo Domain
-  description: The sword pierces up to N targets.
+  description: Spam Echo during the domain.
   icon: {fileID: -815421779, guid: 13e7f4220636690408b25bae11ca9834, type: 3}
   cost: 1
   skillType: 4

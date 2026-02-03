@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Skill Data - Shard Domain
   m_EditorClassIdentifier: Assembly-CSharp::Skill_DataSO
   skillName: Shard Domain
-  description: The sword spins like a chainsaw for N seconds.
+  description: Spam shards during the domain.
   icon: {fileID: -1578379100, guid: 13e7f4220636690408b25bae11ca9834, type: 3}
   cost: 1
   skillType: 4
