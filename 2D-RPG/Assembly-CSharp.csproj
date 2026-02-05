@@ -143,6 +143,7 @@
     <Compile Include="Assets\Scripts\SkillSystem\Skills\Skill_Shard.cs" />
     <Compile Include="Assets\Scripts\StateMachine\PlayerStates\Player_FallState.cs" />
     <Compile Include="Assets\Scripts\StateMachine\PlayerStates\Player_JumpAttackState.cs" />
+    <Compile Include="Assets\Scripts\SkillSystem\Skills\Skill_LaunchAttack.cs" />
     <Compile Include="Assets\Scripts\Parallax\ParallaxBackground.cs" />
     <Compile Include="Assets\Scripts\Entities\Player\Player_Health.cs" />
     <Compile Include="Assets\Scripts\UI\UI.cs" />

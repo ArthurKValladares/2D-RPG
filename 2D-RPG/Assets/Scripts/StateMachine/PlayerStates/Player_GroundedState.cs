@@ -30,5 +30,11 @@ public class Player_GroundedState : PlayerState
         {
             player.sm.ChangeState(player.parryState);
         }
+        
+        if (player.input.Player.SecondarySpell.WasPressedThisFrame() && player.skillManager.launchAttack.CanUseSkill())
+        {
+            player.skillManager.launchAttack.SetSkillJustUsed();
+            player.sm.ChangeState(player.launchAttackState);
+        }
     }
 }

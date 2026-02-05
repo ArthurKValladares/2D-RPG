@@ -6,7 +6,8 @@ public enum SkillType
     TimeEcho,
     Shard,
     SwordThrow,
-    DomainExpansion
+    DomainExpansion,
+    LaunchAttack
 }
 
 public enum SkillUpgradeType
@@ -46,4 +47,7 @@ public enum SkillUpgradeType
     Domain_SlowDown,
     Domain_EchoSpam,
     Domain_ShardSpam,
+
+    // Launch Attack Tree
+    LaunchAttack,
 }

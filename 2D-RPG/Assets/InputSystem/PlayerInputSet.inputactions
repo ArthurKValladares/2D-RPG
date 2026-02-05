@@ -95,6 +95,15 @@
                     "processors": "",
                     "interactions": "",
                     "initialStateCheck": false
+                },
+                {
+                    "name": "SecondarySpell",
+                    "type": "Button",
+                    "id": "28b1d49b-efa8-4363-a183-e30ae8a60f36",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
                 }
             ],
             "bindings": [
@@ -249,6 +258,17 @@
                     "processors": "",
                     "groups": ";Keyboard & Mouse",
                     "action": "UltimateSpell",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "ccc69a96-3db8-4756-891c-8651fc40f78e",
+                    "path": "<Keyboard>/j",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": ";Keyboard & Mouse",
+                    "action": "SecondarySpell",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }

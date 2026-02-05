@@ -181,6 +181,15 @@ public partial class @PlayerInputSet: IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""SecondarySpell"",
+                    ""type"": ""Button"",
+                    ""id"": ""28b1d49b-efa8-4363-a183-e30ae8a60f36"",
+                    ""expectedControlType"": """",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
                 }
             ],
             ""bindings"": [
@@ -337,6 +346,17 @@ public partial class @PlayerInputSet: IInputActionCollection2, IDisposable
                     ""action"": ""UltimateSpell"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""ccc69a96-3db8-4756-891c-8651fc40f78e"",
+                    ""path"": ""<Keyboard>/j"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": "";Keyboard & Mouse"",
+                    ""action"": ""SecondarySpell"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         }
@@ -372,6 +392,7 @@ public partial class @PlayerInputSet: IInputActionCollection2, IDisposable
         m_Player_RangedAttack = m_Player.FindAction("RangedAttack", throwIfNotFound: true);
         m_Player_Mouse = m_Player.FindAction("Mouse", throwIfNotFound: true);
         m_Player_UltimateSpell = m_Player.FindAction("UltimateSpell", throwIfNotFound: true);
+        m_Player_SecondarySpell = m_Player.FindAction("SecondarySpell", throwIfNotFound: true);
     }
 
     ~@PlayerInputSet()
@@ -462,6 +483,7 @@ public partial class @PlayerInputSet: IInputActionCollection2, IDisposable
     private readonly InputAction m_Player_RangedAttack;
     private readonly InputAction m_Player_Mouse;
     private readonly InputAction m_Player_UltimateSpell;
+    private readonly InputAction m_Player_SecondarySpell;
     /// <summary>
     /// Provides access to input actions defined in input action map "Player".
     /// </summary>
@@ -513,6 +535,10 @@ public partial class @PlayerInputSet: IInputActionCollection2, IDisposable
         /// Provides access to the underlying input action "Player/UltimateSpell".
         /// </summary>
         public InputAction @UltimateSpell => m_Wrapper.m_Player_UltimateSpell;
+        /// <summary>
+        /// Provides access to the underlying input action "Player/SecondarySpell".
+        /// </summary>
+        public InputAction @SecondarySpell => m_Wrapper.m_Player_SecondarySpell;
         /// <summary>
         /// Provides access to the underlying input action map instance.
         /// </summary>
@@ -569,6 +595,9 @@ public partial class @PlayerInputSet: IInputActionCollection2, IDisposable
             @UltimateSpell.started += instance.OnUltimateSpell;
             @UltimateSpell.performed += instance.OnUltimateSpell;
             @UltimateSpell.canceled += instance.OnUltimateSpell;
+            @SecondarySpell.started += instance.OnSecondarySpell;
+            @SecondarySpell.performed += instance.OnSecondarySpell;
+            @SecondarySpell.canceled += instance.OnSecondarySpell;
         }
 
         /// <summary>
@@ -610,6 +639,9 @@ public partial class @PlayerInputSet: IInputActionCollection2, IDisposable
             @UltimateSpell.started -= instance.OnUltimateSpell;
             @UltimateSpell.performed -= instance.OnUltimateSpell;
             @UltimateSpell.canceled -= instance.OnUltimateSpell;
+            @SecondarySpell.started -= instance.OnSecondarySpell;
+            @SecondarySpell.performed -= instance.OnSecondarySpell;
+            @SecondarySpell.canceled -= instance.OnSecondarySpell;
         }
 
         /// <summary>
@@ -733,5 +765,12 @@ public partial class @PlayerInputSet: IInputActionCollection2, IDisposable
         /// <seealso cref="UnityEngine.InputSystem.InputAction.performed" />
         /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
         void OnUltimateSpell(InputAction.CallbackContext context);
+        /// <summary>
+        /// Method invoked when associated input action "SecondarySpell" is either <see cref="UnityEngine.InputSystem.InputAction.started" />, <see cref="UnityEngine.InputSystem.InputAction.performed" /> or <see cref="UnityEngine.InputSystem.InputAction.canceled" />.
+        /// </summary>
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.started" />
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.performed" />
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
+        void OnSecondarySpell(InputAction.CallbackContext context);
     }
 }
