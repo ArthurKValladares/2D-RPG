@@ -42,18 +42,18 @@ public class Player : Entity
     public float originalGravityscale { get; private set; }
 
     [Header("Movement Details")]
-    public float moveSpeed = 8.0f;
-    public float jumpForce = 12.0f;
+    [SerializeField] private float moveSpeed = 8.0f;
+    [SerializeField] private float jumpForce = 12.0f;
     [Range(0.0f, 1.0f)] public float inAirMoveMultiplier = 0.8f;
     [Range(0.0f, 1.0f)] public float wallSlideMultiplier = 0.4f;
-    public Vector2 wallJumpForce = new(6.0f, 12.0f);
+    [SerializeField] private Vector2 wallJumpForce = new(6.0f, 12.0f);
     public float wallJumpNoMovementTimer = 0.1f;
     public float dashForce = 20.0f;
     [Space] public float dashTime = 0.25f;
 
     [Header("Attack Details")]
     public const int NumBasicAttacks = 3;
-    public Vector2[] attackVelocities = new Vector2[NumBasicAttacks];
+    [SerializeField] private Vector2[] attackVelocities = new Vector2[NumBasicAttacks];
     public float attackVelocityDuration = 0.1f;
     public float comboResetTime = 0.3f;
     private Coroutine queuedAttackCoroutine;
@@ -190,41 +190,24 @@ public class Player : Entity
         return hit.collider != null ? (hit.distance - distanceToTopOfCollider) : effectiveMaxDistance;
     }
 
-    protected override IEnumerator SlowDownEntityByCoroutine(float duration, float slowPercentage)
+    public float GetMoveSpeed()
     {
-        float originalMoveSpeed = moveSpeed;
-        float originalJumpForce = jumpForce;
-        float originalAnimSpeed = animator.speed;
-        Vector2 originalWallJump = wallJumpForce;
-        //Vector2 originalLaunchAttack = launchAttackForce;
-        Vector2[] originalAttackVelocities = new Vector2[attackVelocities.Length];
-        Array.Copy(attackVelocities, originalAttackVelocities, attackVelocities.Length);
+        return moveSpeed * activeSlowMultiplier;
+    }
 
-        float slowMultiplier = 1.0f - slowPercentage;
+    public float GetJumpForce()
+    {
+        return jumpForce * activeSlowMultiplier;
+    }
 
-        moveSpeed = moveSpeed * slowMultiplier;
-        jumpForce = jumpForce * slowMultiplier;
-        animator.speed = animator.speed * slowMultiplier;
-        wallJumpForce = wallJumpForce * slowMultiplier;
-        //launchAttackForce = launchAttackForce * slowMultiplier;
+    public Vector2 GetWallJumpForce()
+    {
+        return wallJumpForce * activeSlowMultiplier;
+    }
 
-        for (int i = 0; i < attackVelocities.Length; i++)
-        {
-            attackVelocities[i] = attackVelocities[i] * slowMultiplier;
-        }
-
-        yield return new WaitForSeconds(duration);
-
-        moveSpeed = originalMoveSpeed;
-        jumpForce = originalJumpForce;
-        animator.speed = originalAnimSpeed;
-        wallJumpForce = originalWallJump;
-        //launchAttackForce = originalLaunchAttack;
-
-        for (int i = 0; i < attackVelocities.Length; i++)
-        {
-            attackVelocities[i] = originalAttackVelocities[i];
-        }
+    public Vector2 GetAttackVelocityAt(int idx)
+    {
+        return attackVelocities[idx] * activeSlowMultiplier;
     }
 
     public override void EntityDeath()

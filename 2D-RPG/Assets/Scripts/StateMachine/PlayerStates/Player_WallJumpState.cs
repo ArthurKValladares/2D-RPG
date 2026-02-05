@@ -11,8 +11,9 @@ public class Player_WallJumpState : Player_AiredState
     {
         base.Enter();
 
+        Vector2 wallJumpForce = player.GetWallJumpForce();
         player.ReceivePush(
-            new Vector2(player.wallJumpForce.x * -player.FacingDirScale(), player.wallJumpForce.y),
+            new Vector2(wallJumpForce.x * -player.FacingDirScale(), wallJumpForce.y),
             player.wallJumpNoMovementTimer,
             false
         );

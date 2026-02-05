@@ -17,7 +17,7 @@ public class Player_GroundedState : PlayerState
         }
         if (player.input.Player.Jump.WasPressedThisFrame())
         {
-            player.rb.linearVelocityY = player.jumpForce;
+            player.rb.linearVelocityY = player.GetJumpForce();
 
             player.sm.ChangeState(player.jumpState);
         } else if (player.input.Player.Attack.WasPressedThisFrame())

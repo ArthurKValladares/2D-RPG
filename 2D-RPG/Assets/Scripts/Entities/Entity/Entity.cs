@@ -33,6 +33,8 @@ public class Entity : MonoBehaviour
 
     public event Action onFlipped;
 
+    public float activeSlowMultiplier { get; private set; } = 1.0f;
+
     protected virtual void Awake()
     {
         rb = GetComponent<Rigidbody2D>();
@@ -172,11 +174,20 @@ public class Entity : MonoBehaviour
 
     protected virtual IEnumerator SlowDownEntityByCoroutine(float duration, float slowPercentage)
     {
-        yield return null;
+        activeSlowMultiplier = 1.0f - slowPercentage;
+
+        animator.speed *= activeSlowMultiplier;
+
+        yield return new WaitForSeconds(duration);
+
+        StopSlowDown();
     }
 
     public virtual void StopSlowDown()
     {
+        activeSlowMultiplier = 1.0f;
+        animator.speed = 1.0f;
+
         slowDownCoroutine = null;
     }
 

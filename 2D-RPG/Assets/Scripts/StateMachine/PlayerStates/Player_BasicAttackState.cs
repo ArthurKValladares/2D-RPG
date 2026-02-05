@@ -30,7 +30,8 @@ public class Player_BasicAttackState : PlayerState
         player.animator.SetInteger("basicAttackIndex", comboIndex);
 
         attackVelocityTimer = player.attackVelocityDuration;
-        player.SetVelocity(player.attackVelocities[comboIndex].x * AttackDirScale(), player.attackVelocities[comboIndex].y);
+        Vector2 attackVelocity = player.GetAttackVelocityAt(comboIndex);
+        player.SetVelocity(attackVelocity.x * AttackDirScale(), attackVelocity.y);
 
         nextAttackQueued = false;
     }

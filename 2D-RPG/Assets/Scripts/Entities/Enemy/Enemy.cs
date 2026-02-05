@@ -38,8 +38,6 @@ public class Enemy : Entity
     public Vector2 stunnedVelocity;
     [SerializeField] protected bool canBeStunned;
 
-    public float activeSlowMultiplier { get; private set; } = 1.0f;
-
     protected override void Awake()
     {
         base.Awake();
@@ -127,24 +125,5 @@ public class Enemy : Entity
     public float GetBattleMoveSpeed()
     {
         return battleMoveSpeed * activeSlowMultiplier;
-    }
-
-    protected override IEnumerator SlowDownEntityByCoroutine(float duration, float slowPercentage)
-    {
-        activeSlowMultiplier = 1.0f - slowPercentage;
-
-        animator.speed *= activeSlowMultiplier;
-
-        yield return new WaitForSeconds(duration);
-
-        StopSlowDown();
-    }
-
-    public override void StopSlowDown()
-    {
-        activeSlowMultiplier = 1.0f;
-        animator.speed = 1.0f;
-
-        base.StopSlowDown();
     }
 }

@@ -16,6 +16,6 @@ public class Player_MoveState : Player_GroundedState
             player.sm.ChangeState(player.idleState);
         }
 
-        player.SetVelocityX(player.moveInput.x * player.moveSpeed);
+        player.SetVelocityX(player.moveInput.x * player.GetMoveSpeed());
     }
 }

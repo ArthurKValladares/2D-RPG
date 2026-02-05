@@ -11,7 +11,7 @@ public class Player_AiredState : PlayerState
     {
         base.Update();
 
-        player.SetVelocityX(player.moveInput.x * player.moveSpeed * player.inAirMoveMultiplier);
+        player.SetVelocityX(player.moveInput.x * player.GetMoveSpeed() * player.inAirMoveMultiplier);
 
         if (player.input.Player.Attack.WasPressedThisFrame() && player.sm.currentState != player.jumpAttackState)
         {
