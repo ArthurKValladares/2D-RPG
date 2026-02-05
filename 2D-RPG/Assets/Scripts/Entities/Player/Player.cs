@@ -57,8 +57,6 @@ public class Player : Entity
     public float attackVelocityDuration = 0.1f;
     public float comboResetTime = 0.3f;
     private Coroutine queuedAttackCoroutine;
-    public Vector2 launchAttackForce = new(8.0f, 15.0f);
-    public float launchAttackDuration = 3.0f;
 
     protected override void Awake()
     {
@@ -198,7 +196,7 @@ public class Player : Entity
         float originalJumpForce = jumpForce;
         float originalAnimSpeed = animator.speed;
         Vector2 originalWallJump = wallJumpForce;
-        Vector2 originalLaunchAttack = launchAttackForce;
+        //Vector2 originalLaunchAttack = launchAttackForce;
         Vector2[] originalAttackVelocities = new Vector2[attackVelocities.Length];
         Array.Copy(attackVelocities, originalAttackVelocities, attackVelocities.Length);
 
@@ -208,7 +206,7 @@ public class Player : Entity
         jumpForce = jumpForce * slowMultiplier;
         animator.speed = animator.speed * slowMultiplier;
         wallJumpForce = wallJumpForce * slowMultiplier;
-        launchAttackForce = launchAttackForce * slowMultiplier;
+        //launchAttackForce = launchAttackForce * slowMultiplier;
 
         for (int i = 0; i < attackVelocities.Length; i++)
         {
@@ -221,7 +219,7 @@ public class Player : Entity
         jumpForce = originalJumpForce;
         animator.speed = originalAnimSpeed;
         wallJumpForce = originalWallJump;
-        launchAttackForce = originalLaunchAttack;
+        //launchAttackForce = originalLaunchAttack;
 
         for (int i = 0; i < attackVelocities.Length; i++)
         {

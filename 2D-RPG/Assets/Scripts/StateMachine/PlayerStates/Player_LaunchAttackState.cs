@@ -15,9 +15,9 @@ public class Player_LaunchAttackState : PlayerState
         base.Enter();
         SyncAttackSpeed(player);
 
-        stateTimer = player.launchAttackDuration;
+        stateTimer = player.skillManager.launchAttack.duration;
 
-        player.SetVelocity(player.launchAttackForce.x * player.FacingDirScale(), player.launchAttackForce.y);
+        player.SetVelocity(player.skillManager.launchAttack.force.x * player.FacingDirScale(), player.skillManager.launchAttack.force.y);
         isOnWayUp = true;
         hasAttacked = false;
     }
